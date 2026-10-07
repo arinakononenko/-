@@ -1,0 +1,2653 @@
+<div id="FX_ROOT">
+<style>
+#FX_ROOT{
+  --fx-accent:#6f7f62;
+  --fx-bg:#f5f3ee;
+  --fx-card:#ffffff;
+  --fx-text:#292929;
+  --fx-muted:#777;
+  --fx-border:#ddd8cf;
+  font-family:Arial,sans-serif;
+  color:var(--fx-text);
+  width:100%;
+  box-sizing:border-box;
+}
+#FX_ROOT *{box-sizing:border-box}
+#FX_ROOT button,
+#FX_ROOT input,
+#FX_ROOT select,
+#FX_ROOT textarea{font:inherit}
+
+#FX_ROOT .fx-layout{
+  display:grid;
+  grid-template-columns:minmax(310px,390px) minmax(0,1fr);
+  gap:18px;
+  align-items:start;
+}
+#FX_ROOT .fx-editor{
+  background:var(--fx-bg);
+  border:1px solid var(--fx-border);
+  border-radius:18px;
+  padding:14px;
+  max-height:900px;
+  overflow:auto;
+}
+#FX_ROOT .fx-editor h2{
+  margin:0 0 14px;
+  font-size:20px;
+}
+#FX_ROOT .fx-section{
+  background:var(--fx-card);
+  border:1px solid var(--fx-border);
+  border-radius:14px;
+  padding:12px;
+  margin-bottom:12px;
+}
+#FX_ROOT .fx-section-title{
+  font-weight:700;
+  margin-bottom:10px;
+}
+#FX_ROOT .fx-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-bottom:8px;
+}
+#FX_ROOT .fx-field{margin-bottom:9px}
+#FX_ROOT label{
+  display:block;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:5px;
+}
+#FX_ROOT input[type="text"],
+#FX_ROOT input[type="number"],
+#FX_ROOT select,
+#FX_ROOT textarea{
+  width:100%;
+  border:1px solid var(--fx-border);
+  border-radius:9px;
+  padding:9px 10px;
+  background:#fff;
+  color:#222;
+  outline:none;
+}
+#FX_ROOT textarea{
+  min-height:72px;
+  resize:vertical;
+}
+#FX_ROOT input[type="color"]{
+  width:100%;
+  height:39px;
+  border:1px solid var(--fx-border);
+  border-radius:9px;
+  padding:3px;
+  background:#fff;
+}
+#FX_ROOT input[type="range"]{width:100%}
+#FX_ROOT input[type="file"]{
+  width:100%;
+  font-size:12px;
+}
+#FX_ROOT .fx-check{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  font-size:13px;
+  margin:7px 0;
+}
+#FX_ROOT .fx-check input{margin:0}
+
+#FX_ROOT .fx-btn{
+  border:0;
+  border-radius:10px;
+  padding:10px 13px;
+  cursor:pointer;
+  font-weight:700;
+  background:#e7e5df;
+  color:#333;
+}
+#FX_ROOT .fx-btn-primary{
+  background:var(--fx-accent);
+  color:white;
+}
+#FX_ROOT .fx-btn-danger{
+  background:#f4dddd;
+  color:#8a2f2f;
+}
+#FX_ROOT .fx-btn-small{
+  padding:6px 9px;
+  font-size:12px;
+}
+#FX_ROOT .fx-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+#FX_ROOT .fx-task-card{
+  border:1px solid var(--fx-border);
+  border-radius:12px;
+  padding:10px;
+  margin-bottom:9px;
+  background:#faf9f6;
+}
+#FX_ROOT .fx-task-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+}
+#FX_ROOT .fx-task-number{
+  font-weight:700;
+}
+#FX_ROOT .fx-task-buttons{
+  display:flex;
+  gap:5px;
+}
+#FX_ROOT .fx-option-row{
+  display:grid;
+  grid-template-columns:1fr 38px;
+  gap:6px;
+  margin-bottom:5px;
+}
+#FX_ROOT .fx-correct-radio{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--fx-border);
+  border-radius:8px;
+  background:#fff;
+}
+
+#FX_ROOT .fx-preview-panel{
+  min-width:0;
+}
+#FX_ROOT .fx-preview-toolbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+}
+#FX_ROOT .fx-preview-title{
+  font-weight:700;
+}
+#FX_ROOT .fx-preview-note{
+  font-size:12px;
+  color:var(--fx-muted);
+}
+#FX_ROOT .fx-stage{
+  width:100%;
+  aspect-ratio:16/9;
+  min-height:360px;
+  max-height:680px;
+  overflow:hidden;
+  position:relative;
+  border-radius:18px;
+  border:1px solid var(--fx-border);
+  background:#cfe8f5;
+  outline:none;
+  user-select:none;
+}
+#FX_ROOT .fx-stage:focus{
+  box-shadow:0 0 0 3px rgba(111,127,98,.25);
+}
+#FX_ROOT .fx-scene-bg{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  pointer-events:none;
+}
+#FX_ROOT .fx-world{
+  position:absolute;
+  left:0;
+  bottom:0;
+  height:100%;
+  transform:translateX(0);
+  will-change:transform;
+}
+#FX_ROOT .fx-ground,
+#FX_ROOT .fx-platform,
+#FX_ROOT .fx-obstacle,
+#FX_ROOT .fx-task-item,
+#FX_ROOT .fx-bonus,
+#FX_ROOT .fx-finish,
+#FX_ROOT .fx-player{
+  position:absolute;
+}
+#FX_ROOT .fx-ground{
+  background:#6e9d58;
+  border-top:4px solid rgba(255,255,255,.35);
+}
+#FX_ROOT .fx-platform{
+  background:#b78356;
+  border-radius:7px 7px 3px 3px;
+  border-top:4px solid #7ea65e;
+}
+#FX_ROOT .fx-obstacle{
+  background:#ab7957;
+  border-radius:8px;
+  border:3px solid rgba(0,0,0,.1);
+}
+#FX_ROOT .fx-player{
+  width:42px;
+  height:50px;
+  border-radius:13px 13px 10px 10px;
+  background:#e97b67;
+  border:3px solid white;
+  box-shadow:0 3px 8px rgba(0,0,0,.18);
+  z-index:20;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center bottom;
+}
+#FX_ROOT .fx-player::before{
+  content:"";
+  position:absolute;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#222;
+  right:8px;
+  top:12px;
+}
+#FX_ROOT .fx-player.has-image{
+  background-color:transparent;
+  border:0;
+  box-shadow:none;
+}
+#FX_ROOT .fx-player.has-image::before{display:none}
+#FX_ROOT .fx-player.fx-crouch{
+  transform:scaleY(.65);
+  transform-origin:center bottom;
+}
+#FX_ROOT .fx-task-item{
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:29px;
+  z-index:15;
+  cursor:pointer;
+  animation:fxFloat 1.6s ease-in-out infinite;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+}
+#FX_ROOT .fx-task-item.has-image{font-size:0}
+#FX_ROOT .fx-task-item.done{
+  opacity:.25;
+  animation:none;
+}
+#FX_ROOT .fx-bonus{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:#f0c84a;
+  border:3px solid #ffe994;
+  box-shadow:0 2px 5px rgba(0,0,0,.18);
+  z-index:10;
+}
+#FX_ROOT .fx-finish{
+  width:52px;
+  height:88px;
+  z-index:8;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center bottom;
+}
+#FX_ROOT .fx-finish:not(.has-image)::before{
+  content:"";
+  position:absolute;
+  left:8px;
+  top:0;
+  width:5px;
+  height:88px;
+  background:#eee;
+  border-radius:3px;
+}
+#FX_ROOT .fx-finish:not(.has-image)::after{
+  content:"";
+  position:absolute;
+  left:13px;
+  top:5px;
+  width:38px;
+  height:26px;
+  background:#e45f5f;
+  clip-path:polygon(0 0,100% 50%,0 100%);
+}
+#FX_ROOT .fx-hud{
+  position:absolute;
+  left:12px;
+  top:12px;
+  z-index:40;
+  display:flex;
+  gap:8px;
+}
+#FX_ROOT .fx-hud-pill{
+  background:rgba(255,255,255,.88);
+  border-radius:999px;
+  padding:7px 11px;
+  font-size:13px;
+  font-weight:700;
+  box-shadow:0 2px 7px rgba(0,0,0,.12);
+}
+#FX_ROOT .fx-overlay{
+  position:absolute;
+  inset:0;
+  z-index:60;
+  background:rgba(20,20,20,.42);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:18px;
+}
+#FX_ROOT .fx-hidden{display:none!important}
+#FX_ROOT .fx-modal{
+  width:min(520px,96%);
+  max-height:88%;
+  overflow:auto;
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 12px 40px rgba(0,0,0,.24);
+}
+#FX_ROOT .fx-modal h3{
+  margin:0 0 9px;
+  font-size:22px;
+}
+#FX_ROOT .fx-modal p{
+  line-height:1.45;
+  white-space:pre-wrap;
+}
+#FX_ROOT .fx-answer{
+  width:100%;
+  text-align:left;
+  margin:6px 0;
+  padding:11px 12px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  background:#fafafa;
+  cursor:pointer;
+}
+#FX_ROOT .fx-answer:hover{background:#f1f1ed}
+#FX_ROOT .fx-feedback{
+  min-height:21px;
+  margin-top:9px;
+  font-size:14px;
+  font-weight:700;
+}
+#FX_ROOT .fx-toast{
+  position:absolute;
+  left:50%;
+  bottom:18px;
+  transform:translateX(-50%);
+  z-index:80;
+  background:rgba(34,34,34,.88);
+  color:#fff;
+  border-radius:999px;
+  padding:9px 14px;
+  font-size:13px;
+  pointer-events:none;
+}
+#FX_ROOT .fx-codebox{
+  margin-top:10px;
+  display:none;
+}
+#FX_ROOT .fx-codebox textarea{
+  min-height:150px;
+  font-family:monospace;
+  font-size:11px;
+}
+#FX_ROOT .fx-status{
+  font-size:12px;
+  color:var(--fx-muted);
+  min-height:18px;
+  margin-top:5px;
+}
+
+@keyframes fxFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-7px)}
+}
+
+@media(max-width:900px){
+  #FX_ROOT .fx-layout{grid-template-columns:1fr}
+  #FX_ROOT .fx-editor{max-height:none}
+}
+@media(max-width:520px){
+  #FX_ROOT .fx-row{grid-template-columns:1fr}
+  #FX_ROOT .fx-stage{min-height:260px}
+}
+</style>
+
+<div class="fx-layout">
+
+  <div class="fx-editor">
+    <h2>Конструктор платформера</h2>
+
+    <div class="fx-section">
+      <div class="fx-section-title">Основные настройки</div>
+
+      <div class="fx-field">
+        <label>Название игры</label>
+        <input id="fxTitle" type="text">
+      </div>
+
+      <div class="fx-row">
+        <div class="fx-field">
+          <label>Кнопка старта</label>
+          <input id="fxStartText" type="text">
+        </div>
+        <div class="fx-field">
+          <label>Цвет интерфейса</label>
+          <input id="fxAccent" type="color">
+        </div>
+      </div>
+
+      <div class="fx-field">
+        <label>Финальное сообщение</label>
+        <textarea id="fxFinishText"></textarea>
+      </div>
+
+      <label class="fx-check">
+        <input id="fxShowCounter" type="checkbox">
+        Показывать счётчик заданий
+      </label>
+
+      <label class="fx-check">
+        <input id="fxShowInstructions" type="checkbox">
+        Показывать инструкцию перед игрой
+      </label>
+
+      <label class="fx-check">
+        <input id="fxLockFinish" type="checkbox">
+        Финиш только после выполнения всех заданий
+      </label>
+    </div>
+
+    <div class="fx-section">
+      <div class="fx-section-title">Оформление карты</div>
+
+      <div class="fx-row">
+        <div class="fx-field">
+          <label>Небо</label>
+          <input id="fxSkyColor" type="color">
+        </div>
+        <div class="fx-field">
+          <label>Земля</label>
+          <input id="fxGroundColor" type="color">
+        </div>
+      </div>
+
+      <div class="fx-row">
+        <div class="fx-field">
+          <label>Платформы</label>
+          <input id="fxPlatformColor" type="color">
+        </div>
+        <div class="fx-field">
+          <label>Препятствия</label>
+          <input id="fxObstacleColor" type="color">
+        </div>
+      </div>
+
+      <div class="fx-field">
+        <label>Фоновое изображение</label>
+        <input id="fxBackgroundFile" type="file" accept="image/*">
+      </div>
+
+      <div class="fx-actions">
+        <button id="fxClearBackground" class="fx-btn fx-btn-small" type="button">
+          Убрать фон
+        </button>
+      </div>
+    </div>
+
+    <div class="fx-section">
+      <div class="fx-section-title">Герой</div>
+
+      <div class="fx-field">
+        <label>PNG персонажа</label>
+        <input id="fxPlayerFile" type="file" accept="image/*">
+      </div>
+
+      <div class="fx-row">
+        <div class="fx-field">
+          <label>Размер</label>
+          <input id="fxPlayerSize" type="range" min="30" max="80" step="1">
+        </div>
+        <div class="fx-field">
+          <label>Скорость</label>
+          <input id="fxPlayerSpeed" type="range" min="120" max="360" step="10">
+        </div>
+      </div>
+
+      <div class="fx-field">
+        <label>Высота прыжка</label>
+        <input id="fxJumpPower" type="range" min="360" max="650" step="10">
+      </div>
+
+      <button id="fxClearPlayer" class="fx-btn fx-btn-small" type="button">
+        Убрать PNG героя
+      </button>
+    </div>
+
+    <div class="fx-section">
+      <div class="fx-section-title">Предмет задания</div>
+
+      <div class="fx-row">
+        <div class="fx-field">
+          <label>Встроенный предмет</label>
+          <select id="fxTaskIcon">
+            <option value="⭐">Звезда</option>
+            <option value="💎">Кристалл</option>
+            <option value="🔑">Ключ</option>
+            <option value="❓">Блок ?</option>
+            <option value="📜">Свиток</option>
+          </select>
+        </div>
+
+        <div class="fx-field">
+          <label>Размер</label>
+          <input id="fxTaskSize" type="range" min="24" max="60">
+        </div>
+      </div>
+
+      <div class="fx-field">
+        <label>Свой PNG предмета</label>
+        <input id="fxTaskFile" type="file" accept="image/*">
+      </div>
+
+      <button id="fxClearTaskImage" class="fx-btn fx-btn-small" type="button">
+        Использовать встроенный
+      </button>
+    </div>
+
+    <div class="fx-section">
+      <div class="fx-section-title">Бонусы</div>
+
+      <label class="fx-check">
+        <input id="fxBonusesEnabled" type="checkbox">
+        Добавить обычные бонусы
+      </label>
+
+      <div class="fx-field">
+        <label>Количество бонусов</label>
+        <input id="fxBonusCount" type="number" min="0" max="100" step="1">
+      </div>
+    </div>
+
+    <div class="fx-section">
+      <div class="fx-section-title">Финиш</div>
+
+      <div class="fx-field">
+        <label>PNG финиша</label>
+        <input id="fxFinishFile" type="file" accept="image/*">
+      </div>
+
+      <button id="fxClearFinish" class="fx-btn fx-btn-small" type="button">
+        Использовать флаг
+      </button>
+    </div>
+
+    <div class="fx-section">
+      <div class="fx-task-head">
+        <div class="fx-section-title" style="margin:0">Задания</div>
+        <button id="fxAddTask" type="button" class="fx-btn fx-btn-primary fx-btn-small">
+          + Добавить
+        </button>
+      </div>
+
+      <div id="fxTasks"></div>
+    </div>
+
+    <div class="fx-section">
+      <div class="fx-section-title">Экспорт</div>
+
+      <div class="fx-actions">
+        <button id="fxCopyIframe" class="fx-btn fx-btn-primary" type="button">
+          Копировать iframe
+        </button>
+
+        <button id="fxShowCode" class="fx-btn" type="button">
+          Показать код
+        </button>
+      </div>
+
+      <div id="fxExportStatus" class="fx-status"></div>
+
+      <div id="fxCodeBox" class="fx-codebox">
+        <textarea id="fxCodeOutput" readonly></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="fx-preview-panel">
+    <div class="fx-preview-toolbar">
+      <div>
+        <div class="fx-preview-title">Предпросмотр</div>
+        <div class="fx-preview-note">
+          Кликните по игре и управляйте стрелками
+        </div>
+      </div>
+
+      <button id="fxRestartPreview" class="fx-btn fx-btn-small" type="button">
+        Перезапустить
+      </button>
+    </div>
+
+    <div id="fxStage" class="fx-stage" tabindex="0">
+      <div id="fxSceneBg" class="fx-scene-bg"></div>
+      <div id="fxWorld" class="fx-world"></div>
+
+      <div id="fxHud" class="fx-hud"></div>
+
+      <div id="fxStartOverlay" class="fx-overlay">
+        <div class="fx-modal">
+          <h3 id="fxStartTitle"></h3>
+          <p id="fxInstructionText"></p>
+          <button id="fxStartGame" class="fx-btn fx-btn-primary" type="button">
+            Играть
+          </button>
+        </div>
+      </div>
+
+      <div id="fxTaskOverlay" class="fx-overlay fx-hidden">
+        <div class="fx-modal">
+          <h3 id="fxTaskModalTitle"></h3>
+          <p id="fxTaskModalText"></p>
+          <div id="fxTaskAnswers"></div>
+          <div id="fxTaskFeedback" class="fx-feedback"></div>
+        </div>
+      </div>
+
+      <div id="fxFinishOverlay" class="fx-overlay fx-hidden">
+        <div class="fx-modal">
+          <h3>Готово!</h3>
+          <p id="fxFinishModalText"></p>
+          <button id="fxPlayAgain" class="fx-btn fx-btn-primary" type="button">
+            Играть ещё раз
+          </button>
+        </div>
+      </div>
+
+      <div id="fxToast" class="fx-toast fx-hidden"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+const root = document.getElementById("FX_ROOT");
+if(!root || root.dataset.fxReady === "1") return;
+root.dataset.fxReady = "1";
+
+const $ = (q) => root.querySelector(q);
+const $$ = (q) => Array.from(root.querySelectorAll(q));
+
+const defaultState = {
+  title: "Большое приключение",
+  startText: "Играть",
+  finishText: "Все задания выполнены! Ты добрался до финиша.",
+  accent: "#6f7f62",
+
+  showCounter: true,
+  showInstructions: true,
+  lockFinish: true,
+
+  theme: {
+    sky: "#cfe8f5",
+    ground: "#6e9d58",
+    platform: "#b78356",
+    obstacle: "#ab7957",
+    backgroundImage: ""
+  },
+
+  player: {
+    image: "",
+    size: 48,
+    speed: 230,
+    jumpPower: 500
+  },
+
+  taskItem: {
+    icon: "⭐",
+    image: "",
+    size: 36
+  },
+
+  bonuses: {
+    enabled: true,
+    count: 12
+  },
+
+  finish: {
+    image: ""
+  },
+
+  tasks: [
+    {
+      title:"Задание 1",
+      text:"Сколько будет 7 + 5?",
+      type:"choice",
+      options:["10","12","14"],
+      correct:1
+    },
+    {
+      title:"Задание 2",
+      text:"Назови главные члены предложения.",
+      type:"manual",
+      options:["","",""],
+      correct:0
+    },
+    {
+      title:"Задание 3",
+      text:"Сколько будет 18 − 9?",
+      type:"choice",
+      options:["7","8","9"],
+      correct:2
+    },
+    {
+      title:"Задание 4",
+      text:"Прочитай слово и поставь ударение: МОЛОКО.",
+      type:"manual",
+      options:["","",""],
+      correct:0
+    },
+    {
+      title:"Задание 5",
+      text:"Сколько сантиметров в 1 дм?",
+      type:"choice",
+      options:["10","100","5"],
+      correct:0
+    }
+  ]
+};
+
+let state = JSON.parse(JSON.stringify(defaultState));
+
+let game = {
+  started:false,
+  paused:false,
+  finished:false,
+  x:70,
+  y:32,
+  vx:0,
+  vy:0,
+  grounded:false,
+  crouch:false,
+  camera:0,
+  lastTime:0,
+  lastSafeX:70,
+  completed:new Set(),
+  bonuses:new Set(),
+  activeTask:null,
+  dropUntil:0,
+  keys:{
+    left:false,
+    right:false,
+    up:false,
+    down:false
+  },
+  map:null,
+  raf:0
+};
+
+const refs = {
+  title:$("#fxTitle"),
+  startText:$("#fxStartText"),
+  finishText:$("#fxFinishText"),
+  accent:$("#fxAccent"),
+  showCounter:$("#fxShowCounter"),
+  showInstructions:$("#fxShowInstructions"),
+  lockFinish:$("#fxLockFinish"),
+
+  sky:$("#fxSkyColor"),
+  ground:$("#fxGroundColor"),
+  platform:$("#fxPlatformColor"),
+  obstacle:$("#fxObstacleColor"),
+
+  playerSize:$("#fxPlayerSize"),
+  playerSpeed:$("#fxPlayerSpeed"),
+  jumpPower:$("#fxJumpPower"),
+
+  taskIcon:$("#fxTaskIcon"),
+  taskSize:$("#fxTaskSize"),
+
+  bonusesEnabled:$("#fxBonusesEnabled"),
+  bonusCount:$("#fxBonusCount"),
+
+  tasks:$("#fxTasks"),
+
+  stage:$("#fxStage"),
+  bg:$("#fxSceneBg"),
+  world:$("#fxWorld"),
+  hud:$("#fxHud"),
+
+  startOverlay:$("#fxStartOverlay"),
+  startTitle:$("#fxStartTitle"),
+  instruction:$("#fxInstructionText"),
+  startGame:$("#fxStartGame"),
+
+  taskOverlay:$("#fxTaskOverlay"),
+  taskTitle:$("#fxTaskModalTitle"),
+  taskText:$("#fxTaskModalText"),
+  taskAnswers:$("#fxTaskAnswers"),
+  taskFeedback:$("#fxTaskFeedback"),
+
+  finishOverlay:$("#fxFinishOverlay"),
+  finishModalText:$("#fxFinishModalText"),
+
+  toast:$("#fxToast"),
+
+  codeBox:$("#fxCodeBox"),
+  codeOutput:$("#fxCodeOutput"),
+  exportStatus:$("#fxExportStatus")
+};
+
+function clamp(v,min,max){
+  return Math.max(min,Math.min(max,v));
+}
+
+function htmlEscape(value){
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;");
+}
+
+function readFile(input, callback){
+  const file = input.files && input.files[0];
+  if(!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(){
+    callback(String(reader.result || ""));
+  };
+  reader.readAsDataURL(file);
+}
+
+function bindStateToInputs(){
+  refs.title.value = state.title;
+  refs.startText.value = state.startText;
+  refs.finishText.value = state.finishText;
+  refs.accent.value = state.accent;
+
+  refs.showCounter.checked = state.showCounter;
+  refs.showInstructions.checked = state.showInstructions;
+  refs.lockFinish.checked = state.lockFinish;
+
+  refs.sky.value = state.theme.sky;
+  refs.ground.value = state.theme.ground;
+  refs.platform.value = state.theme.platform;
+  refs.obstacle.value = state.theme.obstacle;
+
+  refs.playerSize.value = state.player.size;
+  refs.playerSpeed.value = state.player.speed;
+  refs.jumpPower.value = state.player.jumpPower;
+
+  refs.taskIcon.value = state.taskItem.icon;
+  refs.taskSize.value = state.taskItem.size;
+
+  refs.bonusesEnabled.checked = state.bonuses.enabled;
+  refs.bonusCount.value = state.bonuses.count;
+}
+
+function readMainInputs(){
+  state.title = refs.title.value || "Игра";
+  state.startText = refs.startText.value || "Играть";
+  state.finishText = refs.finishText.value || "Готово!";
+  state.accent = refs.accent.value;
+
+  state.showCounter = refs.showCounter.checked;
+  state.showInstructions = refs.showInstructions.checked;
+  state.lockFinish = refs.lockFinish.checked;
+
+  state.theme.sky = refs.sky.value;
+  state.theme.ground = refs.ground.value;
+  state.theme.platform = refs.platform.value;
+  state.theme.obstacle = refs.obstacle.value;
+
+  state.player.size = Number(refs.playerSize.value) || 48;
+  state.player.speed = Number(refs.playerSpeed.value) || 230;
+  state.player.jumpPower = Number(refs.jumpPower.value) || 500;
+
+  state.taskItem.icon = refs.taskIcon.value;
+  state.taskItem.size = Number(refs.taskSize.value) || 36;
+
+  state.bonuses.enabled = refs.bonusesEnabled.checked;
+  state.bonuses.count = clamp(Number(refs.bonusCount.value)||0,0,100);
+
+  root.style.setProperty("--fx-accent",state.accent);
+}
+
+function renderTasksEditor(){
+  refs.tasks.innerHTML = "";
+
+  state.tasks.forEach(function(task,index){
+    const card = document.createElement("div");
+    card.className = "fx-task-card";
+    card.dataset.index = index;
+
+    const optionsHtml = [0,1,2,3].map(function(optionIndex){
+      const val = task.options[optionIndex] || "";
+      return `
+        <div class="fx-option-row">
+          <input
+            type="text"
+            data-task-field="option"
+            data-option-index="${optionIndex}"
+            value="${htmlEscape(val)}"
+            placeholder="Вариант ${optionIndex+1}"
+          >
+          <label class="fx-correct-radio" title="Правильный ответ">
+            <input
+              type="radio"
+              name="fx_correct_${index}"
+              data-task-field="correct"
+              data-option-index="${optionIndex}"
+              ${Number(task.correct)===optionIndex ? "checked":""}
+            >
+          </label>
+        </div>
+      `;
+    }).join("");
+
+    card.innerHTML = `
+      <div class="fx-task-head">
+        <div class="fx-task-number">Задание ${index+1}</div>
+
+        <div class="fx-task-buttons">
+          <button class="fx-btn fx-btn-small" data-action="up" type="button">↑</button>
+          <button class="fx-btn fx-btn-small" data-action="down" type="button">↓</button>
+          <button class="fx-btn fx-btn-danger fx-btn-small" data-action="delete" type="button">×</button>
+        </div>
+      </div>
+
+      <div class="fx-field">
+        <label>Заголовок</label>
+        <input
+          type="text"
+          data-task-field="title"
+          value="${htmlEscape(task.title)}"
+        >
+      </div>
+
+      <div class="fx-field">
+        <label>Текст задания</label>
+        <textarea data-task-field="text">${htmlEscape(task.text)}</textarea>
+      </div>
+
+      <div class="fx-field">
+        <label>Тип задания</label>
+        <select data-task-field="type">
+          <option value="choice" ${task.type==="choice"?"selected":""}>
+            Выбор ответа
+          </option>
+          <option value="manual" ${task.type==="manual"?"selected":""}>
+            Устный ответ / кнопка «Готово»
+          </option>
+        </select>
+      </div>
+
+      <div class="fx-task-options ${task.type==="manual"?"fx-hidden":""}">
+        <label>Варианты ответа</label>
+        ${optionsHtml}
+      </div>
+    `;
+
+    refs.tasks.appendChild(card);
+  });
+}
+
+function makeTask(){
+  const n = state.tasks.length + 1;
+  return {
+    title:"Задание "+n,
+    text:"Введите текст задания",
+    type:"choice",
+    options:["Ответ 1","Ответ 2","Ответ 3",""],
+    correct:0
+  };
+}
+
+function buildMap(taskCount){
+  const tasksPerSection = 5;
+  const sections = Math.max(1,Math.ceil(taskCount/tasksPerSection));
+  const sectionWidth = 720;
+
+  const grounds = [];
+  const platforms = [];
+  const obstacles = [];
+  const taskSlots = [];
+  const bonusSlots = [];
+
+  for(let s=0;s<sections;s++){
+    const x = s*sectionWidth;
+
+    grounds.push({x:x,y:0,w:245,h:32});
+    grounds.push({x:x+330,y:0,w:390,h:32});
+
+    platforms.push({x:x+105,y:88,w:125,h:18});
+    platforms.push({x:x+285,y:145,w:130,h:18});
+    platforms.push({x:x+475,y:92,w:145,h:18});
+
+    obstacles.push({x:x+65,y:32,w:45,h:50});
+    obstacles.push({x:x+625,y:32,w:48,h:65});
+
+    taskSlots.push(
+      {x:x+145,y:125},
+      {x:x+322,y:184},
+      {x:x+520,y:130},
+      {x:x+385,y:48},
+      {x:x+665,y:110}
+    );
+
+    bonusSlots.push(
+      {x:x+20,y:52},
+      {x:x+205,y:128},
+      {x:x+350,y:48},
+      {x:x+450,y:48},
+      {x:x+565,y:135},
+      {x:x+690,y:52}
+    );
+  }
+
+  const endX = sections*sectionWidth;
+
+  grounds.push({
+    x:endX,
+    y:0,
+    w:300,
+    h:32
+  });
+
+  platforms.push({
+    x:endX+65,
+    y:90,
+    w:125,
+    h:18
+  });
+
+  const worldWidth = endX + 350;
+
+  return {
+    worldWidth,
+    grounds,
+    platforms,
+    obstacles,
+    taskSlots:taskSlots.slice(0,taskCount),
+    bonusSlots,
+    finishX:endX+235
+  };
+}
+
+function rectsOverlap(a,b){
+  return (
+    a.x < b.x+b.w &&
+    a.x+a.w > b.x &&
+    a.y < b.y+b.h &&
+    a.y+a.h > b.y
+  );
+}
+
+function createDiv(cls,styleObj){
+  const el = document.createElement("div");
+  el.className = cls;
+
+  Object.keys(styleObj || {}).forEach(function(key){
+    el.style[key] = styleObj[key];
+  });
+
+  return el;
+}
+
+function renderPreview(){
+  cancelAnimationFrame(game.raf);
+
+  readMainInputs();
+
+  game = {
+    started:false,
+    paused:false,
+    finished:false,
+    x:70,
+    y:32,
+    vx:0,
+    vy:0,
+    grounded:false,
+    crouch:false,
+    camera:0,
+    lastTime:0,
+    lastSafeX:70,
+    completed:new Set(),
+    bonuses:new Set(),
+    activeTask:null,
+    dropUntil:0,
+    keys:{left:false,right:false,up:false,down:false},
+    map:buildMap(state.tasks.length),
+    raf:0
+  };
+
+  refs.bg.style.backgroundColor = state.theme.sky;
+  refs.bg.style.backgroundImage =
+    state.theme.backgroundImage
+      ? `url("${state.theme.backgroundImage}")`
+      : "none";
+
+  refs.world.innerHTML = "";
+  refs.world.style.width = game.map.worldWidth+"px";
+
+  game.map.grounds.forEach(function(g){
+    const el = createDiv("fx-ground",{
+      left:g.x+"px",
+      bottom:g.y+"px",
+      width:g.w+"px",
+      height:g.h+"px",
+      background:state.theme.ground
+    });
+    refs.world.appendChild(el);
+  });
+
+  game.map.platforms.forEach(function(p){
+    const el = createDiv("fx-platform",{
+      left:p.x+"px",
+      bottom:p.y+"px",
+      width:p.w+"px",
+      height:p.h+"px",
+      background:state.theme.platform
+    });
+    refs.world.appendChild(el);
+  });
+
+  game.map.obstacles.forEach(function(o){
+    const el = createDiv("fx-obstacle",{
+      left:o.x+"px",
+      bottom:o.y+"px",
+      width:o.w+"px",
+      height:o.h+"px",
+      background:state.theme.obstacle
+    });
+    refs.world.appendChild(el);
+  });
+
+  game.map.taskSlots.forEach(function(pos,index){
+    const size = state.taskItem.size;
+    const el = createDiv(
+      "fx-task-item"+(state.taskItem.image?" has-image":""),
+      {
+        left:pos.x+"px",
+        bottom:pos.y+"px",
+        width:size+"px",
+        height:size+"px",
+        fontSize:(size*.82)+"px",
+        backgroundImage:state.taskItem.image
+          ? `url("${state.taskItem.image}")`
+          : "none"
+      }
+    );
+
+    if(!state.taskItem.image){
+      el.textContent = state.taskItem.icon;
+    }
+
+    el.dataset.taskIndex = index;
+    refs.world.appendChild(el);
+  });
+
+  if(state.bonuses.enabled){
+    const slots = game.map.bonusSlots.slice(
+      0,
+      Math.min(state.bonuses.count,game.map.bonusSlots.length)
+    );
+
+    slots.forEach(function(pos,index){
+      const el = createDiv("fx-bonus",{
+        left:pos.x+"px",
+        bottom:pos.y+"px"
+      });
+      el.dataset.bonusIndex=index;
+      refs.world.appendChild(el);
+    });
+  }
+
+  const finish = createDiv(
+    "fx-finish"+(state.finish.image?" has-image":""),
+    {
+      left:game.map.finishX+"px",
+      bottom:"32px",
+      backgroundImage:state.finish.image
+        ? `url("${state.finish.image}")`
+        : "none"
+    }
+  );
+  finish.id="fxFinishObject";
+  refs.world.appendChild(finish);
+
+  const player = createDiv(
+    "fx-player"+(state.player.image?" has-image":""),
+    {
+      left:game.x+"px",
+      bottom:game.y+"px",
+      width:state.player.size+"px",
+      height:state.player.size+"px",
+      backgroundImage:state.player.image
+        ? `url("${state.player.image}")`
+        : "none"
+    }
+  );
+  player.id="fxPlayer";
+  refs.world.appendChild(player);
+
+  refs.startTitle.textContent = state.title;
+  refs.startGame.textContent = state.startText;
+  refs.instruction.textContent = state.showInstructions
+    ? "← → — движение   •   ↑ — прыжок   •   ↓ — спуститься с платформы"
+    : "";
+
+  refs.startOverlay.classList.remove("fx-hidden");
+  refs.taskOverlay.classList.add("fx-hidden");
+  refs.finishOverlay.classList.add("fx-hidden");
+
+  refs.world.style.transform="translateX(0px)";
+
+  renderHud();
+  startLoop();
+}
+
+function renderHud(){
+  refs.hud.innerHTML="";
+
+  if(state.showCounter){
+    const taskPill = document.createElement("div");
+    taskPill.className="fx-hud-pill";
+    taskPill.textContent=
+      state.taskItem.icon+" "+
+      game.completed.size+
+      "/"+
+      state.tasks.length;
+
+    refs.hud.appendChild(taskPill);
+  }
+
+  if(state.bonuses.enabled){
+    const bonusPill=document.createElement("div");
+    bonusPill.className="fx-hud-pill";
+    bonusPill.textContent="● "+game.bonuses.size;
+    refs.hud.appendChild(bonusPill);
+  }
+}
+
+function startLoop(){
+  game.lastTime=performance.now();
+
+  function frame(now){
+    const dt=Math.min((now-game.lastTime)/1000,.032);
+    game.lastTime=now;
+
+    if(game.started && !game.paused && !game.finished){
+      updateGame(dt,now);
+    }
+
+    drawGame();
+    game.raf=requestAnimationFrame(frame);
+  }
+
+  game.raf=requestAnimationFrame(frame);
+}
+
+function updateGame(dt,now){
+  const playerSize=state.player.size;
+  const playerW=playerSize*.76;
+  const playerH=playerSize;
+
+  let move=0;
+  if(game.keys.left) move-=1;
+  if(game.keys.right) move+=1;
+
+  game.vx=move*state.player.speed;
+
+  let nextX=game.x+game.vx*dt;
+
+  const currentRect={
+    x:nextX,
+    y:game.y,
+    w:playerW,
+    h:playerH
+  };
+
+  for(const o of game.map.obstacles){
+    if(rectsOverlap(currentRect,o)){
+      if(game.vx>0){
+        nextX=o.x-playerW-.1;
+      }else if(game.vx<0){
+        nextX=o.x+o.w+.1;
+      }
+      break;
+    }
+  }
+
+  game.x=clamp(
+    nextX,
+    0,
+    game.map.worldWidth-playerW
+  );
+
+  game.vy-=1150*dt;
+  let nextY=game.y+game.vy*dt;
+  let landed=false;
+
+  const surfaces=[
+    ...game.map.grounds,
+    ...game.map.platforms
+  ];
+
+  if(game.vy<=0){
+    for(const s of surfaces){
+      const top=s.y+s.h;
+      const horizontal=
+        game.x+playerW>s.x &&
+        game.x<s.x+s.w;
+
+      const wasAbove=game.y>=top-2;
+      const crosses=nextY<=top;
+
+      const dropping =
+        now<game.dropUntil &&
+        game.map.platforms.includes(s);
+
+      if(horizontal && wasAbove && crosses && !dropping){
+        nextY=top;
+        game.vy=0;
+        landed=true;
+        break;
+      }
+    }
+  }
+
+  game.y=nextY;
+  game.grounded=landed;
+
+  if(game.grounded){
+    game.lastSafeX=game.x;
+  }
+
+  if(game.y<-130){
+    game.x=game.lastSafeX;
+    game.y=150;
+    game.vy=0;
+  }
+
+  checkTaskCollisions(playerW,playerH);
+  checkBonusCollisions(playerW,playerH);
+  checkFinish(playerW,playerH);
+}
+
+function drawGame(){
+  const player=$("#fxPlayer");
+  if(!player) return;
+
+  const viewport=refs.stage.clientWidth;
+  const desired=game.x-viewport*.34;
+  const maxCamera=Math.max(0,game.map.worldWidth-viewport);
+
+  game.camera=clamp(desired,0,maxCamera);
+
+  refs.world.style.transform=
+    "translateX("+(-game.camera)+"px)";
+
+  player.style.left=game.x+"px";
+  player.style.bottom=game.y+"px";
+
+  player.classList.toggle(
+    "fx-crouch",
+    game.crouch
+  );
+
+  if(game.vx<0){
+    player.style.scale="-1 1";
+  }else if(game.vx>0){
+    player.style.scale="1 1";
+  }
+}
+
+function checkTaskCollisions(playerW,playerH){
+  const playerRect={
+    x:game.x,
+    y:game.y,
+    w:playerW,
+    h:playerH
+  };
+
+  game.map.taskSlots.forEach(function(pos,index){
+    if(game.completed.has(index)) return;
+
+    const size=state.taskItem.size;
+    const r={
+      x:pos.x,
+      y:pos.y,
+      w:size,
+      h:size
+    };
+
+    if(rectsOverlap(playerRect,r)){
+      openTask(index);
+    }
+  });
+}
+
+function checkBonusCollisions(playerW,playerH){
+  if(!state.bonuses.enabled) return;
+
+  const playerRect={
+    x:game.x,
+    y:game.y,
+    w:playerW,
+    h:playerH
+  };
+
+  const slots=game.map.bonusSlots.slice(
+    0,
+    Math.min(state.bonuses.count,game.map.bonusSlots.length)
+  );
+
+  slots.forEach(function(pos,index){
+    if(game.bonuses.has(index)) return;
+
+    if(rectsOverlap(playerRect,{
+      x:pos.x,
+      y:pos.y,
+      w:22,
+      h:22
+    })){
+      game.bonuses.add(index);
+
+      const el=refs.world.querySelector(
+        '.fx-bonus[data-bonus-index="'+index+'"]'
+      );
+
+      if(el) el.remove();
+
+      renderHud();
+    }
+  });
+}
+
+function checkFinish(playerW,playerH){
+  const r={
+    x:game.map.finishX,
+    y:32,
+    w:52,
+    h:88
+  };
+
+  const playerRect={
+    x:game.x,
+    y:game.y,
+    w:playerW,
+    h:playerH
+  };
+
+  if(!rectsOverlap(playerRect,r)) return;
+
+  if(
+    state.lockFinish &&
+    game.completed.size<state.tasks.length
+  ){
+    showToast(
+      "Сначала выполни все задания: "+
+      game.completed.size+
+      "/"+
+      state.tasks.length
+    );
+    return;
+  }
+
+  finishGame();
+}
+
+function openTask(index){
+  if(game.paused || game.completed.has(index)) return;
+
+  const task=state.tasks[index];
+  if(!task) return;
+
+  game.paused=true;
+  game.activeTask=index;
+
+  refs.taskTitle.textContent=
+    task.title || ("Задание "+(index+1));
+
+  refs.taskText.textContent=task.text || "";
+  refs.taskAnswers.innerHTML="";
+  refs.taskFeedback.textContent="";
+
+  if(task.type==="manual"){
+    const btn=document.createElement("button");
+    btn.className="fx-btn fx-btn-primary";
+    btn.type="button";
+    btn.textContent="Готово";
+    btn.addEventListener("click",function(){
+      completeTask(index);
+    });
+    refs.taskAnswers.appendChild(btn);
+  }else{
+    task.options.forEach(function(option,optIndex){
+      if(!String(option||"").trim()) return;
+
+      const btn=document.createElement("button");
+      btn.className="fx-answer";
+      btn.type="button";
+      btn.textContent=option;
+
+      btn.addEventListener("click",function(){
+        if(optIndex===Number(task.correct)){
+          refs.taskFeedback.textContent="Верно!";
+          setTimeout(function(){
+            completeTask(index);
+          },300);
+        }else{
+          refs.taskFeedback.textContent="Попробуй ещё раз";
+        }
+      });
+
+      refs.taskAnswers.appendChild(btn);
+    });
+  }
+
+  refs.taskOverlay.classList.remove("fx-hidden");
+}
+
+function completeTask(index){
+  game.completed.add(index);
+
+  const el=refs.world.querySelector(
+    '.fx-task-item[data-task-index="'+index+'"]'
+  );
+
+  if(el){
+    el.classList.add("done");
+    setTimeout(function(){
+      if(el && el.parentNode) el.remove();
+    },220);
+  }
+
+  refs.taskOverlay.classList.add("fx-hidden");
+  game.activeTask=null;
+  game.paused=false;
+
+  renderHud();
+  refs.stage.focus();
+}
+
+function finishGame(){
+  if(game.finished) return;
+
+  game.finished=true;
+  game.paused=true;
+
+  refs.finishModalText.textContent =
+    state.finishText+
+    "\n\nВыполнено заданий: "+
+    game.completed.size+
+    " из "+
+    state.tasks.length;
+
+  refs.finishOverlay.classList.remove("fx-hidden");
+}
+
+let toastTimer=0;
+
+function showToast(text){
+  clearTimeout(toastTimer);
+
+  refs.toast.textContent=text;
+  refs.toast.classList.remove("fx-hidden");
+
+  toastTimer=setTimeout(function(){
+    refs.toast.classList.add("fx-hidden");
+  },1500);
+}
+
+function jump(){
+  if(!game.started || game.paused) return;
+
+  if(game.grounded){
+    game.vy=state.player.jumpPower;
+    game.grounded=false;
+  }
+}
+
+function dropDown(){
+  if(!game.started || game.paused) return;
+
+  game.dropUntil=performance.now()+260;
+  game.y-=8;
+}
+
+refs.stage.addEventListener("keydown",function(e){
+  if(["ArrowLeft","ArrowRight","ArrowUp","ArrowDown"].includes(e.key)){
+    e.preventDefault();
+  }
+
+  if(e.key==="ArrowLeft") game.keys.left=true;
+  if(e.key==="ArrowRight") game.keys.right=true;
+
+  if(e.key==="ArrowUp"){
+    if(!game.keys.up) jump();
+    game.keys.up=true;
+  }
+
+  if(e.key==="ArrowDown"){
+    game.keys.down=true;
+    game.crouch=true;
+    dropDown();
+  }
+});
+
+refs.stage.addEventListener("keyup",function(e){
+  if(e.key==="ArrowLeft") game.keys.left=false;
+  if(e.key==="ArrowRight") game.keys.right=false;
+  if(e.key==="ArrowUp") game.keys.up=false;
+
+  if(e.key==="ArrowDown"){
+    game.keys.down=false;
+    game.crouch=false;
+  }
+});
+
+refs.stage.addEventListener("pointerdown",function(){
+  refs.stage.focus();
+});
+
+refs.startGame.addEventListener("click",function(){
+  game.started=true;
+  refs.startOverlay.classList.add("fx-hidden");
+  refs.stage.focus();
+});
+
+$("#fxPlayAgain").addEventListener("click",function(){
+  renderPreview();
+});
+
+$("#fxRestartPreview").addEventListener("click",function(){
+  renderPreview();
+});
+
+refs.tasks.addEventListener("input",function(e){
+  const card=e.target.closest(".fx-task-card");
+  if(!card) return;
+
+  const index=Number(card.dataset.index);
+  const task=state.tasks[index];
+  if(!task) return;
+
+  const field=e.target.dataset.taskField;
+
+  if(field==="title") task.title=e.target.value;
+  if(field==="text") task.text=e.target.value;
+
+  if(field==="type"){
+    task.type=e.target.value;
+    renderTasksEditor();
+  }
+
+  if(field==="option"){
+    const opt=Number(e.target.dataset.optionIndex);
+    task.options[opt]=e.target.value;
+  }
+
+  if(field==="correct"){
+    task.correct=Number(e.target.dataset.optionIndex);
+  }
+
+  renderPreview();
+});
+
+refs.tasks.addEventListener("change",function(e){
+  if(e.target.dataset.taskField==="correct"){
+    const card=e.target.closest(".fx-task-card");
+    const index=Number(card.dataset.index);
+
+    state.tasks[index].correct=
+      Number(e.target.dataset.optionIndex);
+
+    renderPreview();
+  }
+});
+
+refs.tasks.addEventListener("click",function(e){
+  const btn=e.target.closest("button[data-action]");
+  if(!btn) return;
+
+  const card=btn.closest(".fx-task-card");
+  const index=Number(card.dataset.index);
+  const action=btn.dataset.action;
+
+  if(action==="delete"){
+    state.tasks.splice(index,1);
+  }
+
+  if(action==="up" && index>0){
+    const temp=state.tasks[index-1];
+    state.tasks[index-1]=state.tasks[index];
+    state.tasks[index]=temp;
+  }
+
+  if(action==="down" && index<state.tasks.length-1){
+    const temp=state.tasks[index+1];
+    state.tasks[index+1]=state.tasks[index];
+    state.tasks[index]=temp;
+  }
+
+  renderTasksEditor();
+  renderPreview();
+});
+
+$("#fxAddTask").addEventListener("click",function(){
+  state.tasks.push(makeTask());
+  renderTasksEditor();
+  renderPreview();
+});
+
+[
+  refs.title,
+  refs.startText,
+  refs.finishText,
+  refs.accent,
+  refs.showCounter,
+  refs.showInstructions,
+  refs.lockFinish,
+  refs.sky,
+  refs.ground,
+  refs.platform,
+  refs.obstacle,
+  refs.playerSize,
+  refs.playerSpeed,
+  refs.jumpPower,
+  refs.taskIcon,
+  refs.taskSize,
+  refs.bonusesEnabled,
+  refs.bonusCount
+].forEach(function(input){
+  input.addEventListener("input",renderPreview);
+  input.addEventListener("change",renderPreview);
+});
+
+$("#fxBackgroundFile").addEventListener("change",function(){
+  readFile(this,function(data){
+    state.theme.backgroundImage=data;
+    renderPreview();
+  });
+});
+
+$("#fxPlayerFile").addEventListener("change",function(){
+  readFile(this,function(data){
+    state.player.image=data;
+    renderPreview();
+  });
+});
+
+$("#fxTaskFile").addEventListener("change",function(){
+  readFile(this,function(data){
+    state.taskItem.image=data;
+    renderPreview();
+  });
+});
+
+$("#fxFinishFile").addEventListener("change",function(){
+  readFile(this,function(data){
+    state.finish.image=data;
+    renderPreview();
+  });
+});
+
+$("#fxClearBackground").addEventListener("click",function(){
+  state.theme.backgroundImage="";
+  $("#fxBackgroundFile").value="";
+  renderPreview();
+});
+
+$("#fxClearPlayer").addEventListener("click",function(){
+  state.player.image="";
+  $("#fxPlayerFile").value="";
+  renderPreview();
+});
+
+$("#fxClearTaskImage").addEventListener("click",function(){
+  state.taskItem.image="";
+  $("#fxTaskFile").value="";
+  renderPreview();
+});
+
+$("#fxClearFinish").addEventListener("click",function(){
+  state.finish.image="";
+  $("#fxFinishFile").value="";
+  renderPreview();
+});
+
+function safeJSONStringify(obj){
+  return JSON.stringify(obj)
+    .replace(/</g,"\\u003c")
+    .replace(/>/g,"\\u003e")
+    .replace(/&/g,"\\u0026");
+}
+
+function generateGameHTML(){
+  readMainInputs();
+
+  const cfg=safeJSONStringify(state);
+
+  const css = `
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  font-family:Arial,sans-serif;
+}
+body{background:#111}
+#game{
+  position:relative;
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  background:${state.theme.sky};
+  user-select:none;
+  outline:none;
+}
+#bg{
+  position:absolute;
+  inset:0;
+  background:${state.theme.sky};
+  background-image:${state.theme.backgroundImage
+    ? `url("${state.theme.backgroundImage}")`
+    : "none"};
+  background-size:cover;
+  background-position:center;
+}
+#world{
+  position:absolute;
+  left:0;
+  bottom:0;
+  height:100%;
+  will-change:transform;
+}
+.obj{position:absolute}
+.ground{
+  background:${state.theme.ground};
+  border-top:4px solid rgba(255,255,255,.35);
+}
+.platform{
+  background:${state.theme.platform};
+  border-top:4px solid rgba(255,255,255,.2);
+  border-radius:7px 7px 3px 3px;
+}
+.obstacle{
+  background:${state.theme.obstacle};
+  border-radius:8px;
+  border:3px solid rgba(0,0,0,.1);
+}
+.player{
+  z-index:20;
+  width:${state.player.size}px;
+  height:${state.player.size}px;
+  background:#e97b67;
+  border:3px solid white;
+  border-radius:13px;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center bottom;
+}
+.player.img{
+  border:0;
+  background-color:transparent;
+}
+.task{
+  z-index:15;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:${state.taskItem.size*.82}px;
+  width:${state.taskItem.size}px;
+  height:${state.taskItem.size}px;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+  animation:float 1.6s ease-in-out infinite;
+}
+.bonus{
+  z-index:10;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:#f0c84a;
+  border:3px solid #ffe994;
+}
+.finish{
+  width:52px;
+  height:88px;
+  z-index:8;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center bottom;
+}
+.finish.flag:before{
+  content:"";
+  position:absolute;
+  left:8px;
+  top:0;
+  width:5px;
+  height:88px;
+  background:#eee;
+}
+.finish.flag:after{
+  content:"";
+  position:absolute;
+  left:13px;
+  top:5px;
+  width:38px;
+  height:26px;
+  background:#e45f5f;
+  clip-path:polygon(0 0,100% 50%,0 100%);
+}
+#hud{
+  position:absolute;
+  left:12px;
+  top:12px;
+  z-index:50;
+  display:flex;
+  gap:7px;
+}
+.pill{
+  padding:7px 11px;
+  border-radius:999px;
+  background:rgba(255,255,255,.9);
+  font-weight:700;
+  font-size:14px;
+}
+.overlay{
+  position:absolute;
+  inset:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(20,20,20,.45);
+  padding:18px;
+}
+.hidden{display:none!important}
+.modal{
+  width:min(520px,96%);
+  max-height:90vh;
+  overflow:auto;
+  background:white;
+  border-radius:18px;
+  padding:20px;
+}
+.modal h2{margin:0 0 10px}
+.modal p{
+  line-height:1.45;
+  white-space:pre-wrap;
+}
+button{
+  font:inherit;
+  border:0;
+  border-radius:10px;
+  padding:11px 14px;
+  cursor:pointer;
+}
+.primary{
+  background:${state.accent};
+  color:white;
+  font-weight:700;
+}
+.answer{
+  display:block;
+  width:100%;
+  text-align:left;
+  background:#f3f3f0;
+  margin:7px 0;
+}
+.feedback{
+  min-height:22px;
+  font-weight:700;
+  margin-top:8px;
+}
+#toast{
+  position:absolute;
+  z-index:120;
+  left:50%;
+  bottom:18px;
+  transform:translateX(-50%);
+  background:rgba(20,20,20,.9);
+  color:white;
+  padding:9px 13px;
+  border-radius:999px;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-7px)}
+}
+`;
+
+  const gameJS = `
+(function(){
+"use strict";
+
+const cfg=${cfg};
+
+const gameEl=document.getElementById("game");
+const world=document.getElementById("world");
+const hud=document.getElementById("hud");
+const start=document.getElementById("start");
+const taskOverlay=document.getElementById("taskOverlay");
+const finishOverlay=document.getElementById("finishOverlay");
+const toast=document.getElementById("toast");
+
+function clamp(v,a,b){
+  return Math.max(a,Math.min(b,v));
+}
+
+function overlap(a,b){
+  return a.x<b.x+b.w &&
+         a.x+a.w>b.x &&
+         a.y<b.y+b.h &&
+         a.y+a.h>b.y;
+}
+
+function buildMap(n){
+  const sections=Math.max(1,Math.ceil(n/5));
+  const grounds=[];
+  const platforms=[];
+  const obstacles=[];
+  const tasks=[];
+  const bonus=[];
+  const W=720;
+
+  for(let s=0;s<sections;s++){
+    const x=s*W;
+
+    grounds.push({x:x,y:0,w:245,h:32});
+    grounds.push({x:x+330,y:0,w:390,h:32});
+
+    platforms.push({x:x+105,y:88,w:125,h:18});
+    platforms.push({x:x+285,y:145,w:130,h:18});
+    platforms.push({x:x+475,y:92,w:145,h:18});
+
+    obstacles.push({x:x+65,y:32,w:45,h:50});
+    obstacles.push({x:x+625,y:32,w:48,h:65});
+
+    tasks.push(
+      {x:x+145,y:125},
+      {x:x+322,y:184},
+      {x:x+520,y:130},
+      {x:x+385,y:48},
+      {x:x+665,y:110}
+    );
+
+    bonus.push(
+      {x:x+20,y:52},
+      {x:x+205,y:128},
+      {x:x+350,y:48},
+      {x:x+450,y:48},
+      {x:x+565,y:135},
+      {x:x+690,y:52}
+    );
+  }
+
+  const endX=sections*W;
+
+  grounds.push({
+    x:endX,
+    y:0,
+    w:300,
+    h:32
+  });
+
+  platforms.push({
+    x:endX+65,
+    y:90,
+    w:125,
+    h:18
+  });
+
+  return {
+    worldWidth:endX+350,
+    grounds,
+    platforms,
+    obstacles,
+    tasks:tasks.slice(0,n),
+    bonus,
+    finishX:endX+235
+  };
+}
+
+const map=buildMap(cfg.tasks.length);
+
+const G={
+  started:false,
+  paused:false,
+  finished:false,
+  x:70,
+  y:32,
+  vx:0,
+  vy:0,
+  grounded:false,
+  camera:0,
+  last:performance.now(),
+  lastSafe:70,
+  completed:new Set(),
+  bonuses:new Set(),
+  dropUntil:0,
+  keys:{left:false,right:false,up:false,down:false}
+};
+
+function add(cls,r){
+  const e=document.createElement("div");
+  e.className="obj "+cls;
+  e.style.left=r.x+"px";
+  e.style.bottom=r.y+"px";
+  e.style.width=r.w+"px";
+  e.style.height=r.h+"px";
+  world.appendChild(e);
+  return e;
+}
+
+function build(){
+  world.style.width=map.worldWidth+"px";
+
+  map.grounds.forEach(r=>add("ground",r));
+  map.platforms.forEach(r=>add("platform",r));
+  map.obstacles.forEach(r=>add("obstacle",r));
+
+  map.tasks.forEach((p,i)=>{
+    const e=add("task",{
+      x:p.x,
+      y:p.y,
+      w:cfg.taskItem.size,
+      h:cfg.taskItem.size
+    });
+
+    e.dataset.i=i;
+
+    if(cfg.taskItem.image){
+      e.style.backgroundImage='url("'+cfg.taskItem.image+'")';
+      e.textContent="";
+    }else{
+      e.textContent=cfg.taskItem.icon;
+    }
+  });
+
+  if(cfg.bonuses.enabled){
+    map.bonus
+      .slice(0,Math.min(cfg.bonuses.count,map.bonus.length))
+      .forEach((p,i)=>{
+        const e=add("bonus",{x:p.x,y:p.y,w:22,h:22});
+        e.dataset.i=i;
+      });
+  }
+
+  const f=add(
+    "finish "+(cfg.finish.image?"":"flag"),
+    {x:map.finishX,y:32,w:52,h:88}
+  );
+
+  if(cfg.finish.image){
+    f.style.backgroundImage='url("'+cfg.finish.image+'")';
+  }
+
+  const p=add(
+    "player "+(cfg.player.image?"img":""),
+    {
+      x:G.x,
+      y:G.y,
+      w:cfg.player.size,
+      h:cfg.player.size
+    }
+  );
+
+  p.id="player";
+
+  if(cfg.player.image){
+    p.style.backgroundImage='url("'+cfg.player.image+'")';
+  }
+
+  renderHud();
+}
+
+function renderHud(){
+  hud.innerHTML="";
+
+  if(cfg.showCounter){
+    const p=document.createElement("div");
+    p.className="pill";
+    p.textContent=
+      cfg.taskItem.icon+" "+
+      G.completed.size+
+      "/"+
+      cfg.tasks.length;
+    hud.appendChild(p);
+  }
+
+  if(cfg.bonuses.enabled){
+    const p=document.createElement("div");
+    p.className="pill";
+    p.textContent="● "+G.bonuses.size;
+    hud.appendChild(p);
+  }
+}
+
+function jump(){
+  if(G.grounded && G.started && !G.paused){
+    G.vy=cfg.player.jumpPower;
+    G.grounded=false;
+  }
+}
+
+function openTask(i){
+  if(G.paused || G.completed.has(i)) return;
+
+  const t=cfg.tasks[i];
+  if(!t) return;
+
+  G.paused=true;
+
+  document.getElementById("taskTitle").textContent=
+    t.title||("Задание "+(i+1));
+
+  document.getElementById("taskText").textContent=t.text||"";
+
+  const answers=document.getElementById("answers");
+  const feedback=document.getElementById("feedback");
+
+  answers.innerHTML="";
+  feedback.textContent="";
+
+  if(t.type==="manual"){
+    const b=document.createElement("button");
+    b.className="primary";
+    b.textContent="Готово";
+    b.onclick=()=>complete(i);
+    answers.appendChild(b);
+  }else{
+    (t.options||[]).forEach((opt,oi)=>{
+      if(!String(opt||"").trim()) return;
+
+      const b=document.createElement("button");
+      b.className="answer";
+      b.textContent=opt;
+
+      b.onclick=function(){
+        if(oi===Number(t.correct)){
+          feedback.textContent="Верно!";
+          setTimeout(()=>complete(i),250);
+        }else{
+          feedback.textContent="Попробуй ещё раз";
+        }
+      };
+
+      answers.appendChild(b);
+    });
+  }
+
+  taskOverlay.classList.remove("hidden");
+}
+
+function complete(i){
+  G.completed.add(i);
+
+  const e=world.querySelector('.task[data-i="'+i+'"]');
+  if(e) e.remove();
+
+  taskOverlay.classList.add("hidden");
+  G.paused=false;
+  renderHud();
+  gameEl.focus();
+}
+
+function showToast(text){
+  toast.textContent=text;
+  toast.classList.remove("hidden");
+
+  clearTimeout(showToast.t);
+  showToast.t=setTimeout(()=>{
+    toast.classList.add("hidden");
+  },1400);
+}
+
+function checkInteractions(pw,ph){
+  const pr={x:G.x,y:G.y,w:pw,h:ph};
+
+  map.tasks.forEach((p,i)=>{
+    if(G.completed.has(i)) return;
+
+    if(overlap(pr,{
+      x:p.x,
+      y:p.y,
+      w:cfg.taskItem.size,
+      h:cfg.taskItem.size
+    })){
+      openTask(i);
+    }
+  });
+
+  if(cfg.bonuses.enabled){
+    map.bonus
+      .slice(0,Math.min(cfg.bonuses.count,map.bonus.length))
+      .forEach((p,i)=>{
+        if(G.bonuses.has(i)) return;
+
+        if(overlap(pr,{x:p.x,y:p.y,w:22,h:22})){
+          G.bonuses.add(i);
+
+          const e=world.querySelector('.bonus[data-i="'+i+'"]');
+          if(e) e.remove();
+
+          renderHud();
+        }
+      });
+  }
+
+  const finishRect={
+    x:map.finishX,
+    y:32,
+    w:52,
+    h:88
+  };
+
+  if(overlap(pr,finishRect)){
+    if(cfg.lockFinish && G.completed.size<cfg.tasks.length){
+      showToast(
+        "Сначала выполни все задания: "+
+        G.completed.size+
+        "/"+
+        cfg.tasks.length
+      );
+    }else{
+      G.finished=true;
+      G.paused=true;
+
+      document.getElementById("finishText").textContent=
+        cfg.finishText+
+        "\\n\\nВыполнено заданий: "+
+        G.completed.size+
+        " из "+
+        cfg.tasks.length;
+
+      finishOverlay.classList.remove("hidden");
+    }
+  }
+}
+
+function update(dt,now){
+  const size=cfg.player.size;
+  const pw=size*.76;
+  const ph=size;
+
+  let move=0;
+  if(G.keys.left) move--;
+  if(G.keys.right) move++;
+
+  G.vx=move*cfg.player.speed;
+
+  let nx=G.x+G.vx*dt;
+  let test={x:nx,y:G.y,w:pw,h:ph};
+
+  for(const o of map.obstacles){
+    if(overlap(test,o)){
+      if(G.vx>0) nx=o.x-pw-.1;
+      if(G.vx<0) nx=o.x+o.w+.1;
+      break;
+    }
+  }
+
+  G.x=clamp(nx,0,map.worldWidth-pw);
+
+  G.vy-=1150*dt;
+
+  let ny=G.y+G.vy*dt;
+  let landed=false;
+  const surfaces=[...map.grounds,...map.platforms];
+
+  if(G.vy<=0){
+    for(const s of surfaces){
+      const top=s.y+s.h;
+
+      const horizontal=
+        G.x+pw>s.x &&
+        G.x<s.x+s.w;
+
+      const wasAbove=G.y>=top-2;
+      const crosses=ny<=top;
+
+      const isPlatform=map.platforms.includes(s);
+      const dropping=isPlatform && now<G.dropUntil;
+
+      if(horizontal && wasAbove && crosses && !dropping){
+        ny=top;
+        G.vy=0;
+        landed=true;
+        break;
+      }
+    }
+  }
+
+  G.y=ny;
+  G.grounded=landed;
+
+  if(landed) G.lastSafe=G.x;
+
+  if(G.y<-130){
+    G.x=G.lastSafe;
+    G.y=150;
+    G.vy=0;
+  }
+
+  checkInteractions(pw,ph);
+}
+
+function draw(){
+  const p=document.getElementById("player");
+  if(!p) return;
+
+  const vw=gameEl.clientWidth;
+  const desired=G.x-vw*.34;
+  const max=Math.max(0,map.worldWidth-vw);
+
+  G.camera=clamp(desired,0,max);
+  world.style.transform="translateX("+(-G.camera)+"px)";
+
+  p.style.left=G.x+"px";
+  p.style.bottom=G.y+"px";
+
+  if(G.vx<0) p.style.scale="-1 1";
+  else if(G.vx>0) p.style.scale="1 1";
+}
+
+function loop(now){
+  const dt=Math.min((now-G.last)/1000,.032);
+  G.last=now;
+
+  if(G.started && !G.paused && !G.finished){
+    update(dt,now);
+  }
+
+  draw();
+  requestAnimationFrame(loop);
+}
+
+gameEl.addEventListener("keydown",e=>{
+  if(["ArrowLeft","ArrowRight","ArrowUp","ArrowDown"].includes(e.key)){
+    e.preventDefault();
+  }
+
+  if(e.key==="ArrowLeft") G.keys.left=true;
+  if(e.key==="ArrowRight") G.keys.right=true;
+
+  if(e.key==="ArrowUp"){
+    if(!G.keys.up) jump();
+    G.keys.up=true;
+  }
+
+  if(e.key==="ArrowDown"){
+    G.keys.down=true;
+    G.dropUntil=performance.now()+260;
+    G.y-=8;
+  }
+});
+
+gameEl.addEventListener("keyup",e=>{
+  if(e.key==="ArrowLeft") G.keys.left=false;
+  if(e.key==="ArrowRight") G.keys.right=false;
+  if(e.key==="ArrowUp") G.keys.up=false;
+  if(e.key==="ArrowDown") G.keys.down=false;
+});
+
+gameEl.addEventListener("pointerdown",()=>{
+  gameEl.focus();
+});
+
+document.getElementById("startTitle").textContent=cfg.title;
+document.getElementById("startBtn").textContent=cfg.startText;
+
+document.getElementById("instructions").textContent=
+  cfg.showInstructions
+  ? "← → — движение   •   ↑ — прыжок   •   ↓ — спуститься с платформы"
+  : "";
+
+document.getElementById("startBtn").onclick=function(){
+  G.started=true;
+  start.classList.add("hidden");
+  gameEl.focus();
+};
+
+document.getElementById("again").onclick=function(){
+  location.reload();
+};
+
+build();
+requestAnimationFrame(loop);
+})();
+`;
+
+  const body = `
+<div id="game" tabindex="0">
+  <div id="bg"></div>
+  <div id="world"></div>
+  <div id="hud"></div>
+
+  <div id="start" class="overlay">
+    <div class="modal">
+      <h2 id="startTitle"></h2>
+      <p id="instructions"></p>
+      <button id="startBtn" class="primary"></button>
+    </div>
+  </div>
+
+  <div id="taskOverlay" class="overlay hidden">
+    <div class="modal">
+      <h2 id="taskTitle"></h2>
+      <p id="taskText"></p>
+      <div id="answers"></div>
+      <div id="feedback" class="feedback"></div>
+    </div>
+  </div>
+
+  <div id="finishOverlay" class="overlay hidden">
+    <div class="modal">
+      <h2>Готово!</h2>
+      <p id="finishText"></p>
+      <button id="again" class="primary">Играть ещё раз</button>
+    </div>
+  </div>
+
+  <div id="toast" class="hidden"></div>
+</div>
+`;
+
+  return (
+    "<!doctype html>"+
+    "<html><head>"+
+    '<meta charset="utf-8">'+
+    '<meta name="viewport" content="width=device-width,initial-scale=1">'+
+    "<style>"+css+"</style>"+
+    "</head><body>"+
+    body+
+    "<scr"+"ipt>"+
+    gameJS+
+    "</scr"+"ipt>"+
+    "</body></html>"
+  );
+}
+
+function generateIframeCode(){
+  const html=generateGameHTML();
+  const encoded=encodeURIComponent(html);
+
+  return (
+    '<iframe src="data:text/html;charset=utf-8,'+
+    encoded+
+    '" width="100%" height="600" '+
+    'style="border:0;display:block;width:100%;" '+
+    'allow="fullscreen"></iframe>'
+  );
+}
+
+async function copyIframeCode(){
+  const code=generateIframeCode();
+  refs.codeOutput.value=code;
+
+  try{
+    if(
+      navigator.clipboard &&
+      typeof navigator.clipboard.writeText==="function"
+    ){
+      await navigator.clipboard.writeText(code);
+      refs.exportStatus.textContent="Код iframe скопирован.";
+      return;
+    }
+  }catch(err){}
+
+  refs.codeBox.style.display="block";
+  refs.codeOutput.focus();
+  refs.codeOutput.select();
+
+  try{
+    document.execCommand("copy");
+    refs.exportStatus.textContent="Код iframe скопирован.";
+  }catch(err){
+    refs.exportStatus.textContent=
+      "Автокопирование недоступно. Скопируйте код из поля вручную.";
+  }
+}
+
+$("#fxCopyIframe").addEventListener("click",copyIframeCode);
+
+$("#fxShowCode").addEventListener("click",function(){
+  refs.codeOutput.value=generateIframeCode();
+
+  const isOpen=refs.codeBox.style.display==="block";
+  refs.codeBox.style.display=isOpen?"none":"block";
+
+  if(!isOpen){
+    refs.exportStatus.textContent=
+      "Ниже сформирован готовый iframe-код.";
+  }
+});
+
+bindStateToInputs();
+renderTasksEditor();
+renderPreview();
+
+})();
+</script>
+</div>
