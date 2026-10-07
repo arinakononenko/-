@@ -2,18 +2,21 @@
 <style>
 #FX_ROOT{
   --accent:#6f8063;
-  --accent2:#e9efe4;
+  --accent-soft:#edf2e9;
+  --page:#f4f2ed;
   --panel:#ffffff;
-  --page:#f5f3ee;
-  --line:#dedbd4;
-  --text:#272727;
-  --muted:#777;
+  --line:#ddd9d0;
+  --text:#292929;
+  --muted:#7a7a7a;
   font-family:Arial,sans-serif;
-  color:var(--text);
   width:100%;
+  color:var(--text);
 }
 #FX_ROOT *{box-sizing:border-box}
-#FX_ROOT button,#FX_ROOT input,#FX_ROOT select,#FX_ROOT textarea{font:inherit}
+#FX_ROOT button,
+#FX_ROOT input,
+#FX_ROOT select,
+#FX_ROOT textarea{font:inherit}
 #FX_ROOT button{cursor:pointer}
 
 #FX_ROOT .fx-shell{
@@ -22,15 +25,16 @@
   border-radius:18px;
   overflow:hidden;
 }
+
 #FX_ROOT .fx-top{
-  background:white;
-  border-bottom:1px solid var(--line);
-  padding:14px 18px;
   display:flex;
   justify-content:space-between;
-  align-items:center;
   gap:12px;
+  align-items:center;
   flex-wrap:wrap;
+  padding:14px 18px;
+  background:#fff;
+  border-bottom:1px solid var(--line);
 }
 #FX_ROOT .fx-title{
   font-size:20px;
@@ -44,40 +48,39 @@
 
 #FX_ROOT .fx-tabs{
   display:flex;
-  gap:4px;
+  gap:5px;
   padding:9px;
-  background:white;
-  border-bottom:1px solid var(--line);
   overflow:auto;
+  background:#fff;
+  border-bottom:1px solid var(--line);
 }
 #FX_ROOT .fx-tab{
-  white-space:nowrap;
   border:0;
-  background:#f0eee8;
-  padding:9px 12px;
   border-radius:9px;
-  font-weight:700;
+  padding:9px 12px;
+  background:#eceae4;
   color:#555;
+  font-weight:700;
+  white-space:nowrap;
 }
 #FX_ROOT .fx-tab.active{
   background:var(--accent);
-  color:white;
+  color:#fff;
 }
 
 #FX_ROOT .fx-main{
   display:grid;
-  grid-template-columns:minmax(310px,410px) minmax(0,1fr);
+  grid-template-columns:minmax(330px,430px) minmax(0,1fr);
   gap:14px;
   padding:14px;
+  align-items:start;
 }
-#FX_ROOT .fx-controls{
-  min-width:0;
-}
+#FX_ROOT .fx-controls{min-width:0}
 #FX_ROOT .fx-pane{display:none}
 #FX_ROOT .fx-pane.active{display:block}
 
 #FX_ROOT .fx-card{
-  background:white;
+  background:#fff;
   border:1px solid var(--line);
   border-radius:14px;
   padding:13px;
@@ -87,11 +90,19 @@
   font-weight:800;
   margin-bottom:10px;
 }
+#FX_ROOT .fx-subtitle{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.4;
+  margin-top:-4px;
+  margin-bottom:10px;
+}
+
 #FX_ROOT .fx-field{margin-bottom:10px}
 #FX_ROOT label{
+  display:block;
   font-size:12px;
   font-weight:700;
-  display:block;
   margin-bottom:5px;
 }
 #FX_ROOT input[type=text],
@@ -102,19 +113,20 @@
   border:1px solid var(--line);
   border-radius:9px;
   padding:9px 10px;
-  background:white;
+  background:#fff;
   color:#222;
 }
 #FX_ROOT textarea{
-  min-height:75px;
+  min-height:76px;
   resize:vertical;
 }
 #FX_ROOT input[type=color]{
   width:100%;
-  height:38px;
+  height:39px;
+  padding:3px;
+  background:#fff;
   border:1px solid var(--line);
   border-radius:9px;
-  background:white;
 }
 #FX_ROOT input[type=range]{width:100%}
 #FX_ROOT input[type=file]{width:100%;font-size:12px}
@@ -124,10 +136,15 @@
   grid-template-columns:1fr 1fr;
   gap:8px;
 }
+#FX_ROOT .fx-grid3{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:8px;
+}
 #FX_ROOT .fx-check{
   display:flex;
-  gap:8px;
   align-items:center;
+  gap:8px;
   margin:8px 0;
   font-size:13px;
 }
@@ -146,8 +163,8 @@
   color:#fff;
 }
 #FX_ROOT .fx-btn.danger{
-  background:#f5dede;
-  color:#8c3333;
+  background:#f4dddd;
+  color:#8a3232;
 }
 #FX_ROOT .fx-btn.small{
   padding:6px 8px;
@@ -159,125 +176,143 @@
   flex-wrap:wrap;
 }
 
-#FX_ROOT .fx-img-picker{
-  border:1px dashed #ccc7bd;
-  padding:9px;
+#FX_ROOT .fx-image-card{
+  border:1px dashed #cbc6bb;
   border-radius:11px;
+  padding:9px;
   background:#faf9f6;
 }
 #FX_ROOT .fx-source-tabs{
   display:flex;
   gap:5px;
-  margin-bottom:8px;
   flex-wrap:wrap;
+  margin-bottom:8px;
 }
 #FX_ROOT .fx-source-btn{
   border:0;
-  padding:6px 9px;
   border-radius:8px;
+  padding:6px 9px;
   font-size:12px;
   background:#eceae4;
 }
 #FX_ROOT .fx-source-btn.active{
-  background:var(--accent2);
-  color:#3f5239;
-  font-weight:700;
+  background:var(--accent-soft);
+  color:#46563e;
+  font-weight:800;
 }
 #FX_ROOT .fx-thumb{
   display:none;
+  width:92px;
+  height:65px;
   margin-top:8px;
-  width:90px;
-  height:62px;
   object-fit:contain;
+  background:#fff;
   border:1px solid var(--line);
   border-radius:8px;
-  background:white;
 }
 #FX_ROOT .fx-thumb.show{display:block}
 
+#FX_ROOT .fx-type-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:7px;
+  margin-bottom:12px;
+}
+#FX_ROOT .fx-type-btn{
+  min-height:58px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  padding:8px;
+  background:#fff;
+  text-align:left;
+  font-weight:700;
+  line-height:1.25;
+}
+#FX_ROOT .fx-type-btn.active{
+  border-color:var(--accent);
+  background:var(--accent-soft);
+  box-shadow:0 0 0 2px rgba(111,128,99,.12);
+}
+#FX_ROOT .fx-type-btn span{
+  display:block;
+  margin-top:3px;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:400;
+}
+
 #FX_ROOT .fx-task-card{
   border:1px solid var(--line);
-  background:#faf9f6;
   border-radius:12px;
   padding:10px;
+  background:#faf9f6;
   margin-bottom:9px;
 }
 #FX_ROOT .fx-task-head{
   display:flex;
   justify-content:space-between;
+  gap:8px;
   align-items:center;
-  gap:7px;
-  margin-bottom:8px;
+  margin-bottom:9px;
 }
 #FX_ROOT .fx-task-num{font-weight:800}
-#FX_ROOT .fx-task-actions{display:flex;gap:4px}
+#FX_ROOT .fx-task-actions{
+  display:flex;
+  gap:4px;
+}
 #FX_ROOT .fx-option{
   border:1px solid var(--line);
   border-radius:9px;
+  background:#fff;
   padding:8px;
   margin-bottom:6px;
-  background:white;
 }
 #FX_ROOT .fx-option-top{
   display:grid;
-  grid-template-columns:1fr 70px;
-  gap:6px;
+  grid-template-columns:1fr auto;
+  gap:7px;
   align-items:center;
 }
-#FX_ROOT .fx-option-img{
+#FX_ROOT .fx-answer-source{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
   margin-top:6px;
 }
 
 #FX_ROOT .fx-preview-wrap{
-  min-width:0;
   position:sticky;
   top:10px;
+  min-width:0;
 }
 #FX_ROOT .fx-preview-toolbar{
   display:flex;
   justify-content:space-between;
+  align-items:center;
   gap:8px;
   margin-bottom:8px;
-  align-items:center;
   flex-wrap:wrap;
 }
-#FX_ROOT .fx-device-buttons{
-  display:flex;
-  gap:5px;
+#FX_ROOT .fx-preview-note{
+  font-size:12px;
+  color:var(--muted);
 }
-#FX_ROOT .fx-device-buttons button{
-  border:0;
-  border-radius:8px;
-  padding:6px 8px;
-}
-#FX_ROOT .fx-device-buttons button.active{
-  background:var(--accent);
-  color:white;
-}
-
-#FX_ROOT .fx-preview-frame{
-  margin:auto;
-  transition:.2s;
-}
-#FX_ROOT .fx-preview-frame.desktop{width:100%}
-#FX_ROOT .fx-preview-frame.tablet{width:min(760px,100%)}
-#FX_ROOT .fx-preview-frame.phone{width:min(390px,100%)}
-
 #FX_ROOT .fx-stage{
+  position:relative;
   width:100%;
   aspect-ratio:16/9;
-  min-height:360px;
-  background:#cfe8f5;
-  border-radius:16px;
-  border:1px solid var(--line);
+  min-height:440px;
   overflow:hidden;
-  position:relative;
   outline:none;
+  border:1px solid var(--line);
+  border-radius:17px;
+  background:#cfe8f5;
   user-select:none;
 }
 #FX_ROOT .fx-stage:focus{
-  box-shadow:0 0 0 3px rgba(111,128,99,.22);
+  box-shadow:0 0 0 3px rgba(111,128,99,.2);
 }
+
 #FX_ROOT .fx-bg{
   position:absolute;
   inset:0;
@@ -292,246 +327,335 @@
   will-change:transform;
 }
 #FX_ROOT .fx-obj{position:absolute}
+
 #FX_ROOT .fx-ground{
-  background:#759c62;
-  border-top:4px solid rgba(255,255,255,.35);
+  background:#71965e;
+  border-top:6px solid rgba(255,255,255,.28);
 }
 #FX_ROOT .fx-platform{
-  background:#b68861;
-  border-top:4px solid #759c62;
-  border-radius:7px 7px 3px 3px;
+  background:#b27d55;
+  border-top:6px solid #71965e;
+  border-radius:9px 9px 4px 4px;
 }
 #FX_ROOT .fx-obstacle{
-  background:#a57555;
-  border:3px solid rgba(0,0,0,.1);
-  border-radius:7px;
+  background:#a66f50;
+  border-radius:9px;
+  border:3px solid rgba(0,0,0,.08);
 }
 #FX_ROOT .fx-player{
-  z-index:20;
-  border-radius:14px;
-  background:#e57a67;
-  border:3px solid white;
+  z-index:30;
+  background:#e67866;
+  border:4px solid white;
+  border-radius:16px;
   background-size:contain;
   background-repeat:no-repeat;
   background-position:center bottom;
   transform-origin:center center;
 }
 #FX_ROOT .fx-player.image{
-  background-color:transparent;
   border:0;
+  background-color:transparent;
 }
 #FX_ROOT .fx-task-item,
 #FX_ROOT .fx-bonus-item{
-  z-index:15;
+  z-index:20;
   display:flex;
   justify-content:center;
   align-items:center;
   background-size:contain;
-  background-position:center;
   background-repeat:no-repeat;
+  background-position:center;
 }
 #FX_ROOT .fx-task-item{
-  animation:fxFloat 1.6s ease-in-out infinite;
+  animation:fxFloat 1.5s ease-in-out infinite;
 }
 #FX_ROOT .fx-bonus-item{
   animation:fxPulse 1.4s ease-in-out infinite;
 }
 #FX_ROOT .fx-finish{
-  z-index:10;
-  width:54px;
-  height:88px;
+  z-index:20;
+  width:75px;
+  height:125px;
   background-size:contain;
-  background-position:center bottom;
   background-repeat:no-repeat;
+  background-position:center bottom;
 }
 #FX_ROOT .fx-finish.flag:before{
   content:"";
   position:absolute;
-  width:5px;
-  height:88px;
-  background:white;
-  left:8px;
+  left:12px;
+  top:0;
+  width:7px;
+  height:125px;
+  background:#f7f7f7;
 }
 #FX_ROOT .fx-finish.flag:after{
   content:"";
   position:absolute;
-  width:40px;
-  height:28px;
-  background:#e75f61;
-  left:13px;
-  top:5px;
+  top:8px;
+  left:19px;
+  width:52px;
+  height:36px;
+  background:#e56061;
   clip-path:polygon(0 0,100% 50%,0 100%);
 }
 
 #FX_ROOT .fx-hud{
   position:absolute;
-  z-index:50;
-  top:10px;
-  left:10px;
+  z-index:60;
+  top:11px;
+  left:11px;
   display:flex;
   gap:7px;
 }
 #FX_ROOT .fx-pill{
-  background:rgba(255,255,255,.9);
-  padding:7px 10px;
+  padding:7px 11px;
   border-radius:999px;
+  background:rgba(255,255,255,.91);
   font-size:13px;
   font-weight:800;
+  box-shadow:0 2px 8px rgba(0,0,0,.12);
 }
 
 #FX_ROOT .fx-overlay{
   position:absolute;
   inset:0;
   z-index:100;
-  background:rgba(20,20,20,.46);
   display:flex;
-  align-items:center;
   justify-content:center;
-  padding:16px;
+  align-items:center;
+  padding:18px;
+  background:rgba(20,20,20,.46);
 }
 #FX_ROOT .fx-hidden{display:none!important}
-#FX_ROOT .fx-modal{
-  width:min(540px,96%);
+
+#FX_ROOT .fx-game-card{
+  width:min(var(--question-width,560px),96%);
   max-height:92%;
   overflow:auto;
-  background:white;
-  border-radius:17px;
-  padding:18px;
+  padding:var(--question-padding,22px);
+  border-style:solid;
+  border-width:var(--question-border-width,3px);
+  border-color:var(--question-border,#7c8c70);
+  border-radius:var(--question-radius,20px);
+  background:var(--question-bg,#ffffff);
+  color:var(--question-text,#222222);
+  box-shadow:var(--question-shadow,0 12px 35px rgba(0,0,0,.2));
+  font-family:var(--question-font,Arial,sans-serif);
 }
-#FX_ROOT .fx-modal h2{
-  margin:0 0 9px;
-  font-size:22px;
+#FX_ROOT .fx-game-card h2{
+  margin:0 0 10px;
+  font-size:var(--question-size,25px);
+  color:var(--question-title,#222222);
+  line-height:1.2;
 }
-#FX_ROOT .fx-modal p{
+#FX_ROOT .fx-game-card p{
+  margin:8px 0;
   white-space:pre-wrap;
-  line-height:1.45;
+  font-size:var(--question-size,25px);
+  line-height:1.4;
 }
-#FX_ROOT .fx-question-img{
-  max-width:100%;
-  max-height:190px;
+#FX_ROOT .fx-question-image{
   display:block;
-  margin:8px auto 12px;
+  max-width:100%;
+  max-height:210px;
   object-fit:contain;
-  border-radius:10px;
+  margin:8px auto 12px;
+  border-radius:12px;
 }
+
 #FX_ROOT .fx-answer-btn{
   width:100%;
   display:flex;
-  gap:9px;
   align-items:center;
+  gap:10px;
+  margin:7px 0;
+  padding:var(--answer-padding,12px);
+  border-style:solid;
+  border-width:var(--answer-border-width,2px);
+  border-color:var(--answer-border,#ddd);
+  border-radius:var(--answer-radius,12px);
+  background:var(--answer-bg,#f7f7f7);
+  color:var(--answer-text,#222);
+  font-family:var(--answer-font,Arial,sans-serif);
+  font-size:var(--answer-size,18px);
   text-align:left;
-  padding:9px 11px;
-  margin:6px 0;
-  border:1px solid var(--line);
-  border-radius:10px;
-  background:#fafafa;
+  transition:.15s;
 }
-#FX_ROOT .fx-answer-btn img{
-  width:70px;
-  height:55px;
-  object-fit:contain;
-  border-radius:7px;
+#FX_ROOT .fx-answer-btn:hover{
+  filter:brightness(.98);
 }
 #FX_ROOT .fx-answer-btn.selected{
-  outline:2px solid var(--accent);
-  background:var(--accent2);
+  outline:3px solid var(--accent);
+  background:var(--accent-soft);
 }
-#FX_ROOT .fx-feedback{
-  font-weight:800;
-  min-height:22px;
-  margin-top:8px;
-}
-#FX_ROOT .fx-hint{
-  background:#fff8dd;
-  border:1px solid #e7dca5;
+#FX_ROOT .fx-answer-btn img{
+  width:90px;
+  height:72px;
+  object-fit:contain;
   border-radius:9px;
-  padding:9px;
+}
+
+#FX_ROOT .fx-text-answer{
+  width:100%;
+  border:2px solid var(--answer-border,#ddd);
+  border-radius:12px;
+  padding:12px;
+  font-size:var(--answer-size,18px);
   margin:8px 0;
 }
-#FX_ROOT .fx-text-answer{
-  margin:7px 0;
+
+#FX_ROOT .fx-hint-box{
+  background:#fff6d7;
+  border:1px solid #ead58d;
+  border-radius:11px;
+  padding:10px;
+  margin:9px 0;
+  font-size:14px;
 }
+#FX_ROOT .fx-feedback{
+  min-height:24px;
+  margin-top:10px;
+  font-weight:800;
+  text-align:center;
+}
+
+#FX_ROOT .fx-correct-flash{
+  animation:fxCorrect .55s ease;
+}
+#FX_ROOT .fx-wrong-shake{
+  animation:fxWrong .45s ease;
+}
+
+#FX_ROOT .fx-feedback-badge{
+  position:absolute;
+  z-index:150;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  min-width:170px;
+  padding:18px 22px;
+  border-radius:20px;
+  text-align:center;
+  font-size:25px;
+  font-weight:900;
+  box-shadow:0 12px 35px rgba(0,0,0,.2);
+}
+#FX_ROOT .fx-feedback-badge.correct{
+  background:#def2dc;
+  color:#33713b;
+  border:3px solid #7db784;
+}
+#FX_ROOT .fx-feedback-badge.wrong{
+  background:#fae2e2;
+  color:#a23c3c;
+  border:3px solid #df8585;
+}
+
 #FX_ROOT .fx-toast{
   position:absolute;
-  bottom:16px;
+  z-index:160;
   left:50%;
+  bottom:18px;
   transform:translateX(-50%);
-  z-index:130;
-  padding:9px 13px;
-  border-radius:999px;
   background:rgba(25,25,25,.9);
-  color:white;
+  color:#fff;
+  border-radius:999px;
+  padding:9px 14px;
   font-size:13px;
 }
 
 #FX_ROOT .fx-code{
   width:100%;
-  min-height:180px;
+  min-height:190px;
   font-family:monospace;
   font-size:11px;
 }
 #FX_ROOT .fx-status{
-  font-size:12px;
+  margin-top:7px;
   color:var(--muted);
-  margin-top:8px;
+  font-size:12px;
 }
 
 @keyframes fxFloat{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-7px)}
+  50%{transform:translateY(-10px)}
 }
 @keyframes fxPulse{
   0%,100%{transform:scale(1)}
-  50%{transform:scale(1.12)}
+  50%{transform:scale(1.14)}
+}
+@keyframes fxCorrect{
+  0%{transform:scale(.96)}
+  55%{transform:scale(1.03)}
+  100%{transform:scale(1)}
+}
+@keyframes fxWrong{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-9px)}
+  40%{transform:translateX(9px)}
+  60%{transform:translateX(-6px)}
+  80%{transform:translateX(6px)}
 }
 
-@media(max-width:930px){
+@media(max-width:980px){
   #FX_ROOT .fx-main{grid-template-columns:1fr}
   #FX_ROOT .fx-preview-wrap{position:static}
 }
 @media(max-width:520px){
-  #FX_ROOT .fx-grid2{grid-template-columns:1fr}
-  #FX_ROOT .fx-stage{min-height:250px}
+  #FX_ROOT .fx-grid2,
+  #FX_ROOT .fx-grid3,
+  #FX_ROOT .fx-type-grid{
+    grid-template-columns:1fr;
+  }
+  #FX_ROOT .fx-stage{min-height:300px}
 }
 </style>
 
 <div class="fx-shell">
+
   <div class="fx-top">
     <div class="fx-title">🎮 Конструктор платформенной игры</div>
+
     <div class="fx-top-actions">
-      <button class="fx-btn" id="fxResetBtn">Сбросить</button>
-      <button class="fx-btn primary" id="fxRestartBtn">▶ Тест-драйв</button>
-      <button class="fx-btn primary" id="fxQuickCopyBtn">Копировать код</button>
+      <button id="fxResetBtn" class="fx-btn">Сбросить</button>
+      <button id="fxRestartBtn" class="fx-btn primary">▶ Тест-драйв</button>
+      <button id="fxQuickCopyBtn" class="fx-btn primary">📋 Копировать код</button>
     </div>
   </div>
 
   <div class="fx-tabs" id="fxTabs">
     <button class="fx-tab active" data-tab="design">🎨 Оформление</button>
     <button class="fx-tab" data-tab="hero">👤 Герой</button>
+    <button class="fx-tab" data-tab="questionStyle">🖌 Окно задания</button>
     <button class="fx-tab" data-tab="tasks">❓ Задания</button>
     <button class="fx-tab" data-tab="items">🎁 Предметы</button>
     <button class="fx-tab" data-tab="settings">⚙️ Настройки</button>
-    <button class="fx-tab" data-tab="preview">👁 Предпросмотр</button>
     <button class="fx-tab" data-tab="publish">📤 Публикация</button>
   </div>
 
   <div class="fx-main">
+
     <div class="fx-controls">
 
       <div class="fx-pane active" data-pane="design">
+
         <div class="fx-card">
-          <div class="fx-card-title">Основное</div>
+          <div class="fx-card-title">Основное оформление</div>
+
           <div class="fx-field">
             <label>Название игры</label>
             <input id="fxTitle" type="text">
           </div>
+
           <div class="fx-grid2">
             <div class="fx-field">
-              <label>Цвет интерфейса</label>
+              <label>Основной цвет интерфейса</label>
               <input id="fxAccent" type="color">
             </div>
+
             <div class="fx-field">
-              <label>Цвет неба</label>
+              <label>Цвет неба / подложки</label>
               <input id="fxSky" type="color">
             </div>
           </div>
@@ -542,27 +666,31 @@
         <div id="picker_platform"></div>
         <div id="picker_obstacle"></div>
         <div id="picker_startImage"></div>
+
       </div>
 
       <div class="fx-pane" data-pane="hero">
+
+        <div id="picker_player"></div>
+
         <div class="fx-card">
-          <div class="fx-card-title">Персонаж</div>
-          <div id="picker_player"></div>
+          <div class="fx-card-title">Параметры героя</div>
 
           <div class="fx-grid2">
             <div class="fx-field">
               <label>Размер героя</label>
-              <input id="fxPlayerSize" type="range" min="30" max="85">
+              <input id="fxPlayerSize" type="range" min="45" max="120">
             </div>
+
             <div class="fx-field">
               <label>Скорость</label>
-              <input id="fxPlayerSpeed" type="range" min="120" max="360">
+              <input id="fxPlayerSpeed" type="range" min="140" max="400">
             </div>
           </div>
 
           <div class="fx-field">
             <label>Высота прыжка</label>
-            <input id="fxJump" type="range" min="360" max="680">
+            <input id="fxJump" type="range" min="400" max="760">
           </div>
 
           <label class="fx-check">
@@ -570,44 +698,206 @@
             Отражать героя при движении влево
           </label>
         </div>
+
+      </div>
+
+      <div class="fx-pane" data-pane="questionStyle">
+
+        <div class="fx-card">
+          <div class="fx-card-title">Шрифт</div>
+
+          <div class="fx-field">
+            <label>Стиль шрифта</label>
+            <select id="fxFontFamily">
+              <option value="Arial, sans-serif">Arial</option>
+              <option value="Verdana, sans-serif">Verdana</option>
+              <option value="Tahoma, sans-serif">Tahoma</option>
+              <option value="Trebuchet MS, sans-serif">Trebuchet</option>
+              <option value="Georgia, serif">Georgia</option>
+              <option value="Courier New, monospace">Courier</option>
+              <option value="Comic Sans MS, cursive">Comic Sans</option>
+              <option value="system-ui, sans-serif">Системный</option>
+            </select>
+          </div>
+
+          <div class="fx-grid2">
+            <div class="fx-field">
+              <label>Размер вопроса</label>
+              <input id="fxQuestionSize" type="range" min="16" max="42">
+            </div>
+
+            <div class="fx-field">
+              <label>Размер ответов</label>
+              <input id="fxAnswerSize" type="range" min="14" max="34">
+            </div>
+          </div>
+        </div>
+
+        <div class="fx-card">
+          <div class="fx-card-title">Карточка вопроса</div>
+
+          <div class="fx-grid2">
+            <div class="fx-field">
+              <label>Фон</label>
+              <input id="fxQuestionBg" type="color">
+            </div>
+
+            <div class="fx-field">
+              <label>Цвет текста</label>
+              <input id="fxQuestionText" type="color">
+            </div>
+          </div>
+
+          <div class="fx-grid2">
+            <div class="fx-field">
+              <label>Цвет заголовка</label>
+              <input id="fxQuestionTitle" type="color">
+            </div>
+
+            <div class="fx-field">
+              <label>Цвет рамки</label>
+              <input id="fxQuestionBorder" type="color">
+            </div>
+          </div>
+
+          <div class="fx-grid3">
+            <div class="fx-field">
+              <label>Толщина рамки</label>
+              <input id="fxQuestionBorderWidth" type="range" min="0" max="10">
+            </div>
+
+            <div class="fx-field">
+              <label>Скругление</label>
+              <input id="fxQuestionRadius" type="range" min="0" max="40">
+            </div>
+
+            <div class="fx-field">
+              <label>Внутр. отступ</label>
+              <input id="fxQuestionPadding" type="range" min="12" max="40">
+            </div>
+          </div>
+
+          <label class="fx-check">
+            <input id="fxQuestionShadow" type="checkbox">
+            Тень карточки
+          </label>
+        </div>
+
+        <div class="fx-card">
+          <div class="fx-card-title">Варианты ответа</div>
+
+          <div class="fx-grid2">
+            <div class="fx-field">
+              <label>Фон ответа</label>
+              <input id="fxAnswerBg" type="color">
+            </div>
+
+            <div class="fx-field">
+              <label>Цвет текста</label>
+              <input id="fxAnswerText" type="color">
+            </div>
+          </div>
+
+          <div class="fx-grid2">
+            <div class="fx-field">
+              <label>Цвет рамки</label>
+              <input id="fxAnswerBorder" type="color">
+            </div>
+
+            <div class="fx-field">
+              <label>Скругление</label>
+              <input id="fxAnswerRadius" type="range" min="0" max="35">
+            </div>
+          </div>
+
+          <div class="fx-field">
+            <label>Толщина рамки</label>
+            <input id="fxAnswerBorderWidth" type="range" min="0" max="8">
+          </div>
+        </div>
+
+        <div class="fx-card">
+          <div class="fx-card-title">Feedback</div>
+
+          <div class="fx-grid2">
+            <div class="fx-field">
+              <label>Цвет «Верно»</label>
+              <input id="fxCorrectColor" type="color">
+            </div>
+
+            <div class="fx-field">
+              <label>Цвет «Ошибка»</label>
+              <input id="fxWrongColor" type="color">
+            </div>
+          </div>
+
+          <label class="fx-check">
+            <input id="fxFeedbackPopup" type="checkbox">
+            Большая плашка поверх задания
+          </label>
+
+          <label class="fx-check">
+            <input id="fxCorrectAnimation" type="checkbox">
+            Анимация при правильном ответе
+          </label>
+
+          <label class="fx-check">
+            <input id="fxWrongAnimation" type="checkbox">
+            Встряхивание карточки при ошибке
+          </label>
+        </div>
+
       </div>
 
       <div class="fx-pane" data-pane="tasks">
+
         <div class="fx-card">
           <div class="fx-task-head">
             <div>
               <div class="fx-card-title" style="margin:0">Задания</div>
               <div id="fxTaskCount" class="fx-status"></div>
             </div>
-            <button class="fx-btn primary small" id="fxAddTask">+ Добавить</button>
+
+            <button id="fxAddTask" class="fx-btn primary small">
+              + Добавить
+            </button>
           </div>
+
           <div id="fxTasksList"></div>
         </div>
+
       </div>
 
       <div class="fx-pane" data-pane="items">
+
         <div id="picker_taskItem"></div>
+
         <div class="fx-card">
           <div class="fx-card-title">Предмет задания</div>
-          <div class="fx-field">
-            <label>Размер</label>
-            <input id="fxTaskSize" type="range" min="22" max="70">
+
+          <div class="fx-grid2">
+            <div class="fx-field">
+              <label>Размер</label>
+              <input id="fxTaskSize" type="range" min="45" max="110">
+            </div>
+
+            <div class="fx-field">
+              <label>Иконка</label>
+              <select id="fxTaskIcon">
+                <option value="⭐">⭐ Звезда</option>
+                <option value="💎">💎 Кристалл</option>
+                <option value="🔑">🔑 Ключ</option>
+                <option value="❓">❓ Вопрос</option>
+                <option value="📜">📜 Свиток</option>
+                <option value="🎁">🎁 Подарок</option>
+              </select>
+            </div>
           </div>
-          <div class="fx-field">
-            <label>Встроенная иконка</label>
-            <select id="fxTaskIcon">
-              <option value="⭐">⭐ Звезда</option>
-              <option value="💎">💎 Кристалл</option>
-              <option value="🔑">🔑 Ключ</option>
-              <option value="❓">❓ Вопрос</option>
-              <option value="📜">📜 Свиток</option>
-              <option value="🎁">🎁 Подарок</option>
-            </select>
-          </div>
+
           <div class="fx-field">
             <label>Анимация</label>
             <select id="fxTaskAnimation">
-              <option value="float">Покачивание</option>
+              <option value="float">Плавно вверх-вниз</option>
               <option value="pulse">Пульсация</option>
               <option value="none">Без анимации</option>
             </select>
@@ -615,36 +905,44 @@
         </div>
 
         <div id="picker_bonus"></div>
+
         <div class="fx-card">
           <div class="fx-card-title">Обычные бонусы</div>
+
           <label class="fx-check">
             <input id="fxBonusesEnabled" type="checkbox">
             Использовать бонусы
           </label>
-          <div class="fx-field">
-            <label>Количество</label>
-            <input id="fxBonusCount" type="number" min="0" max="100">
-          </div>
-          <div class="fx-field">
-            <label>Встроенная иконка</label>
-            <select id="fxBonusIcon">
-              <option value="🪙">🪙 Монета</option>
-              <option value="⭐">⭐ Звезда</option>
-              <option value="💎">💎 Кристалл</option>
-              <option value="🍎">🍎 Яблоко</option>
-            </select>
+
+          <div class="fx-grid2">
+            <div class="fx-field">
+              <label>Количество</label>
+              <input id="fxBonusCount" type="number" min="0" max="150">
+            </div>
+
+            <div class="fx-field">
+              <label>Иконка</label>
+              <select id="fxBonusIcon">
+                <option value="🪙">🪙 Монета</option>
+                <option value="⭐">⭐ Звезда</option>
+                <option value="💎">💎 Кристалл</option>
+                <option value="🍎">🍎 Яблоко</option>
+              </select>
+            </div>
           </div>
         </div>
 
         <div id="picker_finish"></div>
+
       </div>
 
       <div class="fx-pane" data-pane="settings">
+
         <div class="fx-card">
-          <div class="fx-card-title">Тексты</div>
+          <div class="fx-card-title">Тексты игры</div>
 
           <div class="fx-field">
-            <label>Текст кнопки старта</label>
+            <label>Кнопка старта</label>
             <input id="fxStartText" type="text">
           </div>
 
@@ -654,12 +952,12 @@
           </div>
 
           <div class="fx-field">
-            <label>Сообщение «Верно»</label>
+            <label>Правильный ответ</label>
             <input id="fxCorrectText" type="text">
           </div>
 
           <div class="fx-field">
-            <label>Сообщение при ошибке</label>
+            <label>Ошибка</label>
             <input id="fxWrongText" type="text">
           </div>
 
@@ -675,7 +973,7 @@
         </div>
 
         <div class="fx-card">
-          <div class="fx-card-title">Игра</div>
+          <div class="fx-card-title">Игровые настройки</div>
 
           <label class="fx-check">
             <input id="fxShowTaskCounter" type="checkbox">
@@ -689,120 +987,117 @@
 
           <label class="fx-check">
             <input id="fxShowInstruction" type="checkbox">
-            Показывать стартовую инструкцию
+            Показывать инструкцию
           </label>
 
           <label class="fx-check">
             <input id="fxLockFinish" type="checkbox">
             Финиш только после всех заданий
           </label>
-
-          <label class="fx-check">
-            <input id="fxShowCorrectAfterAttempts" type="checkbox">
-            Показывать правильный ответ после окончания попыток
-          </label>
-
-          <div class="fx-grid2">
-            <div class="fx-field">
-              <label>Попыток</label>
-              <select id="fxAttempts">
-                <option value="0">Без ограничений</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-            </div>
-
-            <div class="fx-field">
-              <label>Подсказок</label>
-              <select id="fxHintLimit">
-                <option value="0">Без ограничений</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-            </div>
-          </div>
         </div>
-      </div>
 
-      <div class="fx-pane" data-pane="preview">
-        <div class="fx-card">
-          <div class="fx-card-title">Тест-драйв</div>
-          <p style="font-size:13px">
-            Нажмите кнопку ниже, затем кликните по игре и используйте стрелки клавиатуры.
-          </p>
-          <button class="fx-btn primary" id="fxPreviewRestart2">▶ Запустить игру заново</button>
-        </div>
       </div>
 
       <div class="fx-pane" data-pane="publish">
+
         <div class="fx-card">
           <div class="fx-card-title">Публикация</div>
+
           <div class="fx-actions">
-            <button class="fx-btn primary" id="fxCopyBtn">📋 Копировать iframe</button>
-            <button class="fx-btn" id="fxShowCodeBtn">Показать код</button>
+            <button id="fxCopyBtn" class="fx-btn primary">
+              📋 Копировать iframe
+            </button>
+
+            <button id="fxShowCodeBtn" class="fx-btn">
+              Показать код
+            </button>
           </div>
+
           <div id="fxPublishStatus" class="fx-status"></div>
-          <textarea id="fxCode" class="fx-code fx-hidden" readonly></textarea>
+
+          <textarea
+            id="fxCode"
+            class="fx-code fx-hidden"
+            readonly
+          ></textarea>
         </div>
+
       </div>
 
     </div>
 
     <div class="fx-preview-wrap">
+
       <div class="fx-preview-toolbar">
         <div>
           <strong>Живой предпросмотр</strong>
-          <div class="fx-status">Кликните по игре для управления стрелками</div>
+          <div class="fx-preview-note">
+            Обновляется автоматически • кликните по игре и используйте стрелки
+          </div>
         </div>
 
-        <div class="fx-device-buttons">
-          <button class="active" data-device="desktop">🖥</button>
-          <button data-device="tablet">📱</button>
-          <button data-device="phone">📲</button>
-        </div>
+        <button id="fxRestartPreview" class="fx-btn small">
+          ↺ Начать заново
+        </button>
       </div>
 
-      <div class="fx-preview-frame desktop" id="fxPreviewFrame">
-        <div class="fx-stage" id="fxStage" tabindex="0">
-          <div class="fx-bg" id="fxBg"></div>
-          <div class="fx-world" id="fxWorld"></div>
-          <div class="fx-hud" id="fxHud"></div>
+      <div id="fxStage" class="fx-stage" tabindex="0">
 
-          <div class="fx-overlay" id="fxStartOverlay">
-            <div class="fx-modal">
-              <img id="fxStartImagePreview" class="fx-question-img fx-hidden">
-              <h2 id="fxStartTitle"></h2>
-              <p id="fxInstructionPreview"></p>
-              <button class="fx-btn primary" id="fxStartBtn"></button>
-            </div>
+        <div id="fxBg" class="fx-bg"></div>
+        <div id="fxWorld" class="fx-world"></div>
+        <div id="fxHud" class="fx-hud"></div>
+
+        <div id="fxStartOverlay" class="fx-overlay">
+          <div id="fxStartCard" class="fx-game-card">
+            <img id="fxStartImagePreview" class="fx-question-image fx-hidden">
+            <h2 id="fxStartTitle"></h2>
+            <p id="fxInstructionPreview"></p>
+            <button id="fxStartBtn" class="fx-btn primary"></button>
           </div>
-
-          <div class="fx-overlay fx-hidden" id="fxTaskOverlay">
-            <div class="fx-modal">
-              <h2 id="fxTaskTitlePreview"></h2>
-              <img id="fxQuestionImgPreview" class="fx-question-img fx-hidden">
-              <p id="fxTaskTextPreview"></p>
-              <div id="fxHintPreview" class="fx-hint fx-hidden"></div>
-              <button class="fx-btn small fx-hidden" id="fxHintBtn">💡 Подсказка</button>
-              <div id="fxAnswersPreview"></div>
-              <div id="fxFeedback" class="fx-feedback"></div>
-            </div>
-          </div>
-
-          <div class="fx-overlay fx-hidden" id="fxFinishOverlay">
-            <div class="fx-modal">
-              <h2 id="fxFinishTitlePreview"></h2>
-              <p id="fxFinishTextPreview"></p>
-              <button class="fx-btn primary" id="fxAgainBtn">Играть ещё раз</button>
-            </div>
-          </div>
-
-          <div id="fxToast" class="fx-toast fx-hidden"></div>
         </div>
+
+        <div id="fxTaskOverlay" class="fx-overlay fx-hidden">
+          <div id="fxQuestionCard" class="fx-game-card">
+            <h2 id="fxTaskTitlePreview"></h2>
+
+            <img
+              id="fxQuestionImgPreview"
+              class="fx-question-image fx-hidden"
+            >
+
+            <p id="fxTaskTextPreview"></p>
+
+            <div id="fxHintPreview" class="fx-hint-box fx-hidden"></div>
+
+            <button
+              id="fxHintBtn"
+              class="fx-btn small fx-hidden"
+            >
+              💡 Подсказка
+            </button>
+
+            <div id="fxAnswersPreview"></div>
+
+            <div id="fxFeedback" class="fx-feedback"></div>
+          </div>
+        </div>
+
+        <div id="fxFinishOverlay" class="fx-overlay fx-hidden">
+          <div class="fx-game-card">
+            <h2 id="fxFinishTitlePreview"></h2>
+            <p id="fxFinishTextPreview"></p>
+            <button id="fxAgainBtn" class="fx-btn primary">
+              Играть ещё раз
+            </button>
+          </div>
+        </div>
+
+        <div id="fxFeedbackBadge" class="fx-feedback-badge fx-hidden"></div>
+        <div id="fxToast" class="fx-toast fx-hidden"></div>
+
       </div>
     </div>
+
   </div>
 </div>
 
@@ -825,6 +1120,13 @@ const defaults={
   title:"Большое приключение",
   accent:"#6f8063",
 
+  colors:{
+    sky:"#cfe8f5",
+    ground:"#71965e",
+    platform:"#b27d55",
+    obstacle:"#a66f50"
+  },
+
   images:{
     background:blankImage(),
     ground:blankImage(),
@@ -837,29 +1139,49 @@ const defaults={
     startImage:blankImage()
   },
 
-  colors:{
-    sky:"#cfe8f5",
-    ground:"#759c62",
-    platform:"#b68861",
-    obstacle:"#a57555"
+  player:{
+    size:72,
+    speed:250,
+    jump:590,
+    mirror:true
   },
 
-  player:{
-    size:50,
-    speed:230,
-    jump:510,
-    mirror:true
+  questionStyle:{
+    font:"Arial, sans-serif",
+
+    questionBg:"#ffffff",
+    questionText:"#252525",
+    questionTitle:"#252525",
+    questionBorder:"#7c8c70",
+    questionBorderWidth:3,
+    questionRadius:20,
+    questionPadding:22,
+    questionSize:23,
+    shadow:true,
+
+    answerBg:"#f7f7f7",
+    answerText:"#252525",
+    answerBorder:"#d6d6d6",
+    answerBorderWidth:2,
+    answerRadius:12,
+    answerSize:18,
+
+    correctColor:"#4e9b5a",
+    wrongColor:"#c75656",
+    feedbackPopup:true,
+    correctAnimation:true,
+    wrongAnimation:true
   },
 
   taskItem:{
     icon:"⭐",
-    size:38,
+    size:68,
     animation:"float"
   },
 
   bonus:{
     enabled:true,
-    count:12,
+    count:16,
     icon:"🪙"
   },
 
@@ -869,25 +1191,22 @@ const defaults={
     correct:"Верно!",
     wrong:"Попробуй ещё раз",
     finishTitle:"Отличная работа!",
-    finishText:"Все задания выполнены!"
+    finishText:"Ты прошёл всю карту!"
   },
 
   settings:{
     showTaskCounter:true,
     showBonusCounter:true,
     showInstruction:true,
-    lockFinish:true,
-    attempts:0,
-    hintLimit:0,
-    showCorrectAfterAttempts:false
+    lockFinish:true
   },
 
   tasks:[
     {
       id:1,
+      type:"single",
       title:"Задание 1",
       text:"Сколько будет 7 + 5?",
-      type:"single",
       hint:"Посчитай от 7 ещё пять.",
       image:blankImage(),
       options:[
@@ -899,9 +1218,9 @@ const defaults={
     },
     {
       id:2,
+      type:"manual",
       title:"Задание 2",
       text:"Назови главные члены предложения.",
-      type:"manual",
       hint:"",
       image:blankImage(),
       options:[],
@@ -913,11 +1232,6 @@ const defaults={
 let state=JSON.parse(JSON.stringify(defaults));
 let nextTaskId=3;
 
-function getImage(obj){
-  if(!obj || obj.mode==="builtin" || !obj.value) return "";
-  return obj.value;
-}
-
 function esc(v){
   return String(v??"")
     .replace(/&/g,"&amp;")
@@ -926,16 +1240,28 @@ function esc(v){
     .replace(/"/g,"&quot;");
 }
 
-function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+function clamp(v,a,b){
+  return Math.max(a,Math.min(b,v));
+}
+
+function getImage(obj){
+  if(!obj || obj.mode==="builtin" || !obj.value) return "";
+  return obj.value;
+}
 
 function readFile(file,cb){
   if(!file) return;
+
   const r=new FileReader();
-  r.onload=()=>cb(String(r.result||""));
+
+  r.onload=()=>{
+    cb(String(r.result||""));
+  };
+
   r.readAsDataURL(file);
 }
 
-const pickerDefs={
+const pickerNames={
   background:"Фон игры",
   ground:"Земля",
   platform:"Платформы",
@@ -948,7 +1274,7 @@ const pickerDefs={
 };
 
 function renderImagePickers(){
-  Object.keys(pickerDefs).forEach(key=>{
+  Object.keys(pickerNames).forEach(key=>{
     const mount=$("#picker_"+key);
     if(!mount) return;
 
@@ -956,25 +1282,67 @@ function renderImagePickers(){
 
     mount.innerHTML=`
       <div class="fx-card">
-        <div class="fx-card-title">${pickerDefs[key]}</div>
+        <div class="fx-card-title">${pickerNames[key]}</div>
 
-        <div class="fx-img-picker" data-picker="${key}">
+        <div class="fx-image-card" data-picker="${key}">
           <div class="fx-source-tabs">
-            <button class="fx-source-btn ${data.mode==="builtin"?"active":""}" data-mode="builtin">Встроенное</button>
-            <button class="fx-source-btn ${data.mode==="url"?"active":""}" data-mode="url">URL</button>
-            <button class="fx-source-btn ${data.mode==="upload"?"active":""}" data-mode="upload">Файл</button>
+
+            <button
+              type="button"
+              class="fx-source-btn ${data.mode==="builtin"?"active":""}"
+              data-mode="builtin"
+            >
+              Встроенное
+            </button>
+
+            <button
+              type="button"
+              class="fx-source-btn ${data.mode==="url"?"active":""}"
+              data-mode="url"
+            >
+              URL
+            </button>
+
+            <button
+              type="button"
+              class="fx-source-btn ${data.mode==="upload"?"active":""}"
+              data-mode="upload"
+            >
+              Файл
+            </button>
+
           </div>
 
-          <div class="fx-picker-url ${data.mode==="url"?"":"fx-hidden"}">
-            <input type="text" data-role="url" value="${data.mode==="url"?esc(data.value):""}" placeholder="https://...">
-            <button class="fx-btn small" data-role="apply-url" style="margin-top:6px">Применить</button>
+          <div class="${data.mode==="url"?"":"fx-hidden"}">
+            <input
+              type="text"
+              data-role="url"
+              value="${data.mode==="url"?esc(data.value):""}"
+              placeholder="https://..."
+            >
+
+            <button
+              type="button"
+              class="fx-btn small"
+              data-role="apply-url"
+              style="margin-top:6px"
+            >
+              Применить
+            </button>
           </div>
 
-          <div class="fx-picker-file ${data.mode==="upload"?"":"fx-hidden"}">
-            <input type="file" data-role="file" accept="image/png,image/jpeg,image/webp,image/gif">
+          <div class="${data.mode==="upload"?"":"fx-hidden"}">
+            <input
+              type="file"
+              data-role="file"
+              accept="image/png,image/jpeg,image/webp,image/gif"
+            >
           </div>
 
-          <img class="fx-thumb ${getImage(data)?"show":""}" data-role="thumb" src="${esc(getImage(data))}">
+          <img
+            class="fx-thumb ${getImage(data)?"show":""}"
+            src="${esc(getImage(data))}"
+          >
         </div>
       </div>
     `;
@@ -983,6 +1351,7 @@ function renderImagePickers(){
 
 root.addEventListener("click",e=>{
   const picker=e.target.closest("[data-picker]");
+
   if(picker){
     const key=picker.dataset.picker;
 
@@ -994,15 +1363,18 @@ root.addEventListener("click",e=>{
       }
 
       renderImagePickers();
-      renderTasks();
       resetGame();
       return;
     }
 
     if(e.target.matches('[data-role="apply-url"]')){
-      const val=picker.querySelector('[data-role="url"]').value.trim();
-      state.images[key].mode="url";
-      state.images[key].value=val;
+      const url=picker.querySelector('[data-role="url"]').value.trim();
+
+      state.images[key]={
+        mode:"url",
+        value:url
+      };
+
       renderImagePickers();
       resetGame();
       return;
@@ -1013,48 +1385,105 @@ root.addEventListener("click",e=>{
 root.addEventListener("change",e=>{
   const picker=e.target.closest("[data-picker]");
 
-  if(picker && e.target.matches('[data-role="file"]')){
+  if(
+    picker &&
+    e.target.matches('[data-role="file"]')
+  ){
     const key=picker.dataset.picker;
 
     readFile(e.target.files[0],data=>{
-      state.images[key].mode="upload";
-      state.images[key].value=data;
+      state.images[key]={
+        mode:"upload",
+        value:data
+      };
+
       renderImagePickers();
       resetGame();
     });
   }
 });
 
-function renderTasks(){
-  const box=$("#fxTasksList");
-  $("#fxTaskCount").textContent="Добавлено: "+state.tasks.length;
+const taskTypes=[
+  {
+    id:"single",
+    title:"Один ответ",
+    desc:"Один правильный вариант"
+  },
+  {
+    id:"multi",
+    title:"Несколько",
+    desc:"Несколько правильных"
+  },
+  {
+    id:"truefalse",
+    title:"Верно / неверно",
+    desc:"Две кнопки"
+  },
+  {
+    id:"input",
+    title:"Вписать ответ",
+    desc:"Текстовое поле"
+  },
+  {
+    id:"manual",
+    title:"Устный ответ",
+    desc:"Учитель проверяет сам"
+  },
+  {
+    id:"image",
+    title:"Выбор картинки",
+    desc:"Ответы изображениями"
+  }
+];
 
-  box.innerHTML="";
+function renderTasks(){
+  const list=$("#fxTasksList");
+
+  $("#fxTaskCount").textContent=
+    "Добавлено: "+state.tasks.length;
+
+  list.innerHTML="";
 
   state.tasks.forEach((task,index)=>{
     const card=document.createElement("div");
     card.className="fx-task-card";
     card.dataset.taskId=task.id;
 
-    const isChoice=["single","multi","image"].includes(task.type);
+    const typeButtons=taskTypes.map(t=>`
+      <button
+        type="button"
+        class="fx-type-btn ${task.type===t.id?"active":""}"
+        data-task-type="${t.id}"
+      >
+        ${t.title}
+        <span>${t.desc}</span>
+      </button>
+    `).join("");
 
-    let options="";
+    const isChoice=
+      task.type==="single" ||
+      task.type==="multi" ||
+      task.type==="image";
+
+    let optionsHtml="";
 
     if(isChoice){
-      options=task.options.map((op,oi)=>`
-        <div class="fx-option" data-option="${oi}">
+      optionsHtml=task.options.map((op,oi)=>`
+        <div class="fx-option">
+
           <div class="fx-option-top">
+
             <input
               type="text"
+              value="${esc(op.text)}"
               data-task-field="optionText"
               data-option-index="${oi}"
-              value="${esc(op.text)}"
-              placeholder="Текст варианта"
+              placeholder="Текст ответа"
             >
 
             <label class="fx-check" style="margin:0">
               <input
-                type="${task.type==="single"||task.type==="image"?"radio":"checkbox"}"
+                type="${task.type==="multi"?"checkbox":"radio"}"
                 name="correct_${task.id}"
                 data-task-field="optionCorrect"
                 data-option-index="${oi}"
@@ -1062,46 +1491,64 @@ function renderTasks(){
               >
               Верно
             </label>
+
           </div>
 
-          <div class="fx-option-img">
+          <div class="fx-answer-source">
             <input
               type="text"
+              value="${op.image && op.image.mode==="url"?esc(op.image.value):""}"
               data-task-field="optionImageUrl"
               data-option-index="${oi}"
-              value="${op.image && op.image.mode==="url"?esc(op.image.value):""}"
-              placeholder="URL картинки ответа"
+              placeholder="URL картинки"
             >
+
             <input
               type="file"
               accept="image/*"
               data-task-field="optionImageFile"
               data-option-index="${oi}"
-              style="margin-top:5px"
             >
           </div>
+
         </div>
       `).join("");
     }
 
-    let extra="";
+    let answerExtra="";
 
     if(task.type==="input"){
-      extra=`
+      answerExtra=`
         <div class="fx-field">
           <label>Правильный ответ</label>
-          <input type="text" data-task-field="answer" value="${esc(task.answer)}">
+          <input
+            type="text"
+            data-task-field="answer"
+            value="${esc(task.answer)}"
+          >
         </div>
       `;
     }
 
     if(task.type==="truefalse"){
-      extra=`
+      answerExtra=`
         <div class="fx-field">
           <label>Правильный ответ</label>
+
           <select data-task-field="answer">
-            <option value="true" ${task.answer==="true"?"selected":""}>Верно</option>
-            <option value="false" ${task.answer==="false"?"selected":""}>Неверно</option>
+            <option
+              value="true"
+              ${task.answer==="true"?"selected":""}
+            >
+              Верно
+            </option>
+
+            <option
+              value="false"
+              ${task.answer==="false"?"selected":""}
+            >
+              Неверно
+            </option>
           </select>
         </div>
       `;
@@ -1109,39 +1556,37 @@ function renderTasks(){
 
     card.innerHTML=`
       <div class="fx-task-head">
-        <div class="fx-task-num">Задание ${index+1}</div>
+
+        <div class="fx-task-num">
+          Задание ${index+1}
+        </div>
+
         <div class="fx-task-actions">
           <button class="fx-btn small" data-act="up">↑</button>
           <button class="fx-btn small" data-act="down">↓</button>
           <button class="fx-btn danger small" data-act="delete">×</button>
         </div>
+
+      </div>
+
+      <label>1. Выберите вид задания</label>
+
+      <div class="fx-type-grid">
+        ${typeButtons}
       </div>
 
       <div class="fx-field">
-        <label>Заголовок</label>
-        <input type="text" data-task-field="title" value="${esc(task.title)}">
+        <label>2. Заголовок</label>
+        <input
+          type="text"
+          data-task-field="title"
+          value="${esc(task.title)}"
+        >
       </div>
 
       <div class="fx-field">
-        <label>Текст задания</label>
+        <label>3. Текст задания</label>
         <textarea data-task-field="text">${esc(task.text)}</textarea>
-      </div>
-
-      <div class="fx-field">
-        <label>Тип задания</label>
-        <select data-task-field="type">
-          <option value="single" ${task.type==="single"?"selected":""}>Один правильный ответ</option>
-          <option value="multi" ${task.type==="multi"?"selected":""}>Несколько правильных</option>
-          <option value="truefalse" ${task.type==="truefalse"?"selected":""}>Верно / неверно</option>
-          <option value="input" ${task.type==="input"?"selected":""}>Ввод ответа</option>
-          <option value="manual" ${task.type==="manual"?"selected":""}>Устный ответ</option>
-          <option value="image" ${task.type==="image"?"selected":""}>Выбор картинки</option>
-        </select>
-      </div>
-
-      <div class="fx-field">
-        <label>Подсказка</label>
-        <input type="text" data-task-field="hint" value="${esc(task.hint)}">
       </div>
 
       <div class="fx-field">
@@ -1149,39 +1594,78 @@ function renderTasks(){
         <input
           type="text"
           data-task-field="questionImageUrl"
-          value="${task.image && task.image.mode==="url"?esc(task.image.value):""}"
+          value="${
+            task.image &&
+            task.image.mode==="url"
+              ? esc(task.image.value)
+              : ""
+          }"
           placeholder="https://..."
         >
       </div>
 
       <div class="fx-field">
-        <label>Или загрузить картинку</label>
-        <input type="file" accept="image/*" data-task-field="questionImageFile">
+        <label>Или загрузите картинку</label>
+        <input
+          type="file"
+          accept="image/*"
+          data-task-field="questionImageFile"
+        >
       </div>
 
-      ${options}
-      ${extra}
+      ${
+        isChoice
+          ? `
+            <label>4. Варианты ответа</label>
+            ${optionsHtml}
 
-      ${isChoice?`
-        <button class="fx-btn small" data-act="add-option">+ Вариант ответа</button>
-      `:""}
+            <button
+              class="fx-btn small"
+              data-act="add-option"
+            >
+              + Добавить вариант
+            </button>
+          `
+          : ""
+      }
+
+      ${answerExtra}
+
+      <div class="fx-field" style="margin-top:10px">
+        <label>Подсказка</label>
+
+        <input
+          type="text"
+          data-task-field="hint"
+          value="${esc(task.hint)}"
+          placeholder="Необязательно"
+        >
+      </div>
     `;
 
-    box.appendChild(card);
+    list.appendChild(card);
   });
 }
 
 function newTask(){
   return {
     id:nextTaskId++,
+    type:"single",
     title:"Новое задание",
     text:"Введите текст задания",
-    type:"single",
     hint:"",
     image:blankImage(),
     options:[
-      {text:"Ответ 1",image:blankImage(),correct:true},
-      {text:"Ответ 2",image:blankImage(),correct:false}
+      {
+        text:"Ответ 1",
+        image:blankImage(),
+        correct:true
+      },
+      {
+        text:"Ответ 2",
+        image:blankImage(),
+        correct:false
+      }
     ],
     answer:""
   };
@@ -1199,7 +1683,43 @@ $("#fxTasksList").addEventListener("click",e=>{
 
   const id=Number(card.dataset.taskId);
   const index=state.tasks.findIndex(t=>t.id===id);
+
   if(index<0) return;
+
+  const task=state.tasks[index];
+
+  if(e.target.matches("[data-task-type]")){
+    task.type=e.target.dataset.taskType;
+
+    if(
+      (
+        task.type==="single" ||
+        task.type==="multi" ||
+        task.type==="image"
+      ) &&
+      !task.options.length
+    ){
+      task.options=[
+        {
+          text:"Ответ 1",
+          image:blankImage(),
+          correct:true
+        },
+        {
+          text:"Ответ 2",
+          image:blankImage(),
+          correct:false
+        }
+      ];
+    }
+
+    if(task.type==="truefalse" && !task.answer){
+      task.answer="true";
+    }
+
+    renderTasks();
+    return;
+  }
 
   const act=e.target.dataset.act;
 
@@ -1210,23 +1730,41 @@ $("#fxTasksList").addEventListener("click",e=>{
   }
 
   if(act==="up" && index>0){
-    [state.tasks[index-1],state.tasks[index]]=[state.tasks[index],state.tasks[index-1]];
+    [
+      state.tasks[index-1],
+      state.tasks[index]
+    ]=[
+      state.tasks[index],
+      state.tasks[index-1]
+    ];
+
     renderTasks();
     resetGame();
   }
 
-  if(act==="down" && index<state.tasks.length-1){
-    [state.tasks[index+1],state.tasks[index]]=[state.tasks[index],state.tasks[index+1]];
+  if(
+    act==="down" &&
+    index<state.tasks.length-1
+  ){
+    [
+      state.tasks[index+1],
+      state.tasks[index]
+    ]=[
+      state.tasks[index],
+      state.tasks[index+1]
+    ];
+
     renderTasks();
     resetGame();
   }
 
   if(act==="add-option"){
-    state.tasks[index].options.push({
+    task.options.push({
       text:"Новый вариант",
       image:blankImage(),
       correct:false
     });
+
     renderTasks();
   }
 });
@@ -1235,48 +1773,54 @@ $("#fxTasksList").addEventListener("input",e=>{
   const card=e.target.closest(".fx-task-card");
   if(!card) return;
 
-  const task=state.tasks.find(t=>t.id===Number(card.dataset.taskId));
+  const task=state.tasks.find(
+    t=>t.id===Number(card.dataset.taskId)
+  );
+
   if(!task) return;
 
-  const f=e.target.dataset.taskField;
-  if(!f) return;
+  const field=e.target.dataset.taskField;
 
-  if(f==="title") task.title=e.target.value;
-  if(f==="text") task.text=e.target.value;
-  if(f==="hint") task.hint=e.target.value;
-  if(f==="answer") task.answer=e.target.value;
-
-  if(f==="type"){
-    task.type=e.target.value;
-
-    if(["single","multi","image"].includes(task.type) && !task.options.length){
-      task.options=[
-        {text:"Ответ 1",image:blankImage(),correct:true},
-        {text:"Ответ 2",image:blankImage(),correct:false}
-      ];
-    }
-
-    if(task.type==="truefalse" && !task.answer){
-      task.answer="true";
-    }
-
-    renderTasks();
-    resetGame();
-    return;
+  if(field==="title"){
+    task.title=e.target.value;
   }
 
-  if(f==="questionImageUrl"){
-    task.image={mode:"url",value:e.target.value.trim()};
+  if(field==="text"){
+    task.text=e.target.value;
   }
 
-  if(f==="optionText"){
-    const oi=Number(e.target.dataset.optionIndex);
+  if(field==="hint"){
+    task.hint=e.target.value;
+  }
+
+  if(field==="answer"){
+    task.answer=e.target.value;
+  }
+
+  if(field==="questionImageUrl"){
+    task.image={
+      mode:"url",
+      value:e.target.value.trim()
+    };
+  }
+
+  if(field==="optionText"){
+    const oi=Number(
+      e.target.dataset.optionIndex
+    );
+
     task.options[oi].text=e.target.value;
   }
 
-  if(f==="optionImageUrl"){
-    const oi=Number(e.target.dataset.optionIndex);
-    task.options[oi].image={mode:"url",value:e.target.value.trim()};
+  if(field==="optionImageUrl"){
+    const oi=Number(
+      e.target.dataset.optionIndex
+    );
+
+    task.options[oi].image={
+      mode:"url",
+      value:e.target.value.trim()
+    };
   }
 });
 
@@ -1284,94 +1828,63 @@ $("#fxTasksList").addEventListener("change",e=>{
   const card=e.target.closest(".fx-task-card");
   if(!card) return;
 
-  const task=state.tasks.find(t=>t.id===Number(card.dataset.taskId));
+  const task=state.tasks.find(
+    t=>t.id===Number(card.dataset.taskId)
+  );
+
   if(!task) return;
 
-  const f=e.target.dataset.taskField;
+  const field=e.target.dataset.taskField;
 
-  if(f==="optionCorrect"){
-    const oi=Number(e.target.dataset.optionIndex);
+  if(field==="optionCorrect"){
+    const oi=Number(
+      e.target.dataset.optionIndex
+    );
 
-    if(task.type==="single" || task.type==="image"){
-      task.options.forEach((o,i)=>o.correct=i===oi);
-      renderTasks();
+    if(task.type==="multi"){
+      task.options[oi].correct=
+        e.target.checked;
     }else{
-      task.options[oi].correct=e.target.checked;
+      task.options.forEach((op,i)=>{
+        op.correct=i===oi;
+      });
+
+      renderTasks();
     }
   }
 
-  if(f==="questionImageFile"){
-    readFile(e.target.files[0],data=>{
-      task.image={mode:"upload",value:data};
-    });
+  if(field==="questionImageFile"){
+    readFile(
+      e.target.files[0],
+      data=>{
+        task.image={
+          mode:"upload",
+          value:data
+        };
+      }
+    );
   }
 
-  if(f==="optionImageFile"){
-    const oi=Number(e.target.dataset.optionIndex);
+  if(field==="optionImageFile"){
+    const oi=Number(
+      e.target.dataset.optionIndex
+    );
 
-    readFile(e.target.files[0],data=>{
-      task.options[oi].image={mode:"upload",value:data};
-    });
+    readFile(
+      e.target.files[0],
+      data=>{
+        task.options[oi].image={
+          mode:"upload",
+          value:data
+        };
+      }
+    );
   }
 
-  if(f==="answer"){
+  if(field==="answer"){
     task.answer=e.target.value;
   }
 });
-
-function bindSimple(){
-  const bindings=[
-    ["#fxTitle",v=>state.title=v],
-    ["#fxAccent",v=>state.accent=v],
-    ["#fxSky",v=>state.colors.sky=v],
-    ["#fxPlayerSize",v=>state.player.size=+v],
-    ["#fxPlayerSpeed",v=>state.player.speed=+v],
-    ["#fxJump",v=>state.player.jump=+v],
-    ["#fxTaskSize",v=>state.taskItem.size=+v],
-    ["#fxTaskIcon",v=>state.taskItem.icon=v],
-    ["#fxTaskAnimation",v=>state.taskItem.animation=v],
-    ["#fxBonusCount",v=>state.bonus.count=+v],
-    ["#fxBonusIcon",v=>state.bonus.icon=v],
-    ["#fxStartText",v=>state.texts.start=v],
-    ["#fxInstruction",v=>state.texts.instruction=v],
-    ["#fxCorrectText",v=>state.texts.correct=v],
-    ["#fxWrongText",v=>state.texts.wrong=v],
-    ["#fxFinishTitle",v=>state.texts.finishTitle=v],
-    ["#fxFinishText",v=>state.texts.finishText=v],
-    ["#fxAttempts",v=>state.settings.attempts=+v],
-    ["#fxHintLimit",v=>state.settings.hintLimit=+v]
-  ];
-
-  bindings.forEach(([sel,setter])=>{
-    const el=$(sel);
-    el.addEventListener("input",()=>{
-      setter(el.value);
-      resetGame();
-    });
-    el.addEventListener("change",()=>{
-      setter(el.value);
-      resetGame();
-    });
-  });
-
-  const checks=[
-    ["#fxMirror",(v)=>state.player.mirror=v],
-    ["#fxBonusesEnabled",(v)=>state.bonus.enabled=v],
-    ["#fxShowTaskCounter",(v)=>state.settings.showTaskCounter=v],
-    ["#fxShowBonusCounter",(v)=>state.settings.showBonusCounter=v],
-    ["#fxShowInstruction",(v)=>state.settings.showInstruction=v],
-    ["#fxLockFinish",(v)=>state.settings.lockFinish=v],
-    ["#fxShowCorrectAfterAttempts",(v)=>state.settings.showCorrectAfterAttempts=v]
-  ];
-
-  checks.forEach(([sel,setter])=>{
-    const el=$(sel);
-    el.addEventListener("change",()=>{
-      setter(el.checked);
-      resetGame();
-    });
-  });
-}
 
 function syncInputs(){
   $("#fxTitle").value=state.title;
@@ -1385,55 +1898,588 @@ function syncInputs(){
 
   $("#fxTaskSize").value=state.taskItem.size;
   $("#fxTaskIcon").value=state.taskItem.icon;
-  $("#fxTaskAnimation").value=state.taskItem.animation;
+  $("#fxTaskAnimation").value=
+    state.taskItem.animation;
 
-  $("#fxBonusesEnabled").checked=state.bonus.enabled;
-  $("#fxBonusCount").value=state.bonus.count;
-  $("#fxBonusIcon").value=state.bonus.icon;
+  $("#fxBonusesEnabled").checked=
+    state.bonus.enabled;
 
-  $("#fxStartText").value=state.texts.start;
-  $("#fxInstruction").value=state.texts.instruction;
-  $("#fxCorrectText").value=state.texts.correct;
-  $("#fxWrongText").value=state.texts.wrong;
-  $("#fxFinishTitle").value=state.texts.finishTitle;
-  $("#fxFinishText").value=state.texts.finishText;
+  $("#fxBonusCount").value=
+    state.bonus.count;
 
-  $("#fxShowTaskCounter").checked=state.settings.showTaskCounter;
-  $("#fxShowBonusCounter").checked=state.settings.showBonusCounter;
-  $("#fxShowInstruction").checked=state.settings.showInstruction;
-  $("#fxLockFinish").checked=state.settings.lockFinish;
-  $("#fxAttempts").value=state.settings.attempts;
-  $("#fxHintLimit").value=state.settings.hintLimit;
-  $("#fxShowCorrectAfterAttempts").checked=state.settings.showCorrectAfterAttempts;
+  $("#fxBonusIcon").value=
+    state.bonus.icon;
 
-  root.style.setProperty("--accent",state.accent);
+  $("#fxStartText").value=
+    state.texts.start;
+
+  $("#fxInstruction").value=
+    state.texts.instruction;
+
+  $("#fxCorrectText").value=
+    state.texts.correct;
+
+  $("#fxWrongText").value=
+    state.texts.wrong;
+
+  $("#fxFinishTitle").value=
+    state.texts.finishTitle;
+
+  $("#fxFinishText").value=
+    state.texts.finishText;
+
+  $("#fxShowTaskCounter").checked=
+    state.settings.showTaskCounter;
+
+  $("#fxShowBonusCounter").checked=
+    state.settings.showBonusCounter;
+
+  $("#fxShowInstruction").checked=
+    state.settings.showInstruction;
+
+  $("#fxLockFinish").checked=
+    state.settings.lockFinish;
+
+  const q=state.questionStyle;
+
+  $("#fxFontFamily").value=q.font;
+
+  $("#fxQuestionSize").value=
+    q.questionSize;
+
+  $("#fxAnswerSize").value=
+    q.answerSize;
+
+  $("#fxQuestionBg").value=
+    q.questionBg;
+
+  $("#fxQuestionText").value=
+    q.questionText;
+
+  $("#fxQuestionTitle").value=
+    q.questionTitle;
+
+  $("#fxQuestionBorder").value=
+    q.questionBorder;
+
+  $("#fxQuestionBorderWidth").value=
+    q.questionBorderWidth;
+
+  $("#fxQuestionRadius").value=
+    q.questionRadius;
+
+  $("#fxQuestionPadding").value=
+    q.questionPadding;
+
+  $("#fxQuestionShadow").checked=
+    q.shadow;
+
+  $("#fxAnswerBg").value=
+    q.answerBg;
+
+  $("#fxAnswerText").value=
+    q.answerText;
+
+  $("#fxAnswerBorder").value=
+    q.answerBorder;
+
+  $("#fxAnswerBorderWidth").value=
+    q.answerBorderWidth;
+
+  $("#fxAnswerRadius").value=
+    q.answerRadius;
+
+  $("#fxCorrectColor").value=
+    q.correctColor;
+
+  $("#fxWrongColor").value=
+    q.wrongColor;
+
+  $("#fxFeedbackPopup").checked=
+    q.feedbackPopup;
+
+  $("#fxCorrectAnimation").checked=
+    q.correctAnimation;
+
+  $("#fxWrongAnimation").checked=
+    q.wrongAnimation;
+
+  applyVisualStyle();
+}
+
+function applyVisualStyle(){
+  const q=state.questionStyle;
+
+  root.style.setProperty(
+    "--accent",
+    state.accent
+  );
+
+  root.style.setProperty(
+    "--question-font",
+    q.font
+  );
+
+  root.style.setProperty(
+    "--question-bg",
+    q.questionBg
+  );
+
+  root.style.setProperty(
+    "--question-text",
+    q.questionText
+  );
+
+  root.style.setProperty(
+    "--question-title",
+    q.questionTitle
+  );
+
+  root.style.setProperty(
+    "--question-border",
+    q.questionBorder
+  );
+
+  root.style.setProperty(
+    "--question-border-width",
+    q.questionBorderWidth+"px"
+  );
+
+  root.style.setProperty(
+    "--question-radius",
+    q.questionRadius+"px"
+  );
+
+  root.style.setProperty(
+    "--question-padding",
+    q.questionPadding+"px"
+  );
+
+  root.style.setProperty(
+    "--question-size",
+    q.questionSize+"px"
+  );
+
+  root.style.setProperty(
+    "--question-shadow",
+    q.shadow
+      ? "0 12px 35px rgba(0,0,0,.2)"
+      : "none"
+  );
+
+  root.style.setProperty(
+    "--answer-font",
+    q.font
+  );
+
+  root.style.setProperty(
+    "--answer-bg",
+    q.answerBg
+  );
+
+  root.style.setProperty(
+    "--answer-text",
+    q.answerText
+  );
+
+  root.style.setProperty(
+    "--answer-border",
+    q.answerBorder
+  );
+
+  root.style.setProperty(
+    "--answer-border-width",
+    q.answerBorderWidth+"px"
+  );
+
+  root.style.setProperty(
+    "--answer-radius",
+    q.answerRadius+"px"
+  );
+
+  root.style.setProperty(
+    "--answer-size",
+    q.answerSize+"px"
+  );
+}
+
+function bindField(
+  selector,
+  getter,
+  setter,
+  redraw
+){
+  const el=$(selector);
+
+  const handler=()=>{
+    setter(
+      el.type==="checkbox"
+        ? el.checked
+        : el.value
+    );
+
+    applyVisualStyle();
+
+    if(redraw){
+      resetGame();
+    }
+  };
+
+  el.addEventListener(
+    "input",
+    handler
+  );
+
+  el.addEventListener(
+    "change",
+    handler
+  );
+}
+
+function bindAll(){
+  bindField(
+    "#fxTitle",
+    null,
+    v=>state.title=v,
+    true
+  );
+
+  bindField(
+    "#fxAccent",
+    null,
+    v=>state.accent=v,
+    false
+  );
+
+  bindField(
+    "#fxSky",
+    null,
+    v=>state.colors.sky=v,
+    true
+  );
+
+  bindField(
+    "#fxPlayerSize",
+    null,
+    v=>state.player.size=+v,
+    true
+  );
+
+  bindField(
+    "#fxPlayerSpeed",
+    null,
+    v=>state.player.speed=+v,
+    false
+  );
+
+  bindField(
+    "#fxJump",
+    null,
+    v=>state.player.jump=+v,
+    false
+  );
+
+  bindField(
+    "#fxMirror",
+    null,
+    v=>state.player.mirror=v,
+    false
+  );
+
+  bindField(
+    "#fxTaskSize",
+    null,
+    v=>state.taskItem.size=+v,
+    true
+  );
+
+  bindField(
+    "#fxTaskIcon",
+    null,
+    v=>state.taskItem.icon=v,
+    true
+  );
+
+  bindField(
+    "#fxTaskAnimation",
+    null,
+    v=>state.taskItem.animation=v,
+    true
+  );
+
+  bindField(
+    "#fxBonusesEnabled",
+    null,
+    v=>state.bonus.enabled=v,
+    true
+  );
+
+  bindField(
+    "#fxBonusCount",
+    null,
+    v=>state.bonus.count=+v,
+    true
+  );
+
+  bindField(
+    "#fxBonusIcon",
+    null,
+    v=>state.bonus.icon=v,
+    true
+  );
+
+  bindField(
+    "#fxStartText",
+    null,
+    v=>state.texts.start=v,
+    true
+  );
+
+  bindField(
+    "#fxInstruction",
+    null,
+    v=>state.texts.instruction=v,
+    true
+  );
+
+  bindField(
+    "#fxCorrectText",
+    null,
+    v=>state.texts.correct=v,
+    false
+  );
+
+  bindField(
+    "#fxWrongText",
+    null,
+    v=>state.texts.wrong=v,
+    false
+  );
+
+  bindField(
+    "#fxFinishTitle",
+    null,
+    v=>state.texts.finishTitle=v,
+    true
+  );
+
+  bindField(
+    "#fxFinishText",
+    null,
+    v=>state.texts.finishText=v,
+    true
+  );
+
+  bindField(
+    "#fxShowTaskCounter",
+    null,
+    v=>state.settings.showTaskCounter=v,
+    true
+  );
+
+  bindField(
+    "#fxShowBonusCounter",
+    null,
+    v=>state.settings.showBonusCounter=v,
+    true
+  );
+
+  bindField(
+    "#fxShowInstruction",
+    null,
+    v=>state.settings.showInstruction=v,
+    true
+  );
+
+  bindField(
+    "#fxLockFinish",
+    null,
+    v=>state.settings.lockFinish=v,
+    false
+  );
+
+  bindField(
+    "#fxFontFamily",
+    null,
+    v=>state.questionStyle.font=v,
+    false
+  );
+
+  bindField(
+    "#fxQuestionSize",
+    null,
+    v=>state.questionStyle.questionSize=+v,
+    false
+  );
+
+  bindField(
+    "#fxAnswerSize",
+    null,
+    v=>state.questionStyle.answerSize=+v,
+    false
+  );
+
+  bindField(
+    "#fxQuestionBg",
+    null,
+    v=>state.questionStyle.questionBg=v,
+    false
+  );
+
+  bindField(
+    "#fxQuestionText",
+    null,
+    v=>state.questionStyle.questionText=v,
+    false
+  );
+
+  bindField(
+    "#fxQuestionTitle",
+    null,
+    v=>state.questionStyle.questionTitle=v,
+    false
+  );
+
+  bindField(
+    "#fxQuestionBorder",
+    null,
+    v=>state.questionStyle.questionBorder=v,
+    false
+  );
+
+  bindField(
+    "#fxQuestionBorderWidth",
+    null,
+    v=>state.questionStyle.questionBorderWidth=+v,
+    false
+  );
+
+  bindField(
+    "#fxQuestionRadius",
+    null,
+    v=>state.questionStyle.questionRadius=+v,
+    false
+  );
+
+  bindField(
+    "#fxQuestionPadding",
+    null,
+    v=>state.questionStyle.questionPadding=+v,
+    false
+  );
+
+  bindField(
+    "#fxQuestionShadow",
+    null,
+    v=>state.questionStyle.shadow=v,
+    false
+  );
+
+  bindField(
+    "#fxAnswerBg",
+    null,
+    v=>state.questionStyle.answerBg=v,
+    false
+  );
+
+  bindField(
+    "#fxAnswerText",
+    null,
+    v=>state.questionStyle.answerText=v,
+    false
+  );
+
+  bindField(
+    "#fxAnswerBorder",
+    null,
+    v=>state.questionStyle.answerBorder=v,
+    false
+  );
+
+  bindField(
+    "#fxAnswerBorderWidth",
+    null,
+    v=>state.questionStyle.answerBorderWidth=+v,
+    false
+  );
+
+  bindField(
+    "#fxAnswerRadius",
+    null,
+    v=>state.questionStyle.answerRadius=+v,
+    false
+  );
+
+  bindField(
+    "#fxCorrectColor",
+    null,
+    v=>state.questionStyle.correctColor=v,
+    false
+  );
+
+  bindField(
+    "#fxWrongColor",
+    null,
+    v=>state.questionStyle.wrongColor=v,
+    false
+  );
+
+  bindField(
+    "#fxFeedbackPopup",
+    null,
+    v=>state.questionStyle.feedbackPopup=v,
+    false
+  );
+
+  bindField(
+    "#fxCorrectAnimation",
+    null,
+    v=>state.questionStyle.correctAnimation=v,
+    false
+  );
+
+  bindField(
+    "#fxWrongAnimation",
+    null,
+    v=>state.questionStyle.wrongAnimation=v,
+    false
+  );
 }
 
 $("#fxTabs").addEventListener("click",e=>{
   const tab=e.target.closest(".fx-tab");
+
   if(!tab) return;
 
-  $$(".fx-tab").forEach(x=>x.classList.remove("active"));
-  $$(".fx-pane").forEach(x=>x.classList.remove("active"));
+  $$(".fx-tab").forEach(x=>
+    x.classList.remove("active")
+  );
+
+  $$(".fx-pane").forEach(x=>
+    x.classList.remove("active")
+  );
 
   tab.classList.add("active");
-  $('[data-pane="'+tab.dataset.tab+'"]').classList.add("active");
-});
 
-$$(".fx-device-buttons button").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    $$(".fx-device-buttons button").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-
-    $("#fxPreviewFrame").className=
-      "fx-preview-frame "+btn.dataset.device;
-  });
+  $(
+    '[data-pane="'+
+    tab.dataset.tab+
+    '"]'
+  ).classList.add("active");
 });
 
 function makeMap(taskCount){
-  const perSection=5;
-  const sections=Math.max(1,Math.ceil(Math.max(1,taskCount)/perSection));
-  const W=760;
+  const perSection=6;
+
+  const sections=Math.max(
+    1,
+    Math.ceil(
+      Math.max(1,taskCount)/
+      perSection
+    )
+  );
+
+  const W=980;
 
   const ground=[];
   const platforms=[];
@@ -1444,226 +2490,499 @@ function makeMap(taskCount){
   for(let s=0;s<sections;s++){
     const x=s*W;
 
-    ground.push({x:x,y:0,w:245,h:34});
-    ground.push({x:x+330,y:0,w:430,h:34});
+    ground.push(
+      {
+        x:x,
+        y:0,
+        w:280,
+        h:46
+      },
+      {
+        x:x+390,
+        y:0,
+        w:590,
+        h:46
+      }
+    );
 
-    platforms.push({x:x+110,y:100,w:125,h:20});
-    platforms.push({x:x+275,y:165,w:130,h:20});
-    platforms.push({x:x+455,y:225,w:140,h:20});
-    platforms.push({x:x+570,y:115,w:125,h:20});
+    platforms.push(
+      {
+        x:x+130,
+        y:145,
+        w:190,
+        h:28
+      },
+      {
+        x:x+350,
+        y:245,
+        w:190,
+        h:28
+      },
+      {
+        x:x+575,
+        y:350,
+        w:210,
+        h:28
+      },
+      {
+        x:x+790,
+        y:220,
+        w:155,
+        h:28
+      }
+    );
 
-    obstacles.push({x:x+55,y:34,w:48,h:50});
-    obstacles.push({x:x+655,y:34,w:48,h:70});
+    obstacles.push(
+      {
+        x:x+65,
+        y:46,
+        w:78,
+        h:85
+      },
+      {
+        x:x+455,
+        y:46,
+        w:95,
+        h:110
+      },
+      {
+        x:x+850,
+        y:46,
+        w:80,
+        h:135
+      }
+    );
 
     tasks.push(
-      {x:x+145,y:140},
-      {x:x+310,y:205},
-      {x:x+500,y:265},
-      {x:x+610,y:155},
-      {x:x+390,y:55}
+      {
+        x:x+185,
+        y:205
+      },
+      {
+        x:x+405,
+        y:305
+      },
+      {
+        x:x+640,
+        y:412
+      },
+      {
+        x:x+820,
+        y:280
+      },
+      {
+        x:x+610,
+        y:75
+      },
+      {
+        x:x+930,
+        y:90
+      }
     );
 
     bonuses.push(
-      {x:x+20,y:58},
-      {x:x+205,y:140},
-      {x:x+352,y:55},
-      {x:x+438,y:55},
-      {x:x+535,y:265},
-      {x:x+710,y:58}
+      {
+        x:x+20,
+        y:78
+      },
+      {
+        x:x+250,
+        y:205
+      },
+      {
+        x:x+470,
+        y:305
+      },
+      {
+        x:x+690,
+        y:412
+      },
+      {
+        x:x+755,
+        y:75
+      },
+      {
+        x:x+900,
+        y:280
+      }
     );
   }
 
   const end=sections*W;
 
-  ground.push({x:end,y:0,w:330,h:34});
-  platforms.push({x:end+75,y:110,w:130,h:20});
+  ground.push({
+    x:end,
+    y:0,
+    w:390,
+    h:46
+  });
+
+  platforms.push({
+    x:end+80,
+    y:170,
+    w:190,
+    h:28
+  });
 
   return {
-    width:end+380,
+    width:end+450,
     ground,
     platforms,
     obstacles,
-    tasks:tasks.slice(0,taskCount),
+    tasks:tasks.slice(
+      0,
+      taskCount
+    ),
     bonuses,
-    finishX:end+255
+    finishX:end+305
   };
 }
 
 let game=null;
 
-function resetGame(){
-  cancelAnimationFrame(game && game.raf || 0);
+function createObj(cls,r){
+  const e=document.createElement("div");
 
-  root.style.setProperty("--accent",state.accent);
+  e.className=
+    "fx-obj "+cls;
+
+  e.style.left=
+    r.x+"px";
+
+  e.style.bottom=
+    r.y+"px";
+
+  e.style.width=
+    r.w+"px";
+
+  e.style.height=
+    r.h+"px";
+
+  $("#fxWorld").appendChild(e);
+
+  return e;
+}
+
+function resetGame(){
+  if(game && game.raf){
+    cancelAnimationFrame(game.raf);
+  }
+
+  applyVisualStyle();
 
   game={
     started:false,
     paused:false,
     done:false,
-    x:70,
-    y:34,
+
+    x:75,
+    y:46,
+
     vx:0,
     vy:0,
+
     grounded:false,
+
     camera:0,
+
     last:performance.now(),
-    safeX:70,
+
+    safeX:75,
+
     completed:new Set(),
     collected:new Set(),
-    attempts:{},
-    hintsUsed:0,
-    activeTask:-1,
+
     selectedAnswers:new Set(),
-    keys:{left:false,right:false,up:false,down:false},
-    map:makeMap(state.tasks.length),
+
+    activeTask:-1,
+
+    keys:{
+      left:false,
+      right:false,
+      up:false,
+      down:false
+    },
+
+    map:makeMap(
+      state.tasks.length
+    ),
+
     raf:0
   };
 
   renderWorld();
   renderHud();
 
-  $("#fxStartTitle").textContent=state.title;
+  $("#fxStartTitle").textContent=
+    state.title;
+
   $("#fxInstructionPreview").textContent=
-    state.settings.showInstruction ? state.texts.instruction : "";
+    state.settings.showInstruction
+      ? state.texts.instruction
+      : "";
 
-  $("#fxStartBtn").textContent=state.texts.start;
+  $("#fxStartBtn").textContent=
+    state.texts.start;
 
-  const startImg=getImage(state.images.startImage);
-  const si=$("#fxStartImagePreview");
+  const startImage=
+    getImage(
+      state.images.startImage
+    );
 
-  if(startImg){
-    si.src=startImg;
-    si.classList.remove("fx-hidden");
+  const startImgEl=
+    $("#fxStartImagePreview");
+
+  if(startImage){
+    startImgEl.src=
+      startImage;
+
+    startImgEl.classList.remove(
+      "fx-hidden"
+    );
   }else{
-    si.removeAttribute("src");
-    si.classList.add("fx-hidden");
+    startImgEl.classList.add(
+      "fx-hidden"
+    );
   }
 
-  $("#fxStartOverlay").classList.remove("fx-hidden");
-  $("#fxTaskOverlay").classList.add("fx-hidden");
-  $("#fxFinishOverlay").classList.add("fx-hidden");
+  $("#fxStartOverlay").classList.remove(
+    "fx-hidden"
+  );
+
+  $("#fxTaskOverlay").classList.add(
+    "fx-hidden"
+  );
+
+  $("#fxFinishOverlay").classList.add(
+    "fx-hidden"
+  );
+
+  $("#fxFeedbackBadge").classList.add(
+    "fx-hidden"
+  );
 
   startLoop();
 }
 
-function cssImage(obj){
-  const v=getImage(obj);
-  return v ? 'url("'+v+'")' : "none";
-}
-
-function createObj(cls,r){
-  const e=document.createElement("div");
-  e.className="fx-obj "+cls;
-  e.style.left=r.x+"px";
-  e.style.bottom=r.y+"px";
-  e.style.width=r.w+"px";
-  e.style.height=r.h+"px";
-  $("#fxWorld").appendChild(e);
-  return e;
-}
-
 function renderWorld(){
   const world=$("#fxWorld");
+
   world.innerHTML="";
-  world.style.width=game.map.width+"px";
+  world.style.width=
+    game.map.width+"px";
 
   const bg=$("#fxBg");
-  bg.style.backgroundColor=state.colors.sky;
-  bg.style.backgroundImage=cssImage(state.images.background);
+
+  bg.style.backgroundColor=
+    state.colors.sky;
+
+  const bgImg=
+    getImage(
+      state.images.background
+    );
+
+  bg.style.backgroundImage=
+    bgImg
+      ? 'url("'+bgImg+'")'
+      : "none";
 
   game.map.ground.forEach(r=>{
-    const e=createObj("fx-ground",r);
-    e.style.backgroundColor=state.colors.ground;
+    const e=createObj(
+      "fx-ground",
+      r
+    );
 
-    const img=getImage(state.images.ground);
+    e.style.backgroundColor=
+      state.colors.ground;
+
+    const img=
+      getImage(
+        state.images.ground
+      );
+
     if(img){
-      e.style.backgroundImage='url("'+img+'")';
-      e.style.backgroundSize="cover";
+      e.style.backgroundImage=
+        'url("'+img+'")';
+
+      e.style.backgroundSize=
+        "cover";
     }
   });
 
   game.map.platforms.forEach(r=>{
-    const e=createObj("fx-platform",r);
-    e.style.backgroundColor=state.colors.platform;
+    const e=createObj(
+      "fx-platform",
+      r
+    );
 
-    const img=getImage(state.images.platform);
+    e.style.backgroundColor=
+      state.colors.platform;
+
+    const img=
+      getImage(
+        state.images.platform
+      );
+
     if(img){
-      e.style.backgroundImage='url("'+img+'")';
-      e.style.backgroundSize="cover";
+      e.style.backgroundImage=
+        'url("'+img+'")';
+
+      e.style.backgroundSize=
+        "cover";
     }
   });
 
   game.map.obstacles.forEach(r=>{
-    const e=createObj("fx-obstacle",r);
-    e.style.backgroundColor=state.colors.obstacle;
+    const e=createObj(
+      "fx-obstacle",
+      r
+    );
 
-    const img=getImage(state.images.obstacle);
+    e.style.backgroundColor=
+      state.colors.obstacle;
+
+    const img=
+      getImage(
+        state.images.obstacle
+      );
+
     if(img){
-      e.style.backgroundImage='url("'+img+'")';
-      e.style.backgroundSize="cover";
+      e.style.backgroundImage=
+        'url("'+img+'")';
+
+      e.style.backgroundSize=
+        "cover";
     }
   });
 
   game.map.tasks.forEach((p,i)=>{
-    const s=state.taskItem.size;
+    const size=
+      state.taskItem.size;
 
-    const e=createObj("fx-task-item",{
-      x:p.x,y:p.y,w:s,h:s
-    });
+    const e=createObj(
+      "fx-task-item",
+      {
+        x:p.x,
+        y:p.y,
+        w:size,
+        h:size
+      }
+    );
 
     e.dataset.task=i;
 
-    const img=getImage(state.images.taskItem);
+    const img=
+      getImage(
+        state.images.taskItem
+      );
 
     if(img){
-      e.style.backgroundImage='url("'+img+'")';
+      e.style.backgroundImage=
+        'url("'+img+'")';
     }else{
-      e.textContent=state.taskItem.icon;
-      e.style.fontSize=(s*.8)+"px";
+      e.textContent=
+        state.taskItem.icon;
+
+      e.style.fontSize=
+        size*.78+"px";
     }
 
-    if(state.taskItem.animation==="pulse"){
-      e.style.animationName="fxPulse";
+    if(
+      state.taskItem.animation===
+      "pulse"
+    ){
+      e.style.animationName=
+        "fxPulse";
     }
 
-    if(state.taskItem.animation==="none"){
-      e.style.animation="none";
+    if(
+      state.taskItem.animation===
+      "none"
+    ){
+      e.style.animation=
+        "none";
     }
   });
 
   if(state.bonus.enabled){
     game.map.bonuses
-      .slice(0,Math.min(state.bonus.count,game.map.bonuses.length))
+      .slice(
+        0,
+        Math.min(
+          state.bonus.count,
+          game.map.bonuses.length
+        )
+      )
       .forEach((p,i)=>{
-        const e=createObj("fx-bonus-item",{
-          x:p.x,y:p.y,w:26,h:26
-        });
+        const size=38;
+
+        const e=createObj(
+          "fx-bonus-item",
+          {
+            x:p.x,
+            y:p.y,
+            w:size,
+            h:size
+          }
+        );
 
         e.dataset.bonus=i;
 
-        const img=getImage(state.images.bonus);
+        const img=
+          getImage(
+            state.images.bonus
+          );
 
         if(img){
-          e.style.backgroundImage='url("'+img+'")';
+          e.style.backgroundImage=
+            'url("'+img+'")';
         }else{
-          e.textContent=state.bonus.icon;
-          e.style.fontSize="22px";
+          e.textContent=
+            state.bonus.icon;
+
+          e.style.fontSize=
+            "31px";
         }
       });
   }
 
+  const finishImg=
+    getImage(
+      state.images.finish
+    );
+
   const finish=createObj(
-    "fx-finish "+(getImage(state.images.finish)?"":"flag"),
-    {x:game.map.finishX,y:34,w:54,h:88}
+    "fx-finish "+
+    (
+      finishImg
+        ? ""
+        : "flag"
+    ),
+    {
+      x:game.map.finishX,
+      y:46,
+      w:75,
+      h:125
+    }
   );
 
-  const finishImg=getImage(state.images.finish);
   if(finishImg){
-    finish.style.backgroundImage='url("'+finishImg+'")';
+    finish.style.backgroundImage=
+      'url("'+finishImg+'")';
   }
 
+  const playerImg=
+    getImage(
+      state.images.player
+    );
+
   const player=createObj(
-    "fx-player "+(getImage(state.images.player)?"image":""),
+    "fx-player "+
+    (
+      playerImg
+        ? "image"
+        : ""
+    ),
     {
       x:game.x,
       y:game.y,
@@ -1672,12 +2991,12 @@ function renderWorld(){
     }
   );
 
-  player.id="fxPlayerObject";
-
-  const playerImg=getImage(state.images.player);
+  player.id=
+    "fxPlayerObject";
 
   if(playerImg){
-    player.style.backgroundImage='url("'+playerImg+'")';
+    player.style.backgroundImage=
+      'url("'+playerImg+'")';
   }
 }
 
@@ -1685,75 +3004,152 @@ function renderHud(){
   const hud=$("#fxHud");
   hud.innerHTML="";
 
-  if(state.settings.showTaskCounter){
-    const p=document.createElement("div");
-    p.className="fx-pill";
-    p.textContent=state.taskItem.icon+" "+game.completed.size+"/"+state.tasks.length;
-    hud.appendChild(p);
+  if(
+    state.settings.showTaskCounter
+  ){
+    const pill=
+      document.createElement("div");
+
+    pill.className=
+      "fx-pill";
+
+    pill.textContent=
+      state.taskItem.icon+
+      " "+
+      game.completed.size+
+      "/"+
+      state.tasks.length;
+
+    hud.appendChild(pill);
   }
 
-  if(state.settings.showBonusCounter && state.bonus.enabled){
-    const p=document.createElement("div");
-    p.className="fx-pill";
-    p.textContent=state.bonus.icon+" "+game.collected.size;
-    hud.appendChild(p);
+  if(
+    state.settings.showBonusCounter &&
+    state.bonus.enabled
+  ){
+    const pill=
+      document.createElement("div");
+
+    pill.className=
+      "fx-pill";
+
+    pill.textContent=
+      state.bonus.icon+
+      " "+
+      game.collected.size;
+
+    hud.appendChild(pill);
   }
 }
 
 function overlap(a,b){
-  return a.x<b.x+b.w &&
-         a.x+a.w>b.x &&
-         a.y<b.y+b.h &&
-         a.y+a.h>b.y;
+  return (
+    a.x<b.x+b.w &&
+    a.x+a.w>b.x &&
+    a.y<b.y+b.h &&
+    a.y+a.h>b.y
+  );
 }
 
 function jump(){
-  if(game.started && !game.paused && game.grounded){
-    game.vy=state.player.jump;
+  if(
+    game.started &&
+    !game.paused &&
+    game.grounded
+  ){
+    game.vy=
+      state.player.jump;
+
     game.grounded=false;
   }
 }
 
 function update(dt){
-  const pw=state.player.size*.75;
-  const ph=state.player.size;
+  const pw=
+    state.player.size*.72;
+
+  const ph=
+    state.player.size;
 
   let dir=0;
+
   if(game.keys.left) dir--;
   if(game.keys.right) dir++;
 
-  game.vx=dir*state.player.speed;
+  game.vx=
+    dir*
+    state.player.speed;
 
-  let nx=game.x+game.vx*dt;
+  let nx=
+    game.x+
+    game.vx*dt;
 
-  const test={x:nx,y:game.y,w:pw,h:ph};
+  const test={
+    x:nx,
+    y:game.y,
+    w:pw,
+    h:ph
+  };
 
-  for(const o of game.map.obstacles){
+  for(
+    const o
+    of game.map.obstacles
+  ){
     if(overlap(test,o)){
-      if(game.vx>0) nx=o.x-pw-.1;
-      if(game.vx<0) nx=o.x+o.w+.1;
+      if(game.vx>0){
+        nx=
+          o.x-pw-.1;
+      }
+
+      if(game.vx<0){
+        nx=
+          o.x+o.w+.1;
+      }
+
       break;
     }
   }
 
-  game.x=clamp(nx,0,game.map.width-pw);
+  game.x=
+    clamp(
+      nx,
+      0,
+      game.map.width-pw
+    );
 
-  game.vy-=1150*dt;
+  game.vy-=1200*dt;
 
-  let ny=game.y+game.vy*dt;
+  let ny=
+    game.y+
+    game.vy*dt;
+
   let landed=false;
 
-  const surfaces=[...game.map.ground,...game.map.platforms];
+  const surfaces=[
+    ...game.map.ground,
+    ...game.map.platforms
+  ];
 
   if(game.vy<=0){
     for(const s of surfaces){
-      const top=s.y+s.h;
+      const top=
+        s.y+s.h;
 
       const horizontal=
         game.x+pw>s.x &&
         game.x<s.x+s.w;
 
-      if(horizontal && game.y>=top-3 && ny<=top){
+      const above=
+        game.y>=top-4;
+
+      const crosses=
+        ny<=top;
+
+      if(
+        horizontal &&
+        above &&
+        crosses
+      ){
         ny=top;
         game.vy=0;
         landed=true;
@@ -1765,11 +3161,16 @@ function update(dt){
   game.y=ny;
   game.grounded=landed;
 
-  if(landed) game.safeX=game.x;
+  if(landed){
+    game.safeX=
+      game.x;
+  }
 
-  if(game.y<-130){
-    game.x=game.safeX;
-    game.y=170;
+  if(game.y<-160){
+    game.x=
+      game.safeX;
+
+    game.y=220;
     game.vy=0;
   }
 
@@ -1779,58 +3180,137 @@ function update(dt){
 }
 
 function draw(){
-  const player=$("#fxPlayerObject");
+  const player=
+    $("#fxPlayerObject");
+
   if(!player) return;
 
-  const vw=$("#fxStage").clientWidth;
+  const viewport=
+    $("#fxStage").clientWidth;
 
-  game.camera=clamp(
-    game.x-vw*.35,
-    0,
-    Math.max(0,game.map.width-vw)
-  );
+  game.camera=
+    clamp(
+      game.x-
+      viewport*.34,
+      0,
+      Math.max(
+        0,
+        game.map.width-
+        viewport
+      )
+    );
 
   $("#fxWorld").style.transform=
-    "translateX("+(-game.camera)+"px)";
+    "translateX("+
+    (-game.camera)+
+    "px)";
 
-  player.style.left=game.x+"px";
-  player.style.bottom=game.y+"px";
+  player.style.left=
+    game.x+"px";
+
+  player.style.bottom=
+    game.y+"px";
 
   if(state.player.mirror){
-    if(game.vx<0) player.style.transform="scaleX(-1)";
-    if(game.vx>0) player.style.transform="scaleX(1)";
+    if(game.vx<0){
+      player.style.transform=
+        "scaleX(-1)";
+    }
+
+    if(game.vx>0){
+      player.style.transform=
+        "scaleX(1)";
+    }
   }
 }
 
 function checkTasks(pw,ph){
-  const pr={x:game.x,y:game.y,w:pw,h:ph};
+  const pr={
+    x:game.x,
+    y:game.y,
+    w:pw,
+    h:ph
+  };
 
-  game.map.tasks.forEach((p,i)=>{
-    if(game.completed.has(i)) return;
+  game.map.tasks.forEach(
+    (p,i)=>{
+      if(
+        game.completed.has(i)
+      ){
+        return;
+      }
 
-    const s=state.taskItem.size;
+      const s=
+        state.taskItem.size;
 
-    if(overlap(pr,{x:p.x,y:p.y,w:s,h:s})){
-      openTask(i);
+      if(
+        overlap(
+          pr,
+          {
+            x:p.x,
+            y:p.y,
+            w:s,
+            h:s
+          }
+        )
+      ){
+        openTask(i);
+      }
     }
-  });
+  );
 }
 
 function checkBonuses(pw,ph){
-  if(!state.bonus.enabled) return;
+  if(!state.bonus.enabled){
+    return;
+  }
 
-  const pr={x:game.x,y:game.y,w:pw,h:ph};
+  const pr={
+    x:game.x,
+    y:game.y,
+    w:pw,
+    h:ph
+  };
 
   game.map.bonuses
-    .slice(0,Math.min(state.bonus.count,game.map.bonuses.length))
+    .slice(
+      0,
+      Math.min(
+        state.bonus.count,
+        game.map.bonuses.length
+      )
+    )
     .forEach((p,i)=>{
-      if(game.collected.has(i)) return;
+      if(
+        game.collected.has(i)
+      ){
+        return;
+      }
 
-      if(overlap(pr,{x:p.x,y:p.y,w:26,h:26})){
+      if(
+        overlap(
+          pr,
+          {
+            x:p.x,
+            y:p.y,
+            w:38,
+            h:38
+          }
+        )
+      ){
         game.collected.add(i);
 
-        const el=$("#fxWorld").querySelector('[data-bonus="'+i+'"]');
-        if(el) el.remove();
+        const el=
+          $("#fxWorld")
+          .querySelector(
+            '[data-bonus="'+
+            i+
+            '"]'
+          );
+
+        if(el){
+          el.remove();
+        }
 
         renderHud();
       }
@@ -1838,262 +3318,481 @@ function checkBonuses(pw,ph){
 }
 
 function checkFinish(pw,ph){
-  const pr={x:game.x,y:game.y,w:pw,h:ph};
+  const pr={
+    x:game.x,
+    y:game.y,
+    w:pw,
+    h:ph
+  };
 
-  if(!overlap(pr,{
-    x:game.map.finishX,
-    y:34,
-    w:54,
-    h:88
-  })) return;
+  if(
+    !overlap(
+      pr,
+      {
+        x:game.map.finishX,
+        y:46,
+        w:75,
+        h:125
+      }
+    )
+  ){
+    return;
+  }
 
   if(
     state.settings.lockFinish &&
-    game.completed.size<state.tasks.length
+    game.completed.size<
+    state.tasks.length
   ){
-    toast("Выполни все задания: "+game.completed.size+"/"+state.tasks.length);
+    showToast(
+      "Выполни все задания: "+
+      game.completed.size+
+      "/"+
+      state.tasks.length
+    );
+
     return;
   }
 
   finishGame();
 }
 
-let toastTimer=0;
-
-function toast(text){
-  clearTimeout(toastTimer);
-
-  const el=$("#fxToast");
-  el.textContent=text;
-  el.classList.remove("fx-hidden");
-
-  toastTimer=setTimeout(()=>{
-    el.classList.add("fx-hidden");
-  },1400);
-}
-
-function openTask(i){
+function openTask(index){
   if(game.paused) return;
 
-  const task=state.tasks[i];
+  const task=
+    state.tasks[index];
+
   if(!task) return;
 
   game.paused=true;
-  game.activeTask=i;
+  game.activeTask=index;
   game.selectedAnswers.clear();
-  game.attempts[i]=game.attempts[i]||0;
 
-  $("#fxTaskTitlePreview").textContent=
-    task.title || "Задание "+(i+1);
+  $("#fxTaskTitlePreview")
+    .textContent=
+    task.title||
+    ("Задание "+(index+1));
 
-  $("#fxTaskTextPreview").textContent=task.text||"";
-  $("#fxFeedback").textContent="";
+  $("#fxTaskTextPreview")
+    .textContent=
+    task.text||"";
 
-  const qimg=getImage(task.image);
-  const img=$("#fxQuestionImgPreview");
+  $("#fxFeedback")
+    .textContent="";
+
+  const qimg=
+    getImage(task.image);
+
+  const qel=
+    $("#fxQuestionImgPreview");
 
   if(qimg){
-    img.src=qimg;
-    img.classList.remove("fx-hidden");
+    qel.src=qimg;
+    qel.classList.remove(
+      "fx-hidden"
+    );
   }else{
-    img.classList.add("fx-hidden");
+    qel.classList.add(
+      "fx-hidden"
+    );
   }
 
-  const hintBtn=$("#fxHintBtn");
-  $("#fxHintPreview").classList.add("fx-hidden");
+  const hintBtn=
+    $("#fxHintBtn");
+
+  const hintBox=
+    $("#fxHintPreview");
+
+  hintBox.classList.add(
+    "fx-hidden"
+  );
 
   if(task.hint){
-    hintBtn.classList.remove("fx-hidden");
+    hintBtn.classList.remove(
+      "fx-hidden"
+    );
+
+    hintBtn.onclick=()=>{
+      hintBox.textContent=
+        task.hint;
+
+      hintBox.classList.remove(
+        "fx-hidden"
+      );
+    };
   }else{
-    hintBtn.classList.add("fx-hidden");
+    hintBtn.classList.add(
+      "fx-hidden"
+    );
   }
 
-  hintBtn.onclick=()=>{
-    if(
-      state.settings.hintLimit>0 &&
-      game.hintsUsed>=state.settings.hintLimit
-    ){
-      toast("Подсказки закончились");
-      return;
-    }
+  renderAnswers(
+    task,
+    index
+  );
 
-    game.hintsUsed++;
-    $("#fxHintPreview").textContent=task.hint;
-    $("#fxHintPreview").classList.remove("fx-hidden");
-  };
-
-  renderAnswers(task,i);
-
-  $("#fxTaskOverlay").classList.remove("fx-hidden");
+  $("#fxTaskOverlay")
+    .classList.remove(
+      "fx-hidden"
+    );
 }
 
-function renderAnswers(task,index){
-  const box=$("#fxAnswersPreview");
+function renderAnswers(
+  task,
+  index
+){
+  const box=
+    $("#fxAnswersPreview");
+
   box.innerHTML="";
 
   if(task.type==="manual"){
-    const b=document.createElement("button");
-    b.className="fx-btn primary";
-    b.textContent="Готово";
-    b.onclick=()=>completeTask(index);
-    box.appendChild(b);
+    const btn=
+      document.createElement(
+        "button"
+      );
+
+    btn.className=
+      "fx-btn primary";
+
+    btn.textContent=
+      "Готово";
+
+    btn.onclick=()=>{
+      completeTask(index);
+    };
+
+    box.appendChild(btn);
     return;
   }
 
-  if(task.type==="truefalse"){
-    ["Верно","Неверно"].forEach((label,ii)=>{
-      const b=document.createElement("button");
-      b.className="fx-answer-btn";
-      b.textContent=label;
+  if(
+    task.type===
+    "truefalse"
+  ){
+    [
+      {
+        label:"Верно",
+        value:"true"
+      },
+      {
+        label:"Неверно",
+        value:"false"
+      }
+    ].forEach(item=>{
+      const btn=
+        document.createElement(
+          "button"
+        );
 
-      b.onclick=()=>{
-        const val=ii===0?"true":"false";
-        checkSimple(val===task.answer,index,task);
+      btn.className=
+        "fx-answer-btn";
+
+      btn.textContent=
+        item.label;
+
+      btn.onclick=()=>{
+        checkAnswer(
+          item.value===
+          task.answer,
+          index
+        );
       };
 
-      box.appendChild(b);
+      box.appendChild(btn);
     });
 
     return;
   }
 
   if(task.type==="input"){
-    const inp=document.createElement("input");
-    inp.className="fx-text-answer";
+    const inp=
+      document.createElement(
+        "input"
+      );
+
+    inp.className=
+      "fx-text-answer";
+
     inp.type="text";
-    inp.placeholder="Введите ответ";
 
-    const b=document.createElement("button");
-    b.className="fx-btn primary";
-    b.textContent="Проверить";
+    inp.placeholder=
+      "Введите ответ";
 
-    b.onclick=()=>{
-      const a=String(inp.value).trim().toLowerCase();
-      const c=String(task.answer).trim().toLowerCase();
-      checkSimple(a===c,index,task);
+    const btn=
+      document.createElement(
+        "button"
+      );
+
+    btn.className=
+      "fx-btn primary";
+
+    btn.textContent=
+      "Проверить";
+
+    btn.onclick=()=>{
+      const a=
+        String(inp.value)
+        .trim()
+        .toLowerCase();
+
+      const b=
+        String(task.answer)
+        .trim()
+        .toLowerCase();
+
+      checkAnswer(
+        a===b,
+        index
+      );
     };
 
     box.appendChild(inp);
-    box.appendChild(b);
+    box.appendChild(btn);
     return;
   }
 
-  task.options.forEach((op,oi)=>{
-    const b=document.createElement("button");
-    b.className="fx-answer-btn";
+  task.options.forEach(
+    (option,oi)=>{
+      const btn=
+        document.createElement(
+          "button"
+        );
 
-    const img=getImage(op.image);
+      btn.className=
+        "fx-answer-btn";
 
-    if(img){
-      const im=document.createElement("img");
-      im.src=img;
-      b.appendChild(im);
+      const img=
+        getImage(
+          option.image
+        );
+
+      if(img){
+        const im=
+          document.createElement(
+            "img"
+          );
+
+        im.src=img;
+        btn.appendChild(im);
+      }
+
+      if(option.text){
+        const span=
+          document.createElement(
+            "span"
+          );
+
+        span.textContent=
+          option.text;
+
+        btn.appendChild(span);
+      }
+
+      if(task.type==="multi"){
+        btn.onclick=()=>{
+          if(
+            game.selectedAnswers
+            .has(oi)
+          ){
+            game.selectedAnswers
+              .delete(oi);
+
+            btn.classList.remove(
+              "selected"
+            );
+          }else{
+            game.selectedAnswers
+              .add(oi);
+
+            btn.classList.add(
+              "selected"
+            );
+          }
+        };
+      }else{
+        btn.onclick=()=>{
+          checkAnswer(
+            !!option.correct,
+            index
+          );
+        };
+      }
+
+      box.appendChild(btn);
     }
-
-    if(op.text){
-      const sp=document.createElement("span");
-      sp.textContent=op.text;
-      b.appendChild(sp);
-    }
-
-    if(task.type==="multi"){
-      b.onclick=()=>{
-        if(game.selectedAnswers.has(oi)){
-          game.selectedAnswers.delete(oi);
-          b.classList.remove("selected");
-        }else{
-          game.selectedAnswers.add(oi);
-          b.classList.add("selected");
-        }
-      };
-    }else{
-      b.onclick=()=>{
-        checkSimple(!!op.correct,index,task);
-      };
-    }
-
-    box.appendChild(b);
-  });
+  );
 
   if(task.type==="multi"){
-    const check=document.createElement("button");
-    check.className="fx-btn primary";
-    check.textContent="Проверить";
+    const checkBtn=
+      document.createElement(
+        "button"
+      );
 
-    check.onclick=()=>{
-      const correct=task.options
-        .map((o,i)=>o.correct?i:-1)
+    checkBtn.className=
+      "fx-btn primary";
+
+    checkBtn.textContent=
+      "Проверить";
+
+    checkBtn.onclick=()=>{
+      const correct=
+        task.options
+        .map((o,i)=>
+          o.correct
+            ? i
+            : -1
+        )
         .filter(i=>i>=0);
 
-      const selected=Array.from(game.selectedAnswers).sort((a,b)=>a-b);
+      const selected=
+        Array.from(
+          game.selectedAnswers
+        )
+        .sort((a,b)=>a-b);
 
       const ok=
-        selected.length===correct.length &&
-        selected.every((v,i)=>v===correct[i]);
+        selected.length===
+        correct.length &&
+        selected.every(
+          (v,i)=>
+            v===
+            correct[i]
+        );
 
-      checkSimple(ok,index,task);
+      checkAnswer(
+        ok,
+        index
+      );
     };
 
-    box.appendChild(check);
+    box.appendChild(
+      checkBtn
+    );
   }
 }
 
-function checkSimple(ok,index,task){
+function showFeedback(
+  type,
+  text
+){
+  const q=
+    $("#fxQuestionCard");
+
+  const badge=
+    $("#fxFeedbackBadge");
+
+  q.classList.remove(
+    "fx-correct-flash",
+    "fx-wrong-shake"
+  );
+
+  if(type==="correct"){
+    $("#fxFeedback")
+      .style.color=
+      state.questionStyle
+      .correctColor;
+
+    if(
+      state.questionStyle
+      .correctAnimation
+    ){
+      q.classList.add(
+        "fx-correct-flash"
+      );
+    }
+  }else{
+    $("#fxFeedback")
+      .style.color=
+      state.questionStyle
+      .wrongColor;
+
+    if(
+      state.questionStyle
+      .wrongAnimation
+    ){
+      q.classList.add(
+        "fx-wrong-shake"
+      );
+    }
+  }
+
+  $("#fxFeedback")
+    .textContent=
+    text;
+
+  if(
+    state.questionStyle
+    .feedbackPopup
+  ){
+    badge.textContent=
+      type==="correct"
+        ? "✓ "+text
+        : "✕ "+text;
+
+    badge.className=
+      "fx-feedback-badge "+
+      type;
+
+    badge.classList.remove(
+      "fx-hidden"
+    );
+
+    setTimeout(()=>{
+      badge.classList.add(
+        "fx-hidden"
+      );
+    },700);
+  }
+}
+
+function checkAnswer(
+  ok,
+  index
+){
   if(ok){
-    $("#fxFeedback").textContent=state.texts.correct;
+    showFeedback(
+      "correct",
+      state.texts.correct
+    );
 
     setTimeout(()=>{
       completeTask(index);
-    },350);
-
-    return;
-  }
-
-  game.attempts[index]=(game.attempts[index]||0)+1;
-
-  $("#fxFeedback").textContent=state.texts.wrong;
-
-  const lim=state.settings.attempts;
-
-  if(lim>0 && game.attempts[index]>=lim){
-    if(state.settings.showCorrectAfterAttempts){
-      const correct=getCorrectText(task);
-
-      if(correct){
-        $("#fxFeedback").textContent=
-          state.texts.wrong+" Правильный ответ: "+correct;
-      }
-    }
+    },650);
+  }else{
+    showFeedback(
+      "wrong",
+      state.texts.wrong
+    );
   }
 }
 
-function getCorrectText(task){
-  if(task.type==="truefalse"){
-    return task.answer==="true"?"Верно":"Неверно";
+function completeTask(index){
+  game.completed.add(index);
+
+  const item=
+    $("#fxWorld")
+    .querySelector(
+      '[data-task="'+
+      index+
+      '"]'
+    );
+
+  if(item){
+    item.remove();
   }
 
-  if(task.type==="input"){
-    return task.answer;
-  }
-
-  return task.options
-    .filter(o=>o.correct)
-    .map(o=>o.text||"картинка")
-    .join(", ");
-}
-
-function completeTask(i){
-  game.completed.add(i);
-
-  const el=$("#fxWorld").querySelector('[data-task="'+i+'"]');
-  if(el) el.remove();
-
-  $("#fxTaskOverlay").classList.add("fx-hidden");
+  $("#fxTaskOverlay")
+    .classList.add(
+      "fx-hidden"
+    );
 
   game.activeTask=-1;
   game.paused=false;
 
   renderHud();
+
   $("#fxStage").focus();
 }
 
@@ -2103,87 +3802,222 @@ function finishGame(){
   game.done=true;
   game.paused=true;
 
-  $("#fxFinishTitlePreview").textContent=state.texts.finishTitle;
+  $("#fxFinishTitlePreview")
+    .textContent=
+    state.texts.finishTitle;
 
-  $("#fxFinishTextPreview").textContent=
+  $("#fxFinishTextPreview")
+    .textContent=
     state.texts.finishText+
     "\n\nЗадания: "+
     game.completed.size+
     "/"+
     state.tasks.length;
 
-  $("#fxFinishOverlay").classList.remove("fx-hidden");
+  $("#fxFinishOverlay")
+    .classList.remove(
+      "fx-hidden"
+    );
+}
+
+let toastTimer=0;
+
+function showToast(text){
+  clearTimeout(
+    toastTimer
+  );
+
+  const el=
+    $("#fxToast");
+
+  el.textContent=text;
+
+  el.classList.remove(
+    "fx-hidden"
+  );
+
+  toastTimer=
+    setTimeout(()=>{
+      el.classList.add(
+        "fx-hidden"
+      );
+    },1400);
 }
 
 function startLoop(){
   function frame(now){
-    const dt=Math.min((now-game.last)/1000,.032);
+    const dt=
+      Math.min(
+        (now-game.last)/1000,
+        .032
+      );
+
     game.last=now;
 
-    if(game.started && !game.paused && !game.done){
+    if(
+      game.started &&
+      !game.paused &&
+      !game.done
+    ){
       update(dt);
     }
 
     draw();
-    game.raf=requestAnimationFrame(frame);
+
+    game.raf=
+      requestAnimationFrame(
+        frame
+      );
   }
 
-  game.raf=requestAnimationFrame(frame);
+  game.raf=
+    requestAnimationFrame(
+      frame
+    );
 }
 
-$("#fxStartBtn").addEventListener("click",()=>{
-  game.started=true;
-  $("#fxStartOverlay").classList.add("fx-hidden");
-  $("#fxStage").focus();
-});
+$("#fxStartBtn")
+.addEventListener(
+  "click",
+  ()=>{
+    game.started=true;
 
-$("#fxAgainBtn").addEventListener("click",resetGame);
+    $("#fxStartOverlay")
+      .classList.add(
+        "fx-hidden"
+      );
 
-$("#fxStage").addEventListener("pointerdown",()=>{
-  $("#fxStage").focus();
-});
-
-$("#fxStage").addEventListener("keydown",e=>{
-  if(["ArrowLeft","ArrowRight","ArrowUp","ArrowDown"].includes(e.key)){
-    e.preventDefault();
+    $("#fxStage")
+      .focus();
   }
+);
 
-  if(e.key==="ArrowLeft") game.keys.left=true;
-  if(e.key==="ArrowRight") game.keys.right=true;
+$("#fxAgainBtn")
+.addEventListener(
+  "click",
+  resetGame
+);
 
-  if(e.key==="ArrowUp"){
-    if(!game.keys.up) jump();
-    game.keys.up=true;
+$("#fxRestartBtn")
+.addEventListener(
+  "click",
+  resetGame
+);
+
+$("#fxRestartPreview")
+.addEventListener(
+  "click",
+  resetGame
+);
+
+$("#fxStage")
+.addEventListener(
+  "pointerdown",
+  ()=>{
+    $("#fxStage")
+      .focus();
   }
+);
 
-  if(e.key==="ArrowDown"){
-    game.keys.down=true;
+$("#fxStage")
+.addEventListener(
+  "keydown",
+  e=>{
+    if(
+      [
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowUp",
+        "ArrowDown"
+      ].includes(e.key)
+    ){
+      e.preventDefault();
+    }
 
-    if(game.grounded){
-      game.y-=10;
-      game.vy=-100;
+    if(
+      e.key==="ArrowLeft"
+    ){
+      game.keys.left=true;
+    }
+
+    if(
+      e.key==="ArrowRight"
+    ){
+      game.keys.right=true;
+    }
+
+    if(
+      e.key==="ArrowUp"
+    ){
+      if(!game.keys.up){
+        jump();
+      }
+
+      game.keys.up=true;
+    }
+
+    if(
+      e.key==="ArrowDown"
+    ){
+      game.keys.down=true;
+
+      if(game.grounded){
+        game.y-=12;
+        game.vy=-120;
+      }
     }
   }
-});
+);
 
-$("#fxStage").addEventListener("keyup",e=>{
-  if(e.key==="ArrowLeft") game.keys.left=false;
-  if(e.key==="ArrowRight") game.keys.right=false;
-  if(e.key==="ArrowUp") game.keys.up=false;
-  if(e.key==="ArrowDown") game.keys.down=false;
-});
+$("#fxStage")
+.addEventListener(
+  "keyup",
+  e=>{
+    if(
+      e.key==="ArrowLeft"
+    ){
+      game.keys.left=false;
+    }
 
-$("#fxRestartBtn").addEventListener("click",resetGame);
-$("#fxPreviewRestart2").addEventListener("click",resetGame);
+    if(
+      e.key==="ArrowRight"
+    ){
+      game.keys.right=false;
+    }
 
-$("#fxResetBtn").addEventListener("click",()=>{
-  state=JSON.parse(JSON.stringify(defaults));
-  nextTaskId=3;
-  syncInputs();
-  renderImagePickers();
-  renderTasks();
-  resetGame();
-});
+    if(
+      e.key==="ArrowUp"
+    ){
+      game.keys.up=false;
+    }
+
+    if(
+      e.key==="ArrowDown"
+    ){
+      game.keys.down=false;
+    }
+  }
+);
+
+$("#fxResetBtn")
+.addEventListener(
+  "click",
+  ()=>{
+    state=
+      JSON.parse(
+        JSON.stringify(
+          defaults
+        )
+      );
+
+    nextTaskId=3;
+
+    syncInputs();
+    renderImagePickers();
+    renderTasks();
+    resetGame();
+  }
+);
 
 function safeJSON(obj){
   return JSON.stringify(obj)
@@ -2195,152 +4029,105 @@ function safeJSON(obj){
 function generateStandaloneGame(){
   const data=safeJSON(state);
 
-  return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
-html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:Arial,sans-serif}
-*{box-sizing:border-box}
-#game{position:relative;width:100%;height:100%;overflow:hidden;background:#cfe8f5;outline:none;user-select:none}
-#bg{position:absolute;inset:0;background-size:cover;background-position:center}
-#world{position:absolute;left:0;bottom:0;height:100%;will-change:transform}
-.obj{position:absolute}
-.ground,.platform,.obstacle{background-size:cover;background-position:center}
-.platform{border-radius:7px}
-.obstacle{border-radius:7px}
-.player{z-index:20;background:#e57a67;border-radius:14px;border:3px solid white;background-size:contain;background-repeat:no-repeat;background-position:center bottom}
-.player.img{border:0;background-color:transparent}
-.task,.bonus{z-index:15;display:flex;align-items:center;justify-content:center;background-size:contain;background-repeat:no-repeat;background-position:center}
-.task{animation:float 1.6s ease-in-out infinite}
-.finish{z-index:10;width:54px;height:88px;background-size:contain;background-repeat:no-repeat;background-position:center bottom}
-.finish.flag:before{content:"";position:absolute;width:5px;height:88px;background:#fff;left:8px}
-.finish.flag:after{content:"";position:absolute;width:40px;height:28px;background:#e75f61;left:13px;top:5px;clip-path:polygon(0 0,100% 50%,0 100%)}
-#hud{position:absolute;z-index:50;top:10px;left:10px;display:flex;gap:7px}
-.pill{background:rgba(255,255,255,.92);padding:7px 10px;border-radius:999px;font-weight:700}
-.overlay{position:absolute;inset:0;z-index:100;background:rgba(20,20,20,.46);display:flex;align-items:center;justify-content:center;padding:16px}
-.hidden{display:none!important}
-.modal{width:min(540px,96%);max-height:92%;overflow:auto;background:#fff;border-radius:17px;padding:18px}
-.modal h2{margin:0 0 9px}
-.modal p{white-space:pre-wrap;line-height:1.45}
-.qimg{max-width:100%;max-height:190px;object-fit:contain;display:block;margin:8px auto;border-radius:10px}
-button,input{font:inherit}
-button{cursor:pointer}
-.primary{border:0;border-radius:9px;padding:10px 13px;background:${state.accent};color:white;font-weight:700}
-.answer{width:100%;display:flex;gap:9px;align-items:center;text-align:left;padding:9px 11px;margin:6px 0;border:1px solid #ddd;border-radius:10px;background:#fafafa}
-.answer img{width:70px;height:55px;object-fit:contain}
-.answer.selected{outline:2px solid ${state.accent}}
-.hint{background:#fff8dd;border:1px solid #e7dca5;border-radius:9px;padding:9px;margin:8px 0}
-.feedback{font-weight:700;min-height:22px;margin-top:8px}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
-</style></head><body>
-<div id="game" tabindex="0">
-<div id="bg"></div><div id="world"></div><div id="hud"></div>
-<div id="start" class="overlay"><div class="modal"><img id="startImg" class="qimg hidden"><h2 id="startTitle"></h2><p id="instruction"></p><button id="startBtn" class="primary"></button></div></div>
-<div id="taskOverlay" class="overlay hidden"><div class="modal"><h2 id="taskTitle"></h2><img id="qimg" class="qimg hidden"><p id="taskText"></p><div id="hint" class="hint hidden"></div><button id="hintBtn" class="hidden">💡 Подсказка</button><div id="answers"></div><div id="feedback" class="feedback"></div></div></div>
-<div id="finishOverlay" class="overlay hidden"><div class="modal"><h2 id="finishTitle"></h2><p id="finishText"></p><button id="again" class="primary">Играть ещё раз</button></div></div>
-</div>
+  const editorCopy=
+    root.cloneNode(true);
+
+  return `
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#111;
+}
+</style>
+</head>
+<body>
+<div id="fx_export_mount"></div>
 <script>
-const state=${data};
-function img(o){return o&&o.mode!=="builtin"&&o.value?o.value:""}
-function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
-function overlap(a,b){return a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y}
-function map(n){
- const per=5,sec=Math.max(1,Math.ceil(Math.max(1,n)/per)),W=760,g=[],p=[],o=[],t=[],b=[];
- for(let s=0;s<sec;s++){
-  const x=s*W;
-  g.push({x,y:0,w:245,h:34},{x:x+330,y:0,w:430,h:34});
-  p.push({x:x+110,y:100,w:125,h:20},{x:x+275,y:165,w:130,h:20},{x:x+455,y:225,w:140,h:20},{x:x+570,y:115,w:125,h:20});
-  o.push({x:x+55,y:34,w:48,h:50},{x:x+655,y:34,w:48,h:70});
-  t.push({x:x+145,y:140},{x:x+310,y:205},{x:x+500,y:265},{x:x+610,y:155},{x:x+390,y:55});
-  b.push({x:x+20,y:58},{x:x+205,y:140},{x:x+352,y:55},{x:x+438,y:55},{x:x+535,y:265},{x:x+710,y:58});
- }
- const end=sec*W;
- g.push({x:end,y:0,w:330,h:34});
- return {width:end+380,ground:g,platforms:p,obstacles:o,tasks:t.slice(0,n),bonuses:b,finishX:end+255};
-}
-const M=map(state.tasks.length),world=document.getElementById("world"),game=document.getElementById("game"),hud=document.getElementById("hud");
-const G={started:false,paused:false,done:false,x:70,y:34,vx:0,vy:0,grounded:false,camera:0,last:performance.now(),safeX:70,completed:new Set(),collected:new Set(),active:-1,selected:new Set(),keys:{left:false,right:false,up:false,down:false}};
-function add(c,r){const e=document.createElement("div");e.className="obj "+c;e.style.left=r.x+"px";e.style.bottom=r.y+"px";e.style.width=r.w+"px";e.style.height=r.h+"px";world.appendChild(e);return e}
-function build(){
- document.getElementById("bg").style.backgroundColor=state.colors.sky;
- const bg=img(state.images.background);if(bg)document.getElementById("bg").style.backgroundImage='url("'+bg+'")';
- world.style.width=M.width+"px";
- M.ground.forEach(r=>{const e=add("ground",r);e.style.backgroundColor=state.colors.ground;const im=img(state.images.ground);if(im)e.style.backgroundImage='url("'+im+'")'});
- M.platforms.forEach(r=>{const e=add("platform",r);e.style.backgroundColor=state.colors.platform;const im=img(state.images.platform);if(im)e.style.backgroundImage='url("'+im+'")'});
- M.obstacles.forEach(r=>{const e=add("obstacle",r);e.style.backgroundColor=state.colors.obstacle;const im=img(state.images.obstacle);if(im)e.style.backgroundImage='url("'+im+'")'});
- M.tasks.forEach((q,i)=>{const s=state.taskItem.size,e=add("task",{x:q.x,y:q.y,w:s,h:s});e.dataset.task=i;const im=img(state.images.taskItem);if(im)e.style.backgroundImage='url("'+im+'")';else{e.textContent=state.taskItem.icon;e.style.fontSize=s*.8+"px"}if(state.taskItem.animation==="pulse")e.style.animationName="pulse";if(state.taskItem.animation==="none")e.style.animation="none"});
- if(state.bonus.enabled)M.bonuses.slice(0,Math.min(state.bonus.count,M.bonuses.length)).forEach((q,i)=>{const e=add("bonus",{x:q.x,y:q.y,w:26,h:26});e.dataset.bonus=i;const im=img(state.images.bonus);if(im)e.style.backgroundImage='url("'+im+'")';else{e.textContent=state.bonus.icon;e.style.fontSize="22px"}});
- const f=add("finish "+(img(state.images.finish)?"":"flag"),{x:M.finishX,y:34,w:54,h:88});if(img(state.images.finish))f.style.backgroundImage='url("'+img(state.images.finish)+'")';
- const p=add("player "+(img(state.images.player)?"img":""),{x:G.x,y:G.y,w:state.player.size,h:state.player.size});p.id="player";if(img(state.images.player))p.style.backgroundImage='url("'+img(state.images.player)+'")';
- renderHud();
-}
-function renderHud(){hud.innerHTML="";if(state.settings.showTaskCounter){const p=document.createElement("div");p.className="pill";p.textContent=state.taskItem.icon+" "+G.completed.size+"/"+state.tasks.length;hud.appendChild(p)}if(state.settings.showBonusCounter&&state.bonus.enabled){const p=document.createElement("div");p.className="pill";p.textContent=state.bonus.icon+" "+G.collected.size;hud.appendChild(p)}}
-function complete(i){G.completed.add(i);const e=world.querySelector('[data-task="'+i+'"]');if(e)e.remove();document.getElementById("taskOverlay").classList.add("hidden");G.paused=false;renderHud();game.focus()}
-function openTask(i){
- if(G.paused)return;const t=state.tasks[i];if(!t)return;G.paused=true;G.active=i;G.selected.clear();
- document.getElementById("taskTitle").textContent=t.title||"Задание";document.getElementById("taskText").textContent=t.text||"";document.getElementById("feedback").textContent="";
- const qi=img(t.image),qe=document.getElementById("qimg");if(qi){qe.src=qi;qe.classList.remove("hidden")}else qe.classList.add("hidden");
- const hb=document.getElementById("hintBtn"),hh=document.getElementById("hint");hh.classList.add("hidden");if(t.hint){hb.classList.remove("hidden");hb.onclick=()=>{hh.textContent=t.hint;hh.classList.remove("hidden")}}else hb.classList.add("hidden");
- const a=document.getElementById("answers");a.innerHTML="";
- if(t.type==="manual"){const b=document.createElement("button");b.className="primary";b.textContent="Готово";b.onclick=()=>complete(i);a.appendChild(b)}
- else if(t.type==="truefalse"){["Верно","Неверно"].forEach((x,k)=>{const b=document.createElement("button");b.className="answer";b.textContent=x;b.onclick=()=>check((k===0?"true":"false")===t.answer,i);a.appendChild(b)})}
- else if(t.type==="input"){const inp=document.createElement("input");inp.placeholder="Введите ответ";const b=document.createElement("button");b.className="primary";b.textContent="Проверить";b.onclick=()=>check(String(inp.value).trim().toLowerCase()===String(t.answer).trim().toLowerCase(),i);a.append(inp,b)}
- else{t.options.forEach((op,oi)=>{const b=document.createElement("button");b.className="answer";const im=img(op.image);if(im){const z=document.createElement("img");z.src=im;b.appendChild(z)}if(op.text){const s=document.createElement("span");s.textContent=op.text;b.appendChild(s)}if(t.type==="multi"){b.onclick=()=>{if(G.selected.has(oi)){G.selected.delete(oi);b.classList.remove("selected")}else{G.selected.add(oi);b.classList.add("selected")}}}else b.onclick=()=>check(!!op.correct,i);a.appendChild(b)});if(t.type==="multi"){const b=document.createElement("button");b.className="primary";b.textContent="Проверить";b.onclick=()=>{const c=t.options.map((o,i)=>o.correct?i:-1).filter(i=>i>=0),s=[...G.selected].sort((a,b)=>a-b);check(s.length===c.length&&s.every((v,i)=>v===c[i]),i)};a.appendChild(b)}}
- document.getElementById("taskOverlay").classList.remove("hidden");
-}
-function check(ok,i){document.getElementById("feedback").textContent=ok?state.texts.correct:state.texts.wrong;if(ok)setTimeout(()=>complete(i),300)}
-function update(dt){
- const pw=state.player.size*.75,ph=state.player.size;let d=0;if(G.keys.left)d--;if(G.keys.right)d++;G.vx=d*state.player.speed;
- let nx=G.x+G.vx*dt,test={x:nx,y:G.y,w:pw,h:ph};for(const o of M.obstacles){if(overlap(test,o)){if(G.vx>0)nx=o.x-pw-.1;if(G.vx<0)nx=o.x+o.w+.1;break}}G.x=clamp(nx,0,M.width-pw);
- G.vy-=1150*dt;let ny=G.y+G.vy*dt,land=false;for(const s of [...M.ground,...M.platforms]){const top=s.y+s.h;if(G.vy<=0&&G.x+pw>s.x&&G.x<s.x+s.w&&G.y>=top-3&&ny<=top){ny=top;G.vy=0;land=true;break}}G.y=ny;G.grounded=land;if(land)G.safeX=G.x;if(G.y<-130){G.x=G.safeX;G.y=170;G.vy=0}
- const pr={x:G.x,y:G.y,w:pw,h:ph};M.tasks.forEach((q,i)=>{if(!G.completed.has(i)&&overlap(pr,{x:q.x,y:q.y,w:state.taskItem.size,h:state.taskItem.size}))openTask(i)});
- if(state.bonus.enabled)M.bonuses.slice(0,Math.min(state.bonus.count,M.bonuses.length)).forEach((q,i)=>{if(!G.collected.has(i)&&overlap(pr,{x:q.x,y:q.y,w:26,h:26})){G.collected.add(i);const e=world.querySelector('[data-bonus="'+i+'"]');if(e)e.remove();renderHud()}});
- if(overlap(pr,{x:M.finishX,y:34,w:54,h:88})){if(!state.settings.lockFinish||G.completed.size>=state.tasks.length){G.done=true;G.paused=true;document.getElementById("finishTitle").textContent=state.texts.finishTitle;document.getElementById("finishText").textContent=state.texts.finishText+"\\n\\nЗадания: "+G.completed.size+"/"+state.tasks.length;document.getElementById("finishOverlay").classList.remove("hidden")}}
-}
-function draw(){const p=document.getElementById("player");if(!p)return;const vw=game.clientWidth;G.camera=clamp(G.x-vw*.35,0,Math.max(0,M.width-vw));world.style.transform="translateX("+(-G.camera)+"px)";p.style.left=G.x+"px";p.style.bottom=G.y+"px";if(state.player.mirror){if(G.vx<0)p.style.transform="scaleX(-1)";if(G.vx>0)p.style.transform="scaleX(1)"}}
-function loop(now){const dt=Math.min((now-G.last)/1000,.032);G.last=now;if(G.started&&!G.paused&&!G.done)update(dt);draw();requestAnimationFrame(loop)}
-game.addEventListener("keydown",e=>{if(["ArrowLeft","ArrowRight","ArrowUp","ArrowDown"].includes(e.key))e.preventDefault();if(e.key==="ArrowLeft")G.keys.left=true;if(e.key==="ArrowRight")G.keys.right=true;if(e.key==="ArrowUp"){if(!G.keys.up&&G.grounded){G.vy=state.player.jump;G.grounded=false}G.keys.up=true}});
-game.addEventListener("keyup",e=>{if(e.key==="ArrowLeft")G.keys.left=false;if(e.key==="ArrowRight")G.keys.right=false;if(e.key==="ArrowUp")G.keys.up=false});
-game.addEventListener("pointerdown",()=>game.focus());
-document.getElementById("startTitle").textContent=state.title;document.getElementById("instruction").textContent=state.settings.showInstruction?state.texts.instruction:"";document.getElementById("startBtn").textContent=state.texts.start;
-const si=img(state.images.startImage),se=document.getElementById("startImg");if(si){se.src=si;se.classList.remove("hidden")}
-document.getElementById("startBtn").onclick=()=>{G.started=true;document.getElementById("start").classList.add("hidden");game.focus()};
-document.getElementById("again").onclick=()=>location.reload();
-build();requestAnimationFrame(loop);
-<\/script></body></html>`;
+const FX_STATE=${data};
+<\/script>
+</body>
+</html>
+`;
 }
 
 function generateIframe(){
-  const html=generateStandaloneGame();
+  const html=
+    generateStandaloneGame();
 
-  return '<iframe src="data:text/html;charset=utf-8,'+
+  return (
+    '<iframe src="data:text/html;charset=utf-8,'+
     encodeURIComponent(html)+
-    '" width="100%" height="600" style="border:0;width:100%;display:block;" allow="fullscreen"></iframe>';
+    '" width="100%" height="650" '+
+    'style="border:0;width:100%;display:block;" '+
+    'allow="fullscreen"></iframe>'
+  );
 }
 
 async function copyCode(){
-  const code=generateIframe();
+  const code=
+    generateIframe();
 
-  $("#fxCode").value=code;
+  $("#fxCode").value=
+    code;
 
   try{
-    await navigator.clipboard.writeText(code);
-    $("#fxPublishStatus").textContent="✓ Код скопирован";
+    await navigator.clipboard
+      .writeText(code);
+
+    $("#fxPublishStatus")
+      .textContent=
+      "✓ Код скопирован";
   }catch(err){
-    $("#fxCode").classList.remove("fx-hidden");
-    $("#fxCode").select();
-    $("#fxPublishStatus").textContent="Скопируйте код из поля вручную";
+    $("#fxCode")
+      .classList.remove(
+        "fx-hidden"
+      );
+
+    $("#fxCode")
+      .select();
+
+    $("#fxPublishStatus")
+      .textContent=
+      "Скопируйте код из поля вручную";
   }
 }
 
-$("#fxCopyBtn").addEventListener("click",copyCode);
-$("#fxQuickCopyBtn").addEventListener("click",copyCode);
+$("#fxCopyBtn")
+.addEventListener(
+  "click",
+  copyCode
+);
 
-$("#fxShowCodeBtn").addEventListener("click",()=>{
-  $("#fxCode").value=generateIframe();
-  $("#fxCode").classList.toggle("fx-hidden");
-});
+$("#fxQuickCopyBtn")
+.addEventListener(
+  "click",
+  copyCode
+);
+
+$("#fxShowCodeBtn")
+.addEventListener(
+  "click",
+  ()=>{
+    $("#fxCode").value=
+      generateIframe();
+
+    $("#fxCode")
+      .classList.toggle(
+        "fx-hidden"
+      );
+  }
+);
 
 syncInputs();
-bindSimple();
+bindAll();
 renderImagePickers();
 renderTasks();
 resetGame();
