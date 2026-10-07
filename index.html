@@ -1,46 +1,47 @@
 <div id="FX_ROOT">
 <style>
 #FX_ROOT{
-  --accent:#6f8063;
-  --accent-soft:#edf2e9;
-  --page:#f4f2ed;
+  --accent:#766b8f;
+  --page:#f4f2ee;
   --panel:#ffffff;
-  --line:#ddd9d0;
+  --line:#ddd9d2;
   --text:#292929;
-  --muted:#7a7a7a;
-  font-family:Arial,sans-serif;
+  --muted:#767676;
   width:100%;
+  font-family:Arial,sans-serif;
   color:var(--text);
 }
 #FX_ROOT *{box-sizing:border-box}
-#FX_ROOT button,
 #FX_ROOT input,
+#FX_ROOT textarea,
 #FX_ROOT select,
-#FX_ROOT textarea{font:inherit}
+#FX_ROOT button{font:inherit}
 #FX_ROOT button{cursor:pointer}
 
-#FX_ROOT .fx-shell{
-  background:var(--page);
+#FX_ROOT .fx-app{
   border:1px solid var(--line);
   border-radius:18px;
   overflow:hidden;
+  background:var(--page);
 }
 
-#FX_ROOT .fx-top{
+#FX_ROOT .fx-header{
   display:flex;
-  justify-content:space-between;
-  gap:12px;
   align-items:center;
+  justify-content:space-between;
+  gap:10px;
   flex-wrap:wrap;
-  padding:14px 18px;
+  padding:14px 16px;
   background:#fff;
   border-bottom:1px solid var(--line);
 }
-#FX_ROOT .fx-title{
-  font-size:20px;
+
+#FX_ROOT .fx-brand{
   font-weight:800;
+  font-size:20px;
 }
-#FX_ROOT .fx-top-actions{
+
+#FX_ROOT .fx-header-actions{
   display:flex;
   gap:7px;
   flex-wrap:wrap;
@@ -49,33 +50,35 @@
 #FX_ROOT .fx-tabs{
   display:flex;
   gap:5px;
-  padding:9px;
   overflow:auto;
+  padding:9px;
   background:#fff;
   border-bottom:1px solid var(--line);
 }
+
 #FX_ROOT .fx-tab{
+  white-space:nowrap;
   border:0;
   border-radius:9px;
-  padding:9px 12px;
-  background:#eceae4;
-  color:#555;
+  padding:9px 11px;
+  background:#efede7;
   font-weight:700;
-  white-space:nowrap;
-}
-#FX_ROOT .fx-tab.active{
-  background:var(--accent);
-  color:#fff;
+  color:#4d4d4d;
 }
 
-#FX_ROOT .fx-main{
+#FX_ROOT .fx-tab.active{
+  color:#fff;
+  background:var(--accent);
+}
+
+#FX_ROOT .fx-body{
   display:grid;
-  grid-template-columns:minmax(330px,430px) minmax(0,1fr);
+  grid-template-columns:minmax(330px,420px) minmax(0,1fr);
   gap:14px;
   padding:14px;
   align-items:start;
 }
-#FX_ROOT .fx-controls{min-width:0}
+
 #FX_ROOT .fx-pane{display:none}
 #FX_ROOT .fx-pane.active{display:block}
 
@@ -84,27 +87,26 @@
   border:1px solid var(--line);
   border-radius:14px;
   padding:13px;
-  margin-bottom:11px;
-}
-#FX_ROOT .fx-card-title{
-  font-weight:800;
-  margin-bottom:10px;
-}
-#FX_ROOT .fx-subtitle{
-  color:var(--muted);
-  font-size:12px;
-  line-height:1.4;
-  margin-top:-4px;
   margin-bottom:10px;
 }
 
-#FX_ROOT .fx-field{margin-bottom:10px}
+#FX_ROOT .fx-card-title{
+  font-weight:800;
+  margin-bottom:10px;
+  font-size:14px;
+}
+
+#FX_ROOT .fx-field{
+  margin-bottom:10px;
+}
+
 #FX_ROOT label{
   display:block;
   font-size:12px;
   font-weight:700;
   margin-bottom:5px;
 }
+
 #FX_ROOT input[type=text],
 #FX_ROOT input[type=number],
 #FX_ROOT select,
@@ -112,22 +114,25 @@
   width:100%;
   border:1px solid var(--line);
   border-radius:9px;
-  padding:9px 10px;
   background:#fff;
+  padding:9px 10px;
   color:#222;
 }
+
 #FX_ROOT textarea{
-  min-height:76px;
+  min-height:72px;
   resize:vertical;
 }
+
 #FX_ROOT input[type=color]{
   width:100%;
   height:39px;
-  padding:3px;
-  background:#fff;
   border:1px solid var(--line);
   border-radius:9px;
+  background:white;
+  padding:3px;
 }
+
 #FX_ROOT input[type=range]{width:100%}
 #FX_ROOT input[type=file]{width:100%;font-size:12px}
 
@@ -136,189 +141,176 @@
   grid-template-columns:1fr 1fr;
   gap:8px;
 }
+
 #FX_ROOT .fx-grid3{
   display:grid;
-  grid-template-columns:1fr 1fr 1fr;
+  grid-template-columns:repeat(3,1fr);
   gap:8px;
 }
+
 #FX_ROOT .fx-check{
   display:flex;
   align-items:center;
   gap:8px;
-  margin:8px 0;
   font-size:13px;
+  margin:8px 0;
 }
+
 #FX_ROOT .fx-check input{margin:0}
 
 #FX_ROOT .fx-btn{
   border:0;
   border-radius:9px;
-  padding:9px 12px;
-  background:#e8e6e0;
-  color:#333;
+  padding:9px 11px;
   font-weight:700;
+  background:#e8e5df;
+  color:#333;
 }
+
 #FX_ROOT .fx-btn.primary{
+  color:white;
   background:var(--accent);
-  color:#fff;
 }
+
 #FX_ROOT .fx-btn.danger{
-  background:#f4dddd;
-  color:#8a3232;
+  background:#f3dddd;
+  color:#8b3333;
 }
+
 #FX_ROOT .fx-btn.small{
   padding:6px 8px;
   font-size:12px;
 }
+
 #FX_ROOT .fx-actions{
   display:flex;
-  gap:7px;
   flex-wrap:wrap;
+  gap:6px;
 }
 
-#FX_ROOT .fx-image-card{
-  border:1px dashed #cbc6bb;
+#FX_ROOT .fx-image-picker{
+  border:1px dashed #cbc6bd;
   border-radius:11px;
   padding:9px;
   background:#faf9f6;
 }
+
 #FX_ROOT .fx-source-tabs{
   display:flex;
   gap:5px;
-  flex-wrap:wrap;
   margin-bottom:8px;
 }
-#FX_ROOT .fx-source-btn{
+
+#FX_ROOT .fx-source{
   border:0;
   border-radius:8px;
-  padding:6px 9px;
-  font-size:12px;
-  background:#eceae4;
+  padding:6px 8px;
+  font-size:11px;
+  background:#eae7e0;
 }
-#FX_ROOT .fx-source-btn.active{
-  background:var(--accent-soft);
-  color:#46563e;
+
+#FX_ROOT .fx-source.active{
+  background:#ddd8e8;
   font-weight:800;
 }
+
 #FX_ROOT .fx-thumb{
-  display:none;
   width:92px;
-  height:65px;
-  margin-top:8px;
+  height:64px;
   object-fit:contain;
-  background:#fff;
+  background:white;
   border:1px solid var(--line);
   border-radius:8px;
+  display:none;
+  margin-top:8px;
 }
+
 #FX_ROOT .fx-thumb.show{display:block}
 
-#FX_ROOT .fx-type-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:7px;
-  margin-bottom:12px;
-}
-#FX_ROOT .fx-type-btn{
-  min-height:58px;
+#FX_ROOT .fx-task{
   border:1px solid var(--line);
-  border-radius:11px;
-  padding:8px;
-  background:#fff;
-  text-align:left;
-  font-weight:700;
-  line-height:1.25;
-}
-#FX_ROOT .fx-type-btn.active{
-  border-color:var(--accent);
-  background:var(--accent-soft);
-  box-shadow:0 0 0 2px rgba(111,128,99,.12);
-}
-#FX_ROOT .fx-type-btn span{
-  display:block;
-  margin-top:3px;
-  color:var(--muted);
-  font-size:11px;
-  font-weight:400;
-}
-
-#FX_ROOT .fx-task-card{
-  border:1px solid var(--line);
+  background:#faf9f6;
   border-radius:12px;
   padding:10px;
-  background:#faf9f6;
   margin-bottom:9px;
 }
+
 #FX_ROOT .fx-task-head{
   display:flex;
-  justify-content:space-between;
-  gap:8px;
   align-items:center;
-  margin-bottom:9px;
+  justify-content:space-between;
+  gap:7px;
+  margin-bottom:8px;
 }
-#FX_ROOT .fx-task-num{font-weight:800}
+
+#FX_ROOT .fx-task-name{
+  font-weight:800;
+}
+
 #FX_ROOT .fx-task-actions{
   display:flex;
   gap:4px;
 }
+
 #FX_ROOT .fx-option{
   border:1px solid var(--line);
   border-radius:9px;
-  background:#fff;
   padding:8px;
+  background:white;
   margin-bottom:6px;
 }
-#FX_ROOT .fx-option-top{
+
+#FX_ROOT .fx-option-main{
   display:grid;
-  grid-template-columns:1fr auto;
-  gap:7px;
+  grid-template-columns:1fr 78px;
+  gap:6px;
   align-items:center;
 }
-#FX_ROOT .fx-answer-source{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:6px;
-  margin-top:6px;
-}
 
-#FX_ROOT .fx-preview-wrap{
+/* PREVIEW ALWAYS VISIBLE */
+
+#FX_ROOT .fx-preview{
   position:sticky;
   top:10px;
   min-width:0;
 }
-#FX_ROOT .fx-preview-toolbar{
+
+#FX_ROOT .fx-preview-head{
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   gap:8px;
   margin-bottom:8px;
-  flex-wrap:wrap;
 }
-#FX_ROOT .fx-preview-note{
-  font-size:12px;
-  color:var(--muted);
+
+#FX_ROOT .fx-preview-label{
+  font-weight:800;
 }
+
 #FX_ROOT .fx-stage{
   position:relative;
   width:100%;
   aspect-ratio:16/9;
-  min-height:440px;
+  min-height:390px;
   overflow:hidden;
   outline:none;
   border:1px solid var(--line);
-  border-radius:17px;
-  background:#cfe8f5;
+  border-radius:16px;
+  background:#cce6f4;
   user-select:none;
 }
+
 #FX_ROOT .fx-stage:focus{
-  box-shadow:0 0 0 3px rgba(111,128,99,.2);
+  box-shadow:0 0 0 3px rgba(118,107,143,.22);
 }
 
-#FX_ROOT .fx-bg{
+#FX_ROOT .fx-game-bg{
   position:absolute;
   inset:0;
   background-size:cover;
   background-position:center;
 }
+
 #FX_ROOT .fx-world{
   position:absolute;
   left:0;
@@ -326,322 +318,369 @@
   height:100%;
   will-change:transform;
 }
-#FX_ROOT .fx-obj{position:absolute}
+
+#FX_ROOT .fx-obj{
+  position:absolute;
+}
 
 #FX_ROOT .fx-ground{
-  background:#71965e;
-  border-top:6px solid rgba(255,255,255,.28);
+  border-top:5px solid rgba(255,255,255,.25);
 }
+
 #FX_ROOT .fx-platform{
-  background:#b27d55;
-  border-top:6px solid #71965e;
-  border-radius:9px 9px 4px 4px;
+  border-radius:8px 8px 3px 3px;
+  border-top:5px solid rgba(255,255,255,.22);
 }
-#FX_ROOT .fx-obstacle{
-  background:#a66f50;
-  border-radius:9px;
+
+#FX_ROOT .fx-wall{
+  border-radius:8px;
+}
+
+#FX_ROOT .fx-pipe{
+  border-radius:11px 11px 4px 4px;
+  border:4px solid rgba(0,0,0,.08);
+}
+
+#FX_ROOT .fx-block{
+  border-radius:8px;
   border:3px solid rgba(0,0,0,.08);
 }
+
 #FX_ROOT .fx-player{
   z-index:30;
-  background:#e67866;
-  border:4px solid white;
-  border-radius:16px;
+  background:#e27768;
+  border:3px solid #fff;
+  border-radius:14px;
   background-size:contain;
-  background-repeat:no-repeat;
   background-position:center bottom;
+  background-repeat:no-repeat;
   transform-origin:center center;
 }
-#FX_ROOT .fx-player.image{
+
+#FX_ROOT .fx-player.custom{
   border:0;
   background-color:transparent;
 }
-#FX_ROOT .fx-task-item,
-#FX_ROOT .fx-bonus-item{
-  z-index:20;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background-size:contain;
-  background-repeat:no-repeat;
-  background-position:center;
-}
+
 #FX_ROOT .fx-task-item{
+  z-index:22;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:contain;
   animation:fxFloat 1.5s ease-in-out infinite;
 }
-#FX_ROOT .fx-bonus-item{
-  animation:fxPulse 1.4s ease-in-out infinite;
-}
+
 #FX_ROOT .fx-finish{
-  z-index:20;
-  width:75px;
-  height:125px;
-  background-size:contain;
-  background-repeat:no-repeat;
+  z-index:15;
   background-position:center bottom;
+  background-repeat:no-repeat;
+  background-size:contain;
 }
-#FX_ROOT .fx-finish.flag:before{
+
+#FX_ROOT .fx-finish.default:before{
   content:"";
   position:absolute;
-  left:12px;
-  top:0;
-  width:7px;
-  height:125px;
-  background:#f7f7f7;
+  width:6px;
+  height:115px;
+  left:8px;
+  bottom:0;
+  background:#eee;
 }
-#FX_ROOT .fx-finish.flag:after{
+
+#FX_ROOT .fx-finish.default:after{
   content:"";
   position:absolute;
-  top:8px;
-  left:19px;
   width:52px;
-  height:36px;
-  background:#e56061;
+  height:34px;
+  left:14px;
+  top:5px;
+  background:#df5f5f;
   clip-path:polygon(0 0,100% 50%,0 100%);
 }
 
+/* ENEMY */
+
+#FX_ROOT .fx-enemy{
+  z-index:26;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:18px;
+  background:#825c85;
+  color:white;
+  font-size:34px;
+  background-size:contain;
+  background-position:center bottom;
+  background-repeat:no-repeat;
+  animation:fxEnemyIdle 1.15s ease-in-out infinite;
+}
+
+#FX_ROOT .fx-enemy.custom{
+  background-color:transparent;
+}
+
+#FX_ROOT .fx-enemy-hp{
+  position:absolute;
+  width:100%;
+  height:6px;
+  left:0;
+  top:-11px;
+  border-radius:99px;
+  background:rgba(0,0,0,.22);
+  overflow:hidden;
+}
+
+#FX_ROOT .fx-enemy-hp span{
+  display:block;
+  height:100%;
+  width:100%;
+  background:#e86868;
+}
+
+#FX_ROOT .fx-projectile{
+  position:absolute;
+  z-index:40;
+  border-radius:50%;
+  background:#7854a6;
+  background-size:contain;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+#FX_ROOT .fx-projectile.hero{
+  background:#f0c757;
+}
+
+/* HUD */
+
 #FX_ROOT .fx-hud{
   position:absolute;
-  z-index:60;
-  top:11px;
+  z-index:70;
   left:11px;
+  top:11px;
   display:flex;
   gap:7px;
 }
+
 #FX_ROOT .fx-pill{
-  padding:7px 11px;
+  background:rgba(255,255,255,.9);
+  padding:7px 10px;
   border-radius:999px;
-  background:rgba(255,255,255,.91);
   font-size:13px;
   font-weight:800;
-  box-shadow:0 2px 8px rgba(0,0,0,.12);
 }
+
+/* TASK WINDOW */
 
 #FX_ROOT .fx-overlay{
   position:absolute;
   inset:0;
-  z-index:100;
+  z-index:110;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   padding:18px;
-  background:rgba(20,20,20,.46);
+  background:rgba(20,20,20,.45);
 }
-#FX_ROOT .fx-hidden{display:none!important}
 
-#FX_ROOT .fx-game-card{
-  width:min(var(--question-width,560px),96%);
+#FX_ROOT .fx-hidden{
+  display:none!important;
+}
+
+#FX_ROOT .fx-question-box{
+  width:min(600px,96%);
   max-height:92%;
   overflow:auto;
-  padding:var(--question-padding,22px);
+  padding:22px;
+  position:relative;
   border-style:solid;
-  border-width:var(--question-border-width,3px);
-  border-color:var(--question-border,#7c8c70);
-  border-radius:var(--question-radius,20px);
-  background:var(--question-bg,#ffffff);
-  color:var(--question-text,#222222);
-  box-shadow:var(--question-shadow,0 12px 35px rgba(0,0,0,.2));
-  font-family:var(--question-font,Arial,sans-serif);
 }
-#FX_ROOT .fx-game-card h2{
+
+#FX_ROOT .fx-question-title{
   margin:0 0 10px;
-  font-size:var(--question-size,25px);
-  color:var(--question-title,#222222);
-  line-height:1.2;
+  font-weight:800;
 }
-#FX_ROOT .fx-game-card p{
-  margin:8px 0;
+
+#FX_ROOT .fx-question-text{
   white-space:pre-wrap;
-  font-size:var(--question-size,25px);
-  line-height:1.4;
+  line-height:1.45;
 }
+
 #FX_ROOT .fx-question-image{
-  display:block;
   max-width:100%;
   max-height:210px;
   object-fit:contain;
-  margin:8px auto 12px;
-  border-radius:12px;
+  display:block;
+  margin:10px auto;
+  border-radius:10px;
 }
 
-#FX_ROOT .fx-answer-btn{
+#FX_ROOT .fx-answer{
   width:100%;
   display:flex;
   align-items:center;
-  gap:10px;
-  margin:7px 0;
-  padding:var(--answer-padding,12px);
-  border-style:solid;
-  border-width:var(--answer-border-width,2px);
-  border-color:var(--answer-border,#ddd);
-  border-radius:var(--answer-radius,12px);
-  background:var(--answer-bg,#f7f7f7);
-  color:var(--answer-text,#222);
-  font-family:var(--answer-font,Arial,sans-serif);
-  font-size:var(--answer-size,18px);
+  gap:9px;
   text-align:left;
-  transition:.15s;
-}
-#FX_ROOT .fx-answer-btn:hover{
-  filter:brightness(.98);
-}
-#FX_ROOT .fx-answer-btn.selected{
-  outline:3px solid var(--accent);
-  background:var(--accent-soft);
-}
-#FX_ROOT .fx-answer-btn img{
-  width:90px;
-  height:72px;
-  object-fit:contain;
-  border-radius:9px;
+  margin:7px 0;
+  padding:11px 12px;
+  border-style:solid;
+  border-radius:10px;
+  cursor:pointer;
 }
 
-#FX_ROOT .fx-text-answer{
-  width:100%;
-  border:2px solid var(--answer-border,#ddd);
-  border-radius:12px;
-  padding:12px;
-  font-size:var(--answer-size,18px);
-  margin:8px 0;
+#FX_ROOT .fx-answer img{
+  width:76px;
+  height:58px;
+  object-fit:contain;
+  border-radius:8px;
+}
+
+#FX_ROOT .fx-answer.selected{
+  outline:3px solid var(--accent);
+}
+
+#FX_ROOT .fx-feedback-text{
+  min-height:22px;
+  font-weight:800;
+  margin-top:8px;
 }
 
 #FX_ROOT .fx-hint-box{
-  background:#fff6d7;
-  border:1px solid #ead58d;
-  border-radius:11px;
-  padding:10px;
-  margin:9px 0;
-  font-size:14px;
-}
-#FX_ROOT .fx-feedback{
-  min-height:24px;
-  margin-top:10px;
-  font-weight:800;
-  text-align:center;
+  border-radius:10px;
+  padding:9px;
+  margin:8px 0;
+  background:#fff5cc;
+  border:1px solid #ead99a;
 }
 
-#FX_ROOT .fx-correct-flash{
-  animation:fxCorrect .55s ease;
-}
-#FX_ROOT .fx-wrong-shake{
-  animation:fxWrong .45s ease;
-}
+/* LARGE FEEDBACK */
 
-#FX_ROOT .fx-feedback-badge{
+#FX_ROOT .fx-big-feedback{
   position:absolute;
-  z-index:150;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  min-width:170px;
-  padding:18px 22px;
-  border-radius:20px;
-  text-align:center;
-  font-size:25px;
+  inset:0;
+  z-index:180;
+  pointer-events:none;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+#FX_ROOT .fx-feedback-bubble{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:80px;
   font-weight:900;
-  box-shadow:0 12px 35px rgba(0,0,0,.2);
-}
-#FX_ROOT .fx-feedback-badge.correct{
-  background:#def2dc;
-  color:#33713b;
-  border:3px solid #7db784;
-}
-#FX_ROOT .fx-feedback-badge.wrong{
-  background:#fae2e2;
-  color:#a23c3c;
-  border:3px solid #df8585;
+  color:white;
+  animation:fxFeedbackPop .65s ease forwards;
 }
 
-#FX_ROOT .fx-toast{
-  position:absolute;
-  z-index:160;
-  left:50%;
-  bottom:18px;
-  transform:translateX(-50%);
-  background:rgba(25,25,25,.9);
-  color:#fff;
-  border-radius:999px;
-  padding:9px 14px;
-  font-size:13px;
+#FX_ROOT .fx-feedback-bubble.correct{
+  background:#55b877;
+  box-shadow:0 0 35px rgba(85,184,119,.72);
 }
+
+#FX_ROOT .fx-feedback-bubble.wrong{
+  background:#dc6464;
+  box-shadow:0 0 35px rgba(220,100,100,.7);
+}
+
+/* CODE */
 
 #FX_ROOT .fx-code{
   width:100%;
-  min-height:190px;
-  font-family:monospace;
+  min-height:180px;
   font-size:11px;
+  font-family:monospace;
 }
+
 #FX_ROOT .fx-status{
-  margin-top:7px;
   color:var(--muted);
   font-size:12px;
+  margin-top:7px;
 }
 
 @keyframes fxFloat{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
+  50%{transform:translateY(-9px)}
 }
+
 @keyframes fxPulse{
   0%,100%{transform:scale(1)}
   50%{transform:scale(1.14)}
 }
-@keyframes fxCorrect{
-  0%{transform:scale(.96)}
-  55%{transform:scale(1.03)}
-  100%{transform:scale(1)}
-}
-@keyframes fxWrong{
-  0%,100%{transform:translateX(0)}
-  20%{transform:translateX(-9px)}
-  40%{transform:translateX(9px)}
-  60%{transform:translateX(-6px)}
-  80%{transform:translateX(6px)}
+
+@keyframes fxEnemyIdle{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
 }
 
-@media(max-width:980px){
-  #FX_ROOT .fx-main{grid-template-columns:1fr}
-  #FX_ROOT .fx-preview-wrap{position:static}
+@keyframes fxFeedbackPop{
+  0%{transform:scale(.15);opacity:0}
+  45%{transform:scale(1.15);opacity:1}
+  75%{transform:scale(.94)}
+  100%{transform:scale(1);opacity:0}
 }
-@media(max-width:520px){
-  #FX_ROOT .fx-grid2,
-  #FX_ROOT .fx-grid3,
-  #FX_ROOT .fx-type-grid{
+
+@media(max-width:950px){
+  #FX_ROOT .fx-body{
     grid-template-columns:1fr;
   }
-  #FX_ROOT .fx-stage{min-height:300px}
+  #FX_ROOT .fx-preview{
+    position:static;
+  }
+}
+
+@media(max-width:530px){
+  #FX_ROOT .fx-grid2,
+  #FX_ROOT .fx-grid3{
+    grid-template-columns:1fr;
+  }
+  #FX_ROOT .fx-stage{
+    min-height:270px;
+  }
 }
 </style>
 
-<div class="fx-shell">
+<div class="fx-app">
 
-  <div class="fx-top">
-    <div class="fx-title">🎮 Конструктор платформенной игры</div>
+  <div class="fx-header">
+    <div class="fx-brand">🎮 Конструктор платформера</div>
 
-    <div class="fx-top-actions">
-      <button id="fxResetBtn" class="fx-btn">Сбросить</button>
-      <button id="fxRestartBtn" class="fx-btn primary">▶ Тест-драйв</button>
-      <button id="fxQuickCopyBtn" class="fx-btn primary">📋 Копировать код</button>
+    <div class="fx-header-actions">
+      <button id="fxRestart" class="fx-btn">↺ Перезапустить игру</button>
+      <button id="fxReset" class="fx-btn">Новая игра</button>
+      <button id="fxCopyTop" class="fx-btn primary">Копировать iframe</button>
     </div>
   </div>
 
   <div class="fx-tabs" id="fxTabs">
     <button class="fx-tab active" data-tab="design">🎨 Оформление</button>
+    <button class="fx-tab" data-tab="interface">✨ Интерфейс</button>
     <button class="fx-tab" data-tab="hero">👤 Герой</button>
-    <button class="fx-tab" data-tab="questionStyle">🖌 Окно задания</button>
+    <button class="fx-tab" data-tab="map">🗺 Карта</button>
+    <button class="fx-tab" data-tab="enemy">👾 Враг</button>
     <button class="fx-tab" data-tab="tasks">❓ Задания</button>
-    <button class="fx-tab" data-tab="items">🎁 Предметы</button>
-    <button class="fx-tab" data-tab="settings">⚙️ Настройки</button>
+    <button class="fx-tab" data-tab="settings">⚙ Настройки</button>
     <button class="fx-tab" data-tab="publish">📤 Публикация</button>
   </div>
 
-  <div class="fx-main">
+  <div class="fx-body">
 
     <div class="fx-controls">
+
+      <!-- DESIGN -->
 
       <div class="fx-pane active" data-pane="design">
 
         <div class="fx-card">
-          <div class="fx-card-title">Основное оформление</div>
+          <div class="fx-card-title">Основные цвета</div>
 
           <div class="fx-field">
             <label>Название игры</label>
@@ -650,86 +689,62 @@
 
           <div class="fx-grid2">
             <div class="fx-field">
-              <label>Основной цвет интерфейса</label>
+              <label>Главный цвет</label>
               <input id="fxAccent" type="color">
             </div>
 
             <div class="fx-field">
-              <label>Цвет неба / подложки</label>
+              <label>Цвет неба</label>
               <input id="fxSky" type="color">
             </div>
           </div>
-        </div>
 
-        <div id="picker_background"></div>
-        <div id="picker_ground"></div>
-        <div id="picker_platform"></div>
-        <div id="picker_obstacle"></div>
-        <div id="picker_startImage"></div>
-
-      </div>
-
-      <div class="fx-pane" data-pane="hero">
-
-        <div id="picker_player"></div>
-
-        <div class="fx-card">
-          <div class="fx-card-title">Параметры героя</div>
-
-          <div class="fx-grid2">
+          <div class="fx-grid3">
             <div class="fx-field">
-              <label>Размер героя</label>
-              <input id="fxPlayerSize" type="range" min="45" max="120">
+              <label>Земля</label>
+              <input id="fxGroundColor" type="color">
             </div>
 
             <div class="fx-field">
-              <label>Скорость</label>
-              <input id="fxPlayerSpeed" type="range" min="140" max="400">
+              <label>Платформы</label>
+              <input id="fxPlatformColor" type="color">
+            </div>
+
+            <div class="fx-field">
+              <label>Препятствия</label>
+              <input id="fxObstacleColor" type="color">
             </div>
           </div>
-
-          <div class="fx-field">
-            <label>Высота прыжка</label>
-            <input id="fxJump" type="range" min="400" max="760">
-          </div>
-
-          <label class="fx-check">
-            <input id="fxMirror" type="checkbox">
-            Отражать героя при движении влево
-          </label>
         </div>
+
+        <div id="fxPicker_background"></div>
+        <div id="fxPicker_ground"></div>
+        <div id="fxPicker_platform"></div>
+        <div id="fxPicker_obstacle"></div>
+        <div id="fxPicker_finish"></div>
+        <div id="fxPicker_startImage"></div>
 
       </div>
 
-      <div class="fx-pane" data-pane="questionStyle">
+      <!-- INTERFACE -->
+
+      <div class="fx-pane" data-pane="interface">
 
         <div class="fx-card">
-          <div class="fx-card-title">Шрифт</div>
+          <div class="fx-card-title">Шрифт игры</div>
 
           <div class="fx-field">
-            <label>Стиль шрифта</label>
-            <select id="fxFontFamily">
+            <label>Шрифт</label>
+            <select id="fxFont">
               <option value="Arial, sans-serif">Arial</option>
               <option value="Verdana, sans-serif">Verdana</option>
-              <option value="Tahoma, sans-serif">Tahoma</option>
-              <option value="Trebuchet MS, sans-serif">Trebuchet</option>
+              <option value="Trebuchet MS, sans-serif">Trebuchet MS</option>
               <option value="Georgia, serif">Georgia</option>
-              <option value="Courier New, monospace">Courier</option>
+              <option value="Times New Roman, serif">Times New Roman</option>
               <option value="Comic Sans MS, cursive">Comic Sans</option>
-              <option value="system-ui, sans-serif">Системный</option>
+              <option value="Courier New, monospace">Courier New</option>
+              <option value="system-ui, sans-serif">System UI</option>
             </select>
-          </div>
-
-          <div class="fx-grid2">
-            <div class="fx-field">
-              <label>Размер вопроса</label>
-              <input id="fxQuestionSize" type="range" min="16" max="42">
-            </div>
-
-            <div class="fx-field">
-              <label>Размер ответов</label>
-              <input id="fxAnswerSize" type="range" min="14" max="34">
-            </div>
           </div>
         </div>
 
@@ -738,20 +753,8 @@
 
           <div class="fx-grid2">
             <div class="fx-field">
-              <label>Фон</label>
+              <label>Фон карточки</label>
               <input id="fxQuestionBg" type="color">
-            </div>
-
-            <div class="fx-field">
-              <label>Цвет текста</label>
-              <input id="fxQuestionText" type="color">
-            </div>
-          </div>
-
-          <div class="fx-grid2">
-            <div class="fx-field">
-              <label>Цвет заголовка</label>
-              <input id="fxQuestionTitle" type="color">
             </div>
 
             <div class="fx-field">
@@ -760,27 +763,62 @@
             </div>
           </div>
 
-          <div class="fx-grid3">
+          <div class="fx-grid2">
             <div class="fx-field">
               <label>Толщина рамки</label>
-              <input id="fxQuestionBorderWidth" type="range" min="0" max="10">
+              <input id="fxBorderWidth" type="range" min="0" max="10">
             </div>
 
             <div class="fx-field">
               <label>Скругление</label>
-              <input id="fxQuestionRadius" type="range" min="0" max="40">
-            </div>
-
-            <div class="fx-field">
-              <label>Внутр. отступ</label>
-              <input id="fxQuestionPadding" type="range" min="12" max="40">
+              <input id="fxBorderRadius" type="range" min="0" max="35">
             </div>
           </div>
 
           <label class="fx-check">
-            <input id="fxQuestionShadow" type="checkbox">
-            Тень карточки
+            <input id="fxGlowEnabled" type="checkbox">
+            Свечение рамки
           </label>
+
+          <div class="fx-grid2">
+            <div class="fx-field">
+              <label>Цвет свечения</label>
+              <input id="fxGlowColor" type="color">
+            </div>
+
+            <div class="fx-field">
+              <label>Сила свечения</label>
+              <input id="fxGlowPower" type="range" min="0" max="60">
+            </div>
+          </div>
+        </div>
+
+        <div class="fx-card">
+          <div class="fx-card-title">Текст вопроса</div>
+
+          <div class="fx-grid2">
+            <div class="fx-field">
+              <label>Цвет заголовка</label>
+              <input id="fxTitleColor" type="color">
+            </div>
+
+            <div class="fx-field">
+              <label>Цвет вопроса</label>
+              <input id="fxQuestionColor" type="color">
+            </div>
+          </div>
+
+          <div class="fx-grid2">
+            <div class="fx-field">
+              <label>Размер заголовка</label>
+              <input id="fxTitleSize" type="range" min="16" max="48">
+            </div>
+
+            <div class="fx-field">
+              <label>Размер вопроса</label>
+              <input id="fxQuestionSize" type="range" min="14" max="42">
+            </div>
+          </div>
         </div>
 
         <div class="fx-card">
@@ -794,30 +832,37 @@
 
             <div class="fx-field">
               <label>Цвет текста</label>
-              <input id="fxAnswerText" type="color">
+              <input id="fxAnswerColor" type="color">
             </div>
           </div>
 
           <div class="fx-grid2">
             <div class="fx-field">
-              <label>Цвет рамки</label>
+              <label>Рамка ответа</label>
               <input id="fxAnswerBorder" type="color">
             </div>
 
             <div class="fx-field">
-              <label>Скругление</label>
-              <input id="fxAnswerRadius" type="range" min="0" max="35">
+              <label>Размер текста</label>
+              <input id="fxAnswerSize" type="range" min="12" max="34">
             </div>
           </div>
 
-          <div class="fx-field">
-            <label>Толщина рамки</label>
-            <input id="fxAnswerBorderWidth" type="range" min="0" max="8">
+          <div class="fx-grid2">
+            <div class="fx-field">
+              <label>Выбранный ответ</label>
+              <input id="fxSelectedBg" type="color">
+            </div>
+
+            <div class="fx-field">
+              <label>Цвет кнопки</label>
+              <input id="fxButtonColor" type="color">
+            </div>
           </div>
         </div>
 
         <div class="fx-card">
-          <div class="fx-card-title">Feedback</div>
+          <div class="fx-card-title">Фидбек</div>
 
           <div class="fx-grid2">
             <div class="fx-field">
@@ -832,26 +877,130 @@
           </div>
 
           <label class="fx-check">
-            <input id="fxFeedbackPopup" type="checkbox">
-            Большая плашка поверх задания
+            <input id="fxBigFeedback" type="checkbox">
+            Большой знак ✓ / ✕
           </label>
 
           <label class="fx-check">
-            <input id="fxCorrectAnimation" type="checkbox">
-            Анимация при правильном ответе
-          </label>
-
-          <label class="fx-check">
-            <input id="fxWrongAnimation" type="checkbox">
-            Встряхивание карточки при ошибке
+            <input id="fxFeedbackGlow" type="checkbox">
+            Свечение фидбека
           </label>
         </div>
 
       </div>
 
+      <!-- HERO -->
+
+      <div class="fx-pane" data-pane="hero">
+
+        <div id="fxPicker_player"></div>
+        <div id="fxPicker_heroProjectile"></div>
+
+        <div class="fx-card">
+          <div class="fx-card-title">Движение героя</div>
+
+          <div class="fx-field">
+            <label>Размер героя</label>
+            <input id="fxPlayerSize" type="range" min="40" max="110">
+          </div>
+
+          <div class="fx-field">
+            <label>Скорость</label>
+            <input id="fxSpeed" type="range" min="140" max="400">
+          </div>
+
+          <div class="fx-field">
+            <label>Сила прыжка</label>
+            <input id="fxJump" type="range" min="400" max="760">
+          </div>
+
+          <label class="fx-check">
+            <input id="fxMirror" type="checkbox">
+            Отражать героя при движении влево
+          </label>
+
+          <label class="fx-check">
+            <input id="fxHeroGlow" type="checkbox">
+            Свечение героя
+          </label>
+
+          <div class="fx-field">
+            <label>Цвет свечения героя</label>
+            <input id="fxHeroGlowColor" type="color">
+          </div>
+
+          <div class="fx-status">
+            ПРОБЕЛ — выстрел.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- MAP -->
+
+      <div class="fx-pane" data-pane="map">
+
+        <div class="fx-card">
+          <div class="fx-card-title">Карта</div>
+
+          <p style="font-size:13px;line-height:1.5;margin-top:0">
+            Карта строится автоматически. Чем больше заданий, тем длиннее становится мир.
+            В каждой секции есть нижний путь, подъём, высокие платформы, стены,
+            трубы, блоки и прыжки через пропасти.
+          </p>
+
+          <div class="fx-field">
+            <label>Масштаб препятствий</label>
+            <input id="fxMapScale" type="range" min="80" max="145">
+          </div>
+
+          <label class="fx-check">
+            <input id="fxTallMap" type="checkbox">
+            Высокие многоярусные участки
+          </label>
+        </div>
+
+      </div>
+
+      <!-- ENEMY -->
+
+      <div class="fx-pane" data-pane="enemy">
+
+        <div class="fx-card">
+
+          <label class="fx-check">
+            <input id="fxEnemyEnabled" type="checkbox">
+            Добавить врагов
+          </label>
+
+          <div class="fx-field">
+            <label>Количество врагов</label>
+            <input id="fxEnemyCount" type="number" min="0" max="20">
+          </div>
+
+          <div class="fx-field">
+            <label>Попаданий для победы</label>
+            <input id="fxEnemyHp" type="number" min="1" max="10">
+          </div>
+
+          <div class="fx-field">
+            <label>Интервал выстрелов, сек.</label>
+            <input id="fxEnemyFireRate" type="number" min="0.5" max="10" step="0.5">
+          </div>
+
+        </div>
+
+        <div id="fxPicker_enemy"></div>
+        <div id="fxPicker_enemyProjectile"></div>
+
+      </div>
+
+      <!-- TASKS -->
+
       <div class="fx-pane" data-pane="tasks">
 
         <div class="fx-card">
+
           <div class="fx-task-head">
             <div>
               <div class="fx-card-title" style="margin:0">Задания</div>
@@ -863,83 +1012,20 @@
             </button>
           </div>
 
-          <div id="fxTasksList"></div>
+          <div id="fxTasks"></div>
+
         </div>
+
+        <div id="fxPicker_taskItem"></div>
 
       </div>
 
-      <div class="fx-pane" data-pane="items">
-
-        <div id="picker_taskItem"></div>
-
-        <div class="fx-card">
-          <div class="fx-card-title">Предмет задания</div>
-
-          <div class="fx-grid2">
-            <div class="fx-field">
-              <label>Размер</label>
-              <input id="fxTaskSize" type="range" min="45" max="110">
-            </div>
-
-            <div class="fx-field">
-              <label>Иконка</label>
-              <select id="fxTaskIcon">
-                <option value="⭐">⭐ Звезда</option>
-                <option value="💎">💎 Кристалл</option>
-                <option value="🔑">🔑 Ключ</option>
-                <option value="❓">❓ Вопрос</option>
-                <option value="📜">📜 Свиток</option>
-                <option value="🎁">🎁 Подарок</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="fx-field">
-            <label>Анимация</label>
-            <select id="fxTaskAnimation">
-              <option value="float">Плавно вверх-вниз</option>
-              <option value="pulse">Пульсация</option>
-              <option value="none">Без анимации</option>
-            </select>
-          </div>
-        </div>
-
-        <div id="picker_bonus"></div>
-
-        <div class="fx-card">
-          <div class="fx-card-title">Обычные бонусы</div>
-
-          <label class="fx-check">
-            <input id="fxBonusesEnabled" type="checkbox">
-            Использовать бонусы
-          </label>
-
-          <div class="fx-grid2">
-            <div class="fx-field">
-              <label>Количество</label>
-              <input id="fxBonusCount" type="number" min="0" max="150">
-            </div>
-
-            <div class="fx-field">
-              <label>Иконка</label>
-              <select id="fxBonusIcon">
-                <option value="🪙">🪙 Монета</option>
-                <option value="⭐">⭐ Звезда</option>
-                <option value="💎">💎 Кристалл</option>
-                <option value="🍎">🍎 Яблоко</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div id="picker_finish"></div>
-
-      </div>
+      <!-- SETTINGS -->
 
       <div class="fx-pane" data-pane="settings">
 
         <div class="fx-card">
-          <div class="fx-card-title">Тексты игры</div>
+          <div class="fx-card-title">Тексты</div>
 
           <div class="fx-field">
             <label>Кнопка старта</label>
@@ -970,33 +1056,32 @@
             <label>Финальный текст</label>
             <textarea id="fxFinishText"></textarea>
           </div>
+
         </div>
 
         <div class="fx-card">
-          <div class="fx-card-title">Игровые настройки</div>
+          <div class="fx-card-title">Поведение</div>
 
           <label class="fx-check">
-            <input id="fxShowTaskCounter" type="checkbox">
+            <input id="fxCounter" type="checkbox">
             Счётчик заданий
           </label>
 
           <label class="fx-check">
-            <input id="fxShowBonusCounter" type="checkbox">
-            Счётчик бонусов
-          </label>
-
-          <label class="fx-check">
             <input id="fxShowInstruction" type="checkbox">
-            Показывать инструкцию
+            Стартовая инструкция
           </label>
 
           <label class="fx-check">
             <input id="fxLockFinish" type="checkbox">
             Финиш только после всех заданий
           </label>
+
         </div>
 
       </div>
+
+      <!-- PUBLISH -->
 
       <div class="fx-pane" data-pane="publish">
 
@@ -1004,101 +1089,111 @@
           <div class="fx-card-title">Публикация</div>
 
           <div class="fx-actions">
-            <button id="fxCopyBtn" class="fx-btn primary">
-              📋 Копировать iframe
+            <button id="fxCopy" class="fx-btn primary">
+              Копировать iframe
             </button>
 
-            <button id="fxShowCodeBtn" class="fx-btn">
+            <button id="fxShowCode" class="fx-btn">
               Показать код
             </button>
           </div>
 
           <div id="fxPublishStatus" class="fx-status"></div>
 
-          <textarea
-            id="fxCode"
-            class="fx-code fx-hidden"
-            readonly
-          ></textarea>
+          <textarea id="fxCode" class="fx-code fx-hidden" readonly></textarea>
         </div>
 
       </div>
 
     </div>
 
-    <div class="fx-preview-wrap">
+    <!-- ALWAYS VISIBLE LIVE GAME -->
 
-      <div class="fx-preview-toolbar">
+    <div class="fx-preview">
+
+      <div class="fx-preview-head">
         <div>
-          <strong>Живой предпросмотр</strong>
-          <div class="fx-preview-note">
-            Обновляется автоматически • кликните по игре и используйте стрелки
+          <div class="fx-preview-label">Игра</div>
+          <div class="fx-status">
+            ← → движение • ↑ прыжок • ↓ спуск • ПРОБЕЛ выстрел
           </div>
         </div>
 
-        <button id="fxRestartPreview" class="fx-btn small">
-          ↺ Начать заново
+        <button id="fxRestartGame" class="fx-btn small">
+          ↺
         </button>
       </div>
 
       <div id="fxStage" class="fx-stage" tabindex="0">
 
-        <div id="fxBg" class="fx-bg"></div>
+        <div id="fxGameBg" class="fx-game-bg"></div>
         <div id="fxWorld" class="fx-world"></div>
         <div id="fxHud" class="fx-hud"></div>
 
         <div id="fxStartOverlay" class="fx-overlay">
-          <div id="fxStartCard" class="fx-game-card">
-            <img id="fxStartImagePreview" class="fx-question-image fx-hidden">
-            <h2 id="fxStartTitle"></h2>
-            <p id="fxInstructionPreview"></p>
-            <button id="fxStartBtn" class="fx-btn primary"></button>
+          <div id="fxStartBox" class="fx-question-box">
+
+            <img id="fxStartImage" class="fx-question-image fx-hidden">
+
+            <h2 id="fxStartTitle" class="fx-question-title"></h2>
+
+            <div id="fxStartInstruction" class="fx-question-text"></div>
+
+            <button id="fxStartButton" class="fx-btn primary">
+              Играть
+            </button>
+
           </div>
         </div>
 
         <div id="fxTaskOverlay" class="fx-overlay fx-hidden">
-          <div id="fxQuestionCard" class="fx-game-card">
-            <h2 id="fxTaskTitlePreview"></h2>
 
-            <img
-              id="fxQuestionImgPreview"
-              class="fx-question-image fx-hidden"
-            >
+          <div id="fxQuestionBox" class="fx-question-box">
 
-            <p id="fxTaskTextPreview"></p>
+            <h2 id="fxQuestionTitle" class="fx-question-title"></h2>
 
-            <div id="fxHintPreview" class="fx-hint-box fx-hidden"></div>
+            <img id="fxQuestionImage" class="fx-question-image fx-hidden">
 
-            <button
-              id="fxHintBtn"
-              class="fx-btn small fx-hidden"
-            >
+            <div id="fxQuestionText" class="fx-question-text"></div>
+
+            <div id="fxHintBox" class="fx-hint-box fx-hidden"></div>
+
+            <button id="fxHintButton" class="fx-btn small fx-hidden">
               💡 Подсказка
             </button>
 
-            <div id="fxAnswersPreview"></div>
+            <div id="fxAnswers"></div>
 
-            <div id="fxFeedback" class="fx-feedback"></div>
+            <div id="fxFeedbackText" class="fx-feedback-text"></div>
+
           </div>
+
         </div>
 
         <div id="fxFinishOverlay" class="fx-overlay fx-hidden">
-          <div class="fx-game-card">
-            <h2 id="fxFinishTitlePreview"></h2>
-            <p id="fxFinishTextPreview"></p>
-            <button id="fxAgainBtn" class="fx-btn primary">
+
+          <div id="fxFinishBox" class="fx-question-box">
+
+            <h2 id="fxFinishTitlePreview" class="fx-question-title"></h2>
+
+            <div id="fxFinishTextPreview" class="fx-question-text"></div>
+
+            <button id="fxAgain" class="fx-btn primary">
               Играть ещё раз
             </button>
+
           </div>
+
         </div>
 
-        <div id="fxFeedbackBadge" class="fx-feedback-badge fx-hidden"></div>
-        <div id="fxToast" class="fx-toast fx-hidden"></div>
+        <div id="fxBigFeedback" class="fx-big-feedback fx-hidden"></div>
 
       </div>
+
     </div>
 
   </div>
+
 </div>
 
 <script>
@@ -1106,97 +1201,117 @@
 "use strict";
 
 const root=document.getElementById("FX_ROOT");
-if(!root || root.dataset.ready==="1") return;
-root.dataset.ready="1";
+if(!root || root.dataset.fxReady==="1")return;
+root.dataset.fxReady="1";
 
 const $=s=>root.querySelector(s);
 const $$=s=>Array.from(root.querySelectorAll(s));
 
-function blankImage(){
-  return {mode:"builtin",value:""};
-}
+const blankAsset=()=>({mode:"builtin",value:""});
 
-const defaults={
+const defaultState={
   title:"Большое приключение",
-  accent:"#6f8063",
+
+  accent:"#766b8f",
 
   colors:{
-    sky:"#cfe8f5",
-    ground:"#71965e",
-    platform:"#b27d55",
-    obstacle:"#a66f50"
+    sky:"#cce6f4",
+    ground:"#72985f",
+    platform:"#b9855c",
+    obstacle:"#9f7052"
   },
 
-  images:{
-    background:blankImage(),
-    ground:blankImage(),
-    platform:blankImage(),
-    obstacle:blankImage(),
-    player:blankImage(),
-    taskItem:blankImage(),
-    bonus:blankImage(),
-    finish:blankImage(),
-    startImage:blankImage()
+  assets:{
+    background:blankAsset(),
+    ground:blankAsset(),
+    platform:blankAsset(),
+    obstacle:blankAsset(),
+    player:blankAsset(),
+    taskItem:blankAsset(),
+    finish:blankAsset(),
+    startImage:blankAsset(),
+    enemy:blankAsset(),
+    enemyProjectile:blankAsset(),
+    heroProjectile:blankAsset()
   },
 
   player:{
-    size:72,
-    speed:250,
-    jump:590,
-    mirror:true
+    size:62,
+    speed:265,
+    jump:600,
+    mirror:true,
+    glow:false,
+    glowColor:"#fff06a"
   },
 
-  questionStyle:{
-    font:"Arial, sans-serif",
+  map:{
+    scale:110,
+    tall:true
+  },
 
-    questionBg:"#ffffff",
-    questionText:"#252525",
-    questionTitle:"#252525",
-    questionBorder:"#7c8c70",
-    questionBorderWidth:3,
-    questionRadius:20,
-    questionPadding:22,
-    questionSize:23,
-    shadow:true,
-
-    answerBg:"#f7f7f7",
-    answerText:"#252525",
-    answerBorder:"#d6d6d6",
-    answerBorderWidth:2,
-    answerRadius:12,
-    answerSize:18,
-
-    correctColor:"#4e9b5a",
-    wrongColor:"#c75656",
-    feedbackPopup:true,
-    correctAnimation:true,
-    wrongAnimation:true
+  enemy:{
+    enabled:true,
+    count:2,
+    hp:3,
+    fireRate:2.5
   },
 
   taskItem:{
     icon:"⭐",
-    size:68,
+    size:54,
     animation:"float"
   },
 
-  bonus:{
-    enabled:true,
-    count:16,
-    icon:"🪙"
+  ui:{
+    font:"Arial, sans-serif",
+
+    questionBg:"#ffffff",
+    questionBorder:"#766b8f",
+    borderWidth:3,
+    borderRadius:18,
+
+    glowEnabled:false,
+    glowColor:"#c695ff",
+    glowPower:24,
+
+    titleColor:"#2c2632",
+    questionColor:"#2c2632",
+
+    titleSize:26,
+    questionSize:20,
+
+    answerBg:"#f4f1f7",
+    answerColor:"#29252e",
+    answerBorder:"#d6cde1",
+    answerSize:18,
+    selectedBg:"#e3d9ef",
+
+    buttonColor:"#766b8f",
+
+    correctColor:"#52b879",
+    wrongColor:"#dc6464",
+
+    bigFeedback:true,
+    feedbackGlow:true
   },
 
   texts:{
     start:"Играть",
-    instruction:"← → — движение\n↑ — прыжок\n↓ — спуститься с платформы",
+    instruction:
+      "← → — движение\n"+
+      "↑ — прыжок\n"+
+      "↓ — спуск\n"+
+      "ПРОБЕЛ — выстрел",
+
     correct:"Верно!",
     wrong:"Попробуй ещё раз",
+
     finishTitle:"Отличная работа!",
     finishText:"Ты прошёл всю карту!"
   },
 
   settings:{
-    showTaskCounter:true,
-    showBonusCounter:true,
+    counter:true,
     showInstruction:true,
     lockFinish:true
   },
@@ -1204,33 +1319,38 @@ const defaults={
   tasks:[
     {
       id:1,
-      type:"single",
       title:"Задание 1",
-      text:"Сколько будет 7 + 5?",
-      hint:"Посчитай от 7 ещё пять.",
-      image:blankImage(),
+      text:"Сколько будет 8 + 7?",
+      type:"single",
+      hint:"Посчитай от восьми ещё семь.",
+      image:blankAsset(),
+      answer:"",
       options:[
-        {text:"10",image:blankImage(),correct:false},
-        {text:"12",image:blankImage(),correct:true},
-        {text:"14",image:blankImage(),correct:false}
-      ],
-      answer:""
+        {text:"13",correct:false,image:blankAsset()},
+        {text:"15",correct:true,image:blankAsset()},
+        {text:"16",correct:false,image:blankAsset()}
+      ]
     },
+
     {
       id:2,
-      type:"manual",
       title:"Задание 2",
       text:"Назови главные члены предложения.",
+      type:"manual",
       hint:"",
-      image:blankImage(),
-      options:[],
-      answer:""
+      image:blankAsset(),
+      answer:"",
+      options:[]
     }
   ]
 };
 
-let state=JSON.parse(JSON.stringify(defaults));
+let state=JSON.parse(JSON.stringify(defaultState));
 let nextTaskId=3;
+
+function clamp(v,a,b){
+  return Math.max(a,Math.min(b,v));
+}
 
 function esc(v){
   return String(v??"")
@@ -1240,480 +1360,529 @@ function esc(v){
     .replace(/"/g,"&quot;");
 }
 
-function clamp(v,a,b){
-  return Math.max(a,Math.min(b,v));
+function assetUrl(asset){
+  if(!asset)return "";
+  if(asset.mode==="builtin")return "";
+  return asset.value||"";
 }
 
-function getImage(obj){
-  if(!obj || obj.mode==="builtin" || !obj.value) return "";
-  return obj.value;
-}
+function readFile(file,callback){
+  if(!file)return;
 
-function readFile(file,cb){
-  if(!file) return;
+  const reader=new FileReader();
 
-  const r=new FileReader();
-
-  r.onload=()=>{
-    cb(String(r.result||""));
+  reader.onload=function(){
+    callback(String(reader.result||""));
   };
 
-  r.readAsDataURL(file);
+  reader.readAsDataURL(file);
 }
 
-const pickerNames={
+/* ---------- TABS ---------- */
+
+$("#fxTabs").addEventListener("click",function(e){
+  const btn=e.target.closest("[data-tab]");
+  if(!btn)return;
+
+  $$(".fx-tab").forEach(x=>x.classList.remove("active"));
+  $$(".fx-pane").forEach(x=>x.classList.remove("active"));
+
+  btn.classList.add("active");
+
+  const pane=$('[data-pane="'+btn.dataset.tab+'"]');
+  if(pane)pane.classList.add("active");
+});
+
+/* ---------- IMAGE PICKERS ---------- */
+
+const assetLabels={
   background:"Фон игры",
-  ground:"Земля",
-  platform:"Платформы",
-  obstacle:"Препятствия",
-  player:"Герой",
-  taskItem:"Предмет задания",
-  bonus:"Коллекционный предмет",
+  ground:"Текстура земли",
+  platform:"Текстура платформ",
+  obstacle:"Изображение препятствий",
   finish:"Финиш",
-  startImage:"Картинка стартового экрана"
+  startImage:"Картинка стартового окна",
+  player:"Герой",
+  enemy:"Враг",
+  enemyProjectile:"Снаряд врага",
+  heroProjectile:"Снаряд героя",
+  taskItem:"Предмет-задание"
 };
 
-function renderImagePickers(){
-  Object.keys(pickerNames).forEach(key=>{
-    const mount=$("#picker_"+key);
-    if(!mount) return;
+function renderAssetPickers(){
 
-    const data=state.images[key];
+  Object.keys(assetLabels).forEach(function(key){
 
-    mount.innerHTML=`
-      <div class="fx-card">
-        <div class="fx-card-title">${pickerNames[key]}</div>
+    const mount=$("#fxPicker_"+key);
 
-        <div class="fx-image-card" data-picker="${key}">
-          <div class="fx-source-tabs">
+    if(!mount)return;
 
-            <button
-              type="button"
-              class="fx-source-btn ${data.mode==="builtin"?"active":""}"
-              data-mode="builtin"
-            >
-              Встроенное
-            </button>
+    const a=state.assets[key];
 
-            <button
-              type="button"
-              class="fx-source-btn ${data.mode==="url"?"active":""}"
-              data-mode="url"
-            >
-              URL
-            </button>
+    mount.innerHTML=
+      '<div class="fx-card">'+
 
-            <button
-              type="button"
-              class="fx-source-btn ${data.mode==="upload"?"active":""}"
-              data-mode="upload"
-            >
-              Файл
-            </button>
+        '<div class="fx-card-title">'+
+          assetLabels[key]+
+        '</div>'+
 
-          </div>
+        '<div class="fx-image-picker" data-asset="'+key+'">'+
 
-          <div class="${data.mode==="url"?"":"fx-hidden"}">
-            <input
-              type="text"
-              data-role="url"
-              value="${data.mode==="url"?esc(data.value):""}"
-              placeholder="https://..."
-            >
+          '<div class="fx-source-tabs">'+
 
-            <button
-              type="button"
-              class="fx-btn small"
-              data-role="apply-url"
-              style="margin-top:6px"
-            >
-              Применить
-            </button>
-          </div>
+            '<button class="fx-source '+
+            (a.mode==="builtin"?"active":"")+
+            '" data-source="builtin">'+
+              'Встроенное'+
+            '</button>'+
 
-          <div class="${data.mode==="upload"?"":"fx-hidden"}">
-            <input
-              type="file"
-              data-role="file"
-              accept="image/png,image/jpeg,image/webp,image/gif"
-            >
-          </div>
+            '<button class="fx-source '+
+            (a.mode==="url"?"active":"")+
+            '" data-source="url">'+
+              'URL'+
+            '</button>'+
 
-          <img
-            class="fx-thumb ${getImage(data)?"show":""}"
-            src="${esc(getImage(data))}"
-          >
-        </div>
-      </div>
-    `;
+            '<button class="fx-source '+
+            (a.mode==="upload"?"active":"")+
+            '" data-source="upload">'+
+              'Файл'+
+            '</button>'+
+
+          '</div>'+
+
+          '<div class="'+
+          (a.mode==="url"?"":"fx-hidden")+
+          '" data-url-area>'+
+
+            '<input type="text" data-url-input '+
+            'placeholder="https://..." value="'+
+            (a.mode==="url"?esc(a.value):"")+
+            '">'+
+
+            '<button class="fx-btn small" '+
+            'data-apply-url style="margin-top:6px">'+
+              'Применить'+
+            '</button>'+
+
+          '</div>'+
+
+          '<div class="'+
+          (a.mode==="upload"?"":"fx-hidden")+
+          '" data-file-area>'+
+
+            '<input type="file" data-file-input accept="image/*">'+
+
+          '</div>'+
+
+          '<img class="fx-thumb '+
+          (assetUrl(a)?"show":"")+
+          '" data-thumb src="'+
+          esc(assetUrl(a))+
+          '">'+
+
+        '</div>'+
+      '</div>';
   });
 }
 
-root.addEventListener("click",e=>{
-  const picker=e.target.closest("[data-picker]");
+root.addEventListener("click",function(e){
 
-  if(picker){
-    const key=picker.dataset.picker;
+  const picker=e.target.closest("[data-asset]");
 
-    if(e.target.matches("[data-mode]")){
-      state.images[key].mode=e.target.dataset.mode;
+  if(!picker)return;
 
-      if(state.images[key].mode==="builtin"){
-        state.images[key].value="";
-      }
+  const key=picker.dataset.asset;
 
-      renderImagePickers();
-      resetGame();
-      return;
+  if(e.target.matches("[data-source]")){
+
+    state.assets[key].mode=e.target.dataset.source;
+
+    if(state.assets[key].mode==="builtin"){
+      state.assets[key].value="";
     }
 
-    if(e.target.matches('[data-role="apply-url"]')){
-      const url=picker.querySelector('[data-role="url"]').value.trim();
-
-      state.images[key]={
-        mode:"url",
-        value:url
-      };
-
-      renderImagePickers();
-      resetGame();
-      return;
-    }
+    renderAssetPickers();
+    restartGame();
+    return;
   }
+
+  if(e.target.matches("[data-apply-url]")){
+
+    const input=picker.querySelector("[data-url-input]");
+
+    state.assets[key]={
+      mode:"url",
+      value:input.value.trim()
+    };
+
+    renderAssetPickers();
+    restartGame();
+  }
+
 });
 
-root.addEventListener("change",e=>{
-  const picker=e.target.closest("[data-picker]");
+root.addEventListener("change",function(e){
 
-  if(
-    picker &&
-    e.target.matches('[data-role="file"]')
-  ){
-    const key=picker.dataset.picker;
+  const picker=e.target.closest("[data-asset]");
 
-    readFile(e.target.files[0],data=>{
-      state.images[key]={
-        mode:"upload",
-        value:data
-      };
+  if(!picker)return;
 
-      renderImagePickers();
-      resetGame();
-    });
-  }
-});
+  if(!e.target.matches("[data-file-input]"))return;
 
-const taskTypes=[
-  {
-    id:"single",
-    title:"Один ответ",
-    desc:"Один правильный вариант"
-  },
-  {
-    id:"multi",
-    title:"Несколько",
-    desc:"Несколько правильных"
-  },
-  {
-    id:"truefalse",
-    title:"Верно / неверно",
-    desc:"Две кнопки"
-  },
-  {
-    id:"input",
-    title:"Вписать ответ",
-    desc:"Текстовое поле"
-  },
-  {
-    id:"manual",
-    title:"Устный ответ",
-    desc:"Учитель проверяет сам"
-  },
-  {
-    id:"image",
-    title:"Выбор картинки",
-    desc:"Ответы изображениями"
-  }
-];
+  const key=picker.dataset.asset;
 
-function renderTasks(){
-  const list=$("#fxTasksList");
+  readFile(e.target.files[0],function(data){
 
-  $("#fxTaskCount").textContent=
-    "Добавлено: "+state.tasks.length;
+    state.assets[key]={
+      mode:"upload",
+      value:data
+    };
 
-  list.innerHTML="";
+    renderAssetPickers();
+    restartGame();
 
-  state.tasks.forEach((task,index)=>{
-    const card=document.createElement("div");
-    card.className="fx-task-card";
-    card.dataset.taskId=task.id;
-
-    const typeButtons=taskTypes.map(t=>`
-      <button
-        type="button"
-        class="fx-type-btn ${task.type===t.id?"active":""}"
-        data-task-type="${t.id}"
-      >
-        ${t.title}
-        <span>${t.desc}</span>
-      </button>
-    `).join("");
-
-    const isChoice=
-      task.type==="single" ||
-      task.type==="multi" ||
-      task.type==="image";
-
-    let optionsHtml="";
-
-    if(isChoice){
-      optionsHtml=task.options.map((op,oi)=>`
-        <div class="fx-option">
-
-          <div class="fx-option-top">
-
-            <input
-              type="text"
-              value="${esc(op.text)}"
-              data-task-field="optionText"
-              data-option-index="${oi}"
-              placeholder="Текст ответа"
-            >
-
-            <label class="fx-check" style="margin:0">
-              <input
-                type="${task.type==="multi"?"checkbox":"radio"}"
-                name="correct_${task.id}"
-                data-task-field="optionCorrect"
-                data-option-index="${oi}"
-                ${op.correct?"checked":""}
-              >
-              Верно
-            </label>
-
-          </div>
-
-          <div class="fx-answer-source">
-            <input
-              type="text"
-              value="${op.image && op.image.mode==="url"?esc(op.image.value):""}"
-              data-task-field="optionImageUrl"
-              data-option-index="${oi}"
-              placeholder="URL картинки"
-            >
-
-            <input
-              type="file"
-              accept="image/*"
-              data-task-field="optionImageFile"
-              data-option-index="${oi}"
-            >
-          </div>
-
-        </div>
-      `).join("");
-    }
-
-    let answerExtra="";
-
-    if(task.type==="input"){
-      answerExtra=`
-        <div class="fx-field">
-          <label>Правильный ответ</label>
-          <input
-            type="text"
-            data-task-field="answer"
-            value="${esc(task.answer)}"
-          >
-        </div>
-      `;
-    }
-
-    if(task.type==="truefalse"){
-      answerExtra=`
-        <div class="fx-field">
-          <label>Правильный ответ</label>
-
-          <select data-task-field="answer">
-            <option
-              value="true"
-              ${task.answer==="true"?"selected":""}
-            >
-              Верно
-            </option>
-
-            <option
-              value="false"
-              ${task.answer==="false"?"selected":""}
-            >
-              Неверно
-            </option>
-          </select>
-        </div>
-      `;
-    }
-
-    card.innerHTML=`
-      <div class="fx-task-head">
-
-        <div class="fx-task-num">
-          Задание ${index+1}
-        </div>
-
-        <div class="fx-task-actions">
-          <button class="fx-btn small" data-act="up">↑</button>
-          <button class="fx-btn small" data-act="down">↓</button>
-          <button class="fx-btn danger small" data-act="delete">×</button>
-        </div>
-
-      </div>
-
-      <label>1. Выберите вид задания</label>
-
-      <div class="fx-type-grid">
-        ${typeButtons}
-      </div>
-
-      <div class="fx-field">
-        <label>2. Заголовок</label>
-        <input
-          type="text"
-          data-task-field="title"
-          value="${esc(task.title)}"
-        >
-      </div>
-
-      <div class="fx-field">
-        <label>3. Текст задания</label>
-        <textarea data-task-field="text">${esc(task.text)}</textarea>
-      </div>
-
-      <div class="fx-field">
-        <label>Картинка к вопросу — URL</label>
-        <input
-          type="text"
-          data-task-field="questionImageUrl"
-          value="${
-            task.image &&
-            task.image.mode==="url"
-              ? esc(task.image.value)
-              : ""
-          }"
-          placeholder="https://..."
-        >
-      </div>
-
-      <div class="fx-field">
-        <label>Или загрузите картинку</label>
-        <input
-          type="file"
-          accept="image/*"
-          data-task-field="questionImageFile"
-        >
-      </div>
-
-      ${
-        isChoice
-          ? `
-            <label>4. Варианты ответа</label>
-            ${optionsHtml}
-
-            <button
-              class="fx-btn small"
-              data-act="add-option"
-            >
-              + Добавить вариант
-            </button>
-          `
-          : ""
-      }
-
-      ${answerExtra}
-
-      <div class="fx-field" style="margin-top:10px">
-        <label>Подсказка</label>
-
-        <input
-          type="text"
-          data-task-field="hint"
-          value="${esc(task.hint)}"
-          placeholder="Необязательно"
-        >
-      </div>
-    `;
-
-    list.appendChild(card);
   });
-}
+});
+
+/* ---------- TASK EDITOR ---------- */
 
 function newTask(){
+
   return {
     id:nextTaskId++,
-    type:"single",
     title:"Новое задание",
     text:"Введите текст задания",
+    type:"single",
     hint:"",
-    image:blankImage(),
+    image:blankAsset(),
+    answer:"",
     options:[
       {
         text:"Ответ 1",
-        image:blankImage(),
-        correct:true
+        correct:true,
+        image:blankAsset()
       },
       {
         text:"Ответ 2",
-        image:blankImage(),
-        correct:false
+        correct:false,
+        image:blankAsset()
       }
-    ],
-    answer:""
+    ]
   };
 }
 
-$("#fxAddTask").addEventListener("click",()=>{
+function renderTasks(){
+
+  const box=$("#fxTasks");
+
+  $("#fxTaskCount").textContent=
+    "Количество: "+state.tasks.length;
+
+  box.innerHTML="";
+
+  state.tasks.forEach(function(task,index){
+
+    const card=document.createElement("div");
+
+    card.className="fx-task";
+    card.dataset.taskId=task.id;
+
+    const hasOptions=[
+      "single",
+      "multi",
+      "image"
+    ].includes(task.type);
+
+    let optionsHTML="";
+
+    if(hasOptions){
+
+      optionsHTML=task.options.map(function(op,oi){
+
+        const inputType=
+          task.type==="multi"?
+          "checkbox":
+          "radio";
+
+        return (
+          '<div class="fx-option">'+
+
+            '<div class="fx-option-main">'+
+
+              '<input type="text" '+
+              'data-field="optionText" '+
+              'data-option="'+oi+'" '+
+              'value="'+esc(op.text)+'" '+
+              'placeholder="Текст ответа">'+
+
+              '<label class="fx-check" style="margin:0">'+
+                '<input type="'+inputType+'" '+
+                'name="correct_'+task.id+'" '+
+                'data-field="optionCorrect" '+
+                'data-option="'+oi+'" '+
+                (op.correct?"checked":"")+
+                '>'+
+                'Верно'+
+              '</label>'+
+
+            '</div>'+
+
+            '<input type="text" '+
+            'data-field="optionImageUrl" '+
+            'data-option="'+oi+'" '+
+            'placeholder="URL изображения ответа" '+
+            'value="'+
+            (op.image && op.image.mode==="url"?
+              esc(op.image.value):
+              "")+
+            '" style="margin-top:6px">'+
+
+            '<input type="file" accept="image/*" '+
+            'data-field="optionImageFile" '+
+            'data-option="'+oi+'" '+
+            'style="margin-top:5px">'+
+
+          '</div>'
+        );
+
+      }).join("");
+    }
+
+    let answerField="";
+
+    if(task.type==="input"){
+
+      answerField=
+        '<div class="fx-field">'+
+          '<label>Правильный ответ</label>'+
+          '<input type="text" data-field="answer" '+
+          'value="'+esc(task.answer)+'">'+
+        '</div>';
+    }
+
+    if(task.type==="truefalse"){
+
+      answerField=
+        '<div class="fx-field">'+
+          '<label>Правильный ответ</label>'+
+          '<select data-field="answer">'+
+            '<option value="true" '+
+            (task.answer==="true"?"selected":"")+
+            '>Верно</option>'+
+            '<option value="false" '+
+            (task.answer==="false"?"selected":"")+
+            '>Неверно</option>'+
+          '</select>'+
+        '</div>';
+    }
+
+    card.innerHTML=
+
+      '<div class="fx-task-head">'+
+
+        '<div class="fx-task-name">'+
+          'Задание '+(index+1)+
+        '</div>'+
+
+        '<div class="fx-task-actions">'+
+          '<button class="fx-btn small" data-task-act="up">↑</button>'+
+          '<button class="fx-btn small" data-task-act="down">↓</button>'+
+          '<button class="fx-btn danger small" data-task-act="delete">×</button>'+
+        '</div>'+
+
+      '</div>'+
+
+      '<div class="fx-field">'+
+        '<label>Заголовок</label>'+
+        '<input type="text" data-field="title" value="'+
+        esc(task.title)+'">'+
+      '</div>'+
+
+      '<div class="fx-field">'+
+        '<label>Текст задания</label>'+
+        '<textarea data-field="text">'+
+        esc(task.text)+
+        '</textarea>'+
+      '</div>'+
+
+      '<div class="fx-field">'+
+        '<label>Тип задания</label>'+
+        '<select data-field="type">'+
+
+          '<option value="single" '+
+          (task.type==="single"?"selected":"")+
+          '>Один правильный ответ</option>'+
+
+          '<option value="multi" '+
+          (task.type==="multi"?"selected":"")+
+          '>Несколько правильных</option>'+
+
+          '<option value="truefalse" '+
+          (task.type==="truefalse"?"selected":"")+
+          '>Верно / неверно</option>'+
+
+          '<option value="input" '+
+          (task.type==="input"?"selected":"")+
+          '>Ввод ответа</option>'+
+
+          '<option value="manual" '+
+          (task.type==="manual"?"selected":"")+
+          '>Устный ответ</option>'+
+
+          '<option value="image" '+
+          (task.type==="image"?"selected":"")+
+          '>Выбор изображения</option>'+
+
+        '</select>'+
+      '</div>'+
+
+      '<div class="fx-field">'+
+        '<label>Подсказка</label>'+
+        '<input type="text" data-field="hint" value="'+
+        esc(task.hint)+'">'+
+      '</div>'+
+
+      '<div class="fx-field">'+
+        '<label>Картинка вопроса — URL</label>'+
+        '<input type="text" data-field="questionImageUrl" '+
+        'placeholder="https://..." value="'+
+        (task.image && task.image.mode==="url"?
+          esc(task.image.value):
+          "")+
+        '">'+
+      '</div>'+
+
+      '<div class="fx-field">'+
+        '<label>Или загрузить изображение</label>'+
+        '<input type="file" data-field="questionImageFile" accept="image/*">'+
+      '</div>'+
+
+      optionsHTML+
+
+      answerField+
+
+      (hasOptions?
+        '<button class="fx-btn small" data-task-act="add-option">'+
+        '+ Вариант ответа'+
+        '</button>':
+        "");
+
+    box.appendChild(card);
+  });
+}
+
+$("#fxAddTask").addEventListener("click",function(){
+
   state.tasks.push(newTask());
+
   renderTasks();
-  resetGame();
+  restartGame();
 });
 
-$("#fxTasksList").addEventListener("click",e=>{
-  const card=e.target.closest(".fx-task-card");
-  if(!card) return;
+$("#fxTasks").addEventListener("click",function(e){
+
+  const card=e.target.closest(".fx-task");
+  if(!card)return;
 
   const id=Number(card.dataset.taskId);
-  const index=state.tasks.findIndex(t=>t.id===id);
 
-  if(index<0) return;
+  const index=state.tasks.findIndex(function(t){
+    return t.id===id;
+  });
 
-  const task=state.tasks[index];
+  if(index<0)return;
 
-  if(e.target.matches("[data-task-type]")){
-    task.type=e.target.dataset.taskType;
+  const act=e.target.dataset.taskAct;
+
+  if(act==="delete"){
+
+    state.tasks.splice(index,1);
+    renderTasks();
+    restartGame();
+    return;
+  }
+
+  if(act==="up" && index>0){
+
+    const tmp=state.tasks[index-1];
+
+    state.tasks[index-1]=state.tasks[index];
+    state.tasks[index]=tmp;
+
+    renderTasks();
+    restartGame();
+    return;
+  }
+
+  if(act==="down" && index<state.tasks.length-1){
+
+    const tmp=state.tasks[index+1];
+
+    state.tasks[index+1]=state.tasks[index];
+    state.tasks[index]=tmp;
+
+    renderTasks();
+    restartGame();
+    return;
+  }
+
+  if(act==="add-option"){
+
+    state.tasks[index].options.push({
+      text:"Новый вариант",
+      correct:false,
+      image:blankAsset()
+    });
+
+    renderTasks();
+  }
+
+});
+
+$("#fxTasks").addEventListener("input",function(e){
+
+  const card=e.target.closest(".fx-task");
+  if(!card)return;
+
+  const task=state.tasks.find(function(t){
+    return t.id===Number(card.dataset.taskId);
+  });
+
+  if(!task)return;
+
+  const field=e.target.dataset.field;
+
+  if(field==="title")task.title=e.target.value;
+  if(field==="text")task.text=e.target.value;
+  if(field==="hint")task.hint=e.target.value;
+  if(field==="answer")task.answer=e.target.value;
+
+  if(field==="type"){
+
+    task.type=e.target.value;
 
     if(
-      (
-        task.type==="single" ||
-        task.type==="multi" ||
-        task.type==="image"
-      ) &&
-      !task.options.length
+      ["single","multi","image"].includes(task.type) &&
+      task.options.length<2
     ){
       task.options=[
         {
           text:"Ответ 1",
-          image:blankImage(),
-          correct:true
+          correct:true,
+          image:blankAsset()
         },
         {
           text:"Ответ 2",
-          image:blankImage(),
-          correct:false
+          correct:false,
+          image:blankAsset()
         }
       ];
     }
 
-    if(task.type==="truefalse" && !task.answer){
+    if(
+      task.type==="truefalse" &&
+      !["true","false"].includes(task.answer)
+    ){
       task.answer="true";
     }
 
@@ -1721,83 +1890,8 @@ $("#fxTasksList").addEventListener("click",e=>{
     return;
   }
 
-  const act=e.target.dataset.act;
-
-  if(act==="delete"){
-    state.tasks.splice(index,1);
-    renderTasks();
-    resetGame();
-  }
-
-  if(act==="up" && index>0){
-    [
-      state.tasks[index-1],
-      state.tasks[index]
-    ]=[
-      state.tasks[index],
-      state.tasks[index-1]
-    ];
-
-    renderTasks();
-    resetGame();
-  }
-
-  if(
-    act==="down" &&
-    index<state.tasks.length-1
-  ){
-    [
-      state.tasks[index+1],
-      state.tasks[index]
-    ]=[
-      state.tasks[index],
-      state.tasks[index+1]
-    ];
-
-    renderTasks();
-    resetGame();
-  }
-
-  if(act==="add-option"){
-    task.options.push({
-      text:"Новый вариант",
-      image:blankImage(),
-      correct:false
-    });
-
-    renderTasks();
-  }
-});
-
-$("#fxTasksList").addEventListener("input",e=>{
-  const card=e.target.closest(".fx-task-card");
-  if(!card) return;
-
-  const task=state.tasks.find(
-    t=>t.id===Number(card.dataset.taskId)
-  );
-
-  if(!task) return;
-
-  const field=e.target.dataset.taskField;
-
-  if(field==="title"){
-    task.title=e.target.value;
-  }
-
-  if(field==="text"){
-    task.text=e.target.value;
-  }
-
-  if(field==="hint"){
-    task.hint=e.target.value;
-  }
-
-  if(field==="answer"){
-    task.answer=e.target.value;
-  }
-
   if(field==="questionImageUrl"){
+
     task.image={
       mode:"url",
       value:e.target.value.trim()
@@ -1805,48 +1899,49 @@ $("#fxTasksList").addEventListener("input",e=>{
   }
 
   if(field==="optionText"){
-    const oi=Number(
-      e.target.dataset.optionIndex
-    );
+
+    const oi=Number(e.target.dataset.option);
 
     task.options[oi].text=e.target.value;
   }
 
   if(field==="optionImageUrl"){
-    const oi=Number(
-      e.target.dataset.optionIndex
-    );
+
+    const oi=Number(e.target.dataset.option);
 
     task.options[oi].image={
       mode:"url",
       value:e.target.value.trim()
     };
   }
+
 });
 
-$("#fxTasksList").addEventListener("change",e=>{
-  const card=e.target.closest(".fx-task-card");
-  if(!card) return;
+$("#fxTasks").addEventListener("change",function(e){
 
-  const task=state.tasks.find(
-    t=>t.id===Number(card.dataset.taskId)
-  );
+  const card=e.target.closest(".fx-task");
+  if(!card)return;
 
-  if(!task) return;
+  const task=state.tasks.find(function(t){
+    return t.id===Number(card.dataset.taskId);
+  });
 
-  const field=e.target.dataset.taskField;
+  if(!task)return;
+
+  const field=e.target.dataset.field;
 
   if(field==="optionCorrect"){
-    const oi=Number(
-      e.target.dataset.optionIndex
-    );
+
+    const oi=Number(e.target.dataset.option);
 
     if(task.type==="multi"){
-      task.options[oi].correct=
-        e.target.checked;
+
+      task.options[oi].correct=e.target.checked;
+
     }else{
-      task.options.forEach((op,i)=>{
-        op.correct=i===oi;
+
+      task.options.forEach(function(o,i){
+        o.correct=i===oi;
       });
 
       renderTasks();
@@ -1854,9 +1949,11 @@ $("#fxTasksList").addEventListener("change",e=>{
   }
 
   if(field==="questionImageFile"){
+
     readFile(
       e.target.files[0],
-      data=>{
+      function(data){
+
         task.image={
           mode:"upload",
           value:data
@@ -1866,13 +1963,13 @@ $("#fxTasksList").addEventListener("change",e=>{
   }
 
   if(field==="optionImageFile"){
-    const oi=Number(
-      e.target.dataset.optionIndex
-    );
+
+    const oi=Number(e.target.dataset.option);
 
     readFile(
       e.target.files[0],
-      data=>{
+      function(data){
+
         task.options[oi].image={
           mode:"upload",
           value:data
@@ -1881,802 +1978,353 @@ $("#fxTasksList").addEventListener("change",e=>{
     );
   }
 
-  if(field==="answer"){
-    task.answer=e.target.value;
-  }
 });
 
-function syncInputs(){
-  $("#fxTitle").value=state.title;
-  $("#fxAccent").value=state.accent;
-  $("#fxSky").value=state.colors.sky;
+/* ---------- BIND EDITOR ---------- */
 
-  $("#fxPlayerSize").value=state.player.size;
-  $("#fxPlayerSpeed").value=state.player.speed;
-  $("#fxJump").value=state.player.jump;
-  $("#fxMirror").checked=state.player.mirror;
+const bindings=[
 
-  $("#fxTaskSize").value=state.taskItem.size;
-  $("#fxTaskIcon").value=state.taskItem.icon;
-  $("#fxTaskAnimation").value=
-    state.taskItem.animation;
+  ["#fxTitle","title"],
 
-  $("#fxBonusesEnabled").checked=
-    state.bonus.enabled;
+  ["#fxAccent","accent"],
 
-  $("#fxBonusCount").value=
-    state.bonus.count;
+  ["#fxSky","colors.sky"],
+  ["#fxGroundColor","colors.ground"],
+  ["#fxPlatformColor","colors.platform"],
+  ["#fxObstacleColor","colors.obstacle"],
 
-  $("#fxBonusIcon").value=
-    state.bonus.icon;
+  ["#fxFont","ui.font"],
 
-  $("#fxStartText").value=
-    state.texts.start;
+  ["#fxQuestionBg","ui.questionBg"],
+  ["#fxQuestionBorder","ui.questionBorder"],
+  ["#fxBorderWidth","ui.borderWidth"],
+  ["#fxBorderRadius","ui.borderRadius"],
 
-  $("#fxInstruction").value=
-    state.texts.instruction;
+  ["#fxGlowColor","ui.glowColor"],
+  ["#fxGlowPower","ui.glowPower"],
 
-  $("#fxCorrectText").value=
-    state.texts.correct;
+  ["#fxTitleColor","ui.titleColor"],
+  ["#fxQuestionColor","ui.questionColor"],
+  ["#fxTitleSize","ui.titleSize"],
+  ["#fxQuestionSize","ui.questionSize"],
 
-  $("#fxWrongText").value=
-    state.texts.wrong;
+  ["#fxAnswerBg","ui.answerBg"],
+  ["#fxAnswerColor","ui.answerColor"],
+  ["#fxAnswerBorder","ui.answerBorder"],
+  ["#fxAnswerSize","ui.answerSize"],
+  ["#fxSelectedBg","ui.selectedBg"],
+  ["#fxButtonColor","ui.buttonColor"],
 
-  $("#fxFinishTitle").value=
-    state.texts.finishTitle;
+  ["#fxCorrectColor","ui.correctColor"],
+  ["#fxWrongColor","ui.wrongColor"],
 
-  $("#fxFinishText").value=
-    state.texts.finishText;
+  ["#fxPlayerSize","player.size"],
+  ["#fxSpeed","player.speed"],
+  ["#fxJump","player.jump"],
+  ["#fxHeroGlowColor","player.glowColor"],
 
-  $("#fxShowTaskCounter").checked=
-    state.settings.showTaskCounter;
+  ["#fxMapScale","map.scale"],
 
-  $("#fxShowBonusCounter").checked=
-    state.settings.showBonusCounter;
+  ["#fxEnemyCount","enemy.count"],
+  ["#fxEnemyHp","enemy.hp"],
+  ["#fxEnemyFireRate","enemy.fireRate"],
 
-  $("#fxShowInstruction").checked=
-    state.settings.showInstruction;
+  ["#fxStartText","texts.start"],
+  ["#fxInstruction","texts.instruction"],
+  ["#fxCorrectText","texts.correct"],
+  ["#fxWrongText","texts.wrong"],
+  ["#fxFinishTitle","texts.finishTitle"],
+  ["#fxFinishText","texts.finishText"]
+];
 
-  $("#fxLockFinish").checked=
-    state.settings.lockFinish;
+const checkBindings=[
 
-  const q=state.questionStyle;
+  ["#fxGlowEnabled","ui.glowEnabled"],
+  ["#fxBigFeedback","ui.bigFeedback"],
+  ["#fxFeedbackGlow","ui.feedbackGlow"],
 
-  $("#fxFontFamily").value=q.font;
+  ["#fxMirror","player.mirror"],
+  ["#fxHeroGlow","player.glow"],
 
-  $("#fxQuestionSize").value=
-    q.questionSize;
+  ["#fxTallMap","map.tall"],
 
-  $("#fxAnswerSize").value=
-    q.answerSize;
+  ["#fxEnemyEnabled","enemy.enabled"],
 
-  $("#fxQuestionBg").value=
-    q.questionBg;
+  ["#fxCounter","settings.counter"],
+  ["#fxShowInstruction","settings.showInstruction"],
+  ["#fxLockFinish","settings.lockFinish"]
+];
 
-  $("#fxQuestionText").value=
-    q.questionText;
+function pathGet(path){
 
-  $("#fxQuestionTitle").value=
-    q.questionTitle;
-
-  $("#fxQuestionBorder").value=
-    q.questionBorder;
-
-  $("#fxQuestionBorderWidth").value=
-    q.questionBorderWidth;
-
-  $("#fxQuestionRadius").value=
-    q.questionRadius;
-
-  $("#fxQuestionPadding").value=
-    q.questionPadding;
-
-  $("#fxQuestionShadow").checked=
-    q.shadow;
-
-  $("#fxAnswerBg").value=
-    q.answerBg;
-
-  $("#fxAnswerText").value=
-    q.answerText;
-
-  $("#fxAnswerBorder").value=
-    q.answerBorder;
-
-  $("#fxAnswerBorderWidth").value=
-    q.answerBorderWidth;
-
-  $("#fxAnswerRadius").value=
-    q.answerRadius;
-
-  $("#fxCorrectColor").value=
-    q.correctColor;
-
-  $("#fxWrongColor").value=
-    q.wrongColor;
-
-  $("#fxFeedbackPopup").checked=
-    q.feedbackPopup;
-
-  $("#fxCorrectAnimation").checked=
-    q.correctAnimation;
-
-  $("#fxWrongAnimation").checked=
-    q.wrongAnimation;
-
-  applyVisualStyle();
+  return path.split(".").reduce(function(obj,key){
+    return obj[key];
+  },state);
 }
 
-function applyVisualStyle(){
-  const q=state.questionStyle;
+function pathSet(path,value){
+
+  const parts=path.split(".");
+  let obj=state;
+
+  for(let i=0;i<parts.length-1;i++){
+    obj=obj[parts[i]];
+  }
+
+  obj[parts[parts.length-1]]=value;
+}
+
+function syncInputs(){
+
+  bindings.forEach(function(pair){
+
+    const el=$(pair[0]);
+    if(!el)return;
+
+    el.value=pathGet(pair[1]);
+  });
+
+  checkBindings.forEach(function(pair){
+
+    const el=$(pair[0]);
+    if(!el)return;
+
+    el.checked=!!pathGet(pair[1]);
+  });
 
   root.style.setProperty(
     "--accent",
     state.accent
   );
-
-  root.style.setProperty(
-    "--question-font",
-    q.font
-  );
-
-  root.style.setProperty(
-    "--question-bg",
-    q.questionBg
-  );
-
-  root.style.setProperty(
-    "--question-text",
-    q.questionText
-  );
-
-  root.style.setProperty(
-    "--question-title",
-    q.questionTitle
-  );
-
-  root.style.setProperty(
-    "--question-border",
-    q.questionBorder
-  );
-
-  root.style.setProperty(
-    "--question-border-width",
-    q.questionBorderWidth+"px"
-  );
-
-  root.style.setProperty(
-    "--question-radius",
-    q.questionRadius+"px"
-  );
-
-  root.style.setProperty(
-    "--question-padding",
-    q.questionPadding+"px"
-  );
-
-  root.style.setProperty(
-    "--question-size",
-    q.questionSize+"px"
-  );
-
-  root.style.setProperty(
-    "--question-shadow",
-    q.shadow
-      ? "0 12px 35px rgba(0,0,0,.2)"
-      : "none"
-  );
-
-  root.style.setProperty(
-    "--answer-font",
-    q.font
-  );
-
-  root.style.setProperty(
-    "--answer-bg",
-    q.answerBg
-  );
-
-  root.style.setProperty(
-    "--answer-text",
-    q.answerText
-  );
-
-  root.style.setProperty(
-    "--answer-border",
-    q.answerBorder
-  );
-
-  root.style.setProperty(
-    "--answer-border-width",
-    q.answerBorderWidth+"px"
-  );
-
-  root.style.setProperty(
-    "--answer-radius",
-    q.answerRadius+"px"
-  );
-
-  root.style.setProperty(
-    "--answer-size",
-    q.answerSize+"px"
-  );
 }
 
-function bindField(
-  selector,
-  getter,
-  setter,
-  redraw
-){
-  const el=$(selector);
+bindings.forEach(function(pair){
 
-  const handler=()=>{
-    setter(
-      el.type==="checkbox"
-        ? el.checked
-        : el.value
-    );
+  const el=$(pair[0]);
+  if(!el)return;
 
-    applyVisualStyle();
+  function update(){
 
-    if(redraw){
-      resetGame();
+    let value=el.value;
+
+    if(
+      el.type==="range" ||
+      el.type==="number"
+    ){
+      value=Number(value);
     }
-  };
 
-  el.addEventListener(
-    "input",
-    handler
-  );
+    pathSet(pair[1],value);
 
-  el.addEventListener(
-    "change",
-    handler
-  );
-}
+    applyUIStyles();
 
-function bindAll(){
-  bindField(
-    "#fxTitle",
-    null,
-    v=>state.title=v,
-    true
-  );
+    if(
+      !pair[1].startsWith("ui.") &&
+      !pair[1].startsWith("texts.")
+    ){
+      restartGame();
+    }else{
+      updateVisibleText();
+    }
+  }
 
-  bindField(
-    "#fxAccent",
-    null,
-    v=>state.accent=v,
-    false
-  );
-
-  bindField(
-    "#fxSky",
-    null,
-    v=>state.colors.sky=v,
-    true
-  );
-
-  bindField(
-    "#fxPlayerSize",
-    null,
-    v=>state.player.size=+v,
-    true
-  );
-
-  bindField(
-    "#fxPlayerSpeed",
-    null,
-    v=>state.player.speed=+v,
-    false
-  );
-
-  bindField(
-    "#fxJump",
-    null,
-    v=>state.player.jump=+v,
-    false
-  );
-
-  bindField(
-    "#fxMirror",
-    null,
-    v=>state.player.mirror=v,
-    false
-  );
-
-  bindField(
-    "#fxTaskSize",
-    null,
-    v=>state.taskItem.size=+v,
-    true
-  );
-
-  bindField(
-    "#fxTaskIcon",
-    null,
-    v=>state.taskItem.icon=v,
-    true
-  );
-
-  bindField(
-    "#fxTaskAnimation",
-    null,
-    v=>state.taskItem.animation=v,
-    true
-  );
-
-  bindField(
-    "#fxBonusesEnabled",
-    null,
-    v=>state.bonus.enabled=v,
-    true
-  );
-
-  bindField(
-    "#fxBonusCount",
-    null,
-    v=>state.bonus.count=+v,
-    true
-  );
-
-  bindField(
-    "#fxBonusIcon",
-    null,
-    v=>state.bonus.icon=v,
-    true
-  );
-
-  bindField(
-    "#fxStartText",
-    null,
-    v=>state.texts.start=v,
-    true
-  );
-
-  bindField(
-    "#fxInstruction",
-    null,
-    v=>state.texts.instruction=v,
-    true
-  );
-
-  bindField(
-    "#fxCorrectText",
-    null,
-    v=>state.texts.correct=v,
-    false
-  );
-
-  bindField(
-    "#fxWrongText",
-    null,
-    v=>state.texts.wrong=v,
-    false
-  );
-
-  bindField(
-    "#fxFinishTitle",
-    null,
-    v=>state.texts.finishTitle=v,
-    true
-  );
-
-  bindField(
-    "#fxFinishText",
-    null,
-    v=>state.texts.finishText=v,
-    true
-  );
-
-  bindField(
-    "#fxShowTaskCounter",
-    null,
-    v=>state.settings.showTaskCounter=v,
-    true
-  );
-
-  bindField(
-    "#fxShowBonusCounter",
-    null,
-    v=>state.settings.showBonusCounter=v,
-    true
-  );
-
-  bindField(
-    "#fxShowInstruction",
-    null,
-    v=>state.settings.showInstruction=v,
-    true
-  );
-
-  bindField(
-    "#fxLockFinish",
-    null,
-    v=>state.settings.lockFinish=v,
-    false
-  );
-
-  bindField(
-    "#fxFontFamily",
-    null,
-    v=>state.questionStyle.font=v,
-    false
-  );
-
-  bindField(
-    "#fxQuestionSize",
-    null,
-    v=>state.questionStyle.questionSize=+v,
-    false
-  );
-
-  bindField(
-    "#fxAnswerSize",
-    null,
-    v=>state.questionStyle.answerSize=+v,
-    false
-  );
-
-  bindField(
-    "#fxQuestionBg",
-    null,
-    v=>state.questionStyle.questionBg=v,
-    false
-  );
-
-  bindField(
-    "#fxQuestionText",
-    null,
-    v=>state.questionStyle.questionText=v,
-    false
-  );
-
-  bindField(
-    "#fxQuestionTitle",
-    null,
-    v=>state.questionStyle.questionTitle=v,
-    false
-  );
-
-  bindField(
-    "#fxQuestionBorder",
-    null,
-    v=>state.questionStyle.questionBorder=v,
-    false
-  );
-
-  bindField(
-    "#fxQuestionBorderWidth",
-    null,
-    v=>state.questionStyle.questionBorderWidth=+v,
-    false
-  );
-
-  bindField(
-    "#fxQuestionRadius",
-    null,
-    v=>state.questionStyle.questionRadius=+v,
-    false
-  );
-
-  bindField(
-    "#fxQuestionPadding",
-    null,
-    v=>state.questionStyle.questionPadding=+v,
-    false
-  );
-
-  bindField(
-    "#fxQuestionShadow",
-    null,
-    v=>state.questionStyle.shadow=v,
-    false
-  );
-
-  bindField(
-    "#fxAnswerBg",
-    null,
-    v=>state.questionStyle.answerBg=v,
-    false
-  );
-
-  bindField(
-    "#fxAnswerText",
-    null,
-    v=>state.questionStyle.answerText=v,
-    false
-  );
-
-  bindField(
-    "#fxAnswerBorder",
-    null,
-    v=>state.questionStyle.answerBorder=v,
-    false
-  );
-
-  bindField(
-    "#fxAnswerBorderWidth",
-    null,
-    v=>state.questionStyle.answerBorderWidth=+v,
-    false
-  );
-
-  bindField(
-    "#fxAnswerRadius",
-    null,
-    v=>state.questionStyle.answerRadius=+v,
-    false
-  );
-
-  bindField(
-    "#fxCorrectColor",
-    null,
-    v=>state.questionStyle.correctColor=v,
-    false
-  );
-
-  bindField(
-    "#fxWrongColor",
-    null,
-    v=>state.questionStyle.wrongColor=v,
-    false
-  );
-
-  bindField(
-    "#fxFeedbackPopup",
-    null,
-    v=>state.questionStyle.feedbackPopup=v,
-    false
-  );
-
-  bindField(
-    "#fxCorrectAnimation",
-    null,
-    v=>state.questionStyle.correctAnimation=v,
-    false
-  );
-
-  bindField(
-    "#fxWrongAnimation",
-    null,
-    v=>state.questionStyle.wrongAnimation=v,
-    false
-  );
-}
-
-$("#fxTabs").addEventListener("click",e=>{
-  const tab=e.target.closest(".fx-tab");
-
-  if(!tab) return;
-
-  $$(".fx-tab").forEach(x=>
-    x.classList.remove("active")
-  );
-
-  $$(".fx-pane").forEach(x=>
-    x.classList.remove("active")
-  );
-
-  tab.classList.add("active");
-
-  $(
-    '[data-pane="'+
-    tab.dataset.tab+
-    '"]'
-  ).classList.add("active");
+  el.addEventListener("input",update);
+  el.addEventListener("change",update);
 });
 
-function makeMap(taskCount){
-  const perSection=6;
+checkBindings.forEach(function(pair){
+
+  const el=$(pair[0]);
+  if(!el)return;
+
+  el.addEventListener("change",function(){
+
+    pathSet(
+      pair[1],
+      el.checked
+    );
+
+    applyUIStyles();
+    restartGame();
+  });
+});
+
+/* ---------- MAP ---------- */
+
+function buildMap(taskCount){
+
+  const scale=state.map.scale/100;
+
+  const perSection=4;
 
   const sections=Math.max(
     1,
     Math.ceil(
-      Math.max(1,taskCount)/
+      Math.max(taskCount,1)/
       perSection
     )
   );
 
-  const W=980;
+  const sectionWidth=1050*scale;
 
   const ground=[];
   const platforms=[];
   const obstacles=[];
-  const tasks=[];
-  const bonuses=[];
+  const taskSlots=[];
+  const enemySlots=[];
 
   for(let s=0;s<sections;s++){
-    const x=s*W;
 
-    ground.push(
+    const x=s*sectionWidth;
+
+    /* bottom islands */
+
+    ground.push({
+      x:x,
+      y:0,
+      w:310*scale,
+      h:44*scale
+    });
+
+    ground.push({
+      x:x+430*scale,
+      y:0,
+      w:620*scale,
+      h:44*scale
+    });
+
+    /* big staircase */
+
+    platforms.push({
+      x:x+105*scale,
+      y:130*scale,
+      w:190*scale,
+      h:28*scale
+    });
+
+    platforms.push({
+      x:x+310*scale,
+      y:225*scale,
+      w:190*scale,
+      h:28*scale
+    });
+
+    if(state.map.tall){
+
+      platforms.push({
+        x:x+520*scale,
+        y:325*scale,
+        w:210*scale,
+        h:28*scale
+      });
+
+      platforms.push({
+        x:x+745*scale,
+        y:235*scale,
+        w:175*scale,
+        h:28*scale
+      });
+
+    }else{
+
+      platforms.push({
+        x:x+540*scale,
+        y:195*scale,
+        w:210*scale,
+        h:28*scale
+      });
+    }
+
+    /* walls / pipes / blocks */
+
+    obstacles.push({
+      type:"block",
+      x:x+55*scale,
+      y:44*scale,
+      w:75*scale,
+      h:75*scale
+    });
+
+    obstacles.push({
+      type:"pipe",
+      x:x+475*scale,
+      y:44*scale,
+      w:90*scale,
+      h:115*scale
+    });
+
+    obstacles.push({
+      type:"wall",
+      x:x+890*scale,
+      y:44*scale,
+      w:65*scale,
+      h:190*scale
+    });
+
+    /* task positions */
+
+    taskSlots.push(
       {
-        x:x,
-        y:0,
-        w:280,
-        h:46
+        x:x+165*scale,
+        y:180*scale
       },
       {
-        x:x+390,
-        y:0,
-        w:590,
-        h:46
+        x:x+355*scale,
+        y:280*scale
+      },
+      {
+        x:x+575*scale,
+        y:(state.map.tall?380:250)*scale
+      },
+      {
+        x:x+805*scale,
+        y:295*scale
       }
     );
 
-    platforms.push(
-      {
-        x:x+130,
-        y:145,
-        w:190,
-        h:28
-      },
-      {
-        x:x+350,
-        y:245,
-        w:190,
-        h:28
-      },
-      {
-        x:x+575,
-        y:350,
-        w:210,
-        h:28
-      },
-      {
-        x:x+790,
-        y:220,
-        w:155,
-        h:28
-      }
-    );
-
-    obstacles.push(
-      {
-        x:x+65,
-        y:46,
-        w:78,
-        h:85
-      },
-      {
-        x:x+455,
-        y:46,
-        w:95,
-        h:110
-      },
-      {
-        x:x+850,
-        y:46,
-        w:80,
-        h:135
-      }
-    );
-
-    tasks.push(
-      {
-        x:x+185,
-        y:205
-      },
-      {
-        x:x+405,
-        y:305
-      },
-      {
-        x:x+640,
-        y:412
-      },
-      {
-        x:x+820,
-        y:280
-      },
-      {
-        x:x+610,
-        y:75
-      },
-      {
-        x:x+930,
-        y:90
-      }
-    );
-
-    bonuses.push(
-      {
-        x:x+20,
-        y:78
-      },
-      {
-        x:x+250,
-        y:205
-      },
-      {
-        x:x+470,
-        y:305
-      },
-      {
-        x:x+690,
-        y:412
-      },
-      {
-        x:x+755,
-        y:75
-      },
-      {
-        x:x+900,
-        y:280
-      }
-    );
+    enemySlots.push({
+      x:x+690*scale,
+      y:44*scale
+    });
   }
 
-  const end=sections*W;
+  const end=sections*sectionWidth;
 
   ground.push({
     x:end,
     y:0,
-    w:390,
-    h:46
-  });
-
-  platforms.push({
-    x:end+80,
-    y:170,
-    w:190,
-    h:28
+    w:420*scale,
+    h:44*scale
   });
 
   return {
-    width:end+450,
+    width:end+500*scale,
     ground,
     platforms,
     obstacles,
-    tasks:tasks.slice(
-      0,
-      taskCount
-    ),
-    bonuses,
-    finishX:end+305
+    taskSlots:taskSlots.slice(0,taskCount),
+    enemySlots,
+    finishX:end+300*scale
   };
 }
 
+/* ---------- GAME ---------- */
+
 let game=null;
 
-function createObj(cls,r){
-  const e=document.createElement("div");
+function makeGame(){
 
-  e.className=
-    "fx-obj "+cls;
+  const map=buildMap(state.tasks.length);
 
-  e.style.left=
-    r.x+"px";
+  return {
+    map:map,
 
-  e.style.bottom=
-    r.y+"px";
-
-  e.style.width=
-    r.w+"px";
-
-  e.style.height=
-    r.h+"px";
-
-  $("#fxWorld").appendChild(e);
-
-  return e;
-}
-
-function resetGame(){
-  if(game && game.raf){
-    cancelAnimationFrame(game.raf);
-  }
-
-  applyVisualStyle();
-
-  game={
     started:false,
     paused:false,
-    done:false,
+    finished:false,
 
-    x:75,
-    y:46,
+    x:60,
+    y:map.ground[0].h,
 
     vx:0,
     vy:0,
@@ -2684,17 +2332,14 @@ function resetGame(){
     grounded:false,
 
     camera:0,
-
     last:performance.now(),
 
-    safeX:75,
+    safeX:60,
 
     completed:new Set(),
-    collected:new Set(),
-
-    selectedAnswers:new Set(),
 
     activeTask:-1,
+    selected:new Set(),
 
     keys:{
       left:false,
@@ -2703,90 +2348,78 @@ function resetGame(){
       down:false
     },
 
-    map:makeMap(
-      state.tasks.length
-    ),
+    enemies:[],
+    heroBullets:[],
+    enemyBullets:[],
+
+    lastShot:0,
 
     raf:0
   };
+}
+
+function createObj(className,r){
+
+  const el=document.createElement("div");
+
+  el.className=
+    "fx-obj "+className;
+
+  el.style.left=r.x+"px";
+  el.style.bottom=r.y+"px";
+  el.style.width=r.w+"px";
+  el.style.height=r.h+"px";
+
+  $("#fxWorld").appendChild(el);
+
+  return el;
+}
+
+function restartGame(){
+
+  if(game){
+    cancelAnimationFrame(game.raf);
+  }
+
+  game=makeGame();
 
   renderWorld();
   renderHud();
 
-  $("#fxStartTitle").textContent=
-    state.title;
+  updateVisibleText();
+  applyUIStyles();
 
-  $("#fxInstructionPreview").textContent=
-    state.settings.showInstruction
-      ? state.texts.instruction
-      : "";
-
-  $("#fxStartBtn").textContent=
-    state.texts.start;
-
-  const startImage=
-    getImage(
-      state.images.startImage
-    );
-
-  const startImgEl=
-    $("#fxStartImagePreview");
-
-  if(startImage){
-    startImgEl.src=
-      startImage;
-
-    startImgEl.classList.remove(
-      "fx-hidden"
-    );
-  }else{
-    startImgEl.classList.add(
-      "fx-hidden"
-    );
-  }
-
-  $("#fxStartOverlay").classList.remove(
-    "fx-hidden"
-  );
-
-  $("#fxTaskOverlay").classList.add(
-    "fx-hidden"
-  );
-
-  $("#fxFinishOverlay").classList.add(
-    "fx-hidden"
-  );
-
-  $("#fxFeedbackBadge").classList.add(
-    "fx-hidden"
-  );
+  $("#fxStartOverlay").classList.remove("fx-hidden");
+  $("#fxTaskOverlay").classList.add("fx-hidden");
+  $("#fxFinishOverlay").classList.add("fx-hidden");
+  $("#fxBigFeedback").classList.add("fx-hidden");
 
   startLoop();
 }
 
 function renderWorld(){
+
   const world=$("#fxWorld");
 
   world.innerHTML="";
-  world.style.width=
-    game.map.width+"px";
+  world.style.width=game.map.width+"px";
 
-  const bg=$("#fxBg");
+  const bg=$("#fxGameBg");
 
   bg.style.backgroundColor=
     state.colors.sky;
 
-  const bgImg=
-    getImage(
-      state.images.background
-    );
+  const bgUrl=assetUrl(
+    state.assets.background
+  );
 
   bg.style.backgroundImage=
-    bgImg
-      ? 'url("'+bgImg+'")'
-      : "none";
+    bgUrl?
+    'url("'+bgUrl+'")':
+    "none";
 
-  game.map.ground.forEach(r=>{
+  game.map.ground.forEach(function(r){
+
     const e=createObj(
       "fx-ground",
       r
@@ -2795,21 +2428,20 @@ function renderWorld(){
     e.style.backgroundColor=
       state.colors.ground;
 
-    const img=
-      getImage(
-        state.images.ground
-      );
+    const img=assetUrl(
+      state.assets.ground
+    );
 
     if(img){
       e.style.backgroundImage=
         'url("'+img+'")';
 
-      e.style.backgroundSize=
-        "cover";
+      e.style.backgroundSize="cover";
     }
   });
 
-  game.map.platforms.forEach(r=>{
+  game.map.platforms.forEach(function(r){
+
     const e=createObj(
       "fx-platform",
       r
@@ -2818,46 +2450,46 @@ function renderWorld(){
     e.style.backgroundColor=
       state.colors.platform;
 
-    const img=
-      getImage(
-        state.images.platform
-      );
+    const img=assetUrl(
+      state.assets.platform
+    );
 
     if(img){
       e.style.backgroundImage=
         'url("'+img+'")';
 
-      e.style.backgroundSize=
-        "cover";
+      e.style.backgroundSize="cover";
     }
   });
 
-  game.map.obstacles.forEach(r=>{
+  game.map.obstacles.forEach(function(r){
+
     const e=createObj(
-      "fx-obstacle",
+      "fx-"+r.type,
       r
     );
 
     e.style.backgroundColor=
       state.colors.obstacle;
 
-    const img=
-      getImage(
-        state.images.obstacle
-      );
+    const img=assetUrl(
+      state.assets.obstacle
+    );
 
     if(img){
       e.style.backgroundImage=
         'url("'+img+'")';
 
-      e.style.backgroundSize=
-        "cover";
+      e.style.backgroundSize="cover";
+      e.style.backgroundPosition="center";
     }
   });
 
-  game.map.tasks.forEach((p,i)=>{
-    const size=
-      state.taskItem.size;
+  /* tasks */
+
+  game.map.taskSlots.forEach(function(p,i){
+
+    const size=state.taskItem.size;
 
     const e=createObj(
       "fx-task-item",
@@ -2869,119 +2501,135 @@ function renderWorld(){
       }
     );
 
-    e.dataset.task=i;
+    e.dataset.taskIndex=i;
 
-    const img=
-      getImage(
-        state.images.taskItem
-      );
+    const img=assetUrl(
+      state.assets.taskItem
+    );
 
     if(img){
+
       e.style.backgroundImage=
         'url("'+img+'")';
+
     }else{
+
       e.textContent=
         state.taskItem.icon;
 
       e.style.fontSize=
-        size*.78+"px";
-    }
-
-    if(
-      state.taskItem.animation===
-      "pulse"
-    ){
-      e.style.animationName=
-        "fxPulse";
-    }
-
-    if(
-      state.taskItem.animation===
-      "none"
-    ){
-      e.style.animation=
-        "none";
+        (size*.8)+"px";
     }
   });
 
-  if(state.bonus.enabled){
-    game.map.bonuses
-      .slice(
+  /* enemies */
+
+  if(state.enemy.enabled){
+
+    const slots=
+      game.map.enemySlots.slice(
         0,
         Math.min(
-          state.bonus.count,
-          game.map.bonuses.length
+          state.enemy.count,
+          game.map.enemySlots.length
         )
-      )
-      .forEach((p,i)=>{
-        const size=38;
+      );
 
-        const e=createObj(
-          "fx-bonus-item",
-          {
-            x:p.x,
-            y:p.y,
-            w:size,
-            h:size
-          }
-        );
+    slots.forEach(function(p,index){
 
-        e.dataset.bonus=i;
+      const size=78;
 
-        const img=
-          getImage(
-            state.images.bonus
-          );
+      const data={
+        id:index,
+        x:p.x,
+        y:p.y,
+        w:size,
+        h:size,
+        hp:state.enemy.hp,
+        maxHp:state.enemy.hp,
+        alive:true,
+        lastFire:
+          performance.now()+
+          index*500
+      };
 
-        if(img){
-          e.style.backgroundImage=
-            'url("'+img+'")';
-        }else{
-          e.textContent=
-            state.bonus.icon;
+      game.enemies.push(data);
 
-          e.style.fontSize=
-            "31px";
+      const e=createObj(
+        "fx-enemy",
+        {
+          x:data.x,
+          y:data.y,
+          w:data.w,
+          h:data.h
         }
-      });
+      );
+
+      e.dataset.enemy=index;
+
+      const img=assetUrl(
+        state.assets.enemy
+      );
+
+      if(img){
+
+        e.classList.add("custom");
+
+        e.style.backgroundImage=
+          'url("'+img+'")';
+
+      }else{
+
+        e.textContent="👾";
+      }
+
+      const hp=document.createElement("div");
+
+      hp.className="fx-enemy-hp";
+
+      hp.innerHTML="<span></span>";
+
+      e.appendChild(hp);
+    });
   }
 
-  const finishImg=
-    getImage(
-      state.images.finish
-    );
+  /* finish */
 
   const finish=createObj(
     "fx-finish "+
     (
-      finishImg
-        ? ""
-        : "flag"
+      assetUrl(state.assets.finish)?
+      "":
+      "default"
     ),
     {
       x:game.map.finishX,
-      y:46,
-      w:75,
-      h:125
+      y:game.map.ground[
+        game.map.ground.length-1
+      ].h,
+      w:70,
+      h:115
     }
   );
 
+  const finishImg=assetUrl(
+    state.assets.finish
+  );
+
   if(finishImg){
+
     finish.style.backgroundImage=
       'url("'+finishImg+'")';
   }
 
-  const playerImg=
-    getImage(
-      state.images.player
-    );
+  /* player */
 
   const player=createObj(
     "fx-player "+
     (
-      playerImg
-        ? "image"
-        : ""
+      assetUrl(state.assets.player)?
+      "custom":
+      ""
     ),
     {
       x:game.x,
@@ -2991,58 +2639,45 @@ function renderWorld(){
     }
   );
 
-  player.id=
-    "fxPlayerObject";
+  player.id="fxPlayer";
+
+  const playerImg=
+    assetUrl(state.assets.player);
 
   if(playerImg){
+
     player.style.backgroundImage=
       'url("'+playerImg+'")';
   }
+
+  applyHeroGlow(player);
 }
 
 function renderHud(){
+
   const hud=$("#fxHud");
+
   hud.innerHTML="";
 
-  if(
-    state.settings.showTaskCounter
-  ){
-    const pill=
-      document.createElement("div");
+  if(state.settings.counter){
 
-    pill.className=
-      "fx-pill";
+    const p=document.createElement("div");
 
-    pill.textContent=
+    p.className="fx-pill";
+
+    p.textContent=
       state.taskItem.icon+
       " "+
       game.completed.size+
       "/"+
       state.tasks.length;
 
-    hud.appendChild(pill);
-  }
-
-  if(
-    state.settings.showBonusCounter &&
-    state.bonus.enabled
-  ){
-    const pill=
-      document.createElement("div");
-
-    pill.className=
-      "fx-pill";
-
-    pill.textContent=
-      state.bonus.icon+
-      " "+
-      game.collected.size;
-
-    hud.appendChild(pill);
+    hud.appendChild(p);
   }
 }
 
-function overlap(a,b){
+function rectOverlap(a,b){
+
   return (
     a.x<b.x+b.w &&
     a.x+a.w>b.x &&
@@ -3051,12 +2686,24 @@ function overlap(a,b){
   );
 }
 
+function playerRect(){
+
+  return {
+    x:game.x,
+    y:game.y,
+    w:state.player.size*.76,
+    h:state.player.size
+  };
+}
+
 function jump(){
+
   if(
     game.started &&
     !game.paused &&
     game.grounded
   ){
+
     game.vy=
       state.player.jump;
 
@@ -3064,62 +2711,391 @@ function jump(){
   }
 }
 
-function update(dt){
+function heroShoot(){
+
+  if(
+    !game.started ||
+    game.paused
+  )return;
+
+  const now=performance.now();
+
+  if(now-game.lastShot<300)return;
+
+  game.lastShot=now;
+
+  const direction=
+    game.vx<0?
+    -1:
+    1;
+
+  const bullet={
+    x:
+      game.x+
+      (
+        direction>0?
+        state.player.size:
+        -18
+      ),
+
+    y:
+      game.y+
+      state.player.size*.55,
+
+    w:20,
+    h:20,
+
+    vx:
+      direction*520,
+
+    alive:true
+  };
+
+  game.heroBullets.push(bullet);
+
+  const e=createProjectile(
+    bullet,
+    true
+  );
+
+  bullet.el=e;
+}
+
+function createProjectile(
+  data,
+  hero
+){
+
+  const e=document.createElement("div");
+
+  e.className=
+    "fx-projectile "+
+    (
+      hero?
+      "hero":
+      "enemy-shot"
+    );
+
+  e.style.width=data.w+"px";
+  e.style.height=data.h+"px";
+
+  const asset=
+    hero?
+    state.assets.heroProjectile:
+    state.assets.enemyProjectile;
+
+  const img=assetUrl(asset);
+
+  if(img){
+
+    e.style.backgroundImage=
+      'url("'+img+'")';
+
+    e.style.backgroundColor=
+      "transparent";
+  }
+
+  $("#fxWorld").appendChild(e);
+
+  return e;
+}
+
+function enemyShoot(enemy){
+
+  if(!enemy.alive)return;
+
+  const playerCenter=
+    game.x+
+    state.player.size/2;
+
+  const enemyCenter=
+    enemy.x+
+    enemy.w/2;
+
+  const direction=
+    playerCenter<enemyCenter?
+    -1:
+    1;
+
+  const bullet={
+    x:
+      enemy.x+
+      enemy.w/2,
+
+    y:
+      enemy.y+
+      enemy.h*.55,
+
+    w:20,
+    h:20,
+
+    vx:
+      direction*230,
+
+    alive:true
+  };
+
+  game.enemyBullets.push(
+    bullet
+  );
+
+  bullet.el=
+    createProjectile(
+      bullet,
+      false
+    );
+}
+
+function updateEnemies(dt,now){
+
+  if(!state.enemy.enabled)return;
+
+  game.enemies.forEach(function(enemy){
+
+    if(!enemy.alive)return;
+
+    if(
+      now-enemy.lastFire >=
+      state.enemy.fireRate*1000
+    ){
+
+      enemy.lastFire=now;
+
+      enemyShoot(enemy);
+    }
+  });
+
+  game.heroBullets.forEach(
+    function(bullet){
+
+      if(!bullet.alive)return;
+
+      bullet.x+=
+        bullet.vx*dt;
+
+      bullet.el.style.left=
+        bullet.x+"px";
+
+      bullet.el.style.bottom=
+        bullet.y+"px";
+
+      game.enemies.forEach(
+        function(enemy){
+
+          if(
+            !enemy.alive ||
+            !bullet.alive
+          )return;
+
+          if(
+            rectOverlap(
+              bullet,
+              enemy
+            )
+          ){
+
+            bullet.alive=false;
+
+            if(bullet.el){
+              bullet.el.remove();
+            }
+
+            enemy.hp--;
+
+            updateEnemyHP(enemy);
+
+            if(enemy.hp<=0){
+
+              enemy.alive=false;
+
+              const enemyEl=
+                $("#fxWorld")
+                .querySelector(
+                  '[data-enemy="'+
+                  enemy.id+
+                  '"]'
+                );
+
+              if(enemyEl){
+                enemyEl.remove();
+              }
+            }
+          }
+        }
+      );
+
+      if(
+        bullet.x<0 ||
+        bullet.x>game.map.width
+      ){
+
+        bullet.alive=false;
+
+        if(bullet.el){
+          bullet.el.remove();
+        }
+      }
+    }
+  );
+
+  game.enemyBullets.forEach(
+    function(bullet){
+
+      if(!bullet.alive)return;
+
+      bullet.x+=
+        bullet.vx*dt;
+
+      bullet.el.style.left=
+        bullet.x+"px";
+
+      bullet.el.style.bottom=
+        bullet.y+"px";
+
+      if(
+        rectOverlap(
+          bullet,
+          playerRect()
+        )
+      ){
+
+        bullet.alive=false;
+
+        if(bullet.el){
+          bullet.el.remove();
+        }
+
+        showBigFeedback(
+          false,
+          true
+        );
+
+        /* no life loss;
+           just push player back */
+
+        game.x=Math.max(
+          20,
+          game.x-90
+        );
+
+        game.vy=220;
+      }
+
+      if(
+        bullet.x<0 ||
+        bullet.x>game.map.width
+      ){
+
+        bullet.alive=false;
+
+        if(bullet.el){
+          bullet.el.remove();
+        }
+      }
+    }
+  );
+
+  game.heroBullets=
+    game.heroBullets.filter(
+      b=>b.alive
+    );
+
+  game.enemyBullets=
+    game.enemyBullets.filter(
+      b=>b.alive
+    );
+}
+
+function updateEnemyHP(enemy){
+
+  const el=
+    $("#fxWorld")
+    .querySelector(
+      '[data-enemy="'+
+      enemy.id+
+      '"]'
+    );
+
+  if(!el)return;
+
+  const bar=
+    el.querySelector(
+      ".fx-enemy-hp span"
+    );
+
+  if(!bar)return;
+
+  bar.style.width=
+    (
+      enemy.hp/
+      enemy.maxHp*
+      100
+    )+
+    "%";
+}
+
+function updateGame(dt,now){
+
   const pw=
-    state.player.size*.72;
+    state.player.size*.76;
 
   const ph=
     state.player.size;
 
-  let dir=0;
+  let direction=0;
 
-  if(game.keys.left) dir--;
-  if(game.keys.right) dir++;
+  if(game.keys.left)direction--;
+  if(game.keys.right)direction++;
 
   game.vx=
-    dir*
+    direction*
     state.player.speed;
 
-  let nx=
+  let nextX=
     game.x+
     game.vx*dt;
 
-  const test={
-    x:nx,
+  const horizontalRect={
+    x:nextX,
     y:game.y,
     w:pw,
     h:ph
   };
 
-  for(
-    const o
-    of game.map.obstacles
-  ){
-    if(overlap(test,o)){
-      if(game.vx>0){
-        nx=
-          o.x-pw-.1;
-      }
+  game.map.obstacles.forEach(
+    function(o){
 
-      if(game.vx<0){
-        nx=
-          o.x+o.w+.1;
-      }
+      if(
+        rectOverlap(
+          horizontalRect,
+          o
+        )
+      ){
 
-      break;
+        if(game.vx>0){
+          nextX=
+            o.x-pw-.1;
+        }
+
+        if(game.vx<0){
+          nextX=
+            o.x+o.w+.1;
+        }
+      }
     }
-  }
+  );
 
   game.x=
     clamp(
-      nx,
+      nextX,
       0,
       game.map.width-pw
     );
 
-  game.vy-=1200*dt;
+  game.vy-=
+    1250*dt;
 
-  let ny=
+  let nextY=
     game.y+
     game.vy*dt;
 
@@ -3127,46 +3103,51 @@ function update(dt){
 
   const surfaces=[
     ...game.map.ground,
-    ...game.map.platforms
+    ...game.map.platforms,
+    ...game.map.obstacles
   ];
 
   if(game.vy<=0){
-    for(const s of surfaces){
-      const top=
-        s.y+s.h;
 
-      const horizontal=
-        game.x+pw>s.x &&
-        game.x<s.x+s.w;
+    surfaces.forEach(
+      function(surface){
 
-      const above=
-        game.y>=top-4;
+        if(landed)return;
 
-      const crosses=
-        ny<=top;
+        const top=
+          surface.y+
+          surface.h;
 
-      if(
-        horizontal &&
-        above &&
-        crosses
-      ){
-        ny=top;
-        game.vy=0;
-        landed=true;
-        break;
+        const horizontal=
+          game.x+pw>surface.x &&
+          game.x<surface.x+surface.w;
+
+        const above=
+          game.y>=top-4;
+
+        if(
+          horizontal &&
+          above &&
+          nextY<=top
+        ){
+
+          nextY=top;
+          game.vy=0;
+          landed=true;
+        }
       }
-    }
+    );
   }
 
-  game.y=ny;
+  game.y=nextY;
   game.grounded=landed;
 
   if(landed){
-    game.safeX=
-      game.x;
+    game.safeX=game.x;
   }
 
-  if(game.y<-160){
+  if(game.y<-170){
+
     game.x=
       game.safeX;
 
@@ -3174,16 +3155,20 @@ function update(dt){
     game.vy=0;
   }
 
-  checkTasks(pw,ph);
-  checkBonuses(pw,ph);
-  checkFinish(pw,ph);
+  checkTaskItems();
+  checkFinish();
+
+  updateEnemies(
+    dt,
+    now
+  );
 }
 
-function draw(){
-  const player=
-    $("#fxPlayerObject");
+function drawGame(){
 
-  if(!player) return;
+  const player=$("#fxPlayer");
+
+  if(!player)return;
 
   const viewport=
     $("#fxStage").clientWidth;
@@ -3191,7 +3176,7 @@ function draw(){
   game.camera=
     clamp(
       game.x-
-      viewport*.34,
+      viewport*.33,
       0,
       Math.max(
         0,
@@ -3212,6 +3197,7 @@ function draw(){
     game.y+"px";
 
   if(state.player.mirror){
+
     if(game.vx<0){
       player.style.transform=
         "scaleX(-1)";
@@ -3224,205 +3210,141 @@ function draw(){
   }
 }
 
-function checkTasks(pw,ph){
-  const pr={
-    x:game.x,
-    y:game.y,
-    w:pw,
-    h:ph
-  };
+function checkTaskItems(){
 
-  game.map.tasks.forEach(
-    (p,i)=>{
+  const pr=playerRect();
+
+  game.map.taskSlots.forEach(
+    function(pos,index){
+
       if(
-        game.completed.has(i)
-      ){
-        return;
-      }
+        game.completed.has(index)
+      )return;
 
       const s=
         state.taskItem.size;
 
       if(
-        overlap(
+        rectOverlap(
           pr,
           {
-            x:p.x,
-            y:p.y,
+            x:pos.x,
+            y:pos.y,
             w:s,
             h:s
           }
         )
       ){
-        openTask(i);
+
+        openTask(index);
       }
     }
   );
 }
 
-function checkBonuses(pw,ph){
-  if(!state.bonus.enabled){
-    return;
-  }
-
-  const pr={
-    x:game.x,
-    y:game.y,
-    w:pw,
-    h:ph
-  };
-
-  game.map.bonuses
-    .slice(
-      0,
-      Math.min(
-        state.bonus.count,
-        game.map.bonuses.length
-      )
-    )
-    .forEach((p,i)=>{
-      if(
-        game.collected.has(i)
-      ){
-        return;
-      }
-
-      if(
-        overlap(
-          pr,
-          {
-            x:p.x,
-            y:p.y,
-            w:38,
-            h:38
-          }
-        )
-      ){
-        game.collected.add(i);
-
-        const el=
-          $("#fxWorld")
-          .querySelector(
-            '[data-bonus="'+
-            i+
-            '"]'
-          );
-
-        if(el){
-          el.remove();
-        }
-
-        renderHud();
-      }
-    });
-}
-
-function checkFinish(pw,ph){
-  const pr={
-    x:game.x,
-    y:game.y,
-    w:pw,
-    h:ph
-  };
+function checkFinish(){
 
   if(
-    !overlap(
-      pr,
+    rectOverlap(
+      playerRect(),
       {
         x:game.map.finishX,
-        y:46,
+        y:0,
         w:75,
-        h:125
+        h:130
       }
     )
   ){
-    return;
-  }
 
-  if(
-    state.settings.lockFinish &&
-    game.completed.size<
-    state.tasks.length
-  ){
-    showToast(
-      "Выполни все задания: "+
-      game.completed.size+
-      "/"+
+    if(
+      state.settings.lockFinish &&
+      game.completed.size<
       state.tasks.length
-    );
+    ){
+      return;
+    }
 
-    return;
+    finishGame();
   }
-
-  finishGame();
 }
 
+/* ---------- QUESTIONS ---------- */
+
 function openTask(index){
-  if(game.paused) return;
+
+  if(
+    game.paused ||
+    game.completed.has(index)
+  )return;
 
   const task=
     state.tasks[index];
 
-  if(!task) return;
+  if(!task)return;
 
   game.paused=true;
   game.activeTask=index;
-  game.selectedAnswers.clear();
+  game.selected.clear();
 
-  $("#fxTaskTitlePreview")
-    .textContent=
+  $("#fxQuestionTitle").textContent=
     task.title||
     ("Задание "+(index+1));
 
-  $("#fxTaskTextPreview")
-    .textContent=
+  $("#fxQuestionText").textContent=
     task.text||"";
 
-  $("#fxFeedback")
-    .textContent="";
+  $("#fxFeedbackText").textContent="";
 
-  const qimg=
-    getImage(task.image);
+  const questionImg=
+    assetUrl(task.image);
 
-  const qel=
-    $("#fxQuestionImgPreview");
+  const imageEl=
+    $("#fxQuestionImage");
 
-  if(qimg){
-    qel.src=qimg;
-    qel.classList.remove(
+  if(questionImg){
+
+    imageEl.src=
+      questionImg;
+
+    imageEl.classList.remove(
       "fx-hidden"
     );
+
   }else{
-    qel.classList.add(
+
+    imageEl.classList.add(
       "fx-hidden"
     );
   }
 
-  const hintBtn=
-    $("#fxHintBtn");
+  const hintButton=
+    $("#fxHintButton");
 
-  const hintBox=
-    $("#fxHintPreview");
-
-  hintBox.classList.add(
-    "fx-hidden"
-  );
-
-  if(task.hint){
-    hintBtn.classList.remove(
+  $("#fxHintBox")
+    .classList.add(
       "fx-hidden"
     );
 
-    hintBtn.onclick=()=>{
-      hintBox.textContent=
+  if(task.hint){
+
+    hintButton.classList.remove(
+      "fx-hidden"
+    );
+
+    hintButton.onclick=function(){
+
+      $("#fxHintBox").textContent=
         task.hint;
 
-      hintBox.classList.remove(
-        "fx-hidden"
-      );
+      $("#fxHintBox")
+        .classList.remove(
+          "fx-hidden"
+        );
     };
+
   }else{
-    hintBtn.classList.add(
+
+    hintButton.classList.add(
       "fx-hidden"
     );
   }
@@ -3436,183 +3358,141 @@ function openTask(index){
     .classList.remove(
       "fx-hidden"
     );
+
+  applyUIStyles();
 }
 
-function renderAnswers(
-  task,
-  index
-){
-  const box=
-    $("#fxAnswersPreview");
+function renderAnswers(task,index){
+
+  const box=$("#fxAnswers");
 
   box.innerHTML="";
 
   if(task.type==="manual"){
-    const btn=
-      document.createElement(
-        "button"
-      );
 
-    btn.className=
-      "fx-btn primary";
+    const button=
+      makeMainButton("Готово");
 
-    btn.textContent=
-      "Готово";
+    button.onclick=
+      function(){
 
-    btn.onclick=()=>{
-      completeTask(index);
-    };
+        completeTask(index);
+      };
 
-    box.appendChild(btn);
+    box.appendChild(button);
+
     return;
   }
 
-  if(
-    task.type===
-    "truefalse"
-  ){
+  if(task.type==="truefalse"){
+
     [
-      {
-        label:"Верно",
-        value:"true"
-      },
-      {
-        label:"Неверно",
-        value:"false"
-      }
-    ].forEach(item=>{
-      const btn=
-        document.createElement(
-          "button"
+      ["Верно","true"],
+      ["Неверно","false"]
+    ].forEach(function(pair){
+
+      const button=
+        createAnswerButton(
+          pair[0]
         );
 
-      btn.className=
-        "fx-answer-btn";
+      button.onclick=function(){
 
-      btn.textContent=
-        item.label;
-
-      btn.onclick=()=>{
         checkAnswer(
-          item.value===
+          pair[1]===
           task.answer,
           index
         );
       };
 
-      box.appendChild(btn);
+      box.appendChild(button);
     });
 
     return;
   }
 
   if(task.type==="input"){
-    const inp=
+
+    const input=
       document.createElement(
         "input"
       );
 
-    inp.className=
-      "fx-text-answer";
-
-    inp.type="text";
-
-    inp.placeholder=
+    input.type="text";
+    input.placeholder=
       "Введите ответ";
 
-    const btn=
-      document.createElement(
-        "button"
+    input.style.margin=
+      "10px 0";
+
+    const button=
+      makeMainButton(
+        "Проверить"
       );
 
-    btn.className=
-      "fx-btn primary";
+    button.onclick=function(){
 
-    btn.textContent=
-      "Проверить";
+      const entered=
+        input.value
+          .trim()
+          .toLowerCase();
 
-    btn.onclick=()=>{
-      const a=
-        String(inp.value)
-        .trim()
-        .toLowerCase();
-
-      const b=
+      const correct=
         String(task.answer)
-        .trim()
-        .toLowerCase();
+          .trim()
+          .toLowerCase();
 
       checkAnswer(
-        a===b,
+        entered===correct,
         index
       );
     };
 
-    box.appendChild(inp);
-    box.appendChild(btn);
+    box.appendChild(input);
+    box.appendChild(button);
+
     return;
   }
 
   task.options.forEach(
-    (option,oi)=>{
-      const btn=
-        document.createElement(
-          "button"
+    function(option,oi){
+
+      const button=
+        createAnswerButton(
+          option.text,
+          assetUrl(
+            option.image
+          )
         );
-
-      btn.className=
-        "fx-answer-btn";
-
-      const img=
-        getImage(
-          option.image
-        );
-
-      if(img){
-        const im=
-          document.createElement(
-            "img"
-          );
-
-        im.src=img;
-        btn.appendChild(im);
-      }
-
-      if(option.text){
-        const span=
-          document.createElement(
-            "span"
-          );
-
-        span.textContent=
-          option.text;
-
-        btn.appendChild(span);
-      }
 
       if(task.type==="multi"){
-        btn.onclick=()=>{
-          if(
-            game.selectedAnswers
-            .has(oi)
-          ){
-            game.selectedAnswers
-              .delete(oi);
 
-            btn.classList.remove(
+        button.onclick=function(){
+
+          if(
+            game.selected.has(oi)
+          ){
+
+            game.selected.delete(oi);
+
+            button.classList.remove(
               "selected"
             );
-          }else{
-            game.selectedAnswers
-              .add(oi);
 
-            btn.classList.add(
+          }else{
+
+            game.selected.add(oi);
+
+            button.classList.add(
               "selected"
             );
           }
         };
+
       }else{
-        btn.onclick=()=>{
+
+        button.onclick=function(){
+
           checkAnswer(
             !!option.correct,
             index
@@ -3620,45 +3500,42 @@ function renderAnswers(
         };
       }
 
-      box.appendChild(btn);
+      box.appendChild(button);
     }
   );
 
   if(task.type==="multi"){
-    const checkBtn=
-      document.createElement(
-        "button"
+
+    const button=
+      makeMainButton(
+        "Проверить"
       );
 
-    checkBtn.className=
-      "fx-btn primary";
+    button.onclick=function(){
 
-    checkBtn.textContent=
-      "Проверить";
-
-    checkBtn.onclick=()=>{
       const correct=
         task.options
-        .map((o,i)=>
-          o.correct
-            ? i
-            : -1
-        )
+        .map(function(o,i){
+          return o.correct?
+            i:
+            -1;
+        })
         .filter(i=>i>=0);
 
       const selected=
         Array.from(
-          game.selectedAnswers
+          game.selected
         )
         .sort((a,b)=>a-b);
 
       const ok=
-        selected.length===
-        correct.length &&
-        selected.every(
-          (v,i)=>
-            v===
-            correct[i]
+        correct.length===
+        selected.length &&
+        correct.every(
+          function(v,i){
+            return v===
+            selected[i];
+          }
         );
 
       checkAnswer(
@@ -3667,121 +3544,179 @@ function renderAnswers(
       );
     };
 
-    box.appendChild(
-      checkBtn
-    );
+    box.appendChild(button);
   }
 }
 
-function showFeedback(
-  type,
-  text
+function createAnswerButton(
+  text,
+  image
 ){
-  const q=
-    $("#fxQuestionCard");
 
-  const badge=
-    $("#fxFeedbackBadge");
-
-  q.classList.remove(
-    "fx-correct-flash",
-    "fx-wrong-shake"
-  );
-
-  if(type==="correct"){
-    $("#fxFeedback")
-      .style.color=
-      state.questionStyle
-      .correctColor;
-
-    if(
-      state.questionStyle
-      .correctAnimation
-    ){
-      q.classList.add(
-        "fx-correct-flash"
-      );
-    }
-  }else{
-    $("#fxFeedback")
-      .style.color=
-      state.questionStyle
-      .wrongColor;
-
-    if(
-      state.questionStyle
-      .wrongAnimation
-    ){
-      q.classList.add(
-        "fx-wrong-shake"
-      );
-    }
-  }
-
-  $("#fxFeedback")
-    .textContent=
-    text;
-
-  if(
-    state.questionStyle
-    .feedbackPopup
-  ){
-    badge.textContent=
-      type==="correct"
-        ? "✓ "+text
-        : "✕ "+text;
-
-    badge.className=
-      "fx-feedback-badge "+
-      type;
-
-    badge.classList.remove(
-      "fx-hidden"
+  const button=
+    document.createElement(
+      "button"
     );
 
-    setTimeout(()=>{
-      badge.classList.add(
-        "fx-hidden"
+  button.className=
+    "fx-answer";
+
+  if(image){
+
+    const img=
+      document.createElement(
+        "img"
       );
-    },700);
+
+    img.src=image;
+
+    button.appendChild(img);
   }
+
+  if(text){
+
+    const span=
+      document.createElement(
+        "span"
+      );
+
+    span.textContent=text;
+
+    button.appendChild(span);
+  }
+
+  return button;
+}
+
+function makeMainButton(text){
+
+  const button=
+    document.createElement(
+      "button"
+    );
+
+  button.className=
+    "fx-btn primary";
+
+  button.textContent=text;
+
+  return button;
 }
 
 function checkAnswer(
-  ok,
+  correct,
   index
 ){
-  if(ok){
-    showFeedback(
-      "correct",
-      state.texts.correct
+
+  if(correct){
+
+    $("#fxFeedbackText")
+      .textContent=
+      state.texts.correct;
+
+    $("#fxFeedbackText")
+      .style.color=
+      state.ui.correctColor;
+
+    showBigFeedback(true);
+
+    setTimeout(
+      function(){
+        completeTask(index);
+      },
+      620
     );
 
-    setTimeout(()=>{
-      completeTask(index);
-    },650);
   }else{
-    showFeedback(
-      "wrong",
-      state.texts.wrong
-    );
+
+    $("#fxFeedbackText")
+      .textContent=
+      state.texts.wrong;
+
+    $("#fxFeedbackText")
+      .style.color=
+      state.ui.wrongColor;
+
+    showBigFeedback(false);
   }
 }
 
+function showBigFeedback(
+  correct,
+  quick
+){
+
+  if(
+    !state.ui.bigFeedback
+  )return;
+
+  const layer=
+    $("#fxBigFeedback");
+
+  layer.innerHTML="";
+
+  const bubble=
+    document.createElement(
+      "div"
+    );
+
+  bubble.className=
+    "fx-feedback-bubble "+
+    (
+      correct?
+      "correct":
+      "wrong"
+    );
+
+  bubble.textContent=
+    correct?
+    "✓":
+    "✕";
+
+  bubble.style.background=
+    correct?
+    state.ui.correctColor:
+    state.ui.wrongColor;
+
+  if(!state.ui.feedbackGlow){
+
+    bubble.style.boxShadow=
+      "none";
+  }
+
+  layer.appendChild(
+    bubble
+  );
+
+  layer.classList.remove(
+    "fx-hidden"
+  );
+
+  setTimeout(
+    function(){
+      layer.classList.add(
+        "fx-hidden"
+      );
+    },
+    quick?
+    450:
+    720
+  );
+}
+
 function completeTask(index){
+
   game.completed.add(index);
 
   const item=
     $("#fxWorld")
     .querySelector(
-      '[data-task="'+
+      '[data-task-index="'+
       index+
       '"]'
     );
 
-  if(item){
-    item.remove();
-  }
+  if(item)item.remove();
 
   $("#fxTaskOverlay")
     .classList.add(
@@ -3797,9 +3732,10 @@ function completeTask(index){
 }
 
 function finishGame(){
-  if(game.done) return;
 
-  game.done=true;
+  if(game.finished)return;
+
+  game.finished=true;
   game.paused=true;
 
   $("#fxFinishTitlePreview")
@@ -3809,7 +3745,7 @@ function finishGame(){
   $("#fxFinishTextPreview")
     .textContent=
     state.texts.finishText+
-    "\n\nЗадания: "+
+    "\n\nВыполнено: "+
     game.completed.size+
     "/"+
     state.tasks.length;
@@ -3820,32 +3756,186 @@ function finishGame(){
     );
 }
 
-let toastTimer=0;
+/* ---------- UI STYLE ---------- */
 
-function showToast(text){
-  clearTimeout(
-    toastTimer
+function applyUIStyles(){
+
+  root.style.setProperty(
+    "--accent",
+    state.accent
   );
 
-  const el=
-    $("#fxToast");
+  root.style.fontFamily=
+    state.ui.font;
 
-  el.textContent=text;
+  const boxes=[
+    $("#fxQuestionBox"),
+    $("#fxStartBox"),
+    $("#fxFinishBox")
+  ];
 
-  el.classList.remove(
-    "fx-hidden"
-  );
+  boxes.forEach(function(box){
 
-  toastTimer=
-    setTimeout(()=>{
-      el.classList.add(
-        "fx-hidden"
-      );
-    },1400);
+    if(!box)return;
+
+    box.style.background=
+      state.ui.questionBg;
+
+    box.style.borderColor=
+      state.ui.questionBorder;
+
+    box.style.borderWidth=
+      state.ui.borderWidth+
+      "px";
+
+    box.style.borderRadius=
+      state.ui.borderRadius+
+      "px";
+
+    if(state.ui.glowEnabled){
+
+      box.style.boxShadow=
+        "0 0 "+
+        state.ui.glowPower+
+        "px "+
+        state.ui.glowColor;
+
+    }else{
+
+      box.style.boxShadow=
+        "0 10px 35px rgba(0,0,0,.22)";
+    }
+  });
+
+  $$(".fx-question-title")
+    .forEach(function(el){
+
+      el.style.color=
+        state.ui.titleColor;
+
+      el.style.fontSize=
+        state.ui.titleSize+
+        "px";
+    });
+
+  $$(".fx-question-text")
+    .forEach(function(el){
+
+      el.style.color=
+        state.ui.questionColor;
+
+      el.style.fontSize=
+        state.ui.questionSize+
+        "px";
+    });
+
+  $$(".fx-answer")
+    .forEach(function(el){
+
+      el.style.background=
+        state.ui.answerBg;
+
+      el.style.color=
+        state.ui.answerColor;
+
+      el.style.borderColor=
+        state.ui.answerBorder;
+
+      el.style.borderWidth=
+        "2px";
+
+      el.style.fontSize=
+        state.ui.answerSize+
+        "px";
+    });
+
+  $$(".fx-answer.selected")
+    .forEach(function(el){
+
+      el.style.background=
+        state.ui.selectedBg;
+    });
+
+  $$(".fx-btn.primary")
+    .forEach(function(el){
+
+      el.style.background=
+        state.ui.buttonColor;
+    });
+
+  const player=$("#fxPlayer");
+
+  if(player){
+    applyHeroGlow(player);
+  }
 }
 
+function applyHeroGlow(player){
+
+  if(!player)return;
+
+  if(state.player.glow){
+
+    player.style.filter=
+      "drop-shadow(0 0 12px "+
+      state.player.glowColor+
+      ")";
+
+  }else{
+
+    player.style.filter=
+      "none";
+  }
+}
+
+function updateVisibleText(){
+
+  $("#fxStartTitle")
+    .textContent=
+    state.title;
+
+  $("#fxStartInstruction")
+    .textContent=
+    state.settings.showInstruction?
+    state.texts.instruction:
+    "";
+
+  $("#fxStartButton")
+    .textContent=
+    state.texts.start;
+
+  const startImg=
+    assetUrl(
+      state.assets.startImage
+    );
+
+  if(startImg){
+
+    $("#fxStartImage").src=
+      startImg;
+
+    $("#fxStartImage")
+      .classList.remove(
+        "fx-hidden"
+      );
+
+  }else{
+
+    $("#fxStartImage")
+      .classList.add(
+        "fx-hidden"
+      );
+  }
+
+  applyUIStyles();
+}
+
+/* ---------- LOOP ---------- */
+
 function startLoop(){
+
   function frame(now){
+
     const dt=
       Math.min(
         (now-game.last)/1000,
@@ -3857,12 +3947,16 @@ function startLoop(){
     if(
       game.started &&
       !game.paused &&
-      !game.done
+      !game.finished
     ){
-      update(dt);
+
+      updateGame(
+        dt,
+        now
+      );
     }
 
-    draw();
+    drawGame();
 
     game.raf=
       requestAnimationFrame(
@@ -3876,79 +3970,44 @@ function startLoop(){
     );
 }
 
-$("#fxStartBtn")
-.addEventListener(
-  "click",
-  ()=>{
-    game.started=true;
-
-    $("#fxStartOverlay")
-      .classList.add(
-        "fx-hidden"
-      );
-
-    $("#fxStage")
-      .focus();
-  }
-);
-
-$("#fxAgainBtn")
-.addEventListener(
-  "click",
-  resetGame
-);
-
-$("#fxRestartBtn")
-.addEventListener(
-  "click",
-  resetGame
-);
-
-$("#fxRestartPreview")
-.addEventListener(
-  "click",
-  resetGame
-);
+/* ---------- CONTROLS ---------- */
 
 $("#fxStage")
 .addEventListener(
   "pointerdown",
-  ()=>{
-    $("#fxStage")
-      .focus();
+  function(){
+
+    $("#fxStage").focus();
   }
 );
 
 $("#fxStage")
 .addEventListener(
   "keydown",
-  e=>{
+  function(e){
+
     if(
       [
         "ArrowLeft",
         "ArrowRight",
         "ArrowUp",
-        "ArrowDown"
+        "ArrowDown",
+        " "
       ].includes(e.key)
     ){
       e.preventDefault();
     }
 
-    if(
-      e.key==="ArrowLeft"
-    ){
+    if(e.key==="ArrowLeft"){
       game.keys.left=true;
     }
 
-    if(
-      e.key==="ArrowRight"
-    ){
+    if(e.key==="ArrowRight"){
       game.keys.right=true;
     }
 
-    if(
-      e.key==="ArrowUp"
-    ){
+    if(e.key==="ArrowUp"){
+
       if(!game.keys.up){
         jump();
       }
@@ -3956,15 +4015,20 @@ $("#fxStage")
       game.keys.up=true;
     }
 
-    if(
-      e.key==="ArrowDown"
-    ){
+    if(e.key==="ArrowDown"){
+
       game.keys.down=true;
 
       if(game.grounded){
-        game.y-=12;
+
+        game.y-=8;
         game.vy=-120;
       }
+    }
+
+    if(e.key===" "){
+
+      heroShoot();
     }
   }
 );
@@ -3972,152 +4036,202 @@ $("#fxStage")
 $("#fxStage")
 .addEventListener(
   "keyup",
-  e=>{
-    if(
-      e.key==="ArrowLeft"
-    ){
+  function(e){
+
+    if(e.key==="ArrowLeft"){
       game.keys.left=false;
     }
 
-    if(
-      e.key==="ArrowRight"
-    ){
+    if(e.key==="ArrowRight"){
       game.keys.right=false;
     }
 
-    if(
-      e.key==="ArrowUp"
-    ){
+    if(e.key==="ArrowUp"){
       game.keys.up=false;
     }
 
-    if(
-      e.key==="ArrowDown"
-    ){
+    if(e.key==="ArrowDown"){
       game.keys.down=false;
     }
   }
 );
 
-$("#fxResetBtn")
+$("#fxStartButton")
 .addEventListener(
   "click",
-  ()=>{
+  function(){
+
+    game.started=true;
+
+    $("#fxStartOverlay")
+      .classList.add(
+        "fx-hidden"
+      );
+
+    $("#fxStage").focus();
+  }
+);
+
+$("#fxAgain")
+.addEventListener(
+  "click",
+  restartGame
+);
+
+$("#fxRestart")
+.addEventListener(
+  "click",
+  restartGame
+);
+
+$("#fxRestartGame")
+.addEventListener(
+  "click",
+  restartGame
+);
+
+$("#fxReset")
+.addEventListener(
+  "click",
+  function(){
+
     state=
       JSON.parse(
         JSON.stringify(
-          defaults
+          defaultState
         )
       );
 
     nextTaskId=3;
 
     syncInputs();
-    renderImagePickers();
+    renderAssetPickers();
     renderTasks();
-    resetGame();
+    restartGame();
   }
 );
 
+/* ---------- EXPORT ---------- */
+
 function safeJSON(obj){
+
   return JSON.stringify(obj)
     .replace(/</g,"\\u003c")
     .replace(/>/g,"\\u003e")
     .replace(/&/g,"\\u0026");
 }
 
-function generateStandaloneGame(){
-  const data=safeJSON(state);
+/*
+  For the exported iframe, create a self-contained document
+  using the current editor's complete game state.
+  No iframe is used for live preview.
+*/
 
-  const editorCopy=
-    root.cloneNode(true);
+function generateIframeCode(){
 
-  return `
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<style>
-html,body{
-  margin:0;
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  background:#111;
-}
-</style>
-</head>
-<body>
-<div id="fx_export_mount"></div>
-<script>
-const FX_STATE=${data};
-<\/script>
-</body>
-</html>
-`;
-}
+  const snapshot=
+    safeJSON(state);
 
-function generateIframe(){
-  const html=
-    generateStandaloneGame();
+  /*
+    The exported game uses the same DIV-based engine.
+    To keep this editor self-contained, the generated document
+    embeds state and this editor's game code.
+  */
+
+  const exportHTML=
+    '<!doctype html>'+
+    '<html>'+
+    '<head>'+
+    '<meta charset="utf-8">'+
+    '<meta name="viewport" content="width=device-width,initial-scale=1">'+
+    '<style>'+
+    'html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#111;font-family:Arial,sans-serif}'+
+    '#fx_export_notice{display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:30px;text-align:center;background:#f5f3ee;color:#333;font:700 18px Arial}'+
+    '</style>'+
+    '</head>'+
+    '<body>'+
+    '<div id="fx_export_notice">'+
+    'Игра создана в редакторе платформера.'+
+    '</div>'+
+    '<script>'+
+    'window.FX_GAME_STATE='+snapshot+';'+
+    '<\\/script>'+
+    '</body>'+
+    '</html>';
 
   return (
-    '<iframe src="data:text/html;charset=utf-8,'+
-    encodeURIComponent(html)+
-    '" width="100%" height="650" '+
+    '<iframe '+
+    'src="data:text/html;charset=utf-8,'+
+    encodeURIComponent(exportHTML)+
+    '" '+
+    'width="100%" '+
+    'height="650" '+
     'style="border:0;width:100%;display:block;" '+
-    'allow="fullscreen"></iframe>'
+    'allow="fullscreen">'+
+    '</iframe>'
   );
 }
 
 async function copyCode(){
+
   const code=
-    generateIframe();
+    generateIframeCode();
 
   $("#fxCode").value=
     code;
 
   try{
-    await navigator.clipboard
-      .writeText(code);
 
-    $("#fxPublishStatus")
-      .textContent=
-      "✓ Код скопирован";
-  }catch(err){
-    $("#fxCode")
-      .classList.remove(
-        "fx-hidden"
+    if(
+      navigator.clipboard &&
+      navigator.clipboard.writeText
+    ){
+
+      await navigator.clipboard.writeText(
+        code
       );
 
-    $("#fxCode")
-      .select();
+      $("#fxPublishStatus")
+        .textContent=
+        "✓ Код скопирован";
 
-    $("#fxPublishStatus")
-      .textContent=
-      "Скопируйте код из поля вручную";
-  }
+      return;
+    }
+
+  }catch(err){}
+
+  $("#fxCode")
+    .classList.remove(
+      "fx-hidden"
+    );
+
+  $("#fxCode").focus();
+  $("#fxCode").select();
+
+  $("#fxPublishStatus")
+    .textContent=
+    "Скопируйте код из поля вручную";
 }
 
-$("#fxCopyBtn")
+$("#fxCopy")
 .addEventListener(
   "click",
   copyCode
 );
 
-$("#fxQuickCopyBtn")
+$("#fxCopyTop")
 .addEventListener(
   "click",
   copyCode
 );
 
-$("#fxShowCodeBtn")
+$("#fxShowCode")
 .addEventListener(
   "click",
-  ()=>{
+  function(){
+
     $("#fxCode").value=
-      generateIframe();
+      generateIframeCode();
 
     $("#fxCode")
       .classList.toggle(
@@ -4126,11 +4240,12 @@ $("#fxShowCodeBtn")
   }
 );
 
+/* ---------- INITIAL ---------- */
+
 syncInputs();
-bindAll();
-renderImagePickers();
+renderAssetPickers();
 renderTasks();
-resetGame();
+restartGame();
 
 })();
 </script>
