@@ -3,47 +3,34 @@
 #FX_ROOT{
   --accent:#766b8f;
   --page:#f4f2ee;
-  --panel:#ffffff;
-  --line:#ddd9d2;
-  --text:#292929;
-  --muted:#767676;
+  --line:#ddd8d2;
+  --text:#28252d;
   width:100%;
   font-family:Arial,sans-serif;
   color:var(--text);
 }
 #FX_ROOT *{box-sizing:border-box}
-#FX_ROOT input,
-#FX_ROOT textarea,
-#FX_ROOT select,
-#FX_ROOT button{font:inherit}
+#FX_ROOT button,#FX_ROOT input,#FX_ROOT select,#FX_ROOT textarea{font:inherit}
 #FX_ROOT button{cursor:pointer}
 
 #FX_ROOT .fx-app{
-  border:1px solid var(--line);
-  border-radius:18px;
   overflow:hidden;
   background:var(--page);
+  border:1px solid var(--line);
+  border-radius:18px;
 }
-
-#FX_ROOT .fx-header{
+#FX_ROOT .fx-head{
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   gap:10px;
   flex-wrap:wrap;
-  padding:14px 16px;
+  padding:13px 16px;
   background:#fff;
   border-bottom:1px solid var(--line);
 }
-#FX_ROOT .fx-brand{
-  font-weight:800;
-  font-size:20px;
-}
-#FX_ROOT .fx-header-actions{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-}
+#FX_ROOT .fx-logo{font-size:20px;font-weight:900}
+#FX_ROOT .fx-head-actions{display:flex;gap:7px;flex-wrap:wrap}
 
 #FX_ROOT .fx-tabs{
   display:flex;
@@ -54,20 +41,16 @@
   border-bottom:1px solid var(--line);
 }
 #FX_ROOT .fx-tab{
-  white-space:nowrap;
   border:0;
-  border-radius:9px;
+  white-space:nowrap;
   padding:9px 11px;
+  border-radius:9px;
   background:#efede7;
   font-weight:700;
-  color:#4d4d4d;
 }
-#FX_ROOT .fx-tab.active{
-  color:#fff;
-  background:var(--accent);
-}
+#FX_ROOT .fx-tab.active{background:var(--accent);color:#fff}
 
-#FX_ROOT .fx-body{
+#FX_ROOT .fx-layout{
   display:grid;
   grid-template-columns:minmax(340px,430px) minmax(0,1fr);
   gap:14px;
@@ -78,66 +61,51 @@
 #FX_ROOT .fx-pane.active{display:block}
 
 #FX_ROOT .fx-card{
-  background:#fff;
+  margin-bottom:10px;
+  padding:13px;
   border:1px solid var(--line);
   border-radius:14px;
-  padding:13px;
-  margin-bottom:10px;
+  background:#fff;
 }
-#FX_ROOT .fx-card-title{
-  font-weight:800;
-  margin-bottom:10px;
-  font-size:14px;
-}
+#FX_ROOT .fx-card-title{font-weight:900;margin-bottom:10px}
 #FX_ROOT .fx-field{margin-bottom:10px}
 #FX_ROOT label{
   display:block;
+  margin-bottom:5px;
   font-size:12px;
   font-weight:700;
-  margin-bottom:5px;
 }
 #FX_ROOT input[type=text],
 #FX_ROOT input[type=number],
 #FX_ROOT select,
 #FX_ROOT textarea{
   width:100%;
+  padding:9px 10px;
   border:1px solid var(--line);
   border-radius:9px;
   background:#fff;
-  padding:9px 10px;
-  color:#222;
 }
-#FX_ROOT textarea{
-  min-height:72px;
-  resize:vertical;
-}
+#FX_ROOT textarea{min-height:75px;resize:vertical}
 #FX_ROOT input[type=color]{
   width:100%;
-  height:39px;
+  height:38px;
   border:1px solid var(--line);
-  border-radius:9px;
-  background:white;
-  padding:3px;
+  border-radius:8px;
 }
-#FX_ROOT input[type=range]{width:100%}
-#FX_ROOT input[type=file]{width:100%;font-size:12px}
+#FX_ROOT input[type=range],
+#FX_ROOT input[type=file]{width:100%}
 
 #FX_ROOT .fx-grid2{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:8px;
 }
-#FX_ROOT .fx-grid3{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-}
 #FX_ROOT .fx-check{
   display:flex;
   align-items:center;
-  gap:8px;
-  font-size:13px;
+  gap:7px;
   margin:8px 0;
+  font-size:13px;
 }
 #FX_ROOT .fx-check input{margin:0}
 
@@ -145,95 +113,64 @@
   border:0;
   border-radius:9px;
   padding:9px 11px;
-  font-weight:700;
+  font-weight:800;
   background:#e8e5df;
-  color:#333;
 }
-#FX_ROOT .fx-btn.primary{
-  color:white;
-  background:var(--accent);
-}
-#FX_ROOT .fx-btn.danger{
-  background:#f3dddd;
-  color:#8b3333;
-}
-#FX_ROOT .fx-btn.small{
-  padding:6px 8px;
-  font-size:12px;
-}
-#FX_ROOT .fx-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-}
+#FX_ROOT .fx-btn.primary{background:var(--accent);color:#fff}
+#FX_ROOT .fx-btn.danger{background:#f4dddd;color:#873333}
+#FX_ROOT .fx-btn.small{padding:6px 8px;font-size:12px}
+#FX_ROOT .fx-actions{display:flex;gap:6px;flex-wrap:wrap}
 
-#FX_ROOT .fx-image-picker{
-  border:1px dashed #cbc6bd;
-  border-radius:11px;
+#FX_ROOT .fx-picker{
   padding:9px;
+  border:1px dashed #cac4ba;
+  border-radius:11px;
   background:#faf9f6;
 }
-#FX_ROOT .fx-source-tabs{
-  display:flex;
-  gap:5px;
-  margin-bottom:8px;
-}
+#FX_ROOT .fx-source-tabs{display:flex;gap:5px;margin-bottom:8px}
 #FX_ROOT .fx-source{
   border:0;
-  border-radius:8px;
   padding:6px 8px;
+  border-radius:8px;
+  background:#e9e6df;
   font-size:11px;
-  background:#eae7e0;
 }
-#FX_ROOT .fx-source.active{
-  background:#ddd8e8;
-  font-weight:800;
-}
+#FX_ROOT .fx-source.active{background:#ded7eb;font-weight:800}
 #FX_ROOT .fx-thumb{
-  width:92px;
+  display:none;
+  width:94px;
   height:64px;
+  margin-top:8px;
   object-fit:contain;
-  background:white;
   border:1px solid var(--line);
   border-radius:8px;
-  display:none;
-  margin-top:8px;
 }
 #FX_ROOT .fx-thumb.show{display:block}
 
-#FX_ROOT .fx-task{
-  border:1px solid var(--line);
-  background:#faf9f6;
-  border-radius:12px;
-  padding:10px;
+#FX_ROOT .fx-task-editor{
   margin-bottom:9px;
+  padding:10px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#faf9f6;
 }
 #FX_ROOT .fx-task-head{
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:7px;
+  align-items:center;
+  gap:6px;
   margin-bottom:8px;
 }
-#FX_ROOT .fx-task-name{font-weight:800}
-#FX_ROOT .fx-task-actions{
-  display:flex;
-  gap:4px;
-}
+#FX_ROOT .fx-task-name{font-weight:900}
 #FX_ROOT .fx-option{
+  margin-bottom:6px;
+  padding:8px;
   border:1px solid var(--line);
   border-radius:9px;
-  padding:8px;
-  background:white;
-  margin-bottom:6px;
-}
-#FX_ROOT .fx-option-main{
-  display:grid;
-  grid-template-columns:1fr 78px;
-  gap:6px;
-  align-items:center;
+  background:#fff;
 }
 
+/* GAME */
 #FX_ROOT .fx-preview{
   position:sticky;
   top:10px;
@@ -241,329 +178,140 @@
 }
 #FX_ROOT .fx-preview-head{
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   gap:8px;
   margin-bottom:8px;
 }
-#FX_ROOT .fx-preview-label{font-weight:800}
-
 #FX_ROOT .fx-stage{
   position:relative;
   width:100%;
   aspect-ratio:16/9;
-  min-height:420px;
+  min-height:430px;
   overflow:hidden;
-  outline:none;
   border:1px solid var(--line);
-  border-radius:16px;
-  background:#cce6f4;
-  user-select:none;
+  border-radius:17px;
+  background:#8ed7ff;
+  outline:none;
 }
-#FX_ROOT .fx-stage:focus{
-  box-shadow:0 0 0 3px rgba(118,107,143,.22);
-}
-#FX_ROOT .fx-game-bg{
-  position:absolute;
-  inset:0;
-  background-size:cover;
-  background-position:center;
-}
-#FX_ROOT .fx-world{
-  position:absolute;
-  left:0;
-  bottom:0;
-  height:100%;
-  will-change:transform;
-}
-#FX_ROOT .fx-obj{position:absolute}
-
-#FX_ROOT .fx-ground{
-  border-top:5px solid rgba(255,255,255,.25);
-}
-#FX_ROOT .fx-platform{
-  border-radius:8px 8px 3px 3px;
-  border-top:5px solid rgba(255,255,255,.22);
-}
-#FX_ROOT .fx-wall{
-  border-radius:8px;
-}
-#FX_ROOT .fx-pipe{
-  border-radius:11px 11px 4px 4px;
-  border:4px solid rgba(0,0,0,.08);
-}
-#FX_ROOT .fx-block{
-  border-radius:8px;
-  border:3px solid rgba(0,0,0,.08);
-}
-#FX_ROOT .fx-column{
-  border-radius:8px 8px 0 0;
-}
-#FX_ROOT .fx-ceiling{
-  border-radius:0 0 8px 8px;
-}
-
-#FX_ROOT .fx-player{
-  z-index:30;
-  background:#e27768;
-  border:3px solid #fff;
-  border-radius:14px;
-  background-size:contain;
-  background-position:center bottom;
-  background-repeat:no-repeat;
-  transform-origin:center center;
-}
-#FX_ROOT .fx-player.custom{
-  border:0;
-  background-color:transparent;
-}
-
-#FX_ROOT .fx-task-item{
-  z-index:22;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background-position:center;
-  background-repeat:no-repeat;
-  background-size:contain;
-  animation:fxFloat 1.5s ease-in-out infinite;
-}
-
-#FX_ROOT .fx-finish{
-  z-index:15;
-  background-position:center bottom;
-  background-repeat:no-repeat;
-  background-size:contain;
-}
-#FX_ROOT .fx-finish.default:before{
-  content:"";
-  position:absolute;
-  width:6px;
-  height:120px;
-  left:8px;
-  bottom:0;
-  background:#eee;
-}
-#FX_ROOT .fx-finish.default:after{
-  content:"";
-  position:absolute;
-  width:52px;
-  height:34px;
-  left:14px;
-  top:5px;
-  background:#df5f5f;
-  clip-path:polygon(0 0,100% 50%,0 100%);
-}
-
-/* ENEMY */
-#FX_ROOT .fx-enemy{
-  z-index:26;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:18px;
-  background:#825c85;
-  color:white;
-  font-size:40px;
-  background-size:contain;
-  background-position:center bottom;
-  background-repeat:no-repeat;
-  animation:fxEnemyIdle 1.15s ease-in-out infinite;
-}
-#FX_ROOT .fx-enemy.custom{
-  background-color:transparent;
-}
-#FX_ROOT .fx-enemy-hp{
-  position:absolute;
-  width:100%;
-  height:7px;
-  left:0;
-  top:-12px;
-  border-radius:99px;
-  background:rgba(0,0,0,.22);
-  overflow:hidden;
-}
-#FX_ROOT .fx-enemy-hp span{
+#FX_ROOT .fx-stage:focus{box-shadow:0 0 0 3px rgba(118,107,143,.2)}
+#FX_ROOT #fxCanvas{
   display:block;
-  height:100%;
   width:100%;
-  background:#e86868;
-}
-#FX_ROOT .fx-projectile{
-  position:absolute;
-  z-index:45;
-  width:28px;
-  height:28px;
-  border-radius:50%;
-  background:#7854a6;
-  background-size:contain;
-  background-position:center;
-  background-repeat:no-repeat;
-  pointer-events:none;
-}
-#FX_ROOT .fx-projectile.hero{
-  background:#f0c757;
+  height:100%;
 }
 
-/* HUD */
 #FX_ROOT .fx-hud{
   position:absolute;
-  z-index:70;
-  left:11px;
-  top:11px;
+  z-index:30;
+  top:10px;
+  left:10px;
   display:flex;
   gap:7px;
+  pointer-events:none;
 }
 #FX_ROOT .fx-pill{
-  background:rgba(255,255,255,.9);
-  padding:7px 10px;
+  padding:7px 11px;
   border-radius:999px;
+  background:rgba(255,255,255,.9);
+  font-weight:900;
   font-size:13px;
-  font-weight:800;
 }
 
-/* OVERLAYS */
 #FX_ROOT .fx-overlay{
   position:absolute;
   inset:0;
-  z-index:110;
+  z-index:50;
   display:flex;
-  align-items:center;
   justify-content:center;
-  padding:18px;
-  background:rgba(20,20,20,.45);
+  align-items:center;
+  padding:16px;
+  background:rgba(15,18,35,.48);
 }
 #FX_ROOT .fx-hidden{display:none!important}
 
-#FX_ROOT .fx-question-box{
+#FX_ROOT .fx-box{
   width:min(620px,96%);
   max-height:92%;
   overflow:auto;
-  padding:22px;
-  position:relative;
+  padding:21px;
   border-style:solid;
+  background:#fff;
 }
-
 #FX_ROOT .fx-start-box{
   width:min(650px,96%);
-  position:relative;
+  padding:24px;
   text-align:center;
-  overflow:hidden;
   border-style:solid;
 }
-
-#FX_ROOT .fx-start-top{
-  padding:22px 24px 14px;
-}
-#FX_ROOT .fx-start-title{
-  margin:0 0 8px;
-  font-weight:900;
-}
-#FX_ROOT .fx-start-subtitle{
-  margin:0 auto 14px;
-  max-width:560px;
-  line-height:1.45;
-}
-#FX_ROOT .fx-start-image{
+#FX_ROOT .fx-start-box h2{margin:0 0 8px}
+#FX_ROOT .fx-start-sub{line-height:1.45;margin-bottom:12px}
+#FX_ROOT .fx-start-img{
   display:block;
   max-width:180px;
   max-height:145px;
+  margin:0 auto 10px;
   object-fit:contain;
-  margin:0 auto 12px;
 }
-#FX_ROOT .fx-controls-card{
-  margin:12px auto 16px;
-  max-width:520px;
-  padding:12px;
-  border-radius:14px;
+#FX_ROOT .fx-help{
+  margin:12px 0 15px;
+  padding:11px;
+  border-radius:12px;
   background:rgba(255,255,255,.55);
 }
-#FX_ROOT .fx-controls-title{
-  font-weight:800;
-  margin-bottom:9px;
-}
-#FX_ROOT .fx-key-row{
+#FX_ROOT .fx-keys{
   display:flex;
   justify-content:center;
-  gap:7px;
+  gap:6px;
   flex-wrap:wrap;
 }
 #FX_ROOT .fx-key{
-  min-width:46px;
-  padding:7px 9px;
-  border-radius:8px;
+  min-width:45px;
+  padding:7px;
+  border:1px solid rgba(0,0,0,.16);
+  border-radius:7px;
   background:#fff;
-  border:1px solid rgba(0,0,0,.12);
-  font-weight:800;
-}
-#FX_ROOT .fx-space-key{
-  min-width:115px;
-}
-#FX_ROOT .fx-start-btn{
-  border:0;
-  border-radius:13px;
-  padding:13px 30px;
   font-weight:900;
-  font-size:18px;
 }
+#FX_ROOT .fx-key.space{min-width:118px}
 
-#FX_ROOT .fx-question-title{
-  margin:0 0 10px;
-  font-weight:800;
-}
-#FX_ROOT .fx-question-text{
-  white-space:pre-wrap;
-  line-height:1.45;
-}
-#FX_ROOT .fx-question-image{
-  max-width:100%;
-  max-height:220px;
-  object-fit:contain;
+#FX_ROOT .fx-q-title{margin:0 0 10px;font-weight:900}
+#FX_ROOT .fx-q-text{white-space:pre-wrap;line-height:1.45}
+#FX_ROOT .fx-q-img{
   display:block;
-  margin:10px auto;
-  border-radius:10px;
+  max-width:100%;
+  max-height:210px;
+  margin:9px auto;
+  object-fit:contain;
+  border-radius:9px;
 }
 #FX_ROOT .fx-answer{
-  width:100%;
   display:flex;
   align-items:center;
   gap:9px;
-  text-align:left;
+  width:100%;
   margin:7px 0;
-  padding:11px 12px;
+  padding:11px;
+  text-align:left;
   border-style:solid;
   border-radius:10px;
-  cursor:pointer;
 }
 #FX_ROOT .fx-answer img{
-  width:82px;
-  height:62px;
+  width:76px;
+  height:58px;
   object-fit:contain;
-  border-radius:8px;
 }
-#FX_ROOT .fx-answer.selected{
-  outline:3px solid var(--accent);
-}
-#FX_ROOT .fx-feedback-text{
-  min-height:22px;
-  font-weight:800;
-  margin-top:8px;
-}
-#FX_ROOT .fx-hint-box{
-  border-radius:10px;
-  padding:9px;
+#FX_ROOT .fx-answer.selected{outline:3px solid var(--accent)}
+#FX_ROOT .fx-feedback{min-height:23px;margin-top:8px;font-weight:900}
+#FX_ROOT .fx-hint{
   margin:8px 0;
-  background:#fff5cc;
+  padding:9px;
   border:1px solid #ead99a;
+  border-radius:9px;
+  background:#fff5cc;
 }
 
-#FX_ROOT .fx-match-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-  margin:10px 0;
-}
-#FX_ROOT .fx-order-list{
+#FX_ROOT .fx-order{
   display:flex;
   flex-direction:column;
   gap:6px;
@@ -574,106 +322,81 @@
   grid-template-columns:1fr auto auto;
   gap:5px;
   align-items:center;
-  border:1px solid #ddd;
-  border-radius:9px;
   padding:8px;
+  border:1px solid #ddd;
+  border-radius:8px;
 }
-#FX_ROOT .fx-sentence-pool,
-#FX_ROOT .fx-sentence-built{
+#FX_ROOT .fx-pool,
+#FX_ROOT .fx-built{
   display:flex;
+  min-height:50px;
   gap:6px;
   flex-wrap:wrap;
-  min-height:52px;
-  border:1px dashed #bbb;
-  border-radius:10px;
-  padding:8px;
   margin:8px 0;
+  padding:8px;
+  border:1px dashed #bbb;
+  border-radius:9px;
 }
 #FX_ROOT .fx-word{
   border:0;
-  border-radius:8px;
-  padding:8px 10px;
+  border-radius:7px;
+  padding:7px 9px;
   background:#eee;
-}
-#FX_ROOT .fx-free-answer{
-  min-height:110px;
 }
 
 #FX_ROOT .fx-big-feedback{
   position:absolute;
   inset:0;
-  z-index:180;
+  z-index:90;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   pointer-events:none;
-  display:flex;
-  justify-content:center;
-  align-items:center;
 }
-#FX_ROOT .fx-feedback-bubble{
-  width:150px;
-  height:150px;
+#FX_ROOT .fx-fb{
+  display:flex;
+  width:145px;
+  height:145px;
+  align-items:center;
+  justify-content:center;
   border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:80px;
+  color:#fff;
+  font-size:78px;
   font-weight:900;
-  color:white;
-  animation:fxFeedbackPop .65s ease forwards;
+  animation:fxPop .7s ease forwards;
 }
-#FX_ROOT .fx-feedback-bubble.correct{
-  background:#55b877;
-}
-#FX_ROOT .fx-feedback-bubble.wrong{
-  background:#dc6464;
+@keyframes fxPop{
+  0%{transform:scale(.2);opacity:0}
+  45%{transform:scale(1.15);opacity:1}
+  100%{transform:scale(1);opacity:0}
 }
 
 #FX_ROOT .fx-code{
   width:100%;
-  min-height:180px;
-  font-size:11px;
+  min-height:190px;
   font-family:monospace;
+  font-size:11px;
 }
-#FX_ROOT .fx-status{
-  color:var(--muted);
-  font-size:12px;
-  margin-top:7px;
-}
-
-@keyframes fxFloat{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-9px)}
-}
-@keyframes fxEnemyIdle{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-5px)}
-}
-@keyframes fxFeedbackPop{
-  0%{transform:scale(.15);opacity:0}
-  45%{transform:scale(1.15);opacity:1}
-  75%{transform:scale(.94)}
-  100%{transform:scale(1);opacity:0}
-}
+#FX_ROOT .fx-note{font-size:12px;color:#777;line-height:1.4}
 
 @media(max-width:950px){
-  #FX_ROOT .fx-body{grid-template-columns:1fr}
+  #FX_ROOT .fx-layout{grid-template-columns:1fr}
   #FX_ROOT .fx-preview{position:static}
 }
 @media(max-width:530px){
-  #FX_ROOT .fx-grid2,
-  #FX_ROOT .fx-grid3{grid-template-columns:1fr}
-  #FX_ROOT .fx-stage{min-height:290px}
+  #FX_ROOT .fx-grid2{grid-template-columns:1fr}
+  #FX_ROOT .fx-stage{min-height:300px}
 }
 </style>
 
 <div class="fx-app">
 
-  <div class="fx-header">
-    <div class="fx-brand">🎮 Конструктор платформера</div>
-
-    <div class="fx-header-actions">
-      <button id="fxRestart" class="fx-btn">↺ Перезапустить</button>
-      <button id="fxReset" class="fx-btn">Новая игра</button>
-      <button id="fxCopyTop" class="fx-btn primary">Копировать iframe</button>
+  <div class="fx-head">
+    <div class="fx-logo">🎮 Конструктор платформера</div>
+    <div class="fx-head-actions">
+      <button class="fx-btn" id="fxRestart">↺ Перезапустить</button>
+      <button class="fx-btn" id="fxReset">Новая игра</button>
+      <button class="fx-btn primary" id="fxCopyTop">Копировать iframe</button>
     </div>
   </div>
 
@@ -683,20 +406,19 @@
     <button class="fx-tab" data-tab="start">▶ Старт</button>
     <button class="fx-tab" data-tab="hero">👤 Герой</button>
     <button class="fx-tab" data-tab="map">🗺 Карта</button>
-    <button class="fx-tab" data-tab="enemy">👾 Враг</button>
+    <button class="fx-tab" data-tab="enemy">👾 Монстры</button>
     <button class="fx-tab" data-tab="tasks">❓ Задания</button>
-    <button class="fx-tab" data-tab="settings">⚙ Настройки</button>
     <button class="fx-tab" data-tab="publish">📤 Публикация</button>
   </div>
 
-  <div class="fx-body">
+  <div class="fx-layout">
 
-    <div class="fx-controls">
+    <div class="fx-editor-side">
 
       <div class="fx-pane active" data-pane="design">
 
         <div class="fx-card">
-          <div class="fx-card-title">Основные цвета</div>
+          <div class="fx-card-title">Основное оформление</div>
 
           <div class="fx-field">
             <label>Название игры</label>
@@ -708,27 +430,20 @@
               <label>Главный цвет</label>
               <input id="fxAccent" type="color">
             </div>
-
             <div class="fx-field">
               <label>Цвет неба</label>
               <input id="fxSky" type="color">
             </div>
           </div>
 
-          <div class="fx-grid3">
+          <div class="fx-grid2">
             <div class="fx-field">
               <label>Земля</label>
               <input id="fxGroundColor" type="color">
             </div>
-
             <div class="fx-field">
               <label>Платформы</label>
               <input id="fxPlatformColor" type="color">
-            </div>
-
-            <div class="fx-field">
-              <label>Препятствия</label>
-              <input id="fxObstacleColor" type="color">
             </div>
           </div>
         </div>
@@ -736,7 +451,6 @@
         <div id="fxPicker_background"></div>
         <div id="fxPicker_ground"></div>
         <div id="fxPicker_platform"></div>
-        <div id="fxPicker_obstacle"></div>
         <div id="fxPicker_finish"></div>
 
       </div>
@@ -744,44 +458,36 @@
       <div class="fx-pane" data-pane="interface">
 
         <div class="fx-card">
-          <div class="fx-card-title">Шрифт игры</div>
-
-          <div class="fx-field">
-            <label>Шрифт</label>
-            <select id="fxFont">
-              <option value="Arial, sans-serif">Arial</option>
-              <option value="Verdana, sans-serif">Verdana</option>
-              <option value="Trebuchet MS, sans-serif">Trebuchet MS</option>
-              <option value="Georgia, serif">Georgia</option>
-              <option value="Times New Roman, serif">Times New Roman</option>
-              <option value="Comic Sans MS, cursive">Comic Sans</option>
-              <option value="Courier New, monospace">Courier New</option>
-              <option value="system-ui, sans-serif">System UI</option>
-            </select>
-          </div>
+          <div class="fx-card-title">Шрифт</div>
+          <select id="fxFont">
+            <option value="Arial, sans-serif">Arial</option>
+            <option value="Verdana, sans-serif">Verdana</option>
+            <option value="Trebuchet MS, sans-serif">Trebuchet MS</option>
+            <option value="Georgia, serif">Georgia</option>
+            <option value="Comic Sans MS, cursive">Comic Sans</option>
+            <option value="system-ui, sans-serif">System UI</option>
+          </select>
         </div>
 
         <div class="fx-card">
-          <div class="fx-card-title">Карточка вопроса</div>
+          <div class="fx-card-title">Карточка задания</div>
 
           <div class="fx-grid2">
             <div class="fx-field">
-              <label>Фон карточки</label>
+              <label>Фон</label>
               <input id="fxQuestionBg" type="color">
             </div>
-
             <div class="fx-field">
-              <label>Цвет рамки</label>
+              <label>Рамка</label>
               <input id="fxQuestionBorder" type="color">
             </div>
           </div>
 
           <div class="fx-grid2">
             <div class="fx-field">
-              <label>Толщина рамки</label>
+              <label>Толщина</label>
               <input id="fxBorderWidth" type="range" min="0" max="10">
             </div>
-
             <div class="fx-field">
               <label>Скругление</label>
               <input id="fxBorderRadius" type="range" min="0" max="35">
@@ -798,7 +504,6 @@
               <label>Цвет свечения</label>
               <input id="fxGlowColor" type="color">
             </div>
-
             <div class="fx-field">
               <label>Сила свечения</label>
               <input id="fxGlowPower" type="range" min="0" max="60">
@@ -807,44 +512,26 @@
         </div>
 
         <div class="fx-card">
-          <div class="fx-card-title">Текст вопроса</div>
+          <div class="fx-card-title">Текст и ответы</div>
 
           <div class="fx-grid2">
             <div class="fx-field">
-              <label>Цвет заголовка</label>
+              <label>Заголовок</label>
               <input id="fxTitleColor" type="color">
             </div>
-
             <div class="fx-field">
-              <label>Цвет вопроса</label>
+              <label>Текст вопроса</label>
               <input id="fxQuestionColor" type="color">
             </div>
           </div>
 
           <div class="fx-grid2">
             <div class="fx-field">
-              <label>Размер заголовка</label>
-              <input id="fxTitleSize" type="range" min="16" max="48">
-            </div>
-
-            <div class="fx-field">
-              <label>Размер вопроса</label>
-              <input id="fxQuestionSize" type="range" min="14" max="42">
-            </div>
-          </div>
-        </div>
-
-        <div class="fx-card">
-          <div class="fx-card-title">Ответы</div>
-
-          <div class="fx-grid2">
-            <div class="fx-field">
               <label>Фон ответа</label>
               <input id="fxAnswerBg" type="color">
             </div>
-
             <div class="fx-field">
-              <label>Цвет текста</label>
+              <label>Текст ответа</label>
               <input id="fxAnswerColor" type="color">
             </div>
           </div>
@@ -854,22 +541,9 @@
               <label>Рамка ответа</label>
               <input id="fxAnswerBorder" type="color">
             </div>
-
             <div class="fx-field">
-              <label>Размер текста</label>
-              <input id="fxAnswerSize" type="range" min="12" max="34">
-            </div>
-          </div>
-
-          <div class="fx-grid2">
-            <div class="fx-field">
-              <label>Выбранный ответ</label>
+              <label>Выбранный</label>
               <input id="fxSelectedBg" type="color">
-            </div>
-
-            <div class="fx-field">
-              <label>Цвет основной кнопки</label>
-              <input id="fxButtonColor" type="color">
             </div>
           </div>
         </div>
@@ -879,24 +553,18 @@
 
           <div class="fx-grid2">
             <div class="fx-field">
-              <label>Цвет «Верно»</label>
+              <label>Верно</label>
               <input id="fxCorrectColor" type="color">
             </div>
-
             <div class="fx-field">
-              <label>Цвет «Ошибка»</label>
+              <label>Ошибка</label>
               <input id="fxWrongColor" type="color">
             </div>
           </div>
 
           <label class="fx-check">
             <input id="fxBigFeedback" type="checkbox">
-            Большой знак ✓ / ✕
-          </label>
-
-          <label class="fx-check">
-            <input id="fxFeedbackGlow" type="checkbox">
-            Свечение фидбека
+            Большой ✓ / ✕
           </label>
         </div>
 
@@ -907,52 +575,27 @@
         <div id="fxPicker_startImage"></div>
 
         <div class="fx-card">
-          <div class="fx-card-title">Стартовое окно</div>
+          <div class="fx-card-title">Стартовый экран</div>
 
           <div class="fx-field">
             <label>Подзаголовок</label>
-            <input id="fxStartSubtitle" type="text">
+            <textarea id="fxStartSubtitle"></textarea>
           </div>
 
           <div class="fx-grid2">
             <div class="fx-field">
-              <label>Фон окна</label>
+              <label>Фон</label>
               <input id="fxStartBg" type="color">
             </div>
-
             <div class="fx-field">
-              <label>Цвет рамки</label>
+              <label>Рамка</label>
               <input id="fxStartBorder" type="color">
-            </div>
-          </div>
-
-          <div class="fx-grid2">
-            <div class="fx-field">
-              <label>Цвет заголовка</label>
-              <input id="fxStartTitleColor" type="color">
-            </div>
-
-            <div class="fx-field">
-              <label>Цвет текста</label>
-              <input id="fxStartTextColor" type="color">
-            </div>
-          </div>
-
-          <div class="fx-grid2">
-            <div class="fx-field">
-              <label>Цвет кнопки</label>
-              <input id="fxStartButtonBg" type="color">
-            </div>
-
-            <div class="fx-field">
-              <label>Текст кнопки</label>
-              <input id="fxStartButtonTextColor" type="color">
             </div>
           </div>
 
           <label class="fx-check">
             <input id="fxStartGlow" type="checkbox">
-            Свечение стартового окна
+            Свечение
           </label>
 
           <div class="fx-grid2">
@@ -960,11 +603,15 @@
               <label>Цвет свечения</label>
               <input id="fxStartGlowColor" type="color">
             </div>
-
             <div class="fx-field">
-              <label>Сила свечения</label>
+              <label>Сила</label>
               <input id="fxStartGlowPower" type="range" min="0" max="60">
             </div>
+          </div>
+
+          <div class="fx-field">
+            <label>Текст кнопки</label>
+            <input id="fxStartText" type="text">
           </div>
         </div>
 
@@ -976,50 +623,37 @@
         <div id="fxPicker_heroProjectile"></div>
 
         <div class="fx-card">
-          <div class="fx-card-title">Движение героя</div>
+          <div class="fx-card-title">Механика героя</div>
 
           <div class="fx-field">
-            <label>Размер героя</label>
-            <input id="fxPlayerSize" type="range" min="40" max="110">
+            <label>Размер</label>
+            <input id="fxPlayerSize" type="range" min="35" max="105">
           </div>
 
           <div class="fx-field">
-            <label>Скорость</label>
-            <input id="fxSpeed" type="range" min="140" max="400">
+            <label>Максимальная скорость</label>
+            <input id="fxSpeed" type="range" min="4" max="12" step=".2">
           </div>
 
           <div class="fx-field">
-            <label>Сила прыжка</label>
-            <input id="fxJump" type="range" min="400" max="800">
+            <label>Высота прыжка</label>
+            <input id="fxJumpHeight" type="range" min="120" max="280">
           </div>
 
           <div class="fx-field">
             <label>Размер снаряда</label>
-            <input id="fxHeroProjectileSize" type="range" min="14" max="70">
+            <input id="fxProjectileSize" type="range" min="14" max="65">
           </div>
 
           <label class="fx-check">
             <input id="fxMirror" type="checkbox">
-            Отражать героя при движении влево
+            Отражать героя влево
           </label>
 
-          <label class="fx-check">
-            <input id="fxWallJump" type="checkbox">
-            Прыжок от стены
-          </label>
-
-          <label class="fx-check">
-            <input id="fxHeroGlow" type="checkbox">
-            Свечение героя
-          </label>
-
-          <div class="fx-field">
-            <label>Цвет свечения героя</label>
-            <input id="fxHeroGlowColor" type="color">
-          </div>
-
-          <div class="fx-status">
-            ПРОБЕЛ — выстрел. При загруженном PNG снаряда физика остаётся той же.
+          <div class="fx-note">
+            ← → или A/D — бег<br>
+            ↑ или W — прыжок<br>
+            ПРОБЕЛ — выстрел
           </div>
         </div>
 
@@ -1028,27 +662,42 @@
       <div class="fx-pane" data-pane="map">
 
         <div class="fx-card">
-          <div class="fx-card-title">Сложность карты</div>
+          <div class="fx-card-title">Трасса</div>
 
-          <p style="font-size:13px;line-height:1.5;margin-top:0">
-            Карта создаётся автоматически. В ней чередуются разные секции:
-            большие пропасти, высокие подъёмы, вертикальные стены,
-            узкие платформы, трубы, тоннели, островки и сложные прыжки.
+          <p class="fx-note">
+            Карта генерируется автоматически по принципу присланной игры:
+            длинные участки земли чередуются с пропастями, платформами,
+            движущимися платформами, пружинами и шипами.
           </p>
 
           <div class="fx-field">
-            <label>Масштаб карты</label>
-            <input id="fxMapScale" type="range" min="90" max="145">
+            <label>Длина секции</label>
+            <input id="fxSectionLength" type="range" min="800" max="1700">
           </div>
 
           <div class="fx-field">
-            <label>Высота мира</label>
-            <input id="fxMapHeight" type="range" min="420" max="700">
+            <label>Размер пропастей</label>
+            <input id="fxGapSize" type="range" min="110" max="260">
           </div>
 
           <label class="fx-check">
-            <input id="fxTallMap" type="checkbox">
-            Высокие многоярусные участки
+            <input id="fxMovingPlatforms" type="checkbox">
+            Движущиеся платформы
+          </label>
+
+          <label class="fx-check">
+            <input id="fxSprings" type="checkbox">
+            Пружины
+          </label>
+
+          <label class="fx-check">
+            <input id="fxSpikes" type="checkbox">
+            Шипы
+          </label>
+
+          <label class="fx-check">
+            <input id="fxProgressBar" type="checkbox">
+            Полоса прогресса трассы
           </label>
         </div>
 
@@ -1056,21 +705,25 @@
 
       <div class="fx-pane" data-pane="enemy">
 
+        <div id="fxPicker_enemy"></div>
+        <div id="fxPicker_enemyProjectile"></div>
+
         <div class="fx-card">
+          <div class="fx-card-title">Монстры</div>
 
           <label class="fx-check">
             <input id="fxEnemyEnabled" type="checkbox">
-            Использовать монстров
+            Включить монстров
           </label>
 
           <label class="fx-check">
             <input id="fxEnemyAtStart" type="checkbox">
-            Один монстр уже в начале игры
+            Один монстр в начале
           </label>
 
           <label class="fx-check">
             <input id="fxEnemyOnWrong" type="checkbox">
-            Новый монстр после каждого неправильного ответа
+            Новый монстр за ошибку
           </label>
 
           <div class="fx-grid2">
@@ -1078,111 +731,35 @@
               <label>HP монстра</label>
               <input id="fxEnemyHp" type="number" min="1" max="10">
             </div>
-
             <div class="fx-field">
-              <label>Размер монстра</label>
-              <input id="fxEnemySize" type="range" min="45" max="120">
+              <label>Размер</label>
+              <input id="fxEnemySize" type="range" min="40" max="110">
             </div>
           </div>
 
-          <div class="fx-grid2">
-            <div class="fx-field">
-              <label>Интервал стрельбы</label>
-              <input id="fxEnemyFireRate" type="number" min="0.5" max="10" step="0.5">
-            </div>
-
-            <div class="fx-field">
-              <label>Скорость снаряда</label>
-              <input id="fxEnemyBulletSpeed" type="range" min="100" max="500">
-            </div>
+          <div class="fx-field">
+            <label>Интервал выстрела, сек.</label>
+            <input id="fxEnemyRate" type="number" min=".5" max="8" step=".5">
           </div>
-
         </div>
-
-        <div id="fxPicker_enemy"></div>
-        <div id="fxPicker_enemyProjectile"></div>
 
       </div>
 
       <div class="fx-pane" data-pane="tasks">
 
         <div class="fx-card">
-
           <div class="fx-task-head">
             <div>
               <div class="fx-card-title" style="margin:0">Задания</div>
-              <div id="fxTaskCount" class="fx-status"></div>
+              <div id="fxTaskCount" class="fx-note"></div>
             </div>
-
-            <button id="fxAddTask" class="fx-btn primary small">
-              + Добавить
-            </button>
+            <button id="fxAddTask" class="fx-btn primary small">+ Добавить</button>
           </div>
 
           <div id="fxTasks"></div>
-
         </div>
 
         <div id="fxPicker_taskItem"></div>
-
-      </div>
-
-      <div class="fx-pane" data-pane="settings">
-
-        <div class="fx-card">
-          <div class="fx-card-title">Тексты</div>
-
-          <div class="fx-field">
-            <label>Текст кнопки старта</label>
-            <input id="fxStartText" type="text">
-          </div>
-
-          <div class="fx-field">
-            <label>Инструкция</label>
-            <textarea id="fxInstruction"></textarea>
-          </div>
-
-          <div class="fx-field">
-            <label>Правильный ответ</label>
-            <input id="fxCorrectText" type="text">
-          </div>
-
-          <div class="fx-field">
-            <label>Ошибка</label>
-            <input id="fxWrongText" type="text">
-          </div>
-
-          <div class="fx-field">
-            <label>Финальный заголовок</label>
-            <input id="fxFinishTitle" type="text">
-          </div>
-
-          <div class="fx-field">
-            <label>Финальный текст</label>
-            <textarea id="fxFinishText"></textarea>
-          </div>
-
-        </div>
-
-        <div class="fx-card">
-          <div class="fx-card-title">Поведение</div>
-
-          <label class="fx-check">
-            <input id="fxCounter" type="checkbox">
-            Счётчик заданий
-          </label>
-
-          <label class="fx-check">
-            <input id="fxShowInstruction" type="checkbox">
-            Стартовая инструкция
-          </label>
-
-          <label class="fx-check">
-            <input id="fxLockFinish" type="checkbox">
-            Финиш только после всех заданий
-          </label>
-
-        </div>
 
       </div>
 
@@ -1192,17 +769,11 @@
           <div class="fx-card-title">Публикация</div>
 
           <div class="fx-actions">
-            <button id="fxCopy" class="fx-btn primary">
-              Копировать iframe
-            </button>
-
-            <button id="fxShowCode" class="fx-btn">
-              Показать код
-            </button>
+            <button id="fxCopy" class="fx-btn primary">Копировать iframe</button>
+            <button id="fxShowCode" class="fx-btn">Показать код</button>
           </div>
 
-          <div id="fxPublishStatus" class="fx-status"></div>
-
+          <div id="fxPublishStatus" class="fx-note"></div>
           <textarea id="fxCode" class="fx-code fx-hidden" readonly></textarea>
         </div>
 
@@ -1214,102 +785,75 @@
 
       <div class="fx-preview-head">
         <div>
-          <div class="fx-preview-label">Игра</div>
-          <div class="fx-status">
-            ← → движение • ↑ прыжок / wall-jump • ↓ спуск • ПРОБЕЛ выстрел
+          <strong>Игра</strong>
+          <div class="fx-note">
+            A/D или ← → • W/↑ прыжок • SPACE выстрел
           </div>
         </div>
-
-        <button id="fxRestartGame" class="fx-btn small">
-          ↺
-        </button>
+        <button class="fx-btn small" id="fxRestartGame">↺</button>
       </div>
 
-      <div id="fxStage" class="fx-stage" tabindex="0">
+      <div class="fx-stage" id="fxStage" tabindex="0">
 
-        <div id="fxGameBg" class="fx-game-bg"></div>
-        <div id="fxWorld" class="fx-world"></div>
-        <div id="fxHud" class="fx-hud"></div>
+        <canvas id="fxCanvas"></canvas>
 
-        <div id="fxStartOverlay" class="fx-overlay">
+        <div class="fx-hud" id="fxHud"></div>
 
-          <div id="fxStartBox" class="fx-start-box">
+        <div class="fx-overlay" id="fxStartOverlay">
+          <div class="fx-start-box" id="fxStartBox">
 
-            <div class="fx-start-top">
+            <img id="fxStartImage" class="fx-start-img fx-hidden">
 
-              <img id="fxStartImage" class="fx-start-image fx-hidden">
+            <h2 id="fxStartTitle"></h2>
 
-              <h2 id="fxStartTitle" class="fx-start-title"></h2>
+            <div id="fxStartSubtitlePreview" class="fx-start-sub"></div>
 
-              <div id="fxStartSubtitlePreview" class="fx-start-subtitle"></div>
+            <div class="fx-help">
+              <strong>Как играть</strong>
 
-              <div id="fxStartInstructionWrap" class="fx-controls-card">
-
-                <div class="fx-controls-title">Как играть</div>
-
-                <div class="fx-key-row">
-                  <div class="fx-key">←</div>
-                  <div class="fx-key">→</div>
-                  <div class="fx-key">↑</div>
-                  <div class="fx-key">↓</div>
-                  <div class="fx-key fx-space-key">SPACE</div>
-                </div>
-
-                <div id="fxStartInstruction" style="margin-top:9px;white-space:pre-wrap"></div>
-
+              <div class="fx-keys" style="margin-top:8px">
+                <div class="fx-key">←</div>
+                <div class="fx-key">→</div>
+                <div class="fx-key">W / ↑</div>
+                <div class="fx-key space">SPACE — ОГОНЬ</div>
               </div>
-
-              <button id="fxStartButton" class="fx-start-btn">
-                Играть
-              </button>
-
             </div>
 
+            <button class="fx-btn primary" id="fxStartBtn">Играть</button>
           </div>
-
         </div>
 
-        <div id="fxTaskOverlay" class="fx-overlay fx-hidden">
+        <div class="fx-overlay fx-hidden" id="fxTaskOverlay">
+          <div class="fx-box" id="fxQuestionBox">
 
-          <div id="fxQuestionBox" class="fx-question-box">
+            <h2 class="fx-q-title" id="fxQuestionTitle"></h2>
 
-            <h2 id="fxQuestionTitle" class="fx-question-title"></h2>
+            <img id="fxQuestionImage" class="fx-q-img fx-hidden">
 
-            <img id="fxQuestionImage" class="fx-question-image fx-hidden">
+            <div class="fx-q-text" id="fxQuestionText"></div>
 
-            <div id="fxQuestionText" class="fx-question-text"></div>
+            <div class="fx-hint fx-hidden" id="fxHint"></div>
 
-            <div id="fxHintBox" class="fx-hint-box fx-hidden"></div>
-
-            <button id="fxHintButton" class="fx-btn small fx-hidden">
+            <button class="fx-btn small fx-hidden" id="fxHintBtn">
               💡 Подсказка
             </button>
 
             <div id="fxAnswers"></div>
 
-            <div id="fxFeedbackText" class="fx-feedback-text"></div>
+            <div class="fx-feedback" id="fxFeedback"></div>
 
           </div>
-
         </div>
 
-        <div id="fxFinishOverlay" class="fx-overlay fx-hidden">
-
-          <div id="fxFinishBox" class="fx-question-box">
-
-            <h2 id="fxFinishTitlePreview" class="fx-question-title"></h2>
-
-            <div id="fxFinishTextPreview" class="fx-question-text"></div>
-
-            <button id="fxAgain" class="fx-btn primary">
-              Играть ещё раз
-            </button>
-
+        <div class="fx-overlay fx-hidden" id="fxFinishOverlay">
+          <div class="fx-box" id="fxFinishBox">
+            <h2 class="fx-q-title">Финиш!</h2>
+            <div class="fx-q-text" id="fxFinishText"></div>
+            <button class="fx-btn primary" id="fxAgain">Играть ещё раз</button>
           </div>
-
         </div>
 
-        <div id="fxBigFeedback" class="fx-big-feedback fx-hidden"></div>
+        <div class="fx-big-feedback fx-hidden" id="fxBigFeedback"></div>
 
       </div>
 
@@ -1330,159 +874,138 @@ root.dataset.fxReady="1";
 const $=s=>root.querySelector(s);
 const $$=s=>Array.from(root.querySelectorAll(s));
 
-const blankAsset=()=>({mode:"builtin",value:""});
+const blank=()=>({mode:"builtin",value:""});
 
-const defaultState={
+const defaults={
   title:"Большое приключение",
   accent:"#766b8f",
 
   colors:{
-    sky:"#cce6f4",
-    ground:"#72985f",
-    platform:"#b9855c",
-    obstacle:"#9f7052"
+    sky:"#8ed7ff",
+    ground:"#62a84f",
+    platform:"#a7774e"
   },
 
   assets:{
-    background:blankAsset(),
-    ground:blankAsset(),
-    platform:blankAsset(),
-    obstacle:blankAsset(),
-    player:blankAsset(),
-    taskItem:blankAsset(),
-    finish:blankAsset(),
-    startImage:blankAsset(),
-    enemy:blankAsset(),
-    enemyProjectile:blankAsset(),
-    heroProjectile:blankAsset()
+    background:blank(),
+    ground:blank(),
+    platform:blank(),
+    finish:blank(),
+    startImage:blank(),
+    player:blank(),
+    heroProjectile:blank(),
+    enemy:blank(),
+    enemyProjectile:blank(),
+    taskItem:blank()
+  },
+
+  ui:{
+    font:"Arial, sans-serif",
+    qBg:"#ffffff",
+    qBorder:"#766b8f",
+    borderWidth:3,
+    radius:18,
+    glow:false,
+    glowColor:"#c69aff",
+    glowPower:26,
+    titleColor:"#292331",
+    textColor:"#292331",
+    answerBg:"#f4f1f7",
+    answerColor:"#292331",
+    answerBorder:"#d4cade",
+    selected:"#e5daf1",
+    correct:"#55b879",
+    wrong:"#dc6464",
+    bigFeedback:true
+  },
+
+  start:{
+    subtitle:"Доберись до финиша и выполни все задания!",
+    bg:"#fffdf8",
+    border:"#766b8f",
+    glow:true,
+    glowColor:"#c9b3ee",
+    glowPower:26
   },
 
   player:{
-    size:62,
-    speed:265,
-    jump:600,
+    size:58,
+    maxSpeed:7.6,
+    jumpHeight:195,
     mirror:true,
-    wallJump:true,
-    glow:false,
-    glowColor:"#fff06a",
-    projectileSize:30
+    projectileSize:28
   },
 
-  map:{
-    scale:110,
-    height:560,
-    tall:true
+  level:{
+    sectionLength:1200,
+    gapSize:190,
+    movingPlatforms:true,
+    springs:true,
+    spikes:true,
+    progress:true
   },
 
   enemy:{
     enabled:true,
     atStart:true,
-    spawnOnWrong:true,
+    spawnWrong:true,
     hp:3,
-    size:78,
-    fireRate:2.6,
-    bulletSpeed:240
+    size:64,
+    fireRate:2.7
   },
 
   taskItem:{
-    icon:"⭐",
-    size:58
-  },
-
-  start:{
-    subtitle:"Доберись до финиша, выполняя задания по пути!",
-    bg:"#fffdf8",
-    border:"#766b8f",
-    titleColor:"#2b2532",
-    textColor:"#4b4452",
-    buttonBg:"#766b8f",
-    buttonText:"#ffffff",
-    glow:true,
-    glowColor:"#c9b3ee",
-    glowPower:28
-  },
-
-  ui:{
-    font:"Arial, sans-serif",
-    questionBg:"#ffffff",
-    questionBorder:"#766b8f",
-    borderWidth:3,
-    borderRadius:18,
-    glowEnabled:false,
-    glowColor:"#c695ff",
-    glowPower:24,
-    titleColor:"#2c2632",
-    questionColor:"#2c2632",
-    titleSize:26,
-    questionSize:20,
-    answerBg:"#f4f1f7",
-    answerColor:"#29252e",
-    answerBorder:"#d6cde1",
-    answerSize:18,
-    selectedBg:"#e3d9ef",
-    buttonColor:"#766b8f",
-    correctColor:"#52b879",
-    wrongColor:"#dc6464",
-    bigFeedback:true,
-    feedbackGlow:true
-  },
-
-  texts:{
-    start:"Играть",
-    instruction:
-      "← → — движение\n"+
-      "↑ — прыжок\n"+
-      "↓ — спуск\n"+
-      "ПРОБЕЛ — выстрел",
-    correct:"Верно!",
-    wrong:"Попробуй ещё раз",
-    finishTitle:"Отличная работа!",
-    finishText:"Ты прошёл всю карту!"
-  },
-
-  settings:{
-    counter:true,
-    showInstruction:true,
-    lockFinish:true
+    size:54,
+    icon:"❓"
   },
 
   tasks:[
     {
       id:1,
+      type:"truefalse",
       title:"Задание 1",
-      text:"Сколько будет 8 + 7?",
-      type:"single",
-      hint:"Посчитай от восьми ещё семь.",
-      image:blankAsset(),
-      answer:"",
-      items:["8","7","15"],
-      pairs:[],
-      options:[
-        {text:"13",correct:false,image:blankAsset()},
-        {text:"15",correct:true,image:blankAsset()},
-        {text:"16",correct:false,image:blankAsset()}
-      ]
+      text:"7 + 8 = 15.",
+      hint:"",
+      image:blank(),
+      answer:"true",
+      options:[],
+      items:[],
+      pairs:[]
     },
     {
       id:2,
+      type:"single",
       title:"Задание 2",
-      text:"Назови главные члены предложения.",
-      type:"oral",
+      text:"Выбери правильный ответ.",
       hint:"",
-      image:blankAsset(),
+      image:blank(),
       answer:"",
+      options:[
+        {text:"12",correct:false,image:blank()},
+        {text:"14",correct:true,image:blank()},
+        {text:"16",correct:false,image:blank()}
+      ],
       items:[],
-      pairs:[],
-      options:[]
+      pairs:[]
     }
   ]
 };
 
-let state=JSON.parse(JSON.stringify(defaultState));
-let nextTaskId=3;
+let state=window.__FX_EXPORTED_STATE
+  ? JSON.parse(JSON.stringify(window.__FX_EXPORTED_STATE))
+  : JSON.parse(JSON.stringify(defaults));
+
+let nextTaskId=
+  Math.max(0,...state.tasks.map(t=>Number(t.id)||0))+1;
+
+/* ---------- helpers ---------- */
 
 function clamp(v,a,b){
   return Math.max(a,Math.min(b,v));
+}
+
+function asset(a){
+  return a && a.mode!=="builtin" ? (a.value||"") : "";
 }
 
 function esc(v){
@@ -1493,91 +1016,99 @@ function esc(v){
     .replace(/"/g,"&quot;");
 }
 
-function assetUrl(asset){
-  if(!asset || asset.mode==="builtin")return "";
-  return asset.value||"";
-}
-
-function readFile(file,callback){
+function readFile(file,cb){
   if(!file)return;
-  const reader=new FileReader();
-  reader.onload=function(){
-    callback(String(reader.result||""));
-  };
-  reader.readAsDataURL(file);
+  const r=new FileReader();
+  r.onload=()=>cb(String(r.result||""));
+  r.readAsDataURL(file);
 }
 
-/* TABS */
+const imageCache={};
 
-$("#fxTabs").addEventListener("click",function(e){
-  const btn=e.target.closest("[data-tab]");
-  if(!btn)return;
+function getImage(url){
+  if(!url)return null;
+
+  if(!imageCache[url]){
+    const im=new Image();
+    im.crossOrigin="anonymous";
+    im.src=url;
+    imageCache[url]=im;
+  }
+
+  return imageCache[url];
+}
+
+/* ---------- tabs ---------- */
+
+$("#fxTabs").addEventListener("click",e=>{
+  const b=e.target.closest("[data-tab]");
+  if(!b)return;
 
   $$(".fx-tab").forEach(x=>x.classList.remove("active"));
   $$(".fx-pane").forEach(x=>x.classList.remove("active"));
 
-  btn.classList.add("active");
+  b.classList.add("active");
 
-  const pane=$('[data-pane="'+btn.dataset.tab+'"]');
-  if(pane)pane.classList.add("active");
+  const p=$('[data-pane="'+b.dataset.tab+'"]');
+  if(p)p.classList.add("active");
 });
 
-/* ASSET PICKERS */
+/* ---------- assets ---------- */
 
-const assetLabels={
+const assetNames={
   background:"Фон игры",
   ground:"Текстура земли",
   platform:"Текстура платформ",
-  obstacle:"Препятствия",
   finish:"Финиш",
   startImage:"Картинка стартового окна",
   player:"Герой",
+  heroProjectile:"Снаряд героя",
   enemy:"Монстр",
   enemyProjectile:"Снаряд монстра",
-  heroProjectile:"Снаряд героя",
   taskItem:"Предмет-задание"
 };
 
-function renderAssetPickers(){
-  Object.keys(assetLabels).forEach(function(key){
+function renderPickers(){
+
+  Object.keys(assetNames).forEach(key=>{
     const mount=$("#fxPicker_"+key);
     if(!mount)return;
 
     const a=state.assets[key];
 
-    mount.innerHTML=
-      '<div class="fx-card">'+
-        '<div class="fx-card-title">'+assetLabels[key]+'</div>'+
-        '<div class="fx-image-picker" data-asset="'+key+'">'+
+    mount.innerHTML=`
+      <div class="fx-card">
+        <div class="fx-card-title">${assetNames[key]}</div>
 
-          '<div class="fx-source-tabs">'+
-            '<button class="fx-source '+(a.mode==="builtin"?"active":"")+'" data-source="builtin">Встроенное</button>'+
-            '<button class="fx-source '+(a.mode==="url"?"active":"")+'" data-source="url">URL</button>'+
-            '<button class="fx-source '+(a.mode==="upload"?"active":"")+'" data-source="upload">Файл</button>'+
-          '</div>'+
+        <div class="fx-picker" data-asset="${key}">
 
-          '<div class="'+(a.mode==="url"?"":"fx-hidden")+'" data-url-area>'+
-            '<input type="text" data-url-input placeholder="https://..." value="'+
-              (a.mode==="url"?esc(a.value):"")+
-            '">'+
-            '<button class="fx-btn small" data-apply-url style="margin-top:6px">Применить</button>'+
-          '</div>'+
+          <div class="fx-source-tabs">
+            <button class="fx-source ${a.mode==="builtin"?"active":""}" data-source="builtin">Встроенное</button>
+            <button class="fx-source ${a.mode==="url"?"active":""}" data-source="url">URL</button>
+            <button class="fx-source ${a.mode==="upload"?"active":""}" data-source="upload">Файл</button>
+          </div>
 
-          '<div class="'+(a.mode==="upload"?"":"fx-hidden")+'" data-file-area>'+
-            '<input type="file" data-file-input accept="image/*">'+
-          '</div>'+
+          <div class="${a.mode==="url"?"":"fx-hidden"}" data-url-wrap>
+            <input data-url value="${a.mode==="url"?esc(a.value):""}" placeholder="https://...">
+            <button class="fx-btn small" data-apply style="margin-top:6px">Применить</button>
+          </div>
 
-          '<img class="fx-thumb '+(assetUrl(a)?"show":"")+'" data-thumb src="'+esc(assetUrl(a))+'">'+
-        '</div>'+
-      '</div>';
+          <div class="${a.mode==="upload"?"":"fx-hidden"}">
+            <input data-file type="file" accept="image/*">
+          </div>
+
+          <img class="fx-thumb ${asset(a)?"show":""}" src="${esc(asset(a))}">
+        </div>
+      </div>
+    `;
   });
 }
 
-root.addEventListener("click",function(e){
-  const picker=e.target.closest("[data-asset]");
-  if(!picker)return;
+root.addEventListener("click",e=>{
+  const p=e.target.closest("[data-asset]");
+  if(!p)return;
 
-  const key=picker.dataset.asset;
+  const key=p.dataset.asset;
 
   if(e.target.matches("[data-source]")){
     state.assets[key].mode=e.target.dataset.source;
@@ -1586,898 +1117,940 @@ root.addEventListener("click",function(e){
       state.assets[key].value="";
     }
 
-    renderAssetPickers();
-    restartGame();
-    return;
+    renderPickers();
+    resetGame();
   }
 
-  if(e.target.matches("[data-apply-url]")){
-    const input=picker.querySelector("[data-url-input]");
-
+  if(e.target.matches("[data-apply]")){
     state.assets[key]={
       mode:"url",
-      value:input.value.trim()
+      value:p.querySelector("[data-url]").value.trim()
     };
 
-    renderAssetPickers();
-    restartGame();
+    renderPickers();
+    resetGame();
   }
 });
 
-root.addEventListener("change",function(e){
-  const picker=e.target.closest("[data-asset]");
-  if(!picker)return;
-  if(!e.target.matches("[data-file-input]"))return;
+root.addEventListener("change",e=>{
+  const p=e.target.closest("[data-asset]");
+  if(!p || !e.target.matches("[data-file]"))return;
 
-  const key=picker.dataset.asset;
+  const key=p.dataset.asset;
 
-  readFile(e.target.files[0],function(data){
+  readFile(e.target.files[0],data=>{
     state.assets[key]={
       mode:"upload",
       value:data
     };
 
-    renderAssetPickers();
-    restartGame();
+    renderPickers();
+    resetGame();
   });
 });
 
-/* TASKS */
+/* ---------- task editor ---------- */
 
 function newTask(){
   return {
     id:nextTaskId++,
+    type:"single",
     title:"Новое задание",
     text:"Введите текст задания",
-    type:"single",
     hint:"",
-    image:blankAsset(),
+    image:blank(),
     answer:"",
-    items:["Элемент 1","Элемент 2","Элемент 3"],
-    pairs:[
-      ["Слово 1","Ответ 1"],
-      ["Слово 2","Ответ 2"]
-    ],
     options:[
-      {text:"Ответ 1",correct:true,image:blankAsset()},
-      {text:"Ответ 2",correct:false,image:blankAsset()}
+      {text:"Ответ 1",correct:true,image:blank()},
+      {text:"Ответ 2",correct:false,image:blank()}
+    ],
+    items:["Первый","Второй","Третий"],
+    pairs:[
+      ["Элемент 1","Пара 1"],
+      ["Элемент 2","Пара 2"]
     ]
   };
 }
 
 function renderTasks(){
-  const box=$("#fxTasks");
 
   $("#fxTaskCount").textContent="Количество: "+state.tasks.length;
 
+  const box=$("#fxTasks");
   box.innerHTML="";
 
-  state.tasks.forEach(function(task,index){
-    const card=document.createElement("div");
-    card.className="fx-task";
-    card.dataset.taskId=task.id;
+  state.tasks.forEach((t,index)=>{
+
+    const d=document.createElement("div");
+    d.className="fx-task-editor";
+    d.dataset.id=t.id;
 
     const optionTypes=["single","multi","imageanswer"];
 
-    let optionsHTML="";
+    let options="";
 
-    if(optionTypes.includes(task.type)){
-      optionsHTML=task.options.map(function(op,oi){
-        const inputType=task.type==="multi"?"checkbox":"radio";
+    if(optionTypes.includes(t.type)){
+      options=t.options.map((o,i)=>`
+        <div class="fx-option">
+          <input
+            data-field="optionText"
+            data-option="${i}"
+            value="${esc(o.text)}"
+            placeholder="Ответ"
+          >
 
-        return (
-          '<div class="fx-option">'+
-            '<div class="fx-option-main">'+
-              '<input type="text" data-field="optionText" data-option="'+oi+'" value="'+esc(op.text)+'" placeholder="Текст ответа">'+
-              '<label class="fx-check" style="margin:0">'+
-                '<input type="'+inputType+'" name="correct_'+task.id+'" data-field="optionCorrect" data-option="'+oi+'" '+(op.correct?"checked":"")+'>'+
-                'Верно'+
-              '</label>'+
-            '</div>'+
-            '<input type="text" data-field="optionImageUrl" data-option="'+oi+'" placeholder="URL изображения ответа" value="'+
-              (op.image && op.image.mode==="url"?esc(op.image.value):"")+
-            '" style="margin-top:6px">'+
-            '<input type="file" accept="image/*" data-field="optionImageFile" data-option="'+oi+'" style="margin-top:5px">'+
-          '</div>'
-        );
-      }).join("");
+          <label class="fx-check">
+            <input
+              type="${t.type==="multi"?"checkbox":"radio"}"
+              name="c_${t.id}"
+              data-field="correct"
+              data-option="${i}"
+              ${o.correct?"checked":""}
+            >
+            Верный
+          </label>
+
+          <input
+            data-field="optionImageUrl"
+            data-option="${i}"
+            value="${o.image?.mode==="url"?esc(o.image.value):""}"
+            placeholder="URL картинки ответа"
+          >
+
+          <input
+            type="file"
+            accept="image/*"
+            data-field="optionImageFile"
+            data-option="${i}"
+          >
+        </div>
+      `).join("");
     }
 
-    let specialHTML="";
+    let special="";
 
-    if(["fill","textanswer"].includes(task.type)){
-      specialHTML=
-        '<div class="fx-field">'+
-          '<label>Правильный ответ</label>'+
-          '<input type="text" data-field="answer" value="'+esc(task.answer)+'">'+
-        '</div>';
+    if(["fill","textanswer"].includes(t.type)){
+      special=`
+        <div class="fx-field">
+          <label>Правильный ответ</label>
+          <input data-field="answer" value="${esc(t.answer)}">
+        </div>
+      `;
     }
 
-    if(task.type==="truefalse"){
-      specialHTML=
-        '<div class="fx-field">'+
-          '<label>Правильный ответ</label>'+
-          '<select data-field="answer">'+
-            '<option value="true" '+(task.answer==="true"?"selected":"")+'>Верно</option>'+
-            '<option value="false" '+(task.answer==="false"?"selected":"")+'>Неверно</option>'+
-          '</select>'+
-        '</div>';
+    if(t.type==="truefalse"){
+      special=`
+        <div class="fx-field">
+          <label>Правильный ответ</label>
+          <select data-field="answer">
+            <option value="true" ${t.answer==="true"?"selected":""}>Верно</option>
+            <option value="false" ${t.answer==="false"?"selected":""}>Неверно</option>
+          </select>
+        </div>
+      `;
     }
 
-    if(["order","sentence"].includes(task.type)){
-      specialHTML=
-        '<div class="fx-field">'+
-          '<label>Элементы через | в правильном порядке</label>'+
-          '<textarea data-field="items">'+esc((task.items||[]).join(" | "))+'</textarea>'+
-        '</div>';
+    if(["order","sentence"].includes(t.type)){
+      special=`
+        <div class="fx-field">
+          <label>Элементы в правильном порядке через |</label>
+          <textarea data-field="items">${esc((t.items||[]).join(" | "))}</textarea>
+        </div>
+      `;
     }
 
-    if(task.type==="matching"){
-      specialHTML=
-        '<div class="fx-field">'+
-          '<label>Пары. Каждая строка: левое = правое</label>'+
-          '<textarea data-field="pairs">'+
-            esc((task.pairs||[]).map(p=>p[0]+" = "+p[1]).join("\n"))+
-          '</textarea>'+
-        '</div>';
+    if(t.type==="matching"){
+      special=`
+        <div class="fx-field">
+          <label>Пары: левое = правое, каждая пара с новой строки</label>
+          <textarea data-field="pairs">${esc((t.pairs||[]).map(p=>p[0]+" = "+p[1]).join("\n"))}</textarea>
+        </div>
+      `;
     }
 
-    card.innerHTML=
-      '<div class="fx-task-head">'+
-        '<div class="fx-task-name">Задание '+(index+1)+'</div>'+
-        '<div class="fx-task-actions">'+
-          '<button class="fx-btn small" data-task-act="up">↑</button>'+
-          '<button class="fx-btn small" data-task-act="down">↓</button>'+
-          '<button class="fx-btn danger small" data-task-act="delete">×</button>'+
-        '</div>'+
-      '</div>'+
+    d.innerHTML=`
+      <div class="fx-task-head">
+        <div class="fx-task-name">Задание ${index+1}</div>
 
-      '<div class="fx-field">'+
-        '<label>Заголовок</label>'+
-        '<input type="text" data-field="title" value="'+esc(task.title)+'">'+
-      '</div>'+
+        <div class="fx-actions">
+          <button class="fx-btn small" data-act="up">↑</button>
+          <button class="fx-btn small" data-act="down">↓</button>
+          <button class="fx-btn danger small" data-act="delete">×</button>
+        </div>
+      </div>
 
-      '<div class="fx-field">'+
-        '<label>Текст задания</label>'+
-        '<textarea data-field="text">'+esc(task.text)+'</textarea>'+
-      '</div>'+
+      <div class="fx-field">
+        <label>Тип задания</label>
+        <select data-field="type">
+          <option value="truefalse" ${t.type==="truefalse"?"selected":""}>✓ Верно / Неверно</option>
+          <option value="matching" ${t.type==="matching"?"selected":""}>↔ Соединение</option>
+          <option value="multi" ${t.type==="multi"?"selected":""}>☑ Множ. выбор</option>
+          <option value="order" ${t.type==="order"?"selected":""}>⇅ Порядок</option>
+          <option value="fill" ${t.type==="fill"?"selected":""}>⌨ Вписать</option>
+          <option value="free" ${t.type==="free"?"selected":""}>✍ Свободный ответ</option>
+          <option value="textanswer" ${t.type==="textanswer"?"selected":""}>◉ Текст + ответ</option>
+          <option value="sentence" ${t.type==="sentence"?"selected":""}>🔤 Собери предложение</option>
+          <option value="imageanswer" ${t.type==="imageanswer"?"selected":""}>🖼 Картинка + ответ</option>
+          <option value="oral" ${t.type==="oral"?"selected":""}>🎤 Устный ответ</option>
+          <option value="single" ${t.type==="single"?"selected":""}>● Один ответ</option>
+        </select>
+      </div>
 
-      '<div class="fx-field">'+
-        '<label>Тип задания</label>'+
-        '<select data-field="type">'+
-          '<option value="truefalse" '+(task.type==="truefalse"?"selected":"")+'>✓ Верно/Неверно</option>'+
-          '<option value="matching" '+(task.type==="matching"?"selected":"")+'>↔ Соединение</option>'+
-          '<option value="multi" '+(task.type==="multi"?"selected":"")+'>☑ Множ. выбор</option>'+
-          '<option value="order" '+(task.type==="order"?"selected":"")+'>⇅ Порядок</option>'+
-          '<option value="fill" '+(task.type==="fill"?"selected":"")+'>⌨ Вписать</option>'+
-          '<option value="free" '+(task.type==="free"?"selected":"")+'>✍ Свободный ответ</option>'+
-          '<option value="textanswer" '+(task.type==="textanswer"?"selected":"")+'>◉ Текст + ответ</option>'+
-          '<option value="sentence" '+(task.type==="sentence"?"selected":"")+'>🔤 Собери предложение</option>'+
-          '<option value="imageanswer" '+(task.type==="imageanswer"?"selected":"")+'>🖼 Картинка + ответ</option>'+
-          '<option value="oral" '+(task.type==="oral"?"selected":"")+'>🎤 Устный ответ</option>'+
-          '<option value="single" '+(task.type==="single"?"selected":"")+'>● Один ответ</option>'+
-        '</select>'+
-      '</div>'+
+      <div class="fx-field">
+        <label>Заголовок</label>
+        <input data-field="title" value="${esc(t.title)}">
+      </div>
 
-      '<div class="fx-field">'+
-        '<label>Подсказка</label>'+
-        '<input type="text" data-field="hint" value="'+esc(task.hint)+'">'+
-      '</div>'+
+      <div class="fx-field">
+        <label>Текст</label>
+        <textarea data-field="text">${esc(t.text)}</textarea>
+      </div>
 
-      '<div class="fx-field">'+
-        '<label>Картинка вопроса — URL</label>'+
-        '<input type="text" data-field="questionImageUrl" placeholder="https://..." value="'+
-          (task.image && task.image.mode==="url"?esc(task.image.value):"")+
-        '">'+
-      '</div>'+
+      <div class="fx-field">
+        <label>Подсказка</label>
+        <input data-field="hint" value="${esc(t.hint)}">
+      </div>
 
-      '<div class="fx-field">'+
-        '<label>Или загрузить изображение</label>'+
-        '<input type="file" data-field="questionImageFile" accept="image/*">'+
-      '</div>'+
+      <div class="fx-field">
+        <label>Картинка вопроса — URL</label>
+        <input
+          data-field="questionImageUrl"
+          value="${t.image?.mode==="url"?esc(t.image.value):""}"
+          placeholder="https://..."
+        >
+      </div>
 
-      optionsHTML+
-      specialHTML+
+      <div class="fx-field">
+        <label>Или загрузить картинку</label>
+        <input type="file" accept="image/*" data-field="questionImageFile">
+      </div>
 
-      (optionTypes.includes(task.type)
-        ? '<button class="fx-btn small" data-task-act="add-option">+ Вариант ответа</button>'
-        : "");
+      ${options}
+      ${special}
 
-    box.appendChild(card);
+      ${optionTypes.includes(t.type)
+        ? '<button class="fx-btn small" data-act="add-option">+ вариант</button>'
+        : ''
+      }
+    `;
+
+    box.appendChild(d);
   });
 }
 
-$("#fxAddTask").addEventListener("click",function(){
+$("#fxAddTask").onclick=()=>{
   state.tasks.push(newTask());
   renderTasks();
-  restartGame();
-});
+  resetGame();
+};
 
-$("#fxTasks").addEventListener("click",function(e){
-  const card=e.target.closest(".fx-task");
+$("#fxTasks").addEventListener("click",e=>{
+
+  const card=e.target.closest(".fx-task-editor");
   if(!card)return;
 
-  const id=Number(card.dataset.taskId);
+  const id=Number(card.dataset.id);
   const index=state.tasks.findIndex(t=>t.id===id);
   if(index<0)return;
 
-  const act=e.target.dataset.taskAct;
+  const act=e.target.dataset.act;
 
   if(act==="delete"){
     state.tasks.splice(index,1);
     renderTasks();
-    restartGame();
-    return;
+    resetGame();
   }
 
   if(act==="up" && index>0){
-    [state.tasks[index-1],state.tasks[index]]=[state.tasks[index],state.tasks[index-1]];
+    [state.tasks[index-1],state.tasks[index]]=
+      [state.tasks[index],state.tasks[index-1]];
+
     renderTasks();
-    restartGame();
-    return;
+    resetGame();
   }
 
   if(act==="down" && index<state.tasks.length-1){
-    [state.tasks[index+1],state.tasks[index]]=[state.tasks[index],state.tasks[index+1]];
+    [state.tasks[index+1],state.tasks[index]]=
+      [state.tasks[index],state.tasks[index+1]];
+
     renderTasks();
-    restartGame();
-    return;
+    resetGame();
   }
 
   if(act==="add-option"){
     state.tasks[index].options.push({
-      text:"Новый вариант",
+      text:"Новый ответ",
       correct:false,
-      image:blankAsset()
+      image:blank()
     });
+
     renderTasks();
   }
 });
 
-$("#fxTasks").addEventListener("input",function(e){
-  const card=e.target.closest(".fx-task");
+$("#fxTasks").addEventListener("input",e=>{
+
+  const card=e.target.closest(".fx-task-editor");
   if(!card)return;
 
-  const task=state.tasks.find(t=>t.id===Number(card.dataset.taskId));
-  if(!task)return;
+  const t=state.tasks.find(x=>x.id===Number(card.dataset.id));
+  if(!t)return;
 
-  const field=e.target.dataset.field;
+  const f=e.target.dataset.field;
 
-  if(field==="title")task.title=e.target.value;
-  if(field==="text")task.text=e.target.value;
-  if(field==="hint")task.hint=e.target.value;
-  if(field==="answer")task.answer=e.target.value;
+  if(f==="title")t.title=e.target.value;
+  if(f==="text")t.text=e.target.value;
+  if(f==="hint")t.hint=e.target.value;
+  if(f==="answer")t.answer=e.target.value;
 
-  if(field==="type"){
-    task.type=e.target.value;
+  if(f==="type"){
+    t.type=e.target.value;
 
-    if(["single","multi","imageanswer"].includes(task.type) && task.options.length<2){
-      task.options=[
-        {text:"Ответ 1",correct:true,image:blankAsset()},
-        {text:"Ответ 2",correct:false,image:blankAsset()}
+    if(
+      ["single","multi","imageanswer"].includes(t.type) &&
+      (!t.options || t.options.length<2)
+    ){
+      t.options=[
+        {text:"Ответ 1",correct:true,image:blank()},
+        {text:"Ответ 2",correct:false,image:blank()}
       ];
     }
 
-    if(task.type==="truefalse" && !["true","false"].includes(task.answer)){
-      task.answer="true";
+    if(t.type==="truefalse" && !["true","false"].includes(t.answer)){
+      t.answer="true";
     }
 
     renderTasks();
-    return;
   }
 
-  if(field==="questionImageUrl"){
-    task.image={
+  if(f==="questionImageUrl"){
+    t.image={
       mode:"url",
       value:e.target.value.trim()
     };
   }
 
-  if(field==="optionText"){
-    task.options[Number(e.target.dataset.option)].text=e.target.value;
+  if(f==="optionText"){
+    t.options[Number(e.target.dataset.option)].text=e.target.value;
   }
 
-  if(field==="optionImageUrl"){
-    task.options[Number(e.target.dataset.option)].image={
+  if(f==="optionImageUrl"){
+    t.options[Number(e.target.dataset.option)].image={
       mode:"url",
       value:e.target.value.trim()
     };
   }
 
-  if(field==="items"){
-    task.items=e.target.value
+  if(f==="items"){
+    t.items=e.target.value
       .split("|")
       .map(x=>x.trim())
       .filter(Boolean);
   }
 
-  if(field==="pairs"){
-    task.pairs=e.target.value
+  if(f==="pairs"){
+    t.pairs=e.target.value
       .split("\n")
-      .map(line=>line.split("="))
-      .filter(p=>p.length>=2)
-      .map(p=>[p[0].trim(),p.slice(1).join("=").trim()]);
+      .map(x=>x.split("="))
+      .filter(x=>x.length>=2)
+      .map(x=>[
+        x[0].trim(),
+        x.slice(1).join("=").trim()
+      ]);
   }
 });
 
-$("#fxTasks").addEventListener("change",function(e){
-  const card=e.target.closest(".fx-task");
+$("#fxTasks").addEventListener("change",e=>{
+
+  const card=e.target.closest(".fx-task-editor");
   if(!card)return;
 
-  const task=state.tasks.find(t=>t.id===Number(card.dataset.taskId));
-  if(!task)return;
+  const t=state.tasks.find(x=>x.id===Number(card.dataset.id));
+  if(!t)return;
 
-  const field=e.target.dataset.field;
+  const f=e.target.dataset.field;
 
-  if(field==="optionCorrect"){
+  if(f==="correct"){
+
     const oi=Number(e.target.dataset.option);
 
-    if(task.type==="multi"){
-      task.options[oi].correct=e.target.checked;
+    if(t.type==="multi"){
+      t.options[oi].correct=e.target.checked;
     }else{
-      task.options.forEach((o,i)=>o.correct=i===oi);
+      t.options.forEach((o,i)=>{
+        o.correct=i===oi;
+      });
+
       renderTasks();
     }
   }
 
-  if(field==="questionImageFile"){
-    readFile(e.target.files[0],function(data){
-      task.image={mode:"upload",value:data};
+  if(f==="questionImageFile"){
+    readFile(e.target.files[0],data=>{
+      t.image={mode:"upload",value:data};
     });
   }
 
-  if(field==="optionImageFile"){
+  if(f==="optionImageFile"){
     const oi=Number(e.target.dataset.option);
 
-    readFile(e.target.files[0],function(data){
-      task.options[oi].image={mode:"upload",value:data};
+    readFile(e.target.files[0],data=>{
+      t.options[oi].image={
+        mode:"upload",
+        value:data
+      };
     });
   }
 });
 
-/* BINDINGS */
+/* ---------- editor bindings ---------- */
 
 const bindings=[
   ["#fxTitle","title"],
   ["#fxAccent","accent"],
-
   ["#fxSky","colors.sky"],
   ["#fxGroundColor","colors.ground"],
   ["#fxPlatformColor","colors.platform"],
-  ["#fxObstacleColor","colors.obstacle"],
 
   ["#fxFont","ui.font"],
-  ["#fxQuestionBg","ui.questionBg"],
-  ["#fxQuestionBorder","ui.questionBorder"],
+  ["#fxQuestionBg","ui.qBg"],
+  ["#fxQuestionBorder","ui.qBorder"],
   ["#fxBorderWidth","ui.borderWidth"],
-  ["#fxBorderRadius","ui.borderRadius"],
+  ["#fxBorderRadius","ui.radius"],
   ["#fxGlowColor","ui.glowColor"],
   ["#fxGlowPower","ui.glowPower"],
   ["#fxTitleColor","ui.titleColor"],
-  ["#fxQuestionColor","ui.questionColor"],
-  ["#fxTitleSize","ui.titleSize"],
-  ["#fxQuestionSize","ui.questionSize"],
+  ["#fxQuestionColor","ui.textColor"],
   ["#fxAnswerBg","ui.answerBg"],
   ["#fxAnswerColor","ui.answerColor"],
   ["#fxAnswerBorder","ui.answerBorder"],
-  ["#fxAnswerSize","ui.answerSize"],
-  ["#fxSelectedBg","ui.selectedBg"],
-  ["#fxButtonColor","ui.buttonColor"],
-  ["#fxCorrectColor","ui.correctColor"],
-  ["#fxWrongColor","ui.wrongColor"],
+  ["#fxSelectedBg","ui.selected"],
+  ["#fxCorrectColor","ui.correct"],
+  ["#fxWrongColor","ui.wrong"],
 
   ["#fxStartSubtitle","start.subtitle"],
   ["#fxStartBg","start.bg"],
   ["#fxStartBorder","start.border"],
-  ["#fxStartTitleColor","start.titleColor"],
-  ["#fxStartTextColor","start.textColor"],
-  ["#fxStartButtonBg","start.buttonBg"],
-  ["#fxStartButtonTextColor","start.buttonText"],
   ["#fxStartGlowColor","start.glowColor"],
   ["#fxStartGlowPower","start.glowPower"],
 
   ["#fxPlayerSize","player.size"],
-  ["#fxSpeed","player.speed"],
-  ["#fxJump","player.jump"],
-  ["#fxHeroProjectileSize","player.projectileSize"],
-  ["#fxHeroGlowColor","player.glowColor"],
+  ["#fxSpeed","player.maxSpeed"],
+  ["#fxJumpHeight","player.jumpHeight"],
+  ["#fxProjectileSize","player.projectileSize"],
 
-  ["#fxMapScale","map.scale"],
-  ["#fxMapHeight","map.height"],
+  ["#fxSectionLength","level.sectionLength"],
+  ["#fxGapSize","level.gapSize"],
 
   ["#fxEnemyHp","enemy.hp"],
   ["#fxEnemySize","enemy.size"],
-  ["#fxEnemyFireRate","enemy.fireRate"],
-  ["#fxEnemyBulletSpeed","enemy.bulletSpeed"],
-
-  ["#fxStartText","texts.start"],
-  ["#fxInstruction","texts.instruction"],
-  ["#fxCorrectText","texts.correct"],
-  ["#fxWrongText","texts.wrong"],
-  ["#fxFinishTitle","texts.finishTitle"],
-  ["#fxFinishText","texts.finishText"]
+  ["#fxEnemyRate","enemy.fireRate"]
 ];
 
-const checkBindings=[
-  ["#fxGlowEnabled","ui.glowEnabled"],
+const checks=[
+  ["#fxGlowEnabled","ui.glow"],
   ["#fxBigFeedback","ui.bigFeedback"],
-  ["#fxFeedbackGlow","ui.feedbackGlow"],
-
   ["#fxStartGlow","start.glow"],
-
   ["#fxMirror","player.mirror"],
-  ["#fxWallJump","player.wallJump"],
-  ["#fxHeroGlow","player.glow"],
-
-  ["#fxTallMap","map.tall"],
-
+  ["#fxMovingPlatforms","level.movingPlatforms"],
+  ["#fxSprings","level.springs"],
+  ["#fxSpikes","level.spikes"],
+  ["#fxProgressBar","level.progress"],
   ["#fxEnemyEnabled","enemy.enabled"],
   ["#fxEnemyAtStart","enemy.atStart"],
-  ["#fxEnemyOnWrong","enemy.spawnOnWrong"],
-
-  ["#fxCounter","settings.counter"],
-  ["#fxShowInstruction","settings.showInstruction"],
-  ["#fxLockFinish","settings.lockFinish"]
+  ["#fxEnemyOnWrong","enemy.spawnWrong"]
 ];
 
-function pathGet(path){
-  return path.split(".").reduce((obj,key)=>obj[key],state);
+function getPath(path){
+  return path.split(".").reduce((a,k)=>a[k],state);
 }
 
-function pathSet(path,value){
-  const parts=path.split(".");
+function setPath(path,value){
+  const p=path.split(".");
   let obj=state;
 
-  for(let i=0;i<parts.length-1;i++){
-    obj=obj[parts[i]];
+  for(let i=0;i<p.length-1;i++){
+    obj=obj[p[i]];
   }
 
-  obj[parts[parts.length-1]]=value;
+  obj[p[p.length-1]]=value;
 }
 
 function syncInputs(){
-  bindings.forEach(function(pair){
-    const el=$(pair[0]);
-    if(el)el.value=pathGet(pair[1]);
+
+  bindings.forEach(([sel,path])=>{
+    const e=$(sel);
+    if(e)e.value=getPath(path);
   });
 
-  checkBindings.forEach(function(pair){
-    const el=$(pair[0]);
-    if(el)el.checked=!!pathGet(pair[1]);
+  checks.forEach(([sel,path])=>{
+    const e=$(sel);
+    if(e)e.checked=!!getPath(path);
   });
+
+  $("#fxStartText").value="Играть";
 
   root.style.setProperty("--accent",state.accent);
 }
 
-bindings.forEach(function(pair){
-  const el=$(pair[0]);
-  if(!el)return;
+bindings.forEach(([sel,path])=>{
 
-  function update(){
-    let value=el.value;
+  const e=$(sel);
+  if(!e)return;
 
-    if(el.type==="range" || el.type==="number"){
-      value=Number(value);
+  const fn=()=>{
+
+    let v=e.value;
+
+    if(e.type==="number" || e.type==="range"){
+      v=Number(v);
     }
 
-    pathSet(pair[1],value);
+    setPath(path,v);
 
-    applyUIStyles();
+    root.style.setProperty("--accent",state.accent);
 
-    if(pair[1].startsWith("ui.") || pair[1].startsWith("start.") || pair[1].startsWith("texts.")){
-      updateVisibleText();
+    if(
+      path.startsWith("ui.") ||
+      path.startsWith("start.")
+    ){
+      applyUI();
     }else{
-      restartGame();
+      resetGame();
     }
-  }
+  };
 
-  el.addEventListener("input",update);
-  el.addEventListener("change",update);
+  e.addEventListener("input",fn);
+  e.addEventListener("change",fn);
 });
 
-checkBindings.forEach(function(pair){
-  const el=$(pair[0]);
-  if(!el)return;
+checks.forEach(([sel,path])=>{
 
-  el.addEventListener("change",function(){
-    pathSet(pair[1],el.checked);
-    applyUIStyles();
-    restartGame();
-  });
+  const e=$(sel);
+  if(!e)return;
+
+  e.onchange=()=>{
+    setPath(path,e.checked);
+    applyUI();
+
+    if(!path.startsWith("ui.") && !path.startsWith("start.")){
+      resetGame();
+    }
+  };
 });
 
-/* MAP */
+/* ---------- canvas setup ---------- */
 
-function buildMap(taskCount){
-  const s=state.map.scale/100;
-  const sections=Math.max(1,Math.ceil(Math.max(taskCount,1)/4));
+const canvas=$("#fxCanvas");
+const ctx=canvas.getContext("2d");
 
-  const ground=[];
-  const platforms=[];
-  const obstacles=[];
-  const taskSlots=[];
-  const enemySpawnSlots=[];
+let VW=960;
+let VH=540;
+let DPR=1;
 
-  const sectionWidth=1250*s;
+function resizeCanvas(){
 
-  for(let sec=0;sec<sections;sec++){
-    const x=sec*sectionWidth;
-    const pattern=sec%4;
+  const rect=$("#fxStage").getBoundingClientRect();
 
-    if(pattern===0){
-      ground.push({x:x,y:0,w:320*s,h:48*s});
-      ground.push({x:x+470*s,y:0,w:780*s,h:48*s});
+  DPR=Math.min(2,window.devicePixelRatio||1);
 
-      platforms.push(
-        {x:x+115*s,y:145*s,w:190*s,h:28*s},
-        {x:x+330*s,y:250*s,w:190*s,h:28*s},
-        {x:x+560*s,y:365*s,w:220*s,h:28*s},
-        {x:x+815*s,y:250*s,w:180*s,h:28*s}
-      );
+  VW=Math.max(320,rect.width);
+  VH=Math.max(300,rect.height);
 
-      obstacles.push(
-        {type:"block",x:x+55*s,y:48*s,w:80*s,h:80*s},
-        {type:"pipe",x:x+520*s,y:48*s,w:95*s,h:120*s},
-        {type:"wall",x:x+1020*s,y:48*s,w:75*s,h:240*s}
-      );
+  canvas.width=Math.round(VW*DPR);
+  canvas.height=Math.round(VH*DPR);
 
-      taskSlots.push(
-        {x:x+155*s,y:200*s},
-        {x:x+375*s,y:310*s},
-        {x:x+620*s,y:425*s},
-        {x:x+855*s,y:310*s}
-      );
+  canvas.style.width=VW+"px";
+  canvas.style.height=VH+"px";
 
-      enemySpawnSlots.push(
-        {x:x+700*s,y:48*s},
-        {x:x+930*s,y:48*s}
-      );
-    }
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+}
 
-    if(pattern===1){
-      ground.push(
-        {x:x,y:0,w:260*s,h:48*s},
-        {x:x+410*s,y:0,w:250*s,h:48*s},
-        {x:x+840*s,y:0,w:410*s,h:48*s}
-      );
+window.addEventListener("resize",resizeCanvas);
 
-      platforms.push(
-        {x:x+285*s,y:120*s,w:110*s,h:25*s},
-        {x:x+470*s,y:210*s,w:110*s,h:25*s},
-        {x:x+645*s,y:300*s,w:110*s,h:25*s},
-        {x:x+805*s,y:390*s,w:110*s,h:25*s},
-        {x:x+975*s,y:300*s,w:160*s,h:25*s}
-      );
+/* ---------- level ---------- */
 
-      obstacles.push(
-        {type:"column",x:x+1090*s,y:48*s,w:80*s,h:180*s},
-        {type:"block",x:x+75*s,y:48*s,w:75*s,h:75*s}
-      );
+function rng(seed){
+  let t=seed>>>0;
 
-      taskSlots.push(
-        {x:x+305*s,y:160*s},
-        {x:x+495*s,y:250*s},
-        {x:x+675*s,y:340*s},
-        {x:x+1000*s,y:345*s}
-      );
+  return function(){
+    t+=0x6D2B79F5;
 
-      enemySpawnSlots.push(
-        {x:x+450*s,y:48*s},
-        {x:x+900*s,y:48*s}
-      );
-    }
+    let r=t;
 
-    if(pattern===2){
-      ground.push(
-        {x:x,y:0,w:500*s,h:48*s},
-        {x:x+760*s,y:0,w:490*s,h:48*s}
-      );
+    r=Math.imul(r^r>>>15,r|1);
+    r^=r+Math.imul(r^r>>>7,r|61);
 
-      platforms.push(
-        {x:x+180*s,y:130*s,w:220*s,h:28*s},
-        {x:x+155*s,y:270*s,w:230*s,h:28*s},
-        {x:x+450*s,y:360*s,w:150*s,h:28*s},
-        {x:x+640*s,y:450*s,w:160*s,h:28*s},
-        {x:x+850*s,y:330*s,w:210*s,h:28*s}
-      );
-
-      obstacles.push(
-        {type:"wall",x:x+520*s,y:48*s,w:70*s,h:280*s},
-        {type:"wall",x:x+610*s,y:48*s,w:70*s,h:200*s},
-        {type:"pipe",x:x+1080*s,y:48*s,w:100*s,h:150*s}
-      );
-
-      taskSlots.push(
-        {x:x+230*s,y:180*s},
-        {x:x+210*s,y:320*s},
-        {x:x+665*s,y:495*s},
-        {x:x+900*s,y:380*s}
-      );
-
-      enemySpawnSlots.push(
-        {x:x+330*s,y:48*s},
-        {x:x+860*s,y:48*s}
-      );
-    }
-
-    if(pattern===3){
-      ground.push(
-        {x:x,y:0,w:330*s,h:48*s},
-        {x:x+500*s,y:0,w:220*s,h:48*s},
-        {x:x+950*s,y:0,w:300*s,h:48*s}
-      );
-
-      platforms.push(
-        {x:x+340*s,y:135*s,w:130*s,h:24*s},
-        {x:x+520*s,y:225*s,w:135*s,h:24*s},
-        {x:x+700*s,y:310*s,w:135*s,h:24*s},
-        {x:x+875*s,y:390*s,w:120*s,h:24*s},
-        {x:x+1015*s,y:260*s,w:160*s,h:24*s}
-      );
-
-      obstacles.push(
-        {type:"ceiling",x:x+40*s,y:210*s,w:250*s,h:45*s},
-        {type:"block",x:x+80*s,y:48*s,w:90*s,h:90*s},
-        {type:"column",x:x+1160*s,y:48*s,w:65*s,h:170*s}
-      );
-
-      taskSlots.push(
-        {x:x+375*s,y:180*s},
-        {x:x+555*s,y:270*s},
-        {x:x+730*s,y:355*s},
-        {x:x+1045*s,y:305*s}
-      );
-
-      enemySpawnSlots.push(
-        {x:x+230*s,y:48*s},
-        {x:x+970*s,y:48*s}
-      );
-    }
-  }
-
-  const end=sections*sectionWidth;
-
-  ground.push({
-    x:end,
-    y:0,
-    w:480*s,
-    h:48*s
-  });
-
-  return {
-    width:end+560*s,
-    ground,
-    platforms,
-    obstacles,
-    taskSlots:taskSlots.slice(0,taskCount),
-    enemySpawnSlots,
-    finishX:end+340*s
+    return ((r^r>>>14)>>>0)/4294967296;
   };
 }
 
-/* GAME */
+function buildLevel(){
+
+  const taskCount=Math.max(1,state.tasks.length);
+
+  const sections=Math.max(
+    1,
+    Math.ceil(taskCount/4)
+  );
+
+  const END=
+    sections*state.level.sectionLength+
+    1000;
+
+  const GY=VH*.82;
+
+  const R=rng(
+    9137+
+    taskCount*271+
+    Math.round(state.level.gapSize)
+  );
+
+  const level={
+    END,
+    FINISH:END+250,
+    GY,
+
+    ground:[],
+    platforms:[],
+    taskItems:[],
+    springs:[],
+    spikes:[],
+    enemies:[],
+    enemySpawns:[]
+  };
+
+  const taskX=[];
+
+  for(let i=0;i<taskCount;i++){
+
+    taskX.push(
+      700+
+      i*
+      ((END-1200)/
+      Math.max(1,taskCount-1))
+    );
+  }
+
+  const nearTask=(x,d)=>
+    taskX.some(q=>Math.abs(q-x)<d);
+
+  let x=-300;
+  let first=true;
+
+  while(x<END){
+
+    const len=
+      first
+        ? 1250
+        : 650+
+          R()*
+          Math.max(
+            250,
+            state.level.sectionLength-500
+          );
+
+    first=false;
+
+    level.ground.push({
+      x1:x,
+      x2:x+len,
+      y:GY
+    });
+
+    x+=len;
+
+    if(x>END-550)break;
+
+    let gap=
+      state.level.gapSize*
+      (.75+R()*.55);
+
+    if(nearTask(x+gap/2,260)){
+      gap=80;
+    }
+
+    if(gap>110){
+
+      if(gap>210){
+
+        level.platforms.push({
+          x:x+gap/2-55,
+          y:GY-95-R()*55,
+          w:110,
+          h:18,
+          moving:
+            state.level.movingPlatforms &&
+            R()<.55,
+          baseY:GY-120,
+          amp:35+R()*35,
+          phase:R()*6,
+          dy:0
+        });
+      }
+
+      x+=gap;
+    }
+  }
+
+  level.ground.push({
+    x1:x,
+    x2:level.FINISH+900,
+    y:GY
+  });
+
+  const onGround=(px,m)=>
+    level.ground.some(
+      s=>
+        px-m>=s.x1 &&
+        px+m<=s.x2
+    );
+
+  let lastHazard=0;
+
+  for(
+    let p=500;
+    p<END-250;
+    p+=220+R()*330
+  ){
+
+    const r=R();
+
+    if(
+      state.level.spikes &&
+      r<.18 &&
+      onGround(p,85) &&
+      !nearTask(p,220) &&
+      p-lastHazard>330
+    ){
+      level.spikes.push({
+        x:p-35,
+        w:70,
+        h:28
+      });
+
+      lastHazard=p;
+    }
+
+    else if(
+      state.level.springs &&
+      r<.30 &&
+      onGround(p,70) &&
+      !nearTask(p,180)
+    ){
+      level.springs.push({
+        x:p-20,
+        w:40,
+        comp:0
+      });
+
+      level.platforms.push({
+        x:p+55,
+        y:GY-280,
+        w:210,
+        h:19,
+        moving:false,
+        dy:0
+      });
+    }
+
+    else if(r<.72){
+
+      const w=
+        145+
+        R()*150;
+
+      const y=
+        GY-
+        (
+          110+
+          R()*210
+        );
+
+      level.platforms.push({
+        x:p-w/2,
+        y,
+        w,
+        h:19,
+        moving:
+          state.level.movingPlatforms &&
+          R()<.24,
+        baseY:y,
+        amp:30+R()*50,
+        phase:R()*6,
+        dy:0
+      });
+    }
+
+    if(
+      onGround(p,60) &&
+      R()<.42
+    ){
+      level.enemySpawns.push({
+        x:p,
+        y:GY
+      });
+    }
+  }
+
+  taskX.forEach((qx,i)=>{
+
+    let y=GY-65;
+
+    const nearby=
+      level.platforms
+        .filter(p=>
+          qx>p.x+20 &&
+          qx<p.x+p.w-20
+        )
+        .sort((a,b)=>
+          Math.abs(a.x-qx)-
+          Math.abs(b.x-qx)
+        );
+
+    if(
+      nearby.length &&
+      i%3===1
+    ){
+      y=nearby[0].y-55;
+    }
+
+    level.taskItems.push({
+      x:qx,
+      y,
+      index:i,
+      taken:false
+    });
+  });
+
+  return level;
+}
+
+/* ---------- game state ---------- */
 
 let game=null;
 
 function makeGame(){
-  return {
-    map:buildMap(state.tasks.length),
 
-    started:false,
+  const level=buildLevel();
+
+  return {
+    level,
+
+    running:false,
     paused:false,
     finished:false,
 
-    x:65,
-    y:48,
+    hero:{
+      x:100,
+      y:level.GY-state.player.size,
+      w:state.player.size*.72,
+      h:state.player.size,
 
-    vx:0,
-    vy:0,
+      vx:0,
+      vy:0,
 
-    grounded:false,
-    touchingWall:0,
+      face:1,
+      on:false,
+      coyote:0,
+      jumpBuffer:0,
+      standing:null,
+      inv:0,
 
-    camera:0,
-    last:performance.now(),
-    safeX:65,
+      run:0,
+      spin:0
+    },
 
-    completed:new Set(),
-    activeTask:-1,
-    selected:new Set(),
+    camX:0,
+    lastSafe:100,
 
     keys:{
       left:false,
       right:false,
-      up:false,
-      down:false
+      jump:false
     },
 
+    completed:new Set(),
+    currentTask:-1,
+    selected:new Set(),
+
     enemies:[],
-    heroBullets:[],
-    enemyBullets:[],
+    enemyId:0,
+    heroShots:[],
+    enemyShots:[],
 
     lastShot:0,
-    enemyId:0,
 
+    particles:[],
+
+    time:0,
+    last:performance.now(),
     raf:0
   };
 }
 
-function createObj(className,r){
-  const el=document.createElement("div");
+function resetGame(){
 
-  el.className="fx-obj "+className;
-  el.style.left=r.x+"px";
-  el.style.bottom=r.y+"px";
-  el.style.width=r.w+"px";
-  el.style.height=r.h+"px";
-
-  $("#fxWorld").appendChild(el);
-
-  return el;
-}
-
-function restartGame(){
   if(game){
     cancelAnimationFrame(game.raf);
   }
 
+  resizeCanvas();
+
   game=makeGame();
 
-  $("#fxStage").style.minHeight=state.map.height+"px";
+  if(
+    state.enemy.enabled &&
+    state.enemy.atStart
+  ){
+    spawnEnemy(650);
+  }
 
-  renderWorld();
   renderHud();
-  updateVisibleText();
-  applyUIStyles();
 
-  $("#fxStartOverlay").classList.remove("fx-hidden");
-  $("#fxTaskOverlay").classList.add("fx-hidden");
-  $("#fxFinishOverlay").classList.add("fx-hidden");
-  $("#fxBigFeedback").classList.add("fx-hidden");
+  $("#fxStartOverlay")
+    .classList.remove("fx-hidden");
 
-  startLoop();
+  $("#fxTaskOverlay")
+    .classList.add("fx-hidden");
+
+  $("#fxFinishOverlay")
+    .classList.add("fx-hidden");
+
+  updateStart();
+  applyUI();
+
+  loop(performance.now());
 }
 
-function renderWorld(){
-  const world=$("#fxWorld");
-  world.innerHTML="";
-  world.style.width=game.map.width+"px";
+/* ---------- physics ---------- */
 
-  const bg=$("#fxGameBg");
-  bg.style.backgroundColor=state.colors.sky;
+function surfaces(){
 
-  const bgUrl=assetUrl(state.assets.background);
+  const arr=[];
 
-  bg.style.backgroundImage=
-    bgUrl
-      ? 'url("'+bgUrl+'")'
-      : "none";
-
-  game.map.ground.forEach(function(r){
-    const e=createObj("fx-ground",r);
-
-    e.style.backgroundColor=state.colors.ground;
-
-    const img=assetUrl(state.assets.ground);
-
-    if(img){
-      e.style.backgroundImage='url("'+img+'")';
-      e.style.backgroundSize="cover";
-    }
+  game.level.ground.forEach(g=>{
+    arr.push({
+      x1:g.x1,
+      x2:g.x2,
+      y:g.y,
+      ref:null
+    });
   });
 
-  game.map.platforms.forEach(function(r){
-    const e=createObj("fx-platform",r);
-
-    e.style.backgroundColor=state.colors.platform;
-
-    const img=assetUrl(state.assets.platform);
-
-    if(img){
-      e.style.backgroundImage='url("'+img+'")';
-      e.style.backgroundSize="cover";
-    }
+  game.level.platforms.forEach(p=>{
+    arr.push({
+      x1:p.x,
+      x2:p.x+p.w,
+      y:p.y,
+      ref:p
+    });
   });
 
-  game.map.obstacles.forEach(function(r){
-    const e=createObj("fx-"+r.type,r);
-
-    e.style.backgroundColor=state.colors.obstacle;
-
-    const img=assetUrl(state.assets.obstacle);
-
-    if(img){
-      e.style.backgroundImage='url("'+img+'")';
-      e.style.backgroundSize="cover";
-      e.style.backgroundPosition="center";
-    }
-  });
-
-  game.map.taskSlots.forEach(function(p,i){
-    const size=state.taskItem.size;
-
-    const e=createObj(
-      "fx-task-item",
-      {
-        x:p.x,
-        y:p.y,
-        w:size,
-        h:size
-      }
-    );
-
-    e.dataset.taskIndex=i;
-
-    const img=assetUrl(state.assets.taskItem);
-
-    if(img){
-      e.style.backgroundImage='url("'+img+'")';
-    }else{
-      e.textContent=state.taskItem.icon;
-      e.style.fontSize=(size*.82)+"px";
-    }
-  });
-
-  const finish=createObj(
-    "fx-finish "+(assetUrl(state.assets.finish)?"":"default"),
-    {
-      x:game.map.finishX,
-      y:48,
-      w:75,
-      h:120
-    }
-  );
-
-  const finishImg=assetUrl(state.assets.finish);
-
-  if(finishImg){
-    finish.style.backgroundImage='url("'+finishImg+'")';
-  }
-
-  const player=createObj(
-    "fx-player "+(assetUrl(state.assets.player)?"custom":""),
-    {
-      x:game.x,
-      y:game.y,
-      w:state.player.size,
-      h:state.player.size
-    }
-  );
-
-  player.id="fxPlayer";
-
-  const playerImg=assetUrl(state.assets.player);
-
-  if(playerImg){
-    player.style.backgroundImage='url("'+playerImg+'")';
-  }
-
-  applyHeroGlow(player);
-
-  if(state.enemy.enabled && state.enemy.atStart){
-    spawnEnemy(game.x+460);
-  }
+  return arr;
 }
 
-function renderHud(){
-  const hud=$("#fxHud");
-  hud.innerHTML="";
-
-  if(state.settings.counter){
-    const p=document.createElement("div");
-    p.className="fx-pill";
-    p.textContent=
-      state.taskItem.icon+
-      " "+
-      game.completed.size+
-      "/"+
-      state.tasks.length;
-
-    hud.appendChild(p);
-  }
-}
-
-function rectOverlap(a,b){
+function overlap(a,b){
   return (
     a.x<b.x+b.w &&
     a.x+a.w>b.x &&
@@ -2486,705 +2059,1500 @@ function rectOverlap(a,b){
   );
 }
 
-function playerRect(){
-  return {
-    x:game.x,
-    y:game.y,
-    w:state.player.size*.76,
-    h:state.player.size
-  };
-}
-
-function jump(){
-  if(!game.started || game.paused)return;
-
-  if(game.grounded){
-    game.vy=state.player.jump;
-    game.grounded=false;
-    return;
-  }
-
-  if(state.player.wallJump && game.touchingWall!==0){
-    game.vy=state.player.jump*.92;
-    game.vx=-game.touchingWall*state.player.speed*1.35;
-    game.x+=-game.touchingWall*10;
-    game.touchingWall=0;
-  }
-}
-
-/* PROJECTILES */
-
-function createProjectile(data,hero){
-  const e=document.createElement("div");
-
-  e.className=
-    "fx-projectile "+
-    (hero?"hero":"enemy-shot");
-
-  e.style.width=data.w+"px";
-  e.style.height=data.h+"px";
-  e.style.left=data.x+"px";
-  e.style.bottom=data.y+"px";
-
-  const asset=
-    hero
-      ? state.assets.heroProjectile
-      : state.assets.enemyProjectile;
-
-  const img=assetUrl(asset);
-
-  if(img){
-    e.style.backgroundImage='url("'+img+'")';
-    e.style.backgroundColor="transparent";
-    e.style.backgroundSize="contain";
-    e.style.backgroundRepeat="no-repeat";
-    e.style.backgroundPosition="center";
-    e.style.borderRadius="0";
-  }
-
-  $("#fxWorld").appendChild(e);
-
-  return e;
-}
-
-function heroShoot(){
-  if(!game.started || game.paused)return;
-
-  const now=performance.now();
-
-  if(now-game.lastShot<300)return;
-
-  game.lastShot=now;
-
-  const direction=
-    game.vx<0
-      ? -1
-      : 1;
-
-  const size=state.player.projectileSize;
-
-  const bullet={
-    x:
-      game.x+
-      (
-        direction>0
-          ? state.player.size
-          : -size
-      ),
-
-    y:
-      game.y+
-      state.player.size*.48,
-
-    w:size,
-    h:size,
-
-    vx:direction*560,
-
-    alive:true
-  };
-
-  bullet.el=createProjectile(bullet,true);
-
-  game.heroBullets.push(bullet);
-}
-
-function enemyShoot(enemy){
-  if(!enemy.alive)return;
-
-  const direction=
-    game.x<enemy.x
-      ? -1
-      : 1;
-
-  const size=24;
-
-  const bullet={
-    x:enemy.x+enemy.w/2,
-    y:enemy.y+enemy.h*.55,
-    w:size,
-    h:size,
-    vx:direction*state.enemy.bulletSpeed,
-    alive:true
-  };
-
-  bullet.el=createProjectile(bullet,false);
-
-  game.enemyBullets.push(bullet);
-}
-
-/* ENEMY SPAWNING */
-
-function findEnemySpawn(preferredX){
-  const slots=game.map.enemySpawnSlots
-    .filter(p=>p.x>preferredX)
-    .sort((a,b)=>a.x-b.x);
-
-  if(slots.length){
-    return slots[0];
-  }
+function heroBox(){
+  const h=game.hero;
 
   return {
-    x:Math.min(game.map.width-220,preferredX+350),
-    y:48
+    x:h.x+3,
+    y:h.y+4,
+    w:h.w-6,
+    h:h.h-6
   };
 }
 
-function spawnEnemy(preferredX){
+function pressJump(){
+
+  game.keys.jump=true;
+  game.hero.jumpBuffer=8;
+}
+
+function releaseJump(){
+  game.keys.jump=false;
+}
+
+function updatePhysics(){
+
+  const h=game.hero;
+
+  const G=0.82;
+
+  game.time++;
+
+  /* moving platforms */
+
+  game.level.platforms.forEach(p=>{
+
+    if(!p.moving)return;
+
+    const ny=
+      p.baseY+
+      Math.sin(
+        game.time*.025+
+        p.phase
+      )*
+      p.amp;
+
+    p.dy=ny-p.y;
+    p.y=ny;
+  });
+
+  /* movement from reference mechanics */
+
+  const maxV=state.player.maxSpeed;
+
+  if(game.keys.right && !game.keys.left){
+
+    h.vx+=
+      h.vx<0
+        ? .7
+        : .30;
+
+    h.face=1;
+  }
+
+  else if(game.keys.left && !game.keys.right){
+
+    h.vx-=
+      h.vx>0
+        ? .7
+        : .30;
+
+    h.face=-1;
+  }
+
+  else{
+
+    h.vx*=
+      h.on
+        ? .90
+        : .985;
+
+    if(Math.abs(h.vx)<.08){
+      h.vx=0;
+    }
+  }
+
+  h.vx=clamp(
+    h.vx,
+    -maxV,
+    maxV
+  );
+
+  /* coyote time / buffered jump */
+
+  if(h.jumpBuffer>0){
+    h.jumpBuffer--;
+  }
+
+  if(h.on){
+    h.coyote=7;
+  }else{
+    h.coyote=Math.max(0,h.coyote-1);
+  }
+
+  const JV=
+    Math.sqrt(
+      2*
+      G*
+      state.player.jumpHeight
+    );
+
+  if(
+    h.jumpBuffer>0 &&
+    h.coyote>0
+  ){
+    h.vy=-JV;
+    h.on=false;
+    h.coyote=0;
+    h.standing=null;
+    h.jumpBuffer=0;
+  }
+
+  /* variable jump height */
+
+  if(
+    !game.keys.jump &&
+    h.vy<-JV*.42
+  ){
+    h.vy=-JV*.42;
+  }
+
+  /* gravity */
+
+  h.vy=Math.min(
+    16,
+    h.vy+G
+  );
+
+  if(
+    h.standing &&
+    h.standing.moving
+  ){
+    h.y+=h.standing.dy;
+  }
+
+  const oldBottom=h.y+h.h;
+
+  h.x+=h.vx;
+  h.y+=h.vy;
+
+  if(h.x<0){
+    h.x=0;
+    h.vx=0;
+  }
+
+  /* landing */
+
+  const wasOn=h.on;
+
+  h.on=false;
+  h.standing=null;
+
+  if(h.vy>=0){
+
+    for(const s of surfaces()){
+
+      const slack=
+        s.ref && s.ref.moving
+          ? Math.abs(s.ref.dy)+4
+          : 4;
+
+      if(
+        h.x+h.w>s.x1+4 &&
+        h.x<s.x2-4 &&
+        oldBottom<=s.y+slack &&
+        h.y+h.h>=s.y
+      ){
+        h.y=s.y-h.h;
+        h.vy=0;
+        h.on=true;
+        h.standing=s.ref;
+
+        if(
+          !s.ref &&
+          h.x>game.lastSafe
+        ){
+          game.lastSafe=h.x;
+        }
+
+        break;
+      }
+    }
+  }
+
+  h.run+=Math.abs(h.vx)*.07;
+  h.spin+=h.on?0:.2;
+
+  if(h.inv>0){
+    h.inv--;
+  }
+
+  /* fall */
+
+  if(h.y>VH+150){
+
+    h.x=game.lastSafe;
+    h.y=game.level.GY-180;
+
+    h.vx=0;
+    h.vy=0;
+    h.inv=90;
+  }
+
+  /* springs */
+
+  if(state.level.springs){
+
+    game.level.springs.forEach(s=>{
+
+      if(
+        h.vy>=0 &&
+        h.x+h.w>s.x &&
+        h.x<s.x+s.w &&
+        h.y+h.h>=game.level.GY-18 &&
+        oldBottom<=game.level.GY-4
+      ){
+        h.vy=
+          -Math.sqrt(
+            2*G*360
+          );
+
+        h.on=false;
+        s.comp=12;
+      }
+
+      if(s.comp>0)s.comp--;
+    });
+  }
+
+  /* spikes */
+
+  if(state.level.spikes){
+
+    game.level.spikes.forEach(s=>{
+
+      if(
+        overlap(
+          heroBox(),
+          {
+            x:s.x+6,
+            y:game.level.GY-s.h,
+            w:s.w-12,
+            h:s.h
+          }
+        )
+      ){
+        damageHero(s.x+s.w/2);
+      }
+    });
+  }
+
+  /* task objects */
+
+  game.level.taskItems.forEach(q=>{
+
+    if(q.taken)return;
+
+    const hx=h.x+h.w/2;
+    const hy=h.y+h.h/2;
+
+    if(
+      Math.abs(q.x-hx)<38 &&
+      Math.abs(q.y-hy)<46
+    ){
+      q.taken=true;
+      openTask(q.index);
+    }
+  });
+
+  updateEnemies();
+
+  /* finish */
+
+  if(
+    !game.finished &&
+    h.x>game.level.FINISH
+  ){
+    if(
+      game.completed.size>=
+      state.tasks.length
+    ){
+      game.finished=true;
+      game.paused=true;
+
+      $("#fxFinishText").textContent=
+        "Все задания выполнены: "+
+        game.completed.size+
+        "/"+
+        state.tasks.length;
+
+      $("#fxFinishOverlay")
+        .classList.remove("fx-hidden");
+    }
+  }
+
+  /* smooth camera + speed lookahead */
+
+  const target=
+    h.x-
+    VW*.36+
+    h.vx*14;
+
+  game.camX+=
+    (target-game.camX)*
+    .12;
+
+  game.camX=clamp(
+    game.camX,
+    0,
+    Math.max(
+      0,
+      game.level.FINISH+
+      500-
+      VW
+    )
+  );
+}
+
+/* ---------- monsters ---------- */
+
+function findSpawn(afterX){
+
+  const candidates=
+    game.level.enemySpawns
+      .filter(p=>p.x>afterX+180)
+      .sort((a,b)=>a.x-b.x);
+
+  if(candidates.length){
+    return candidates[0];
+  }
+
+  return {
+    x:Math.min(
+      game.level.END-150,
+      afterX+420
+    ),
+    y:game.level.GY
+  };
+}
+
+function spawnEnemy(afterX){
+
   if(!state.enemy.enabled)return;
 
-  const pos=findEnemySpawn(preferredX||game.x+360);
+  const p=findSpawn(afterX);
 
-  const size=state.enemy.size;
+  /* avoid exact duplicates */
 
-  const enemy={
+  if(
+    game.enemies.some(
+      e=>
+        e.alive &&
+        Math.abs(e.x-p.x)<80
+    )
+  ){
+    p.x+=140;
+  }
+
+  game.enemies.push({
     id:game.enemyId++,
-    x:pos.x,
-    y:pos.y,
-    w:size,
-    h:size,
+    x:p.x,
+    y:p.y-state.enemy.size,
+    w:state.enemy.size,
+    h:state.enemy.size,
     hp:state.enemy.hp,
     maxHp:state.enemy.hp,
     alive:true,
-    lastFire:performance.now()+500
-  };
-
-  game.enemies.push(enemy);
-
-  const e=createObj(
-    "fx-enemy",
-    {
-      x:enemy.x,
-      y:enemy.y,
-      w:enemy.w,
-      h:enemy.h
-    }
-  );
-
-  e.dataset.enemy=enemy.id;
-
-  const img=assetUrl(state.assets.enemy);
-
-  if(img){
-    e.classList.add("custom");
-    e.style.backgroundImage='url("'+img+'")';
-  }else{
-    e.textContent="👾";
-  }
-
-  const hp=document.createElement("div");
-  hp.className="fx-enemy-hp";
-  hp.innerHTML="<span></span>";
-
-  e.appendChild(hp);
+    dir:-1,
+    x0:p.x-75,
+    x1:p.x+75,
+    lastFire:performance.now()+600
+  });
 }
 
-function updateEnemyHP(enemy){
-  const el=
-    $("#fxWorld")
-      .querySelector('[data-enemy="'+enemy.id+'"]');
+function damageHero(fromX){
 
-  if(!el)return;
+  const h=game.hero;
 
-  const bar=el.querySelector(".fx-enemy-hp span");
+  if(h.inv>0)return;
 
-  if(bar){
-    bar.style.width=
-      (enemy.hp/enemy.maxHp*100)+"%";
-  }
+  h.inv=90;
+
+  h.vx=
+    h.x+h.w/2<fromX
+      ? -5
+      : 5;
+
+  h.vy=-7;
 }
 
-function updateEnemies(dt,now){
-  if(!state.enemy.enabled)return;
+function heroShoot(){
 
-  game.enemies.forEach(function(enemy){
-    if(!enemy.alive)return;
+  if(
+    !game.running ||
+    game.paused
+  )return;
 
-    if(now-enemy.lastFire>=state.enemy.fireRate*1000){
-      enemy.lastFire=now;
-      enemyShoot(enemy);
-    }
+  const now=performance.now();
+
+  if(now-game.lastShot<260)return;
+
+  game.lastShot=now;
+
+  const h=game.hero;
+  const size=state.player.projectileSize;
+
+  game.heroShots.push({
+    x:
+      h.face>0
+        ? h.x+h.w
+        : h.x-size,
+    y:h.y+h.h*.48,
+    w:size,
+    h:size,
+    vx:h.face*12,
+    alive:true
   });
-
-  game.heroBullets.forEach(function(bullet){
-    if(!bullet.alive)return;
-
-    bullet.x+=bullet.vx*dt;
-
-    bullet.el.style.left=bullet.x+"px";
-    bullet.el.style.bottom=bullet.y+"px";
-
-    game.enemies.forEach(function(enemy){
-      if(!enemy.alive || !bullet.alive)return;
-
-      if(rectOverlap(bullet,enemy)){
-        bullet.alive=false;
-
-        if(bullet.el){
-          bullet.el.remove();
-        }
-
-        enemy.hp--;
-
-        updateEnemyHP(enemy);
-
-        if(enemy.hp<=0){
-          enemy.alive=false;
-
-          const enemyEl=
-            $("#fxWorld")
-              .querySelector('[data-enemy="'+enemy.id+'"]');
-
-          if(enemyEl){
-            enemyEl.remove();
-          }
-        }
-      }
-    });
-
-    if(bullet.x<0 || bullet.x>game.map.width){
-      bullet.alive=false;
-
-      if(bullet.el){
-        bullet.el.remove();
-      }
-    }
-  });
-
-  game.enemyBullets.forEach(function(bullet){
-    if(!bullet.alive)return;
-
-    bullet.x+=bullet.vx*dt;
-
-    bullet.el.style.left=bullet.x+"px";
-    bullet.el.style.bottom=bullet.y+"px";
-
-    if(rectOverlap(bullet,playerRect())){
-      bullet.alive=false;
-
-      if(bullet.el){
-        bullet.el.remove();
-      }
-
-      showBigFeedback(false,true);
-
-      game.x=Math.max(
-        20,
-        game.x-100
-      );
-
-      game.vy=220;
-    }
-
-    if(bullet.x<0 || bullet.x>game.map.width){
-      bullet.alive=false;
-
-      if(bullet.el){
-        bullet.el.remove();
-      }
-    }
-  });
-
-  game.heroBullets=game.heroBullets.filter(b=>b.alive);
-  game.enemyBullets=game.enemyBullets.filter(b=>b.alive);
 }
 
-/* MOVEMENT */
+function enemyShoot(e){
 
-function updateGame(dt,now){
-  const pw=state.player.size*.76;
-  const ph=state.player.size;
+  const dir=
+    game.hero.x<e.x
+      ? -1
+      : 1;
 
-  game.touchingWall=0;
+  game.enemyShots.push({
+    x:e.x+e.w/2,
+    y:e.y+e.h*.48,
+    w:22,
+    h:22,
+    vx:dir*4.2,
+    alive:true
+  });
+}
 
-  let direction=0;
+function updateEnemies(){
 
-  if(game.keys.left)direction--;
-  if(game.keys.right)direction++;
+  const now=performance.now();
 
-  game.vx=direction*state.player.speed;
+  game.enemies.forEach(e=>{
 
-  let nextX=game.x+game.vx*dt;
+    if(!e.alive)return;
 
-  const horizontalRect={
-    x:nextX,
-    y:game.y,
-    w:pw,
-    h:ph
-  };
+    e.x+=e.dir*.7;
 
-  game.map.obstacles.forEach(function(o){
-    if(rectOverlap(horizontalRect,o)){
-      if(game.vx>0){
-        nextX=o.x-pw-.1;
-        game.touchingWall=1;
-      }
+    if(e.x<e.x0){
+      e.x=e.x0;
+      e.dir=1;
+    }
 
-      if(game.vx<0){
-        nextX=o.x+o.w+.1;
-        game.touchingWall=-1;
-      }
+    if(e.x>e.x1){
+      e.x=e.x1;
+      e.dir=-1;
+    }
+
+    if(
+      now-e.lastFire>=
+      state.enemy.fireRate*1000
+    ){
+      e.lastFire=now;
+      enemyShoot(e);
+    }
+
+    /* body collision */
+
+    if(
+      overlap(
+        heroBox(),
+        e
+      )
+    ){
+      damageHero(e.x+e.w/2);
     }
   });
 
-  game.x=clamp(
-    nextX,
-    0,
-    game.map.width-pw
-  );
+  game.heroShots.forEach(b=>{
 
-  game.vy-=1280*dt;
+    if(!b.alive)return;
 
-  let nextY=game.y+game.vy*dt;
-  let landed=false;
+    b.x+=b.vx;
 
-  const surfaces=[
-    ...game.map.ground,
-    ...game.map.platforms,
-    ...game.map.obstacles
-  ];
-
-  if(game.vy<=0){
-    surfaces.forEach(function(surface){
-      if(landed)return;
-
-      const top=surface.y+surface.h;
-
-      const horizontal=
-        game.x+pw>surface.x &&
-        game.x<surface.x+surface.w;
+    game.enemies.forEach(e=>{
 
       if(
-        horizontal &&
-        game.y>=top-4 &&
-        nextY<=top
+        e.alive &&
+        b.alive &&
+        overlap(b,e)
       ){
-        nextY=top;
-        game.vy=0;
-        landed=true;
+        b.alive=false;
+        e.hp--;
+
+        if(e.hp<=0){
+          e.alive=false;
+        }
       }
     });
-  }
-
-  game.y=nextY;
-  game.grounded=landed;
-
-  if(landed){
-    game.safeX=game.x;
-  }
-
-  if(game.y<-180){
-    game.x=game.safeX;
-    game.y=220;
-    game.vy=0;
-  }
-
-  checkTaskItems();
-  checkFinish();
-  updateEnemies(dt,now);
-}
-
-function drawGame(){
-  const player=$("#fxPlayer");
-  if(!player)return;
-
-  const viewport=$("#fxStage").clientWidth;
-
-  game.camera=
-    clamp(
-      game.x-viewport*.33,
-      0,
-      Math.max(
-        0,
-        game.map.width-viewport
-      )
-    );
-
-  $("#fxWorld").style.transform=
-    "translateX("+(-game.camera)+"px)";
-
-  player.style.left=game.x+"px";
-  player.style.bottom=game.y+"px";
-
-  if(state.player.mirror){
-    if(game.vx<0){
-      player.style.transform="scaleX(-1)";
-    }
-
-    if(game.vx>0){
-      player.style.transform="scaleX(1)";
-    }
-  }
-}
-
-/* TASK ITEMS */
-
-function checkTaskItems(){
-  const pr=playerRect();
-
-  game.map.taskSlots.forEach(function(pos,index){
-    if(game.completed.has(index))return;
-
-    const s=state.taskItem.size;
 
     if(
-      rectOverlap(
-        pr,
-        {
-          x:pos.x,
-          y:pos.y,
-          w:s,
-          h:s
-        }
+      b.x<game.camX-100 ||
+      b.x>game.camX+VW+200
+    ){
+      b.alive=false;
+    }
+  });
+
+  game.enemyShots.forEach(b=>{
+
+    if(!b.alive)return;
+
+    b.x+=b.vx;
+
+    if(
+      overlap(
+        b,
+        heroBox()
       )
     ){
-      openTask(index);
+      b.alive=false;
+      damageHero(b.x);
+    }
+
+    if(
+      b.x<game.camX-100 ||
+      b.x>game.camX+VW+150
+    ){
+      b.alive=false;
+    }
+  });
+
+  game.heroShots=
+    game.heroShots.filter(b=>b.alive);
+
+  game.enemyShots=
+    game.enemyShots.filter(b=>b.alive);
+}
+
+/* ---------- draw ---------- */
+
+function drawBackground(){
+
+  const bg=asset(state.assets.background);
+
+  if(bg){
+    const im=getImage(bg);
+
+    if(im && im.complete){
+      ctx.drawImage(im,0,0,VW,VH);
+      return;
+    }
+  }
+
+  const grad=ctx.createLinearGradient(0,0,0,VH);
+
+  grad.addColorStop(0,state.colors.sky);
+  grad.addColorStop(1,"#eaf7ff");
+
+  ctx.fillStyle=grad;
+  ctx.fillRect(0,0,VW,VH);
+
+  /* simple distant hills */
+
+  ctx.fillStyle="rgba(70,130,160,.13)";
+
+  for(let i=0;i<8;i++){
+    const x=
+      ((i*250-game.camX*.2)%2000)-150;
+
+    ctx.beginPath();
+    ctx.moveTo(x,VH*.78);
+    ctx.quadraticCurveTo(
+      x+120,
+      VH*.45,
+      x+250,
+      VH*.78
+    );
+    ctx.fill();
+  }
+}
+
+function drawGround(){
+
+  game.level.ground.forEach(s=>{
+
+    const x=s.x1-game.camX;
+    const w=s.x2-s.x1;
+
+    if(
+      x+w<-50 ||
+      x>VW+50
+    )return;
+
+    ctx.fillStyle=state.colors.ground;
+
+    const img=asset(state.assets.ground);
+    const im=getImage(img);
+
+    if(im && im.complete){
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(
+        x,
+        s.y,
+        w,
+        VH-s.y+40
+      );
+      ctx.clip();
+
+      const iw=100;
+
+      for(let tx=x;tx<x+w;tx+=iw){
+        ctx.drawImage(
+          im,
+          tx,
+          s.y,
+          iw,
+          100
+        );
+      }
+
+      ctx.restore();
+
+    }else{
+      ctx.fillRect(
+        x,
+        s.y,
+        w,
+        VH-s.y+40
+      );
+    }
+
+    ctx.fillStyle="rgba(255,255,255,.25)";
+    ctx.fillRect(x,s.y,w,5);
+  });
+}
+
+function drawPlatforms(){
+
+  game.level.platforms.forEach(p=>{
+
+    const x=p.x-game.camX;
+
+    if(
+      x+p.w<-40 ||
+      x>VW+40
+    )return;
+
+    ctx.fillStyle=state.colors.platform;
+
+    ctx.fillRect(
+      x,
+      p.y,
+      p.w,
+      p.h
+    );
+
+    ctx.fillStyle="rgba(255,255,255,.28)";
+    ctx.fillRect(
+      x,
+      p.y,
+      p.w,
+      4
+    );
+  });
+}
+
+function drawSpring(s){
+
+  const x=s.x-game.camX;
+
+  const c=s.comp>0?7:0;
+
+  ctx.fillStyle="#e34646";
+
+  ctx.fillRect(
+    x,
+    game.level.GY-17+c,
+    s.w,
+    17-c
+  );
+
+  ctx.fillStyle="#ffd847";
+
+  ctx.fillRect(
+    x+4,
+    game.level.GY-24+c,
+    s.w-8,
+    8
+  );
+}
+
+function drawSpike(s){
+
+  const x=s.x-game.camX;
+
+  ctx.fillStyle="#676d78";
+
+  const n=4;
+  const sw=s.w/n;
+
+  for(let i=0;i<n;i++){
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      x+i*sw,
+      game.level.GY
+    );
+
+    ctx.lineTo(
+      x+i*sw+sw/2,
+      game.level.GY-s.h
+    );
+
+    ctx.lineTo(
+      x+(i+1)*sw,
+      game.level.GY
+    );
+
+    ctx.fill();
+  }
+}
+
+function drawTaskItem(q){
+
+  if(q.taken)return;
+
+  const x=q.x-game.camX;
+
+  if(
+    x<-70 ||
+    x>VW+70
+  )return;
+
+  const pulse=
+    1+
+    Math.sin(game.time*.07)*.08;
+
+  const size=
+    state.taskItem.size*pulse;
+
+  const img=asset(state.assets.taskItem);
+  const im=getImage(img);
+
+  if(im && im.complete){
+
+    ctx.drawImage(
+      im,
+      x-size/2,
+      q.y-size/2,
+      size,
+      size
+    );
+
+  }else{
+
+    ctx.save();
+
+    ctx.font=
+      Math.round(size*.72)+
+      "px Arial";
+
+    ctx.textAlign="center";
+    ctx.textBaseline="middle";
+
+    ctx.fillText(
+      state.taskItem.icon,
+      x,
+      q.y
+    );
+
+    ctx.restore();
+  }
+}
+
+function drawHero(){
+
+  const h=game.hero;
+
+  const x=h.x-game.camX;
+
+  const img=asset(state.assets.player);
+  const im=getImage(img);
+
+  ctx.save();
+
+  if(
+    h.inv>0 &&
+    Math.floor(h.inv/5)%2
+  ){
+    ctx.globalAlpha=.35;
+  }
+
+  if(im && im.complete){
+
+    if(
+      state.player.mirror &&
+      h.face<0
+    ){
+      ctx.translate(
+        x+h.w,
+        h.y
+      );
+
+      ctx.scale(-1,1);
+
+      ctx.drawImage(
+        im,
+        0,
+        0,
+        h.w,
+        h.h
+      );
+
+    }else{
+
+      ctx.drawImage(
+        im,
+        x,
+        h.y,
+        h.w,
+        h.h
+      );
+    }
+
+  }else{
+
+    ctx.fillStyle="#e47767";
+
+    ctx.beginPath();
+
+    ctx.roundRect(
+      x,
+      h.y,
+      h.w,
+      h.h,
+      12
+    );
+
+    ctx.fill();
+
+    ctx.fillStyle="#222";
+
+    const eyeX=
+      h.face>0
+        ? x+h.w-10
+        : x+7;
+
+    ctx.beginPath();
+    ctx.arc(
+      eyeX,
+      h.y+14,
+      3,
+      0,
+      Math.PI*2
+    );
+    ctx.fill();
+  }
+
+  ctx.restore();
+}
+
+function drawEnemy(e){
+
+  if(!e.alive)return;
+
+  const x=e.x-game.camX;
+
+  if(
+    x<-100 ||
+    x>VW+100
+  )return;
+
+  const img=asset(state.assets.enemy);
+  const im=getImage(img);
+
+  if(im && im.complete){
+
+    ctx.drawImage(
+      im,
+      x,
+      e.y,
+      e.w,
+      e.h
+    );
+
+  }else{
+
+    ctx.fillStyle="#805583";
+
+    ctx.beginPath();
+
+    ctx.roundRect(
+      x,
+      e.y,
+      e.w,
+      e.h,
+      17
+    );
+
+    ctx.fill();
+
+    ctx.font=
+      Math.round(e.h*.58)+
+      "px Arial";
+
+    ctx.textAlign="center";
+    ctx.textBaseline="middle";
+
+    ctx.fillText(
+      "👾",
+      x+e.w/2,
+      e.y+e.h/2
+    );
+  }
+
+  /* hp */
+
+  ctx.fillStyle="rgba(0,0,0,.3)";
+  ctx.fillRect(
+    x,
+    e.y-10,
+    e.w,
+    6
+  );
+
+  ctx.fillStyle="#e66168";
+
+  ctx.fillRect(
+    x,
+    e.y-10,
+    e.w*
+    (e.hp/e.maxHp),
+    6
+  );
+}
+
+function drawShots(){
+
+  game.heroShots.forEach(b=>{
+
+    const x=b.x-game.camX;
+
+    const img=asset(state.assets.heroProjectile);
+    const im=getImage(img);
+
+    if(im && im.complete){
+
+      ctx.drawImage(
+        im,
+        x,
+        b.y,
+        b.w,
+        b.h
+      );
+
+    }else{
+
+      ctx.fillStyle="#ffd441";
+
+      ctx.beginPath();
+
+      ctx.arc(
+        x+b.w/2,
+        b.y+b.h/2,
+        b.w/2,
+        0,
+        Math.PI*2
+      );
+
+      ctx.fill();
+    }
+  });
+
+  game.enemyShots.forEach(b=>{
+
+    const x=b.x-game.camX;
+
+    const img=asset(state.assets.enemyProjectile);
+    const im=getImage(img);
+
+    if(im && im.complete){
+
+      ctx.drawImage(
+        im,
+        x,
+        b.y,
+        b.w,
+        b.h
+      );
+
+    }else{
+
+      ctx.fillStyle="#9254d8";
+
+      ctx.beginPath();
+
+      ctx.arc(
+        x+b.w/2,
+        b.y+b.h/2,
+        b.w/2,
+        0,
+        Math.PI*2
+      );
+
+      ctx.fill();
     }
   });
 }
 
-function checkFinish(){
-  if(
-    rectOverlap(
-      playerRect(),
-      {
-        x:game.map.finishX,
-        y:0,
-        w:90,
-        h:150
-      }
-    )
-  ){
+function drawFinish(){
+
+  const x=
+    game.level.FINISH-
+    game.camX;
+
+  const img=asset(state.assets.finish);
+  const im=getImage(img);
+
+  if(im && im.complete){
+
+    ctx.drawImage(
+      im,
+      x-35,
+      game.level.GY-120,
+      75,
+      120
+    );
+
+  }else{
+
+    ctx.fillStyle="#eee";
+    ctx.fillRect(
+      x,
+      game.level.GY-125,
+      6,
+      125
+    );
+
+    ctx.fillStyle="#e45c5c";
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      x+6,
+      game.level.GY-120
+    );
+
+    ctx.lineTo(
+      x+65,
+      game.level.GY-95
+    );
+
+    ctx.lineTo(
+      x+6,
+      game.level.GY-70
+    );
+
+    ctx.fill();
+  }
+}
+
+function drawProgress(){
+
+  if(!state.level.progress)return;
+
+  const progress=
+    clamp(
+      game.hero.x/
+      game.level.FINISH,
+      0,
+      1
+    );
+
+  const w=Math.min(250,VW*.34);
+  const x=VW/2-w/2;
+  const y=15;
+
+  ctx.fillStyle="rgba(0,0,0,.35)";
+
+  ctx.fillRect(
+    x-4,
+    y-4,
+    w+8,
+    16
+  );
+
+  ctx.fillStyle=state.accent;
+
+  ctx.fillRect(
+    x,
+    y,
+    w*progress,
+    8
+  );
+
+  game.level.taskItems.forEach(q=>{
+
+    const tx=
+      x+
+      w*
+      (q.x/game.level.FINISH);
+
+    ctx.fillStyle=
+      q.taken
+        ? "#777"
+        : "#ff4eb9";
+
+    ctx.fillRect(
+      tx-2,
+      y-2,
+      4,
+      12
+    );
+  });
+}
+
+function render(){
+
+  ctx.setTransform(
+    DPR,
+    0,
+    0,
+    DPR,
+    0,
+    0
+  );
+
+  ctx.clearRect(
+    0,
+    0,
+    VW,
+    VH
+  );
+
+  drawBackground();
+  drawGround();
+  drawPlatforms();
+
+  game.level.springs.forEach(drawSpring);
+  game.level.spikes.forEach(drawSpike);
+  game.level.taskItems.forEach(drawTaskItem);
+
+  drawFinish();
+
+  game.enemies.forEach(drawEnemy);
+
+  drawShots();
+  drawHero();
+  drawProgress();
+}
+
+/* ---------- quiz ---------- */
+
+function showFeedback(ok){
+
+  if(!state.ui.bigFeedback)return;
+
+  const layer=$("#fxBigFeedback");
+
+  layer.innerHTML="";
+
+  const d=document.createElement("div");
+
+  d.className="fx-fb";
+
+  d.textContent=ok?"✓":"✕";
+
+  d.style.background=
+    ok
+      ? state.ui.correct
+      : state.ui.wrong;
+
+  d.style.boxShadow=
+    "0 0 35px "+
+    (
+      ok
+        ? state.ui.correct
+        : state.ui.wrong
+    );
+
+  layer.appendChild(d);
+
+  layer.classList.remove("fx-hidden");
+
+  setTimeout(
+    ()=>layer.classList.add("fx-hidden"),
+    700
+  );
+}
+
+function checkAnswer(ok,index){
+
+  if(ok){
+
+    $("#fxFeedback").textContent="Верно!";
+    $("#fxFeedback").style.color=state.ui.correct;
+
+    showFeedback(true);
+
+    setTimeout(
+      ()=>completeTask(index),
+      650
+    );
+
+  }else{
+
+    $("#fxFeedback").textContent="Попробуй ещё раз";
+    $("#fxFeedback").style.color=state.ui.wrong;
+
+    showFeedback(false);
+
     if(
-      state.settings.lockFinish &&
-      game.completed.size<state.tasks.length
+      state.enemy.enabled &&
+      state.enemy.spawnWrong
     ){
-      return;
+      spawnEnemy(
+        game.hero.x+250
+      );
     }
-
-    finishGame();
   }
 }
 
-/* QUESTION RENDERING */
+function answerButton(text,img){
 
-function openTask(index){
-  if(game.paused || game.completed.has(index))return;
+  const b=document.createElement("button");
+  b.className="fx-answer";
 
-  const task=state.tasks[index];
-  if(!task)return;
+  if(img){
 
-  game.paused=true;
-  game.activeTask=index;
-  game.selected.clear();
-
-  $("#fxQuestionTitle").textContent=
-    task.title||("Задание "+(index+1));
-
-  $("#fxQuestionText").textContent=
-    task.text||"";
-
-  $("#fxFeedbackText").textContent="";
-
-  const questionImg=assetUrl(task.image);
-  const imageEl=$("#fxQuestionImage");
-
-  if(questionImg){
-    imageEl.src=questionImg;
-    imageEl.classList.remove("fx-hidden");
-  }else{
-    imageEl.classList.add("fx-hidden");
-  }
-
-  $("#fxHintBox").classList.add("fx-hidden");
-
-  if(task.hint){
-    $("#fxHintButton").classList.remove("fx-hidden");
-
-    $("#fxHintButton").onclick=function(){
-      $("#fxHintBox").textContent=task.hint;
-      $("#fxHintBox").classList.remove("fx-hidden");
-    };
-  }else{
-    $("#fxHintButton").classList.add("fx-hidden");
-  }
-
-  renderTaskByType(task,index);
-
-  $("#fxTaskOverlay").classList.remove("fx-hidden");
-
-  applyUIStyles();
-}
-
-function createAnswerButton(text,image){
-  const button=document.createElement("button");
-  button.className="fx-answer";
-
-  if(image){
-    const img=document.createElement("img");
-    img.src=image;
-    button.appendChild(img);
+    const im=document.createElement("img");
+    im.src=img;
+    b.appendChild(im);
   }
 
   if(text){
+
     const span=document.createElement("span");
     span.textContent=text;
-    button.appendChild(span);
+    b.appendChild(span);
   }
 
-  return button;
+  return b;
 }
 
-function makeMainButton(text){
-  const button=document.createElement("button");
-  button.className="fx-btn primary";
-  button.textContent=text;
-  return button;
+function primary(text){
+
+  const b=document.createElement("button");
+
+  b.className="fx-btn primary";
+  b.textContent=text;
+
+  return b;
 }
 
-function renderTaskByType(task,index){
+function openTask(index){
+
+  if(game.paused)return;
+
+  const t=state.tasks[index];
+  if(!t)return;
+
+  game.paused=true;
+  game.currentTask=index;
+  game.selected.clear();
+
+  $("#fxQuestionTitle").textContent=
+    t.title||("Задание "+(index+1));
+
+  $("#fxQuestionText").textContent=t.text||"";
+  $("#fxFeedback").textContent="";
+
+  const qi=asset(t.image);
+
+  if(qi){
+
+    $("#fxQuestionImage").src=qi;
+
+    $("#fxQuestionImage")
+      .classList.remove("fx-hidden");
+
+  }else{
+
+    $("#fxQuestionImage")
+      .classList.add("fx-hidden");
+  }
+
+  $("#fxHint").classList.add("fx-hidden");
+
+  if(t.hint){
+
+    $("#fxHintBtn").classList.remove("fx-hidden");
+
+    $("#fxHintBtn").onclick=()=>{
+
+      $("#fxHint").textContent=t.hint;
+
+      $("#fxHint")
+        .classList.remove("fx-hidden");
+    };
+
+  }else{
+
+    $("#fxHintBtn")
+      .classList.add("fx-hidden");
+  }
+
+  renderTask(t,index);
+
+  $("#fxTaskOverlay")
+    .classList.remove("fx-hidden");
+
+  applyUI();
+}
+
+function renderTask(t,index){
+
   const box=$("#fxAnswers");
+
   box.innerHTML="";
 
-  if(task.type==="oral"){
-    const button=makeMainButton("Готово");
-    button.onclick=()=>completeTask(index);
-    box.appendChild(button);
+  if(t.type==="oral"){
+
+    const b=primary("Готово");
+
+    b.onclick=()=>completeTask(index);
+
+    box.appendChild(b);
     return;
   }
 
-  if(task.type==="truefalse"){
+  if(t.type==="free"){
+
+    const ta=document.createElement("textarea");
+
+    ta.placeholder="Введите ответ";
+
+    const b=primary("Готово");
+
+    b.onclick=()=>completeTask(index);
+
+    box.append(ta,b);
+    return;
+  }
+
+  if(t.type==="truefalse"){
+
     [
       ["Верно","true"],
       ["Неверно","false"]
-    ].forEach(function(pair){
-      const button=createAnswerButton(pair[0]);
+    ].forEach(pair=>{
 
-      button.onclick=function(){
-        checkAnswer(
-          pair[1]===task.answer,
-          index
-        );
-      };
+      const b=answerButton(pair[0]);
 
-      box.appendChild(button);
-    });
-
-    return;
-  }
-
-  if(["fill","textanswer"].includes(task.type)){
-    const input=document.createElement("input");
-    input.type="text";
-    input.placeholder="Введите ответ";
-    input.style.margin="10px 0";
-
-    const button=makeMainButton("Проверить");
-
-    button.onclick=function(){
-      const entered=input.value.trim().toLowerCase();
-      const correct=String(task.answer).trim().toLowerCase();
-
-      checkAnswer(
-        entered===correct,
+      b.onclick=()=>checkAnswer(
+        pair[1]===t.answer,
         index
       );
-    };
 
-    box.appendChild(input);
-    box.appendChild(button);
-
-    return;
-  }
-
-  if(task.type==="free"){
-    const area=document.createElement("textarea");
-    area.className="fx-free-answer";
-    area.placeholder="Введите ответ";
-
-    const button=makeMainButton("Готово");
-
-    button.onclick=function(){
-      completeTask(index);
-    };
-
-    box.appendChild(area);
-    box.appendChild(button);
+      box.appendChild(b);
+    });
 
     return;
   }
 
-  if(task.type==="matching"){
-    const left=task.pairs.map(p=>p[0]);
-    const right=task.pairs.map(p=>p[1]).sort(()=>Math.random()-.5);
+  if(
+    t.type==="fill" ||
+    t.type==="textanswer"
+  ){
 
-    const grid=document.createElement("div");
-    grid.className="fx-match-grid";
+    const input=document.createElement("input");
+
+    input.placeholder="Введите ответ";
+
+    const b=primary("Проверить");
+
+    b.onclick=()=>{
+
+      const a=
+        input.value.trim().toLowerCase();
+
+      const c=
+        String(t.answer)
+          .trim()
+          .toLowerCase();
+
+      checkAnswer(a===c,index);
+    };
+
+    box.append(input,b);
+    return;
+  }
+
+  if(t.type==="matching"){
 
     let selectedLeft=null;
-    let matches={};
+    const matches={};
 
-    const leftBox=document.createElement("div");
-    const rightBox=document.createElement("div");
+    const left=document.createElement("div");
+    const right=document.createElement("div");
 
-    left.forEach(function(item){
-      const b=createAnswerButton(item);
+    left.style.flex="1";
+    right.style.flex="1";
 
-      b.onclick=function(){
-        leftBox.querySelectorAll(".fx-answer").forEach(x=>x.classList.remove("selected"));
+    const wrap=document.createElement("div");
+
+    wrap.style.display="flex";
+    wrap.style.gap="8px";
+
+    const shuffled=
+      (t.pairs||[])
+      .map(p=>p[1])
+      .sort(()=>Math.random()-.5);
+
+    (t.pairs||[]).forEach(p=>{
+
+      const b=answerButton(p[0]);
+
+      b.onclick=()=>{
+
+        left.querySelectorAll(".fx-answer")
+          .forEach(x=>x.classList.remove("selected"));
+
         b.classList.add("selected");
-        selectedLeft=item;
+        selectedLeft=p[0];
       };
 
-      leftBox.appendChild(b);
+      left.appendChild(b);
     });
 
-    right.forEach(function(item){
-      const b=createAnswerButton(item);
+    shuffled.forEach(v=>{
 
-      b.onclick=function(){
+      const b=answerButton(v);
+
+      b.onclick=()=>{
+
         if(!selectedLeft)return;
 
-        matches[selectedLeft]=item;
-
+        matches[selectedLeft]=v;
         b.classList.add("selected");
       };
 
-      rightBox.appendChild(b);
+      right.appendChild(b);
     });
 
-    grid.appendChild(leftBox);
-    grid.appendChild(rightBox);
+    wrap.append(left,right);
+    box.appendChild(wrap);
 
-    box.appendChild(grid);
+    const check=primary("Проверить");
 
-    const check=makeMainButton("Проверить");
+    check.onclick=()=>{
 
-    check.onclick=function(){
-      const ok=task.pairs.every(function(pair){
-        return matches[pair[0]]===pair[1];
-      });
+      const ok=
+        (t.pairs||[])
+        .every(p=>
+          matches[p[0]]===p[1]
+        );
 
       checkAnswer(ok,index);
     };
 
     box.appendChild(check);
-
     return;
   }
 
-  if(task.type==="order"){
-    let current=(task.items||[]).slice().sort(()=>Math.random()-.5);
+  if(t.type==="order"){
+
+    const correct=(t.items||[]).slice();
+
+    let current=
+      correct.slice()
+      .sort(()=>Math.random()-.5);
 
     const list=document.createElement("div");
-    list.className="fx-order-list";
+
+    list.className="fx-order";
 
     function redraw(){
+
       list.innerHTML="";
 
-      current.forEach(function(item,i){
-        const row=document.createElement("div");
-        row.className="fx-order-row";
+      current.forEach((item,i)=>{
+
+        const r=document.createElement("div");
+
+        r.className="fx-order-row";
 
         const text=document.createElement("div");
         text.textContent=item;
@@ -3197,242 +3565,187 @@ function renderTaskByType(task,index){
         down.className="fx-btn small";
         down.textContent="↓";
 
-        up.onclick=function(){
+        up.onclick=()=>{
+
           if(i>0){
-            [current[i-1],current[i]]=[current[i],current[i-1]];
+            [current[i-1],current[i]]=
+              [current[i],current[i-1]];
+
             redraw();
           }
         };
 
-        down.onclick=function(){
+        down.onclick=()=>{
+
           if(i<current.length-1){
-            [current[i+1],current[i]]=[current[i],current[i+1]];
+            [current[i+1],current[i]]=
+              [current[i],current[i+1]];
+
             redraw();
           }
         };
 
-        row.append(text,up,down);
-        list.appendChild(row);
+        r.append(text,up,down);
+        list.appendChild(r);
       });
     }
 
     redraw();
-
     box.appendChild(list);
 
-    const check=makeMainButton("Проверить");
+    const check=primary("Проверить");
 
-    check.onclick=function(){
-      const ok=
-        JSON.stringify(current)===
-        JSON.stringify(task.items||[]);
-
-      checkAnswer(ok,index);
-    };
+    check.onclick=()=>checkAnswer(
+      JSON.stringify(current)===
+      JSON.stringify(correct),
+      index
+    );
 
     box.appendChild(check);
-
     return;
   }
 
-  if(task.type==="sentence"){
-    const correct=(task.items||[]).slice();
-    const pool=correct.slice().sort(()=>Math.random()-.5);
-    const built=[];
+  if(t.type==="sentence"){
 
-    const poolBox=document.createElement("div");
-    poolBox.className="fx-sentence-pool";
+    const correct=(t.items||[]).slice();
 
-    const builtBox=document.createElement("div");
-    builtBox.className="fx-sentence-built";
+    let pool=
+      correct.slice()
+      .sort(()=>Math.random()-.5);
+
+    let built=[];
+
+    const p=document.createElement("div");
+    const b=document.createElement("div");
+
+    p.className="fx-pool";
+    b.className="fx-built";
 
     function redraw(){
-      poolBox.innerHTML="";
-      builtBox.innerHTML="";
 
-      pool.forEach(function(word,i){
-        const b=document.createElement("button");
-        b.className="fx-word";
-        b.textContent=word;
+      p.innerHTML="";
+      b.innerHTML="";
 
-        b.onclick=function(){
+      pool.forEach((word,i)=>{
+
+        const x=document.createElement("button");
+
+        x.className="fx-word";
+        x.textContent=word;
+
+        x.onclick=()=>{
+
           built.push(word);
           pool.splice(i,1);
+
           redraw();
         };
 
-        poolBox.appendChild(b);
+        p.appendChild(x);
       });
 
-      built.forEach(function(word,i){
-        const b=document.createElement("button");
-        b.className="fx-word";
-        b.textContent=word;
+      built.forEach((word,i)=>{
 
-        b.onclick=function(){
+        const x=document.createElement("button");
+
+        x.className="fx-word";
+        x.textContent=word;
+
+        x.onclick=()=>{
+
           pool.push(word);
           built.splice(i,1);
+
           redraw();
         };
 
-        builtBox.appendChild(b);
+        b.appendChild(x);
       });
     }
 
     redraw();
 
-    box.append(poolBox,builtBox);
+    box.append(p,b);
 
-    const check=makeMainButton("Проверить");
+    const check=primary("Проверить");
 
-    check.onclick=function(){
+    check.onclick=()=>checkAnswer(
+      JSON.stringify(built)===
+      JSON.stringify(correct),
+      index
+    );
+
+    box.appendChild(check);
+    return;
+  }
+
+  /* single / multi / image */
+
+  (t.options||[]).forEach((o,i)=>{
+
+    const b=answerButton(
+      o.text,
+      asset(o.image)
+    );
+
+    if(t.type==="multi"){
+
+      b.onclick=()=>{
+
+        if(game.selected.has(i)){
+          game.selected.delete(i);
+          b.classList.remove("selected");
+        }else{
+          game.selected.add(i);
+          b.classList.add("selected");
+        }
+      };
+
+    }else{
+
+      b.onclick=()=>checkAnswer(
+        !!o.correct,
+        index
+      );
+    }
+
+    box.appendChild(b);
+  });
+
+  if(t.type==="multi"){
+
+    const check=primary("Проверить");
+
+    check.onclick=()=>{
+
+      const right=
+        t.options
+        .map((o,i)=>o.correct?i:-1)
+        .filter(i=>i>=0);
+
+      const selected=
+        [...game.selected]
+        .sort((a,b)=>a-b);
+
       const ok=
-        JSON.stringify(built)===
-        JSON.stringify(correct);
+        right.length===selected.length &&
+        right.every((v,i)=>v===selected[i]);
 
       checkAnswer(ok,index);
     };
 
     box.appendChild(check);
-
-    return;
   }
-
-  if(["single","multi","imageanswer"].includes(task.type)){
-    task.options.forEach(function(option,oi){
-      const button=createAnswerButton(
-        option.text,
-        assetUrl(option.image)
-      );
-
-      if(task.type==="multi"){
-        button.onclick=function(){
-          if(game.selected.has(oi)){
-            game.selected.delete(oi);
-            button.classList.remove("selected");
-          }else{
-            game.selected.add(oi);
-            button.classList.add("selected");
-          }
-        };
-      }else{
-        button.onclick=function(){
-          checkAnswer(
-            !!option.correct,
-            index
-          );
-        };
-      }
-
-      box.appendChild(button);
-    });
-
-    if(task.type==="multi"){
-      const button=makeMainButton("Проверить");
-
-      button.onclick=function(){
-        const correct=
-          task.options
-            .map((o,i)=>o.correct?i:-1)
-            .filter(i=>i>=0);
-
-        const selected=
-          Array.from(game.selected)
-            .sort((a,b)=>a-b);
-
-        const ok=
-          correct.length===selected.length &&
-          correct.every((v,i)=>v===selected[i]);
-
-        checkAnswer(ok,index);
-      };
-
-      box.appendChild(button);
-    }
-
-    return;
-  }
-}
-
-function checkAnswer(correct,index){
-  if(correct){
-    $("#fxFeedbackText").textContent=state.texts.correct;
-    $("#fxFeedbackText").style.color=state.ui.correctColor;
-
-    showBigFeedback(true);
-
-    setTimeout(function(){
-      completeTask(index);
-    },620);
-
-  }else{
-    $("#fxFeedbackText").textContent=state.texts.wrong;
-    $("#fxFeedbackText").style.color=state.ui.wrongColor;
-
-    showBigFeedback(false);
-
-    if(
-      state.enemy.enabled &&
-      state.enemy.spawnOnWrong
-    ){
-      spawnEnemy(game.x+420);
-    }
-  }
-}
-
-function showBigFeedback(correct,quick){
-  if(!state.ui.bigFeedback)return;
-
-  const layer=$("#fxBigFeedback");
-  layer.innerHTML="";
-
-  const bubble=document.createElement("div");
-
-  bubble.className=
-    "fx-feedback-bubble "+
-    (correct?"correct":"wrong");
-
-  bubble.textContent=correct?"✓":"✕";
-
-  bubble.style.background=
-    correct
-      ? state.ui.correctColor
-      : state.ui.wrongColor;
-
-  if(state.ui.feedbackGlow){
-    bubble.style.boxShadow=
-      "0 0 35px "+
-      (
-        correct
-          ? state.ui.correctColor
-          : state.ui.wrongColor
-      );
-  }else{
-    bubble.style.boxShadow="none";
-  }
-
-  layer.appendChild(bubble);
-  layer.classList.remove("fx-hidden");
-
-  setTimeout(function(){
-    layer.classList.add("fx-hidden");
-  },quick?450:720);
 }
 
 function completeTask(index){
+
   game.completed.add(index);
 
-  const item=
-    $("#fxWorld")
-      .querySelector(
-        '[data-task-index="'+index+'"]'
-      );
+  $("#fxTaskOverlay")
+    .classList.add("fx-hidden");
 
-  if(item)item.remove();
-
-  $("#fxTaskOverlay").classList.add("fx-hidden");
-
-  game.activeTask=-1;
+  game.currentTask=-1;
   game.paused=false;
 
   renderHud();
@@ -3440,222 +3753,149 @@ function completeTask(index){
   $("#fxStage").focus();
 }
 
-function finishGame(){
-  if(game.finished)return;
+/* ---------- UI ---------- */
 
-  game.finished=true;
-  game.paused=true;
+function renderHud(){
 
-  $("#fxFinishTitlePreview").textContent=
-    state.texts.finishTitle;
+  const hud=$("#fxHud");
 
-  $("#fxFinishTextPreview").textContent=
-    state.texts.finishText+
-    "\n\nВыполнено: "+
+  hud.innerHTML="";
+
+  const p=document.createElement("div");
+
+  p.className="fx-pill";
+
+  p.textContent=
+    "❓ "+
     game.completed.size+
     "/"+
     state.tasks.length;
 
-  $("#fxFinishOverlay").classList.remove("fx-hidden");
+  hud.appendChild(p);
 }
 
-/* UI */
+function updateStart(){
 
-function applyUIStyles(){
-  root.style.setProperty("--accent",state.accent);
-  root.style.fontFamily=state.ui.font;
-
-  [
-    $("#fxQuestionBox"),
-    $("#fxFinishBox")
-  ].forEach(function(box){
-    if(!box)return;
-
-    box.style.background=state.ui.questionBg;
-    box.style.borderColor=state.ui.questionBorder;
-    box.style.borderWidth=state.ui.borderWidth+"px";
-    box.style.borderRadius=state.ui.borderRadius+"px";
-
-    if(state.ui.glowEnabled){
-      box.style.boxShadow=
-        "0 0 "+
-        state.ui.glowPower+
-        "px "+
-        state.ui.glowColor;
-    }else{
-      box.style.boxShadow="0 10px 35px rgba(0,0,0,.22)";
-    }
-  });
-
-  $$(".fx-question-title").forEach(function(el){
-    el.style.color=state.ui.titleColor;
-    el.style.fontSize=state.ui.titleSize+"px";
-  });
-
-  $$(".fx-question-text").forEach(function(el){
-    el.style.color=state.ui.questionColor;
-    el.style.fontSize=state.ui.questionSize+"px";
-  });
-
-  $$(".fx-answer").forEach(function(el){
-    el.style.background=state.ui.answerBg;
-    el.style.color=state.ui.answerColor;
-    el.style.borderColor=state.ui.answerBorder;
-    el.style.borderWidth="2px";
-    el.style.fontSize=state.ui.answerSize+"px";
-  });
-
-  $$(".fx-answer.selected").forEach(function(el){
-    el.style.background=state.ui.selectedBg;
-  });
-
-  $$(".fx-btn.primary").forEach(function(el){
-    el.style.background=state.ui.buttonColor;
-  });
-
-  applyStartStyles();
-
-  const player=$("#fxPlayer");
-
-  if(player){
-    applyHeroGlow(player);
-  }
-}
-
-function applyStartStyles(){
-  const box=$("#fxStartBox");
-
-  box.style.background=state.start.bg;
-  box.style.borderColor=state.start.border;
-  box.style.borderWidth="3px";
-  box.style.borderRadius="22px";
-
-  if(state.start.glow){
-    box.style.boxShadow=
-      "0 0 "+
-      state.start.glowPower+
-      "px "+
-      state.start.glowColor;
-  }else{
-    box.style.boxShadow="0 12px 40px rgba(0,0,0,.25)";
-  }
-
-  $("#fxStartTitle").style.color=state.start.titleColor;
-  $("#fxStartSubtitlePreview").style.color=state.start.textColor;
-  $("#fxStartInstruction").style.color=state.start.textColor;
-
-  $("#fxStartButton").style.background=state.start.buttonBg;
-  $("#fxStartButton").style.color=state.start.buttonText;
-}
-
-function applyHeroGlow(player){
-  if(!player)return;
-
-  player.style.filter=
-    state.player.glow
-      ? "drop-shadow(0 0 12px "+state.player.glowColor+")"
-      : "none";
-}
-
-function updateVisibleText(){
   $("#fxStartTitle").textContent=state.title;
 
   $("#fxStartSubtitlePreview").textContent=
     state.start.subtitle;
 
-  $("#fxStartInstruction").textContent=
-    state.settings.showInstruction
-      ? state.texts.instruction
-      : "";
+  const img=asset(state.assets.startImage);
 
-  $("#fxStartInstructionWrap").style.display=
-    state.settings.showInstruction
-      ? "block"
-      : "none";
+  if(img){
 
-  $("#fxStartButton").textContent=state.texts.start;
+    $("#fxStartImage").src=img;
 
-  const startImg=assetUrl(state.assets.startImage);
+    $("#fxStartImage")
+      .classList.remove("fx-hidden");
 
-  if(startImg){
-    $("#fxStartImage").src=startImg;
-    $("#fxStartImage").classList.remove("fx-hidden");
   }else{
-    $("#fxStartImage").classList.add("fx-hidden");
-  }
 
-  applyUIStyles();
+    $("#fxStartImage")
+      .classList.add("fx-hidden");
+  }
 }
 
-/* LOOP */
+function applyUI(){
 
-function startLoop(){
-  function frame(now){
-    const dt=
-      Math.min(
-        (now-game.last)/1000,
-        .032
-      );
+  root.style.setProperty(
+    "--accent",
+    state.accent
+  );
 
-    game.last=now;
+  root.style.fontFamily=state.ui.font;
 
-    if(
-      game.started &&
-      !game.paused &&
-      !game.finished
-    ){
-      updateGame(dt,now);
-    }
+  [$("#fxQuestionBox"),$("#fxFinishBox")]
+    .forEach(box=>{
 
-    drawGame();
+      if(!box)return;
 
-    game.raf=requestAnimationFrame(frame);
-  }
+      box.style.background=state.ui.qBg;
+      box.style.borderColor=state.ui.qBorder;
+      box.style.borderWidth=state.ui.borderWidth+"px";
+      box.style.borderRadius=state.ui.radius+"px";
 
-  game.raf=requestAnimationFrame(frame);
+      box.style.boxShadow=
+        state.ui.glow
+          ? "0 0 "+state.ui.glowPower+"px "+state.ui.glowColor
+          : "0 12px 38px rgba(0,0,0,.22)";
+    });
+
+  $$(".fx-q-title").forEach(x=>{
+    x.style.color=state.ui.titleColor;
+  });
+
+  $$(".fx-q-text").forEach(x=>{
+    x.style.color=state.ui.textColor;
+  });
+
+  $$(".fx-answer").forEach(x=>{
+
+    x.style.background=state.ui.answerBg;
+    x.style.color=state.ui.answerColor;
+    x.style.borderColor=state.ui.answerBorder;
+    x.style.borderWidth="2px";
+  });
+
+  const start=$("#fxStartBox");
+
+  start.style.background=state.start.bg;
+  start.style.borderColor=state.start.border;
+  start.style.borderWidth="3px";
+  start.style.borderRadius="22px";
+
+  start.style.boxShadow=
+    state.start.glow
+      ? "0 0 "+state.start.glowPower+"px "+state.start.glowColor
+      : "0 12px 40px rgba(0,0,0,.25)";
 }
 
-/* CONTROLS */
+/* ---------- keyboard ---------- */
 
-$("#fxStage").addEventListener("pointerdown",function(){
+$("#fxStage").addEventListener("pointerdown",()=>{
   $("#fxStage").focus();
 });
 
-$("#fxStage").addEventListener("keydown",function(e){
+$("#fxStage").addEventListener("keydown",e=>{
+
   if(
     [
       "ArrowLeft",
       "ArrowRight",
       "ArrowUp",
-      "ArrowDown",
-      " "
+      " ",
+      "a","A",
+      "d","D",
+      "w","W"
     ].includes(e.key)
   ){
     e.preventDefault();
   }
 
-  if(e.key==="ArrowLeft"){
+  if(
+    e.key==="ArrowLeft" ||
+    e.key==="a" ||
+    e.key==="A"
+  ){
     game.keys.left=true;
   }
 
-  if(e.key==="ArrowRight"){
+  if(
+    e.key==="ArrowRight" ||
+    e.key==="d" ||
+    e.key==="D"
+  ){
     game.keys.right=true;
   }
 
-  if(e.key==="ArrowUp"){
-    if(!game.keys.up){
-      jump();
-    }
-
-    game.keys.up=true;
-  }
-
-  if(e.key==="ArrowDown"){
-    game.keys.down=true;
-
-    if(game.grounded){
-      game.y-=8;
-      game.vy=-120;
+  if(
+    e.key==="ArrowUp" ||
+    e.key==="w" ||
+    e.key==="W"
+  ){
+    if(!game.keys.jump){
+      pressJump();
     }
   }
 
@@ -3664,70 +3904,166 @@ $("#fxStage").addEventListener("keydown",function(e){
   }
 });
 
-$("#fxStage").addEventListener("keyup",function(e){
-  if(e.key==="ArrowLeft")game.keys.left=false;
-  if(e.key==="ArrowRight")game.keys.right=false;
-  if(e.key==="ArrowUp")game.keys.up=false;
-  if(e.key==="ArrowDown")game.keys.down=false;
+$("#fxStage").addEventListener("keyup",e=>{
+
+  if(
+    e.key==="ArrowLeft" ||
+    e.key==="a" ||
+    e.key==="A"
+  ){
+    game.keys.left=false;
+  }
+
+  if(
+    e.key==="ArrowRight" ||
+    e.key==="d" ||
+    e.key==="D"
+  ){
+    game.keys.right=false;
+  }
+
+  if(
+    e.key==="ArrowUp" ||
+    e.key==="w" ||
+    e.key==="W"
+  ){
+    releaseJump();
+  }
 });
 
-$("#fxStartButton").addEventListener("click",function(){
-  game.started=true;
+/* ---------- loop ---------- */
 
-  $("#fxStartOverlay").classList.add("fx-hidden");
+function loop(now){
 
-  $("#fxStage").focus();
-});
+  const dt=
+    Math.min(
+      (now-game.last)/16.6667,
+      2
+    );
 
-$("#fxAgain").addEventListener("click",restartGame);
-$("#fxRestart").addEventListener("click",restartGame);
-$("#fxRestartGame").addEventListener("click",restartGame);
+  game.last=now;
 
-$("#fxReset").addEventListener("click",function(){
-  state=JSON.parse(JSON.stringify(defaultState));
-  nextTaskId=3;
+  /*
+    Reference game is based on fixed-ish 60 fps physics.
+    Run one or two physics iterations depending on elapsed time.
+  */
 
-  syncInputs();
-  renderAssetPickers();
-  renderTasks();
-  restartGame();
-});
+  if(
+    game.running &&
+    !game.paused &&
+    !game.finished
+  ){
+    const steps=Math.max(1,Math.round(dt));
 
-/* EXPORT */
+    for(let i=0;i<steps;i++){
+      updatePhysics();
+    }
+  }
 
-function safeJSON(obj){
-  return JSON.stringify(obj)
-    .replace(/</g,"\\u003c")
-    .replace(/>/g,"\\u003e")
-    .replace(/&/g,"\\u0026");
+  render();
+
+  game.raf=requestAnimationFrame(loop);
 }
 
-function generateIframeCode(){
-  const snapshot=safeJSON(state);
+/* ---------- start / reset ---------- */
 
-  const exportHTML=
+$("#fxStartBtn").onclick=()=>{
+
+  game.running=true;
+
+  $("#fxStartOverlay")
+    .classList.add("fx-hidden");
+
+  $("#fxStage").focus();
+};
+
+$("#fxAgain").onclick=resetGame;
+$("#fxRestart").onclick=resetGame;
+$("#fxRestartGame").onclick=resetGame;
+
+$("#fxReset").onclick=()=>{
+
+  state=JSON.parse(JSON.stringify(defaults));
+
+  nextTaskId=
+    Math.max(0,...state.tasks.map(t=>t.id))+1;
+
+  syncInputs();
+  renderPickers();
+  renderTasks();
+  resetGame();
+};
+
+/* ---------- export ---------- */
+
+function generateIframe(){
+
+  /*
+    Clone this self-contained widget itself.
+    In exported mode the editor/header/tabs are hidden,
+    but the exact same game engine is used.
+  */
+
+  const clone=root.cloneNode(true);
+
+  clone.removeAttribute("data-fx-ready");
+  clone.dataset.exported="1";
+
+  clone.querySelectorAll(
+    ".fx-editor-side,.fx-head,.fx-tabs,.fx-preview-head"
+  ).forEach(el=>{
+    el.style.display="none";
+  });
+
+  const layout=
+    clone.querySelector(".fx-layout");
+
+  if(layout){
+    layout.style.display="block";
+    layout.style.padding="0";
+  }
+
+  const preview=
+    clone.querySelector(".fx-preview");
+
+  if(preview){
+    preview.style.position="static";
+  }
+
+  const stage=
+    clone.querySelector(".fx-stage");
+
+  if(stage){
+    stage.style.minHeight="600px";
+    stage.style.border="0";
+    stage.style.borderRadius="0";
+  }
+
+  const injected=
+    '<script>'+
+    'window.__FX_EXPORTED_STATE='+
+    JSON.stringify(state)
+      .replace(/</g,"\\u003c")+
+    ';<\\/script>';
+
+  const html=
     '<!doctype html>'+
     '<html>'+
     '<head>'+
-    '<meta charset="utf-8">'+
-    '<meta name="viewport" content="width=device-width,initial-scale=1">'+
-    '<style>'+
-    'html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#111;font-family:Arial,sans-serif}'+
-    '#fx_export_notice{display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:30px;text-align:center;background:#f5f3ee;color:#333;font:700 18px Arial}'+
-    '</style>'+
+      '<meta charset="utf-8">'+
+      '<meta name="viewport" content="width=device-width,initial-scale=1">'+
+      '<style>html,body{margin:0;width:100%;height:100%;overflow:hidden}body{background:#111}#FX_ROOT{height:100%}#FX_ROOT .fx-app{height:100%;border:0!important;border-radius:0!important}#FX_ROOT .fx-layout{height:100%}#FX_ROOT .fx-preview,#FX_ROOT .fx-stage{height:100%;max-height:none!important;aspect-ratio:auto!important}</style>'+
     '</head>'+
     '<body>'+
-    '<div id="fx_export_notice">Настройки игры сохранены. Экспорт игрового движка подключается здесь.</div>'+
-    '<script>'+
-    'window.FX_GAME_STATE='+snapshot+';'+
-    '<\\/script>'+
+      injected+
+      clone.outerHTML+
     '</body>'+
     '</html>';
 
   return (
     '<iframe '+
     'src="data:text/html;charset=utf-8,'+
-    encodeURIComponent(exportHTML)+
+    encodeURIComponent(html)+
     '" '+
     'width="100%" '+
     'height="650" '+
@@ -3737,45 +4073,49 @@ function generateIframeCode(){
   );
 }
 
-async function copyCode(){
-  const code=generateIframeCode();
+async function copyIframe(){
+
+  const code=generateIframe();
 
   $("#fxCode").value=code;
 
   try{
-    if(
-      navigator.clipboard &&
-      navigator.clipboard.writeText
-    ){
-      await navigator.clipboard.writeText(code);
 
-      $("#fxPublishStatus").textContent="✓ Код скопирован";
-      return;
-    }
-  }catch(err){}
+    await navigator.clipboard.writeText(code);
 
-  $("#fxCode").classList.remove("fx-hidden");
-  $("#fxCode").focus();
-  $("#fxCode").select();
+    $("#fxPublishStatus")
+      .textContent="✓ Код скопирован";
 
-  $("#fxPublishStatus").textContent=
-    "Скопируйте код из поля вручную";
+  }catch(err){
+
+    $("#fxCode")
+      .classList.remove("fx-hidden");
+
+    $("#fxCode").select();
+
+    $("#fxPublishStatus")
+      .textContent="Скопируйте код вручную";
+  }
 }
 
-$("#fxCopy").addEventListener("click",copyCode);
-$("#fxCopyTop").addEventListener("click",copyCode);
+$("#fxCopy").onclick=copyIframe;
+$("#fxCopyTop").onclick=copyIframe;
 
-$("#fxShowCode").addEventListener("click",function(){
-  $("#fxCode").value=generateIframeCode();
-  $("#fxCode").classList.toggle("fx-hidden");
-});
+$("#fxShowCode").onclick=()=>{
 
-/* INIT */
+  $("#fxCode").value=generateIframe();
+
+  $("#fxCode")
+    .classList.toggle("fx-hidden");
+};
+
+/* ---------- init ---------- */
 
 syncInputs();
-renderAssetPickers();
+renderPickers();
 renderTasks();
-restartGame();
+resizeCanvas();
+resetGame();
 
 })();
 </script>
