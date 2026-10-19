@@ -1,58 +1,72 @@
 <div id="FX_ROOT">
 <style>
 #FX_ROOT{
-  --accent:#766b8f;
+  --accent:#6757a8;
   --page:#f4f2ee;
-  --line:#ddd8d2;
+  --panel:#ffffff;
+  --line:#ddd8d0;
   --text:#28252d;
+  --muted:#777;
   width:100%;
   font-family:Arial,sans-serif;
   color:var(--text);
 }
 #FX_ROOT *{box-sizing:border-box}
-#FX_ROOT button,#FX_ROOT input,#FX_ROOT select,#FX_ROOT textarea{font:inherit}
+#FX_ROOT button,
+#FX_ROOT input,
+#FX_ROOT select,
+#FX_ROOT textarea{font:inherit}
 #FX_ROOT button{cursor:pointer}
 
 #FX_ROOT .fx-app{
-  overflow:hidden;
   background:var(--page);
   border:1px solid var(--line);
   border-radius:18px;
+  overflow:hidden;
 }
-#FX_ROOT .fx-head{
+#FX_ROOT .fx-header{
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:10px;
   flex-wrap:wrap;
-  padding:13px 16px;
+  padding:14px 16px;
   background:#fff;
   border-bottom:1px solid var(--line);
 }
-#FX_ROOT .fx-logo{font-size:20px;font-weight:900}
-#FX_ROOT .fx-head-actions{display:flex;gap:7px;flex-wrap:wrap}
-
+#FX_ROOT .fx-brand{
+  font-size:20px;
+  font-weight:900;
+}
+#FX_ROOT .fx-header-actions{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
 #FX_ROOT .fx-tabs{
   display:flex;
   gap:5px;
-  overflow:auto;
   padding:9px;
+  overflow:auto;
   background:#fff;
   border-bottom:1px solid var(--line);
 }
 #FX_ROOT .fx-tab{
   border:0;
-  white-space:nowrap;
-  padding:9px 11px;
   border-radius:9px;
+  padding:9px 11px;
   background:#efede7;
-  font-weight:700;
+  white-space:nowrap;
+  font-weight:800;
+  color:#4d4d4d;
 }
-#FX_ROOT .fx-tab.active{background:var(--accent);color:#fff}
-
+#FX_ROOT .fx-tab.active{
+  background:var(--accent);
+  color:#fff;
+}
 #FX_ROOT .fx-layout{
   display:grid;
-  grid-template-columns:minmax(340px,430px) minmax(0,1fr);
+  grid-template-columns:minmax(350px,440px) minmax(0,1fr);
   gap:14px;
   padding:14px;
   align-items:start;
@@ -61,19 +75,22 @@
 #FX_ROOT .fx-pane.active{display:block}
 
 #FX_ROOT .fx-card{
-  margin-bottom:10px;
   padding:13px;
+  margin-bottom:10px;
+  background:#fff;
   border:1px solid var(--line);
   border-radius:14px;
-  background:#fff;
 }
-#FX_ROOT .fx-card-title{font-weight:900;margin-bottom:10px}
+#FX_ROOT .fx-card-title{
+  font-weight:900;
+  margin-bottom:10px;
+}
 #FX_ROOT .fx-field{margin-bottom:10px}
 #FX_ROOT label{
   display:block;
   margin-bottom:5px;
   font-size:12px;
-  font-weight:700;
+  font-weight:800;
 }
 #FX_ROOT input[type=text],
 #FX_ROOT input[type=number],
@@ -81,14 +98,19 @@
 #FX_ROOT textarea{
   width:100%;
   padding:9px 10px;
+  background:#fff;
   border:1px solid var(--line);
   border-radius:9px;
-  background:#fff;
 }
-#FX_ROOT textarea{min-height:75px;resize:vertical}
+#FX_ROOT textarea{
+  min-height:74px;
+  resize:vertical;
+}
 #FX_ROOT input[type=color]{
   width:100%;
-  height:38px;
+  height:39px;
+  padding:3px;
+  background:#fff;
   border:1px solid var(--line);
   border-radius:8px;
 }
@@ -100,10 +122,15 @@
   grid-template-columns:1fr 1fr;
   gap:8px;
 }
+#FX_ROOT .fx-grid3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
 #FX_ROOT .fx-check{
   display:flex;
   align-items:center;
-  gap:7px;
+  gap:8px;
   margin:8px 0;
   font-size:13px;
 }
@@ -113,46 +140,116 @@
   border:0;
   border-radius:9px;
   padding:9px 11px;
-  font-weight:800;
   background:#e8e5df;
+  color:#333;
+  font-weight:800;
 }
-#FX_ROOT .fx-btn.primary{background:var(--accent);color:#fff}
-#FX_ROOT .fx-btn.danger{background:#f4dddd;color:#873333}
-#FX_ROOT .fx-btn.small{padding:6px 8px;font-size:12px}
-#FX_ROOT .fx-actions{display:flex;gap:6px;flex-wrap:wrap}
+#FX_ROOT .fx-btn.primary{
+  background:var(--accent);
+  color:#fff;
+}
+#FX_ROOT .fx-btn.danger{
+  background:#f3dddd;
+  color:#8a3333;
+}
+#FX_ROOT .fx-btn.small{
+  padding:6px 8px;
+  font-size:12px;
+}
+#FX_ROOT .fx-actions{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+#FX_ROOT .fx-note{
+  font-size:12px;
+  line-height:1.45;
+  color:var(--muted);
+}
 
+/* THEMES */
+#FX_ROOT .fx-theme-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+#FX_ROOT .fx-theme{
+  border:2px solid transparent;
+  border-radius:13px;
+  padding:10px;
+  background:#f7f5f1;
+  text-align:left;
+}
+#FX_ROOT .fx-theme.active{
+  border-color:var(--accent);
+  box-shadow:0 0 0 2px rgba(103,87,168,.12);
+}
+#FX_ROOT .fx-theme-preview{
+  height:70px;
+  margin-bottom:7px;
+  border-radius:9px;
+  overflow:hidden;
+  position:relative;
+}
+#FX_ROOT .fx-theme-preview span{
+  position:absolute;
+  left:9px;
+  bottom:7px;
+  font-size:29px;
+}
+#FX_ROOT .fx-theme b{
+  display:block;
+  font-size:13px;
+}
+#FX_ROOT .fx-theme small{
+  display:block;
+  margin-top:3px;
+  font-size:10px;
+  color:#777;
+}
+
+/* ASSET PICKER */
 #FX_ROOT .fx-picker{
   padding:9px;
-  border:1px dashed #cac4ba;
-  border-radius:11px;
   background:#faf9f6;
+  border:1px dashed #c9c3b9;
+  border-radius:11px;
 }
-#FX_ROOT .fx-source-tabs{display:flex;gap:5px;margin-bottom:8px}
+#FX_ROOT .fx-source-tabs{
+  display:flex;
+  gap:5px;
+  margin-bottom:8px;
+}
 #FX_ROOT .fx-source{
   border:0;
-  padding:6px 8px;
   border-radius:8px;
+  padding:6px 8px;
   background:#e9e6df;
   font-size:11px;
 }
-#FX_ROOT .fx-source.active{background:#ded7eb;font-weight:800}
+#FX_ROOT .fx-source.active{
+  background:#ddd6ea;
+  font-weight:900;
+}
 #FX_ROOT .fx-thumb{
   display:none;
-  width:94px;
-  height:64px;
-  margin-top:8px;
+  width:96px;
+  height:65px;
   object-fit:contain;
+  margin-top:8px;
+  background:#fff;
   border:1px solid var(--line);
   border-radius:8px;
 }
 #FX_ROOT .fx-thumb.show{display:block}
 
+/* TASK EDITOR */
 #FX_ROOT .fx-task-editor{
-  margin-bottom:9px;
   padding:10px;
+  margin-bottom:9px;
+  background:#faf9f6;
   border:1px solid var(--line);
   border-radius:12px;
-  background:#faf9f6;
 }
 #FX_ROOT .fx-task-head{
   display:flex;
@@ -163,14 +260,14 @@
 }
 #FX_ROOT .fx-task-name{font-weight:900}
 #FX_ROOT .fx-option{
-  margin-bottom:6px;
+  margin-bottom:7px;
   padding:8px;
+  background:#fff;
   border:1px solid var(--line);
   border-radius:9px;
-  background:#fff;
 }
 
-/* GAME */
+/* GAME PREVIEW */
 #FX_ROOT .fx-preview{
   position:sticky;
   top:10px;
@@ -189,94 +286,129 @@
   aspect-ratio:16/9;
   min-height:430px;
   overflow:hidden;
+  outline:none;
+  background:#8ad8ff;
   border:1px solid var(--line);
   border-radius:17px;
-  background:#8ed7ff;
-  outline:none;
 }
-#FX_ROOT .fx-stage:focus{box-shadow:0 0 0 3px rgba(118,107,143,.2)}
+#FX_ROOT .fx-stage:focus{
+  box-shadow:0 0 0 3px rgba(103,87,168,.2);
+}
 #FX_ROOT #fxCanvas{
   display:block;
   width:100%;
   height:100%;
 }
-
 #FX_ROOT .fx-hud{
   position:absolute;
-  z-index:30;
+  z-index:20;
   top:10px;
   left:10px;
+  right:10px;
   display:flex;
   gap:7px;
+  align-items:center;
   pointer-events:none;
 }
 #FX_ROOT .fx-pill{
   padding:7px 11px;
+  background:rgba(255,255,255,.92);
   border-radius:999px;
-  background:rgba(255,255,255,.9);
-  font-weight:900;
   font-size:13px;
+  font-weight:900;
+  box-shadow:0 3px 9px rgba(0,0,0,.12);
+}
+#FX_ROOT .fx-progress{
+  flex:1;
+  max-width:240px;
+  height:12px;
+  padding:2px;
+  background:rgba(255,255,255,.9);
+  border-radius:99px;
+}
+#FX_ROOT .fx-progress span{
+  display:block;
+  height:100%;
+  width:0;
+  border-radius:99px;
+  background:var(--accent);
 }
 
+/* OVERLAYS */
 #FX_ROOT .fx-overlay{
   position:absolute;
   inset:0;
   z-index:50;
   display:flex;
-  justify-content:center;
   align-items:center;
-  padding:16px;
+  justify-content:center;
+  padding:17px;
   background:rgba(15,18,35,.48);
 }
 #FX_ROOT .fx-hidden{display:none!important}
 
 #FX_ROOT .fx-box{
-  width:min(620px,96%);
-  max-height:92%;
+  width:min(640px,96%);
+  max-height:93%;
   overflow:auto;
+  position:relative;
   padding:21px;
   border-style:solid;
-  background:#fff;
 }
 #FX_ROOT .fx-start-box{
-  width:min(650px,96%);
-  padding:24px;
+  width:min(660px,96%);
+  max-height:94%;
+  overflow:auto;
+  padding:23px;
   text-align:center;
   border-style:solid;
 }
-#FX_ROOT .fx-start-box h2{margin:0 0 8px}
-#FX_ROOT .fx-start-sub{line-height:1.45;margin-bottom:12px}
-#FX_ROOT .fx-start-img{
+#FX_ROOT .fx-start-image{
   display:block;
-  max-width:180px;
+  max-width:185px;
   max-height:145px;
   margin:0 auto 10px;
   object-fit:contain;
 }
+#FX_ROOT .fx-start-title{
+  margin:0 0 7px;
+  font-weight:900;
+}
+#FX_ROOT .fx-start-sub{
+  margin-bottom:13px;
+  line-height:1.45;
+}
 #FX_ROOT .fx-help{
-  margin:12px 0 15px;
   padding:11px;
-  border-radius:12px;
+  margin:12px 0 15px;
   background:rgba(255,255,255,.55);
+  border-radius:12px;
 }
 #FX_ROOT .fx-keys{
   display:flex;
   justify-content:center;
   gap:6px;
   flex-wrap:wrap;
+  margin-top:8px;
 }
 #FX_ROOT .fx-key{
   min-width:45px;
   padding:7px;
+  background:#fff;
   border:1px solid rgba(0,0,0,.16);
   border-radius:7px;
-  background:#fff;
   font-weight:900;
 }
 #FX_ROOT .fx-key.space{min-width:118px}
 
-#FX_ROOT .fx-q-title{margin:0 0 10px;font-weight:900}
-#FX_ROOT .fx-q-text{white-space:pre-wrap;line-height:1.45}
+#FX_ROOT .fx-q-title{
+  margin:0 0 10px;
+  font-weight:900;
+}
+#FX_ROOT .fx-q-text{
+  white-space:pre-wrap;
+  line-height:1.45;
+}
 #FX_ROOT .fx-q-img{
   display:block;
   max-width:100%;
@@ -286,10 +418,10 @@
   border-radius:9px;
 }
 #FX_ROOT .fx-answer{
+  width:100%;
   display:flex;
   align-items:center;
   gap:9px;
-  width:100%;
   margin:7px 0;
   padding:11px;
   text-align:left;
@@ -301,16 +433,74 @@
   height:58px;
   object-fit:contain;
 }
-#FX_ROOT .fx-answer.selected{outline:3px solid var(--accent)}
-#FX_ROOT .fx-feedback{min-height:23px;margin-top:8px;font-weight:900}
+#FX_ROOT .fx-answer.selected{
+  outline:3px solid var(--accent);
+}
+#FX_ROOT .fx-feedback{
+  min-height:23px;
+  margin-top:8px;
+  font-weight:900;
+}
 #FX_ROOT .fx-hint{
   margin:8px 0;
   padding:9px;
+  background:#fff5cc;
   border:1px solid #ead99a;
   border-radius:9px;
-  background:#fff5cc;
 }
 
+/* MATCHING */
+#FX_ROOT .fx-match-wrap{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  margin:12px 0;
+  min-height:150px;
+}
+#FX_ROOT .fx-match-col{
+  position:relative;
+  z-index:2;
+}
+#FX_ROOT .fx-match-card{
+  width:100%;
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:8px 0;
+  padding:9px 10px;
+  text-align:center;
+  background:#f4f1f7;
+  border:2px solid #d5cbe0;
+  border-radius:10px;
+}
+#FX_ROOT .fx-match-card.selected{
+  border-color:var(--accent);
+  box-shadow:0 0 0 2px rgba(103,87,168,.17);
+}
+#FX_ROOT .fx-match-card.paired{
+  background:#eee9f5;
+}
+#FX_ROOT .fx-match-card.good{
+  background:#dcf4e4;
+  border-color:#56b77a;
+}
+#FX_ROOT .fx-match-card.bad{
+  background:#f9dddd;
+  border-color:#da6363;
+}
+#FX_ROOT .fx-match-svg{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  width:100%;
+  height:100%;
+  overflow:visible;
+  pointer-events:none;
+}
+
+/* ORDER / SENTENCE */
 #FX_ROOT .fx-order{
   display:flex;
   flex-direction:column;
@@ -329,9 +519,9 @@
 #FX_ROOT .fx-pool,
 #FX_ROOT .fx-built{
   display:flex;
-  min-height:50px;
-  gap:6px;
   flex-wrap:wrap;
+  gap:6px;
+  min-height:50px;
   margin:8px 0;
   padding:8px;
   border:1px dashed #bbb;
@@ -344,6 +534,7 @@
   background:#eee;
 }
 
+/* FEEDBACK */
 #FX_ROOT .fx-big-feedback{
   position:absolute;
   inset:0;
@@ -354,9 +545,9 @@
   pointer-events:none;
 }
 #FX_ROOT .fx-fb{
-  display:flex;
   width:145px;
   height:145px;
+  display:flex;
   align-items:center;
   justify-content:center;
   border-radius:50%;
@@ -374,26 +565,29 @@
 #FX_ROOT .fx-code{
   width:100%;
   min-height:190px;
-  font-family:monospace;
   font-size:11px;
+  font-family:monospace;
 }
-#FX_ROOT .fx-note{font-size:12px;color:#777;line-height:1.4}
 
 @media(max-width:950px){
   #FX_ROOT .fx-layout{grid-template-columns:1fr}
   #FX_ROOT .fx-preview{position:static}
 }
-@media(max-width:530px){
-  #FX_ROOT .fx-grid2{grid-template-columns:1fr}
+@media(max-width:540px){
+  #FX_ROOT .fx-grid2,
+  #FX_ROOT .fx-grid3,
+  #FX_ROOT .fx-theme-grid{grid-template-columns:1fr}
   #FX_ROOT .fx-stage{min-height:300px}
+  #FX_ROOT .fx-match-wrap{gap:36px}
 }
 </style>
 
 <div class="fx-app">
 
-  <div class="fx-head">
-    <div class="fx-logo">🎮 Конструктор платформера</div>
-    <div class="fx-head-actions">
+  <div class="fx-header">
+    <div class="fx-brand">🎮 Конструктор платформенной игры</div>
+
+    <div class="fx-header-actions">
       <button class="fx-btn" id="fxRestart">↺ Перезапустить</button>
       <button class="fx-btn" id="fxReset">Новая игра</button>
       <button class="fx-btn primary" id="fxCopyTop">Копировать iframe</button>
@@ -401,11 +595,11 @@
   </div>
 
   <div class="fx-tabs" id="fxTabs">
-    <button class="fx-tab active" data-tab="design">🎨 Оформление</button>
+    <button class="fx-tab active" data-tab="theme">🎨 Тема</button>
+    <button class="fx-tab" data-tab="design">🖼 Объекты</button>
     <button class="fx-tab" data-tab="interface">✨ Интерфейс</button>
-    <button class="fx-tab" data-tab="start">▶ Старт</button>
     <button class="fx-tab" data-tab="hero">👤 Герой</button>
-    <button class="fx-tab" data-tab="map">🗺 Карта</button>
+    <button class="fx-tab" data-tab="map">🗺 Трасса</button>
     <button class="fx-tab" data-tab="enemy">👾 Монстры</button>
     <button class="fx-tab" data-tab="tasks">❓ Задания</button>
     <button class="fx-tab" data-tab="publish">📤 Публикация</button>
@@ -415,28 +609,88 @@
 
     <div class="fx-editor-side">
 
-      <div class="fx-pane active" data-pane="design">
+      <!-- THEME -->
+      <div class="fx-pane active" data-pane="theme">
 
         <div class="fx-card">
-          <div class="fx-card-title">Основное оформление</div>
+          <div class="fx-card-title">Готовая тема</div>
 
-          <div class="fx-field">
-            <label>Название игры</label>
-            <input id="fxTitle" type="text">
+          <div class="fx-theme-grid" id="fxThemeGrid">
+
+            <button class="fx-theme active" data-theme="space">
+              <div class="fx-theme-preview" style="background:linear-gradient(#10174c,#4b2575)">
+                <span>🚀 👾</span>
+              </div>
+              <b>🌌 Космос</b>
+              <small>Космонавт • астероиды • инопланетяне</small>
+            </button>
+
+            <button class="fx-theme" data-theme="candy">
+              <div class="fx-theme-preview" style="background:linear-gradient(#ffb8db,#ffe5a8)">
+                <span>🍭 🍬</span>
+              </div>
+              <b>🍭 Сладкая фабрика</b>
+              <small>Печенье • карамель • желейные монстры</small>
+            </button>
+
+            <button class="fx-theme" data-theme="jungle">
+              <div class="fx-theme-preview" style="background:linear-gradient(#8ed277,#1e7b52)">
+                <span>🌴 🐾</span>
+              </div>
+              <b>🌴 Джунгли</b>
+              <small>Лианы • камни • исследователь</small>
+            </button>
+
+            <button class="fx-theme" data-theme="ocean">
+              <div class="fx-theme-preview" style="background:linear-gradient(#53cce6,#1159a0)">
+                <span>🐠 🫧</span>
+              </div>
+              <b>🐠 Подводный мир</b>
+              <small>Кораллы • жемчуг • водолаз</small>
+            </button>
+
+            <button class="fx-theme" data-theme="magic">
+              <div class="fx-theme-preview" style="background:linear-gradient(#796bc8,#e89ac7)">
+                <span>🏰 ✨</span>
+              </div>
+              <b>🏰 Волшебное королевство</b>
+              <small>Замок • острова • магические существа</small>
+            </button>
+
+            <button class="fx-theme" data-theme="custom">
+              <div class="fx-theme-preview" style="background:linear-gradient(135deg,#eee,#ccc)">
+                <span>🎨</span>
+              </div>
+              <b>🎨 Своя тема</b>
+              <small>Настройте каждый объект самостоятельно</small>
+            </button>
+
           </div>
 
-          <div class="fx-grid2">
+          <p class="fx-note" style="margin-bottom:0">
+            После выбора готовой темы можно заменить любой отдельный элемент:
+            например только героя, фон, монстра или бонус — остальная тема сохранится.
+          </p>
+        </div>
+
+        <div class="fx-card">
+          <div class="fx-card-title">Название игры</div>
+          <input id="fxTitle" type="text">
+        </div>
+
+      </div>
+
+      <!-- OBJECTS -->
+      <div class="fx-pane" data-pane="design">
+
+        <div class="fx-card">
+          <div class="fx-card-title">Цвета</div>
+
+          <div class="fx-grid3">
             <div class="fx-field">
-              <label>Главный цвет</label>
-              <input id="fxAccent" type="color">
-            </div>
-            <div class="fx-field">
-              <label>Цвет неба</label>
+              <label>Небо</label>
               <input id="fxSky" type="color">
             </div>
-          </div>
-
-          <div class="fx-grid2">
             <div class="fx-field">
               <label>Земля</label>
               <input id="fxGroundColor" type="color">
@@ -451,14 +705,68 @@
         <div id="fxPicker_background"></div>
         <div id="fxPicker_ground"></div>
         <div id="fxPicker_platform"></div>
+        <div id="fxPicker_taskItem"></div>
+        <div id="fxPicker_bonus"></div>
         <div id="fxPicker_finish"></div>
+
+        <div class="fx-card">
+          <div class="fx-card-title">Предмет задания</div>
+
+          <div class="fx-field">
+            <label>Встроенный вариант</label>
+            <select id="fxTaskBuiltin">
+              <option value="bomb">💣 Бомба</option>
+              <option value="crystal">💎 Кристалл</option>
+              <option value="key">🔑 Ключ</option>
+              <option value="chest">🎁 Сундук / подарок</option>
+              <option value="book">📕 Книга</option>
+              <option value="orb">🔮 Магический шар</option>
+            </select>
+          </div>
+
+          <div class="fx-field">
+            <label>Размер</label>
+            <input id="fxTaskSize" type="range" min="36" max="90">
+          </div>
+        </div>
+
+        <div class="fx-card">
+          <div class="fx-card-title">Бонусные предметы</div>
+
+          <label class="fx-check">
+            <input id="fxBonusEnabled" type="checkbox">
+            Использовать бонусы
+          </label>
+
+          <div class="fx-field">
+            <label>Количество бонусов</label>
+            <input id="fxBonusCount" type="number" min="0" max="200">
+          </div>
+
+          <div class="fx-field">
+            <label>Размер бонуса</label>
+            <input id="fxBonusSize" type="range" min="14" max="55">
+          </div>
+
+          <label class="fx-check">
+            <input id="fxBonusCounter" type="checkbox">
+            Показывать счётчик бонусов
+          </label>
+
+          <p class="fx-note">
+            Бонусы расставляются по настоящим игровым траекториям:
+            цепочками, дугами над пропастями и по платформам.
+          </p>
+        </div>
 
       </div>
 
+      <!-- INTERFACE -->
       <div class="fx-pane" data-pane="interface">
 
         <div class="fx-card">
           <div class="fx-card-title">Шрифт</div>
+
           <select id="fxFont">
             <option value="Arial, sans-serif">Arial</option>
             <option value="Verdana, sans-serif">Verdana</option>
@@ -485,7 +793,7 @@
 
           <div class="fx-grid2">
             <div class="fx-field">
-              <label>Толщина</label>
+              <label>Толщина рамки</label>
               <input id="fxBorderWidth" type="range" min="0" max="10">
             </div>
             <div class="fx-field">
@@ -520,7 +828,7 @@
               <input id="fxTitleColor" type="color">
             </div>
             <div class="fx-field">
-              <label>Текст вопроса</label>
+              <label>Вопрос</label>
               <input id="fxQuestionColor" type="color">
             </div>
           </div>
@@ -542,7 +850,7 @@
               <input id="fxAnswerBorder" type="color">
             </div>
             <div class="fx-field">
-              <label>Выбранный</label>
+              <label>Выбранный ответ</label>
               <input id="fxSelectedBg" type="color">
             </div>
           </div>
@@ -564,70 +872,24 @@
 
           <label class="fx-check">
             <input id="fxBigFeedback" type="checkbox">
-            Большой ✓ / ✕
+            Показывать крупный ✓ / ✕
           </label>
         </div>
 
       </div>
 
-      <div class="fx-pane" data-pane="start">
-
-        <div id="fxPicker_startImage"></div>
-
-        <div class="fx-card">
-          <div class="fx-card-title">Стартовый экран</div>
-
-          <div class="fx-field">
-            <label>Подзаголовок</label>
-            <textarea id="fxStartSubtitle"></textarea>
-          </div>
-
-          <div class="fx-grid2">
-            <div class="fx-field">
-              <label>Фон</label>
-              <input id="fxStartBg" type="color">
-            </div>
-            <div class="fx-field">
-              <label>Рамка</label>
-              <input id="fxStartBorder" type="color">
-            </div>
-          </div>
-
-          <label class="fx-check">
-            <input id="fxStartGlow" type="checkbox">
-            Свечение
-          </label>
-
-          <div class="fx-grid2">
-            <div class="fx-field">
-              <label>Цвет свечения</label>
-              <input id="fxStartGlowColor" type="color">
-            </div>
-            <div class="fx-field">
-              <label>Сила</label>
-              <input id="fxStartGlowPower" type="range" min="0" max="60">
-            </div>
-          </div>
-
-          <div class="fx-field">
-            <label>Текст кнопки</label>
-            <input id="fxStartText" type="text">
-          </div>
-        </div>
-
-      </div>
-
+      <!-- HERO -->
       <div class="fx-pane" data-pane="hero">
 
         <div id="fxPicker_player"></div>
         <div id="fxPicker_heroProjectile"></div>
 
         <div class="fx-card">
-          <div class="fx-card-title">Механика героя</div>
+          <div class="fx-card-title">Герой</div>
 
           <div class="fx-field">
             <label>Размер</label>
-            <input id="fxPlayerSize" type="range" min="35" max="105">
+            <input id="fxPlayerSize" type="range" min="38" max="105">
           </div>
 
           <div class="fx-field">
@@ -637,47 +899,42 @@
 
           <div class="fx-field">
             <label>Высота прыжка</label>
-            <input id="fxJumpHeight" type="range" min="120" max="280">
+            <input id="fxJumpHeight" type="range" min="120" max="290">
           </div>
 
           <div class="fx-field">
             <label>Размер снаряда</label>
-            <input id="fxProjectileSize" type="range" min="14" max="65">
+            <input id="fxProjectileSize" type="range" min="14" max="70">
           </div>
 
           <label class="fx-check">
             <input id="fxMirror" type="checkbox">
-            Отражать героя влево
+            Отражать героя при движении влево
           </label>
 
-          <div class="fx-note">
-            ← → или A/D — бег<br>
-            ↑ или W — прыжок<br>
+          <p class="fx-note">
+            ← → / A D — бег<br>
+            ↑ / W — прыжок<br>
             ПРОБЕЛ — выстрел
-          </div>
+          </p>
         </div>
 
       </div>
 
+      <!-- MAP -->
       <div class="fx-pane" data-pane="map">
 
         <div class="fx-card">
           <div class="fx-card-title">Трасса</div>
 
-          <p class="fx-note">
-            Карта генерируется автоматически по принципу присланной игры:
-            длинные участки земли чередуются с пропастями, платформами,
-            движущимися платформами, пружинами и шипами.
-          </p>
-
           <div class="fx-field">
-            <label>Длина секции</label>
+            <label>Средняя длина секции</label>
             <input id="fxSectionLength" type="range" min="800" max="1700">
           </div>
 
           <div class="fx-field">
             <label>Размер пропастей</label>
-            <input id="fxGapSize" type="range" min="110" max="260">
+            <input id="fxGapSize" type="range" min="100" max="280">
           </div>
 
           <label class="fx-check">
@@ -692,17 +949,24 @@
 
           <label class="fx-check">
             <input id="fxSpikes" type="checkbox">
-            Шипы
+            Шипы / тематические опасности
           </label>
 
           <label class="fx-check">
             <input id="fxProgressBar" type="checkbox">
-            Полоса прогресса трассы
+            Показывать прогресс трассы
           </label>
+
+          <p class="fx-note">
+            Геометрия трассы не зависит от выбранных картинок.
+            Даже в собственной теме сохраняются сложные прыжки,
+            дуги бонусов, платформы, пропасти и препятствия.
+          </p>
         </div>
 
       </div>
 
+      <!-- ENEMY -->
       <div class="fx-pane" data-pane="enemy">
 
         <div id="fxPicker_enemy"></div>
@@ -713,22 +977,22 @@
 
           <label class="fx-check">
             <input id="fxEnemyEnabled" type="checkbox">
-            Включить монстров
+            Использовать монстров
           </label>
 
           <label class="fx-check">
             <input id="fxEnemyAtStart" type="checkbox">
-            Один монстр в начале
+            Один монстр уже в начале игры
           </label>
 
           <label class="fx-check">
             <input id="fxEnemyOnWrong" type="checkbox">
-            Новый монстр за ошибку
+            Новый монстр после каждой ошибки
           </label>
 
           <div class="fx-grid2">
             <div class="fx-field">
-              <label>HP монстра</label>
+              <label>HP</label>
               <input id="fxEnemyHp" type="number" min="1" max="10">
             </div>
             <div class="fx-field">
@@ -738,58 +1002,71 @@
           </div>
 
           <div class="fx-field">
-            <label>Интервал выстрела, сек.</label>
+            <label>Интервал выстрелов, сек.</label>
             <input id="fxEnemyRate" type="number" min=".5" max="8" step=".5">
           </div>
         </div>
 
       </div>
 
+      <!-- TASKS -->
       <div class="fx-pane" data-pane="tasks">
 
         <div class="fx-card">
+
           <div class="fx-task-head">
             <div>
               <div class="fx-card-title" style="margin:0">Задания</div>
-              <div id="fxTaskCount" class="fx-note"></div>
+              <div class="fx-note" id="fxTaskCount"></div>
             </div>
-            <button id="fxAddTask" class="fx-btn primary small">+ Добавить</button>
+
+            <button class="fx-btn primary small" id="fxAddTask">
+              + Добавить
+            </button>
           </div>
 
           <div id="fxTasks"></div>
-        </div>
 
-        <div id="fxPicker_taskItem"></div>
+        </div>
 
       </div>
 
+      <!-- PUBLISH -->
       <div class="fx-pane" data-pane="publish">
 
         <div class="fx-card">
           <div class="fx-card-title">Публикация</div>
 
           <div class="fx-actions">
-            <button id="fxCopy" class="fx-btn primary">Копировать iframe</button>
-            <button id="fxShowCode" class="fx-btn">Показать код</button>
+            <button class="fx-btn primary" id="fxCopy">
+              Копировать iframe
+            </button>
+
+            <button class="fx-btn" id="fxShowCode">
+              Показать код
+            </button>
           </div>
 
-          <div id="fxPublishStatus" class="fx-note"></div>
-          <textarea id="fxCode" class="fx-code fx-hidden" readonly></textarea>
+          <div class="fx-note" id="fxPublishStatus"></div>
+
+          <textarea class="fx-code fx-hidden" id="fxCode" readonly></textarea>
         </div>
 
       </div>
 
     </div>
 
+    <!-- LIVE GAME -->
     <div class="fx-preview">
 
       <div class="fx-preview-head">
         <div>
           <strong>Игра</strong>
           <div class="fx-note">
-            A/D или ← → • W/↑ прыжок • SPACE выстрел
+            ← → / A D • W/↑ прыжок • SPACE выстрел
           </div>
         </div>
+
         <button class="fx-btn small" id="fxRestartGame">↺</button>
       </div>
 
@@ -802,16 +1079,16 @@
         <div class="fx-overlay" id="fxStartOverlay">
           <div class="fx-start-box" id="fxStartBox">
 
-            <img id="fxStartImage" class="fx-start-img fx-hidden">
+            <img class="fx-start-image fx-hidden" id="fxStartImage">
 
-            <h2 id="fxStartTitle"></h2>
+            <h2 class="fx-start-title" id="fxStartTitle"></h2>
 
-            <div id="fxStartSubtitlePreview" class="fx-start-sub"></div>
+            <div class="fx-start-sub" id="fxStartSubtitle"></div>
 
             <div class="fx-help">
               <strong>Как играть</strong>
 
-              <div class="fx-keys" style="margin-top:8px">
+              <div class="fx-keys">
                 <div class="fx-key">←</div>
                 <div class="fx-key">→</div>
                 <div class="fx-key">W / ↑</div>
@@ -819,16 +1096,20 @@
               </div>
             </div>
 
-            <button class="fx-btn primary" id="fxStartBtn">Играть</button>
+            <button class="fx-btn primary" id="fxStartBtn">
+              ИГРАТЬ
+            </button>
+
           </div>
         </div>
 
         <div class="fx-overlay fx-hidden" id="fxTaskOverlay">
+
           <div class="fx-box" id="fxQuestionBox">
 
             <h2 class="fx-q-title" id="fxQuestionTitle"></h2>
 
-            <img id="fxQuestionImage" class="fx-q-img fx-hidden">
+            <img class="fx-q-img fx-hidden" id="fxQuestionImage">
 
             <div class="fx-q-text" id="fxQuestionText"></div>
 
@@ -843,14 +1124,23 @@
             <div class="fx-feedback" id="fxFeedback"></div>
 
           </div>
+
         </div>
 
         <div class="fx-overlay fx-hidden" id="fxFinishOverlay">
+
           <div class="fx-box" id="fxFinishBox">
-            <h2 class="fx-q-title">Финиш!</h2>
+
+            <h2 class="fx-q-title">Миссия выполнена!</h2>
+
             <div class="fx-q-text" id="fxFinishText"></div>
-            <button class="fx-btn primary" id="fxAgain">Играть ещё раз</button>
+
+            <button class="fx-btn primary" id="fxAgain">
+              Играть ещё раз
+            </button>
+
           </div>
+
         </div>
 
         <div class="fx-big-feedback fx-hidden" id="fxBigFeedback"></div>
@@ -876,69 +1166,135 @@ const $$=s=>Array.from(root.querySelectorAll(s));
 
 const blank=()=>({mode:"builtin",value:""});
 
+const THEMES={
+  space:{
+    name:"Космос",
+    sky:"#151a55",
+    ground:"#514b78",
+    platform:"#7987b9",
+    accent:"#45d9ff",
+    hero:"astronaut",
+    enemy:"alien",
+    bonus:"star",
+    task:"bomb",
+    finish:"portal"
+  },
+
+  candy:{
+    name:"Сладкая фабрика",
+    sky:"#ffc7e1",
+    ground:"#8a4d38",
+    platform:"#e9ac72",
+    accent:"#ff5fa8",
+    hero:"baker",
+    enemy:"jelly",
+    bonus:"candy",
+    task:"bomb",
+    finish:"gift"
+  },
+
+  jungle:{
+    name:"Джунгли",
+    sky:"#8ed7b2",
+    ground:"#5a7135",
+    platform:"#805d3e",
+    accent:"#e4a536",
+    hero:"explorer",
+    enemy:"plant",
+    bonus:"banana",
+    task:"idol",
+    finish:"temple"
+  },
+
+  ocean:{
+    name:"Подводный мир",
+    sky:"#45bad8",
+    ground:"#c9aa67",
+    platform:"#bb7390",
+    accent:"#3d8ed8",
+    hero:"diver",
+    enemy:"fish",
+    bonus:"pearl",
+    task:"chest",
+    finish:"shell"
+  },
+
+  magic:{
+    name:"Волшебное королевство",
+    sky:"#806fc4",
+    ground:"#5c8b55",
+    platform:"#9f8f82",
+    accent:"#e899d0",
+    hero:"mage",
+    enemy:"slime",
+    bonus:"gem",
+    task:"orb",
+    finish:"castle"
+  },
+
+  custom:{
+    name:"Своя тема",
+    sky:"#8ad8ff",
+    ground:"#66a853",
+    platform:"#9c7654",
+    accent:"#6757a8",
+    hero:"default",
+    enemy:"default",
+    bonus:"coin",
+    task:"bomb",
+    finish:"flag"
+  }
+};
+
 const defaults={
+  theme:"space",
   title:"Большое приключение",
-  accent:"#766b8f",
 
   colors:{
-    sky:"#8ed7ff",
-    ground:"#62a84f",
-    platform:"#a7774e"
+    sky:"#151a55",
+    ground:"#514b78",
+    platform:"#7987b9"
   },
+
+  accent:"#45d9ff",
 
   assets:{
     background:blank(),
     ground:blank(),
     platform:blank(),
+    taskItem:blank(),
+    bonus:blank(),
     finish:blank(),
-    startImage:blank(),
     player:blank(),
     heroProjectile:blank(),
     enemy:blank(),
     enemyProjectile:blank(),
-    taskItem:blank()
+    startImage:blank()
   },
 
-  ui:{
-    font:"Arial, sans-serif",
-    qBg:"#ffffff",
-    qBorder:"#766b8f",
-    borderWidth:3,
-    radius:18,
-    glow:false,
-    glowColor:"#c69aff",
-    glowPower:26,
-    titleColor:"#292331",
-    textColor:"#292331",
-    answerBg:"#f4f1f7",
-    answerColor:"#292331",
-    answerBorder:"#d4cade",
-    selected:"#e5daf1",
-    correct:"#55b879",
-    wrong:"#dc6464",
-    bigFeedback:true
+  taskItem:{
+    builtin:"bomb",
+    size:60
   },
 
-  start:{
-    subtitle:"Доберись до финиша и выполни все задания!",
-    bg:"#fffdf8",
-    border:"#766b8f",
-    glow:true,
-    glowColor:"#c9b3ee",
-    glowPower:26
+  bonus:{
+    enabled:true,
+    count:45,
+    size:25,
+    counter:true
   },
 
   player:{
-    size:58,
-    maxSpeed:7.6,
+    size:60,
+    maxSpeed:7.8,
     jumpHeight:195,
-    mirror:true,
-    projectileSize:28
+    projectileSize:28,
+    mirror:true
   },
 
   level:{
     sectionLength:1200,
-    gapSize:190,
+    gapSize:185,
     movingPlatforms:true,
     springs:true,
     spikes:true,
@@ -950,13 +1306,35 @@ const defaults={
     atStart:true,
     spawnWrong:true,
     hp:3,
-    size:64,
+    size:66,
     fireRate:2.7
   },
 
-  taskItem:{
-    size:54,
-    icon:"❓"
+  ui:{
+    font:"Arial, sans-serif",
+    qBg:"#ffffff",
+    qBorder:"#45d9ff",
+    borderWidth:3,
+    radius:18,
+    glow:true,
+    glowColor:"#45d9ff",
+    glowPower:25,
+
+    titleColor:"#242334",
+    textColor:"#242334",
+
+    answerBg:"#f1f5fa",
+    answerColor:"#252532",
+    answerBorder:"#c9d4e4",
+    selected:"#dceef9",
+
+    correct:"#54b87a",
+    wrong:"#dc6464",
+    bigFeedback:true
+  },
+
+  start:{
+    subtitle:"Собирай бонусы, находи предметы-задания и доберись до финиша!"
   },
 
   tasks:[
@@ -972,40 +1350,43 @@ const defaults={
       items:[],
       pairs:[]
     },
+
     {
       id:2,
-      type:"single",
+      type:"matching",
       title:"Задание 2",
-      text:"Выбери правильный ответ.",
+      text:"Соедини слова с подходящими словами справа.",
       hint:"",
       image:blank(),
       answer:"",
-      options:[
-        {text:"12",correct:false,image:blank()},
-        {text:"14",correct:true,image:blank()},
-        {text:"16",correct:false,image:blank()}
-      ],
+      options:[],
       items:[],
-      pairs:[]
+      pairs:[
+        ["лес","лесник"],
+        ["снег","снежный"],
+        ["море","морской"]
+      ]
     }
   ]
 };
 
-let state=window.__FX_EXPORTED_STATE
+let state=
+  window.__FX_EXPORTED_STATE
   ? JSON.parse(JSON.stringify(window.__FX_EXPORTED_STATE))
   : JSON.parse(JSON.stringify(defaults));
 
 let nextTaskId=
   Math.max(0,...state.tasks.map(t=>Number(t.id)||0))+1;
 
-/* ---------- helpers ---------- */
+/* HELPERS */
 
 function clamp(v,a,b){
   return Math.max(a,Math.min(b,v));
 }
 
 function asset(a){
-  return a && a.mode!=="builtin" ? (a.value||"") : "";
+  if(!a || a.mode==="builtin")return "";
+  return a.value||"";
 }
 
 function esc(v){
@@ -1018,9 +1399,16 @@ function esc(v){
 
 function readFile(file,cb){
   if(!file)return;
+
   const r=new FileReader();
+
   r.onload=()=>cb(String(r.result||""));
+
   r.readAsDataURL(file);
+}
+
+function theme(){
+  return THEMES[state.theme]||THEMES.custom;
 }
 
 const imageCache={};
@@ -1030,7 +1418,6 @@ function getImage(url){
 
   if(!imageCache[url]){
     const im=new Image();
-    im.crossOrigin="anonymous";
     im.src=url;
     imageCache[url]=im;
   }
@@ -1038,7 +1425,7 @@ function getImage(url){
   return imageCache[url];
 }
 
-/* ---------- tabs ---------- */
+/* TABS */
 
 $("#fxTabs").addEventListener("click",e=>{
   const b=e.target.closest("[data-tab]");
@@ -1049,28 +1436,60 @@ $("#fxTabs").addEventListener("click",e=>{
 
   b.classList.add("active");
 
-  const p=$('[data-pane="'+b.dataset.tab+'"]');
-  if(p)p.classList.add("active");
+  const pane=$('[data-pane="'+b.dataset.tab+'"]');
+  if(pane)pane.classList.add("active");
 });
 
-/* ---------- assets ---------- */
+/* THEMES */
+
+function applyTheme(name){
+  state.theme=name;
+
+  const t=theme();
+
+  state.colors.sky=t.sky;
+  state.colors.ground=t.ground;
+  state.colors.platform=t.platform;
+  state.accent=t.accent;
+
+  if(state.assets.taskItem.mode==="builtin"){
+    state.taskItem.builtin=t.task;
+  }
+
+  $$(".fx-theme").forEach(x=>{
+    x.classList.toggle("active",x.dataset.theme===name);
+  });
+
+  syncInputs();
+  resetGame();
+}
+
+$("#fxThemeGrid").addEventListener("click",e=>{
+  const b=e.target.closest("[data-theme]");
+  if(!b)return;
+
+  applyTheme(b.dataset.theme);
+});
+
+/* ASSET PICKERS */
 
 const assetNames={
   background:"Фон игры",
   ground:"Текстура земли",
   platform:"Текстура платформ",
+  taskItem:"Предмет задания",
+  bonus:"Бонусный предмет",
   finish:"Финиш",
-  startImage:"Картинка стартового окна",
   player:"Герой",
   heroProjectile:"Снаряд героя",
   enemy:"Монстр",
-  enemyProjectile:"Снаряд монстра",
-  taskItem:"Предмет-задание"
+  enemyProjectile:"Снаряд монстра"
 };
 
 function renderPickers(){
 
   Object.keys(assetNames).forEach(key=>{
+
     const mount=$("#fxPicker_"+key);
     if(!mount)return;
 
@@ -1083,18 +1502,33 @@ function renderPickers(){
         <div class="fx-picker" data-asset="${key}">
 
           <div class="fx-source-tabs">
-            <button class="fx-source ${a.mode==="builtin"?"active":""}" data-source="builtin">Встроенное</button>
-            <button class="fx-source ${a.mode==="url"?"active":""}" data-source="url">URL</button>
-            <button class="fx-source ${a.mode==="upload"?"active":""}" data-source="upload">Файл</button>
+            <button class="fx-source ${a.mode==="builtin"?"active":""}" data-source="builtin">
+              Из темы
+            </button>
+
+            <button class="fx-source ${a.mode==="url"?"active":""}" data-source="url">
+              URL
+            </button>
+
+            <button class="fx-source ${a.mode==="upload"?"active":""}" data-source="upload">
+              Файл
+            </button>
           </div>
 
-          <div class="${a.mode==="url"?"":"fx-hidden"}" data-url-wrap>
-            <input data-url value="${a.mode==="url"?esc(a.value):""}" placeholder="https://...">
-            <button class="fx-btn small" data-apply style="margin-top:6px">Применить</button>
+          <div class="${a.mode==="url"?"":"fx-hidden"}">
+            <input
+              data-url
+              value="${a.mode==="url"?esc(a.value):""}"
+              placeholder="https://..."
+            >
+
+            <button class="fx-btn small" data-apply style="margin-top:6px">
+              Применить
+            </button>
           </div>
 
           <div class="${a.mode==="upload"?"":"fx-hidden"}">
-            <input data-file type="file" accept="image/*">
+            <input type="file" accept="image/*" data-file>
           </div>
 
           <img class="fx-thumb ${asset(a)?"show":""}" src="${esc(asset(a))}">
@@ -1105,12 +1539,14 @@ function renderPickers(){
 }
 
 root.addEventListener("click",e=>{
-  const p=e.target.closest("[data-asset]");
-  if(!p)return;
 
-  const key=p.dataset.asset;
+  const picker=e.target.closest("[data-asset]");
+  if(!picker)return;
+
+  const key=picker.dataset.asset;
 
   if(e.target.matches("[data-source]")){
+
     state.assets[key].mode=e.target.dataset.source;
 
     if(state.assets[key].mode==="builtin"){
@@ -1122,9 +1558,10 @@ root.addEventListener("click",e=>{
   }
 
   if(e.target.matches("[data-apply]")){
+
     state.assets[key]={
       mode:"url",
-      value:p.querySelector("[data-url]").value.trim()
+      value:picker.querySelector("[data-url]").value.trim()
     };
 
     renderPickers();
@@ -1133,12 +1570,15 @@ root.addEventListener("click",e=>{
 });
 
 root.addEventListener("change",e=>{
-  const p=e.target.closest("[data-asset]");
-  if(!p || !e.target.matches("[data-file]"))return;
 
-  const key=p.dataset.asset;
+  const picker=e.target.closest("[data-asset]");
+
+  if(!picker || !e.target.matches("[data-file]"))return;
+
+  const key=picker.dataset.asset;
 
   readFile(e.target.files[0],data=>{
+
     state.assets[key]={
       mode:"upload",
       value:data
@@ -1149,7 +1589,7 @@ root.addEventListener("change",e=>{
   });
 });
 
-/* ---------- task editor ---------- */
+/* TASK EDITOR */
 
 function newTask(){
   return {
@@ -1174,47 +1614,51 @@ function newTask(){
 
 function renderTasks(){
 
-  $("#fxTaskCount").textContent="Количество: "+state.tasks.length;
+  $("#fxTaskCount").textContent=
+    "Количество: "+state.tasks.length;
 
   const box=$("#fxTasks");
   box.innerHTML="";
 
   state.tasks.forEach((t,index)=>{
 
-    const d=document.createElement("div");
-    d.className="fx-task-editor";
-    d.dataset.id=t.id;
+    const card=document.createElement("div");
+
+    card.className="fx-task-editor";
+    card.dataset.id=t.id;
 
     const optionTypes=["single","multi","imageanswer"];
 
     let options="";
 
     if(optionTypes.includes(t.type)){
-      options=t.options.map((o,i)=>`
+
+      options=(t.options||[]).map((o,i)=>`
         <div class="fx-option">
+
           <input
             data-field="optionText"
             data-option="${i}"
             value="${esc(o.text)}"
-            placeholder="Ответ"
+            placeholder="Текст ответа"
           >
 
           <label class="fx-check">
             <input
               type="${t.type==="multi"?"checkbox":"radio"}"
-              name="c_${t.id}"
+              name="correct_${t.id}"
               data-field="correct"
               data-option="${i}"
               ${o.correct?"checked":""}
             >
-            Верный
+            Верный ответ
           </label>
 
           <input
             data-field="optionImageUrl"
             data-option="${i}"
+            placeholder="URL картинки"
             value="${o.image?.mode==="url"?esc(o.image.value):""}"
-            placeholder="URL картинки ответа"
           >
 
           <input
@@ -1223,14 +1667,16 @@ function renderTasks(){
             data-field="optionImageFile"
             data-option="${i}"
           >
+
         </div>
       `).join("");
     }
 
-    let special="";
+    let extra="";
 
     if(["fill","textanswer"].includes(t.type)){
-      special=`
+
+      extra=`
         <div class="fx-field">
           <label>Правильный ответ</label>
           <input data-field="answer" value="${esc(t.answer)}">
@@ -1239,9 +1685,11 @@ function renderTasks(){
     }
 
     if(t.type==="truefalse"){
-      special=`
+
+      extra=`
         <div class="fx-field">
           <label>Правильный ответ</label>
+
           <select data-field="answer">
             <option value="true" ${t.answer==="true"?"selected":""}>Верно</option>
             <option value="false" ${t.answer==="false"?"selected":""}>Неверно</option>
@@ -1251,40 +1699,57 @@ function renderTasks(){
     }
 
     if(["order","sentence"].includes(t.type)){
-      special=`
+
+      extra=`
         <div class="fx-field">
           <label>Элементы в правильном порядке через |</label>
+
           <textarea data-field="items">${esc((t.items||[]).join(" | "))}</textarea>
         </div>
       `;
     }
 
     if(t.type==="matching"){
-      special=`
+
+      extra=`
         <div class="fx-field">
-          <label>Пары: левое = правое, каждая пара с новой строки</label>
-          <textarea data-field="pairs">${esc((t.pairs||[]).map(p=>p[0]+" = "+p[1]).join("\n"))}</textarea>
+          <label>Пары для соединения</label>
+
+          <div class="fx-note" style="margin-bottom:5px">
+            Одна строка = одна пара: слово слева = слово справа
+          </div>
+
+          <textarea data-field="pairs">${esc(
+            (t.pairs||[])
+            .map(p=>p[0]+" = "+p[1])
+            .join("\n")
+          )}</textarea>
         </div>
       `;
     }
 
-    d.innerHTML=`
+    card.innerHTML=`
       <div class="fx-task-head">
-        <div class="fx-task-name">Задание ${index+1}</div>
+
+        <div class="fx-task-name">
+          Задание ${index+1}
+        </div>
 
         <div class="fx-actions">
           <button class="fx-btn small" data-act="up">↑</button>
           <button class="fx-btn small" data-act="down">↓</button>
           <button class="fx-btn danger small" data-act="delete">×</button>
         </div>
+
       </div>
 
       <div class="fx-field">
         <label>Тип задания</label>
+
         <select data-field="type">
           <option value="truefalse" ${t.type==="truefalse"?"selected":""}>✓ Верно / Неверно</option>
           <option value="matching" ${t.type==="matching"?"selected":""}>↔ Соединение</option>
-          <option value="multi" ${t.type==="multi"?"selected":""}>☑ Множ. выбор</option>
+          <option value="multi" ${t.type==="multi"?"selected":""}>☑ Множественный выбор</option>
           <option value="order" ${t.type==="order"?"selected":""}>⇅ Порядок</option>
           <option value="fill" ${t.type==="fill"?"selected":""}>⌨ Вписать</option>
           <option value="free" ${t.type==="free"?"selected":""}>✍ Свободный ответ</option>
@@ -1302,7 +1767,7 @@ function renderTasks(){
       </div>
 
       <div class="fx-field">
-        <label>Текст</label>
+        <label>Текст задания</label>
         <textarea data-field="text">${esc(t.text)}</textarea>
       </div>
 
@@ -1312,34 +1777,37 @@ function renderTasks(){
       </div>
 
       <div class="fx-field">
-        <label>Картинка вопроса — URL</label>
+        <label>Картинка задания — URL</label>
         <input
           data-field="questionImageUrl"
-          value="${t.image?.mode==="url"?esc(t.image.value):""}"
           placeholder="https://..."
+          value="${t.image?.mode==="url"?esc(t.image.value):""}"
         >
       </div>
 
       <div class="fx-field">
-        <label>Или загрузить картинку</label>
+        <label>Или загрузить изображение</label>
         <input type="file" accept="image/*" data-field="questionImageFile">
       </div>
 
       ${options}
-      ${special}
+      ${extra}
 
-      ${optionTypes.includes(t.type)
-        ? '<button class="fx-btn small" data-act="add-option">+ вариант</button>'
+      ${
+        optionTypes.includes(t.type)
+        ? '<button class="fx-btn small" data-act="add-option">+ Вариант ответа</button>'
         : ''
       }
     `;
 
-    box.appendChild(d);
+    box.appendChild(card);
   });
 }
 
 $("#fxAddTask").onclick=()=>{
+
   state.tasks.push(newTask());
+
   renderTasks();
   resetGame();
 };
@@ -1350,18 +1818,24 @@ $("#fxTasks").addEventListener("click",e=>{
   if(!card)return;
 
   const id=Number(card.dataset.id);
-  const index=state.tasks.findIndex(t=>t.id===id);
+
+  const index=
+    state.tasks.findIndex(t=>t.id===id);
+
   if(index<0)return;
 
   const act=e.target.dataset.act;
 
   if(act==="delete"){
+
     state.tasks.splice(index,1);
+
     renderTasks();
     resetGame();
   }
 
   if(act==="up" && index>0){
+
     [state.tasks[index-1],state.tasks[index]]=
       [state.tasks[index],state.tasks[index-1]];
 
@@ -1370,6 +1844,7 @@ $("#fxTasks").addEventListener("click",e=>{
   }
 
   if(act==="down" && index<state.tasks.length-1){
+
     [state.tasks[index+1],state.tasks[index]]=
       [state.tasks[index],state.tasks[index+1]];
 
@@ -1378,6 +1853,7 @@ $("#fxTasks").addEventListener("click",e=>{
   }
 
   if(act==="add-option"){
+
     state.tasks[index].options.push({
       text:"Новый ответ",
       correct:false,
@@ -1393,7 +1869,9 @@ $("#fxTasks").addEventListener("input",e=>{
   const card=e.target.closest(".fx-task-editor");
   if(!card)return;
 
-  const t=state.tasks.find(x=>x.id===Number(card.dataset.id));
+  const t=
+    state.tasks.find(x=>x.id===Number(card.dataset.id));
+
   if(!t)return;
 
   const f=e.target.dataset.field;
@@ -1404,6 +1882,7 @@ $("#fxTasks").addEventListener("input",e=>{
   if(f==="answer")t.answer=e.target.value;
 
   if(f==="type"){
+
     t.type=e.target.value;
 
     if(
@@ -1416,7 +1895,7 @@ $("#fxTasks").addEventListener("input",e=>{
       ];
     }
 
-    if(t.type==="truefalse" && !["true","false"].includes(t.answer)){
+    if(t.type==="truefalse"){
       t.answer="true";
     }
 
@@ -1424,6 +1903,7 @@ $("#fxTasks").addEventListener("input",e=>{
   }
 
   if(f==="questionImageUrl"){
+
     t.image={
       mode:"url",
       value:e.target.value.trim()
@@ -1431,25 +1911,35 @@ $("#fxTasks").addEventListener("input",e=>{
   }
 
   if(f==="optionText"){
-    t.options[Number(e.target.dataset.option)].text=e.target.value;
+
+    t.options[
+      Number(e.target.dataset.option)
+    ].text=e.target.value;
   }
 
   if(f==="optionImageUrl"){
-    t.options[Number(e.target.dataset.option)].image={
+
+    t.options[
+      Number(e.target.dataset.option)
+    ].image={
       mode:"url",
       value:e.target.value.trim()
     };
   }
 
   if(f==="items"){
-    t.items=e.target.value
+
+    t.items=
+      e.target.value
       .split("|")
       .map(x=>x.trim())
       .filter(Boolean);
   }
 
   if(f==="pairs"){
-    t.pairs=e.target.value
+
+    t.pairs=
+      e.target.value
       .split("\n")
       .map(x=>x.split("="))
       .filter(x=>x.length>=2)
@@ -1465,7 +1955,9 @@ $("#fxTasks").addEventListener("change",e=>{
   const card=e.target.closest(".fx-task-editor");
   if(!card)return;
 
-  const t=state.tasks.find(x=>x.id===Number(card.dataset.id));
+  const t=
+    state.tasks.find(x=>x.id===Number(card.dataset.id));
+
   if(!t)return;
 
   const f=e.target.dataset.field;
@@ -1475,8 +1967,11 @@ $("#fxTasks").addEventListener("change",e=>{
     const oi=Number(e.target.dataset.option);
 
     if(t.type==="multi"){
+
       t.options[oi].correct=e.target.checked;
+
     }else{
+
       t.options.forEach((o,i)=>{
         o.correct=i===oi;
       });
@@ -1486,15 +1981,22 @@ $("#fxTasks").addEventListener("change",e=>{
   }
 
   if(f==="questionImageFile"){
+
     readFile(e.target.files[0],data=>{
-      t.image={mode:"upload",value:data};
+
+      t.image={
+        mode:"upload",
+        value:data
+      };
     });
   }
 
   if(f==="optionImageFile"){
+
     const oi=Number(e.target.dataset.option);
 
     readFile(e.target.files[0],data=>{
+
       t.options[oi].image={
         mode:"upload",
         value:data
@@ -1503,14 +2005,20 @@ $("#fxTasks").addEventListener("change",e=>{
   }
 });
 
-/* ---------- editor bindings ---------- */
+/* BINDINGS */
 
 const bindings=[
   ["#fxTitle","title"],
-  ["#fxAccent","accent"],
+
   ["#fxSky","colors.sky"],
   ["#fxGroundColor","colors.ground"],
   ["#fxPlatformColor","colors.platform"],
+
+  ["#fxTaskBuiltin","taskItem.builtin"],
+  ["#fxTaskSize","taskItem.size"],
+
+  ["#fxBonusCount","bonus.count"],
+  ["#fxBonusSize","bonus.size"],
 
   ["#fxFont","ui.font"],
   ["#fxQuestionBg","ui.qBg"],
@@ -1519,20 +2027,16 @@ const bindings=[
   ["#fxBorderRadius","ui.radius"],
   ["#fxGlowColor","ui.glowColor"],
   ["#fxGlowPower","ui.glowPower"],
+
   ["#fxTitleColor","ui.titleColor"],
   ["#fxQuestionColor","ui.textColor"],
   ["#fxAnswerBg","ui.answerBg"],
   ["#fxAnswerColor","ui.answerColor"],
   ["#fxAnswerBorder","ui.answerBorder"],
   ["#fxSelectedBg","ui.selected"],
+
   ["#fxCorrectColor","ui.correct"],
   ["#fxWrongColor","ui.wrong"],
-
-  ["#fxStartSubtitle","start.subtitle"],
-  ["#fxStartBg","start.bg"],
-  ["#fxStartBorder","start.border"],
-  ["#fxStartGlowColor","start.glowColor"],
-  ["#fxStartGlowPower","start.glowPower"],
 
   ["#fxPlayerSize","player.size"],
   ["#fxSpeed","player.maxSpeed"],
@@ -1548,25 +2052,35 @@ const bindings=[
 ];
 
 const checks=[
+  ["#fxBonusEnabled","bonus.enabled"],
+  ["#fxBonusCounter","bonus.counter"],
+
   ["#fxGlowEnabled","ui.glow"],
   ["#fxBigFeedback","ui.bigFeedback"],
-  ["#fxStartGlow","start.glow"],
+
   ["#fxMirror","player.mirror"],
+
   ["#fxMovingPlatforms","level.movingPlatforms"],
   ["#fxSprings","level.springs"],
   ["#fxSpikes","level.spikes"],
   ["#fxProgressBar","level.progress"],
+
   ["#fxEnemyEnabled","enemy.enabled"],
   ["#fxEnemyAtStart","enemy.atStart"],
   ["#fxEnemyOnWrong","enemy.spawnWrong"]
 ];
 
 function getPath(path){
-  return path.split(".").reduce((a,k)=>a[k],state);
+
+  return path
+    .split(".")
+    .reduce((a,k)=>a[k],state);
 }
 
 function setPath(path,value){
+
   const p=path.split(".");
+
   let obj=state;
 
   for(let i=0;i<p.length-1;i++){
@@ -1579,18 +2093,27 @@ function setPath(path,value){
 function syncInputs(){
 
   bindings.forEach(([sel,path])=>{
+
     const e=$(sel);
+
     if(e)e.value=getPath(path);
   });
 
   checks.forEach(([sel,path])=>{
+
     const e=$(sel);
+
     if(e)e.checked=!!getPath(path);
   });
 
-  $("#fxStartText").value="Играть";
-
   root.style.setProperty("--accent",state.accent);
+
+  $$(".fx-theme").forEach(x=>{
+    x.classList.toggle(
+      "active",
+      x.dataset.theme===state.theme
+    );
+  });
 }
 
 bindings.forEach(([sel,path])=>{
@@ -1598,30 +2121,30 @@ bindings.forEach(([sel,path])=>{
   const e=$(sel);
   if(!e)return;
 
-  const fn=()=>{
+  const change=()=>{
 
-    let v=e.value;
+    let value=e.value;
 
     if(e.type==="number" || e.type==="range"){
-      v=Number(v);
+      value=Number(value);
     }
 
-    setPath(path,v);
+    setPath(path,value);
 
-    root.style.setProperty("--accent",state.accent);
+    applyUI();
 
     if(
       path.startsWith("ui.") ||
-      path.startsWith("start.")
+      path==="title"
     ){
-      applyUI();
+      updateStart();
     }else{
       resetGame();
     }
   };
 
-  e.addEventListener("input",fn);
-  e.addEventListener("change",fn);
+  e.addEventListener("input",change);
+  e.addEventListener("change",change);
 });
 
 checks.forEach(([sel,path])=>{
@@ -1630,16 +2153,15 @@ checks.forEach(([sel,path])=>{
   if(!e)return;
 
   e.onchange=()=>{
-    setPath(path,e.checked);
-    applyUI();
 
-    if(!path.startsWith("ui.") && !path.startsWith("start.")){
-      resetGame();
-    }
+    setPath(path,e.checked);
+
+    applyUI();
+    resetGame();
   };
 });
 
-/* ---------- canvas setup ---------- */
+/* CANVAS */
 
 const canvas=$("#fxCanvas");
 const ctx=canvas.getContext("2d");
@@ -1650,12 +2172,15 @@ let DPR=1;
 
 function resizeCanvas(){
 
-  const rect=$("#fxStage").getBoundingClientRect();
+  const r=$("#fxStage").getBoundingClientRect();
 
-  DPR=Math.min(2,window.devicePixelRatio||1);
+  DPR=Math.min(
+    2,
+    window.devicePixelRatio||1
+  );
 
-  VW=Math.max(320,rect.width);
-  VH=Math.max(300,rect.height);
+  VW=Math.max(320,r.width);
+  VH=Math.max(300,r.height);
 
   canvas.width=Math.round(VW*DPR);
   canvas.height=Math.round(VH*DPR);
@@ -1668,18 +2193,26 @@ function resizeCanvas(){
 
 window.addEventListener("resize",resizeCanvas);
 
-/* ---------- level ---------- */
+/* LEVEL GENERATION */
 
 function rng(seed){
+
   let t=seed>>>0;
 
   return function(){
+
     t+=0x6D2B79F5;
 
     let r=t;
 
     r=Math.imul(r^r>>>15,r|1);
-    r^=r+Math.imul(r^r>>>7,r|61);
+
+    r^=
+      r+
+      Math.imul(
+        r^r>>>7,
+        r|61
+      );
 
     return ((r^r>>>14)>>>0)/4294967296;
   };
@@ -1689,56 +2222,63 @@ function buildLevel(){
 
   const taskCount=Math.max(1,state.tasks.length);
 
-  const sections=Math.max(
-    1,
-    Math.ceil(taskCount/4)
-  );
+  const sections=
+    Math.max(
+      2,
+      Math.ceil(taskCount/3)
+    );
 
-  const END=
-    sections*state.level.sectionLength+
-    1000;
+  const end=
+    sections*
+    state.level.sectionLength+
+    1100;
 
-  const GY=VH*.82;
+  const gy=VH*.82;
 
-  const R=rng(
-    9137+
-    taskCount*271+
-    Math.round(state.level.gapSize)
-  );
+  const R=
+    rng(
+      1717+
+      taskCount*193+
+      Math.round(state.level.gapSize)
+    );
 
-  const level={
-    END,
-    FINISH:END+250,
-    GY,
+  const L={
+    END:end,
+    FINISH:end+240,
+    GY:gy,
 
     ground:[],
     platforms:[],
-    taskItems:[],
     springs:[],
     spikes:[],
-    enemies:[],
+
+    taskItems:[],
+    bonuses:[],
+
     enemySpawns:[]
   };
 
-  const taskX=[];
+  const taskXs=[];
 
   for(let i=0;i<taskCount;i++){
 
-    taskX.push(
-      700+
+    taskXs.push(
+      750+
       i*
-      ((END-1200)/
-      Math.max(1,taskCount-1))
+      (
+        (end-1350)/
+        Math.max(1,taskCount-1)
+      )
     );
   }
 
   const nearTask=(x,d)=>
-    taskX.some(q=>Math.abs(q-x)<d);
+    taskXs.some(q=>Math.abs(q-x)<d);
 
   let x=-300;
   let first=true;
 
-  while(x<END){
+  while(x<end){
 
     const len=
       first
@@ -1746,137 +2286,165 @@ function buildLevel(){
         : 650+
           R()*
           Math.max(
-            250,
-            state.level.sectionLength-500
+            300,
+            state.level.sectionLength-450
           );
 
     first=false;
 
-    level.ground.push({
+    L.ground.push({
       x1:x,
       x2:x+len,
-      y:GY
+      y:gy
     });
 
     x+=len;
 
-    if(x>END-550)break;
+    if(x>end-600)break;
 
     let gap=
       state.level.gapSize*
-      (.75+R()*.55);
+      (.75+R()*.6);
 
-    if(nearTask(x+gap/2,260)){
-      gap=80;
+    if(nearTask(x+gap/2,220)){
+      gap*=.55;
     }
 
-    if(gap>110){
+    /* platform over bigger gaps */
 
-      if(gap>210){
+    if(gap>170){
 
-        level.platforms.push({
-          x:x+gap/2-55,
-          y:GY-95-R()*55,
-          w:110,
+      const count=
+        gap>230
+          ? 2
+          : 1;
+
+      for(let j=0;j<count;j++){
+
+        const pw=100+R()*55;
+
+        L.platforms.push({
+          x:
+            x+
+            gap*
+            ((j+1)/(count+1))-
+            pw/2,
+
+          y:
+            gy-
+            95-
+            j*40-
+            R()*30,
+
+          w:pw,
           h:18,
+
           moving:
             state.level.movingPlatforms &&
-            R()<.55,
-          baseY:GY-120,
-          amp:35+R()*35,
+            R()<.4,
+
+          baseY:
+            gy-
+            110-
+            j*40,
+
+          amp:30+R()*35,
           phase:R()*6,
           dy:0
         });
       }
-
-      x+=gap;
     }
+
+    x+=gap;
   }
 
-  level.ground.push({
+  L.ground.push({
     x1:x,
-    x2:level.FINISH+900,
-    y:GY
+    x2:L.FINISH+900,
+    y:gy
   });
 
   const onGround=(px,m)=>
-    level.ground.some(
+    L.ground.some(
       s=>
         px-m>=s.x1 &&
         px+m<=s.x2
     );
 
-  let lastHazard=0;
+  /* Interesting obstacles/platform sequences */
 
   for(
     let p=500;
-    p<END-250;
-    p+=220+R()*330
+    p<end-350;
+    p+=240+R()*270
   ){
 
-    const r=R();
+    const type=R();
 
     if(
       state.level.spikes &&
-      r<.18 &&
-      onGround(p,85) &&
-      !nearTask(p,220) &&
-      p-lastHazard>330
+      type<.16 &&
+      onGround(p,80) &&
+      !nearTask(p,180)
     ){
-      level.spikes.push({
-        x:p-35,
-        w:70,
-        h:28
-      });
 
-      lastHazard=p;
+      L.spikes.push({
+        x:p-38,
+        w:76,
+        h:27
+      });
     }
 
     else if(
       state.level.springs &&
-      r<.30 &&
-      onGround(p,70) &&
-      !nearTask(p,180)
+      type<.28 &&
+      onGround(p,70)
     ){
-      level.springs.push({
-        x:p-20,
-        w:40,
+
+      L.springs.push({
+        x:p-21,
+        w:42,
         comp:0
       });
 
-      level.platforms.push({
-        x:p+55,
-        y:GY-280,
-        w:210,
-        h:19,
+      L.platforms.push({
+        x:p+70,
+        y:gy-250-R()*60,
+        w:190+R()*70,
+        h:18,
         moving:false,
+        baseY:0,
+        amp:0,
+        phase:0,
         dy:0
       });
     }
 
-    else if(r<.72){
+    else if(type<.72){
 
       const w=
-        145+
-        R()*150;
+        135+
+        R()*190;
 
       const y=
-        GY-
+        gy-
         (
-          110+
-          R()*210
+          105+
+          R()*235
         );
 
-      level.platforms.push({
+      L.platforms.push({
         x:p-w/2,
         y,
         w,
-        h:19,
+        h:18,
+
         moving:
           state.level.movingPlatforms &&
-          R()<.24,
+          R()<.23,
+
         baseY:y,
-        amp:30+R()*50,
+        amp:30+R()*55,
         phase:R()*6,
         dy:0
       });
@@ -1884,38 +2452,41 @@ function buildLevel(){
 
     if(
       onGround(p,60) &&
-      R()<.42
+      R()<.38
     ){
-      level.enemySpawns.push({
+
+      L.enemySpawns.push({
         x:p,
-        y:GY
+        y:gy
       });
     }
   }
 
-  taskX.forEach((qx,i)=>{
+  /* Task positions */
 
-    let y=GY-65;
+  taskXs.forEach((qx,i)=>{
 
-    const nearby=
-      level.platforms
-        .filter(p=>
-          qx>p.x+20 &&
-          qx<p.x+p.w-20
-        )
-        .sort((a,b)=>
-          Math.abs(a.x-qx)-
-          Math.abs(b.x-qx)
-        );
+    let y=gy-62;
+
+    const possible=
+      L.platforms
+      .filter(p=>
+        qx>p.x+20 &&
+        qx<p.x+p.w-20
+      )
+      .sort((a,b)=>
+        Math.abs(a.x-qx)-
+        Math.abs(b.x-qx)
+      );
 
     if(
-      nearby.length &&
-      i%3===1
+      possible.length &&
+      i%3!==0
     ){
-      y=nearby[0].y-55;
+      y=possible[0].y-58;
     }
 
-    level.taskItems.push({
+    L.taskItems.push({
       x:qx,
       y,
       index:i,
@@ -1923,10 +2494,63 @@ function buildLevel(){
     });
   });
 
-  return level;
+  /* Bonus routes */
+
+  if(state.bonus.enabled){
+
+    const total=Math.max(0,state.bonus.count);
+
+    for(let i=0;i<total;i++){
+
+      const progress=
+        (i+1)/(total+1);
+
+      let bx=
+        300+
+        progress*
+        (end-550);
+
+      let by=gy-48;
+
+      const segment=
+        i%7;
+
+      if(segment===1 || segment===2 || segment===3){
+
+        const phase=
+          (segment-1)/2;
+
+        by=
+          gy-
+          60-
+          Math.sin(phase*Math.PI)*115;
+      }
+
+      const nearby=
+        L.platforms.find(p=>
+          bx>p.x+10 &&
+          bx<p.x+p.w-10
+        );
+
+      if(
+        nearby &&
+        i%5===0
+      ){
+        by=nearby.y-35;
+      }
+
+      L.bonuses.push({
+        x:bx,
+        y:by,
+        taken:false
+      });
+    }
+  }
+
+  return L;
 }
 
-/* ---------- game state ---------- */
+/* GAME STATE */
 
 let game=null;
 
@@ -1955,14 +2579,9 @@ function makeGame(){
       coyote:0,
       jumpBuffer:0,
       standing:null,
-      inv:0,
 
-      run:0,
-      spin:0
+      inv:0
     },
-
-    camX:0,
-    lastSafe:100,
 
     keys:{
       left:false,
@@ -1970,18 +2589,22 @@ function makeGame(){
       jump:false
     },
 
+    camX:0,
+    lastSafe:100,
+
     completed:new Set(),
+    collectedBonuses:new Set(),
+
     currentTask:-1,
     selected:new Set(),
 
     enemies:[],
     enemyId:0,
+
     heroShots:[],
     enemyShots:[],
 
     lastShot:0,
-
-    particles:[],
 
     time:0,
     last:performance.now(),
@@ -2003,34 +2626,29 @@ function resetGame(){
     state.enemy.enabled &&
     state.enemy.atStart
   ){
-    spawnEnemy(650);
+    spawnEnemy(620);
   }
 
   renderHud();
-
-  $("#fxStartOverlay")
-    .classList.remove("fx-hidden");
-
-  $("#fxTaskOverlay")
-    .classList.add("fx-hidden");
-
-  $("#fxFinishOverlay")
-    .classList.add("fx-hidden");
-
   updateStart();
   applyUI();
 
-  loop(performance.now());
+  $("#fxStartOverlay").classList.remove("fx-hidden");
+  $("#fxTaskOverlay").classList.add("fx-hidden");
+  $("#fxFinishOverlay").classList.add("fx-hidden");
+
+  game.raf=requestAnimationFrame(loop);
 }
 
-/* ---------- physics ---------- */
+/* PHYSICS */
 
 function surfaces(){
 
-  const arr=[];
+  const out=[];
 
   game.level.ground.forEach(g=>{
-    arr.push({
+
+    out.push({
       x1:g.x1,
       x2:g.x2,
       y:g.y,
@@ -2039,7 +2657,8 @@ function surfaces(){
   });
 
   game.level.platforms.forEach(p=>{
-    arr.push({
+
+    out.push({
       x1:p.x,
       x2:p.x+p.w,
       y:p.y,
@@ -2047,10 +2666,11 @@ function surfaces(){
     });
   });
 
-  return arr;
+  return out;
 }
 
 function overlap(a,b){
+
   return (
     a.x<b.x+b.w &&
     a.x+a.w>b.x &&
@@ -2059,7 +2679,8 @@ function overlap(a,b){
   );
 }
 
-function heroBox(){
+function heroRect(){
+
   const h=game.hero;
 
   return {
@@ -2077,14 +2698,31 @@ function pressJump(){
 }
 
 function releaseJump(){
+
   game.keys.jump=false;
+}
+
+function damageHero(fromX){
+
+  const h=game.hero;
+
+  if(h.inv>0)return;
+
+  h.inv=85;
+
+  h.vx=
+    h.x+h.w/2<fromX
+    ? -5
+    : 5;
+
+  h.vy=-7;
 }
 
 function updatePhysics(){
 
   const h=game.hero;
 
-  const G=0.82;
+  const G=.82;
 
   game.time++;
 
@@ -2106,49 +2744,41 @@ function updatePhysics(){
     p.y=ny;
   });
 
-  /* movement from reference mechanics */
+  /* acceleration */
 
-  const maxV=state.player.maxSpeed;
+  if(
+    game.keys.right &&
+    !game.keys.left
+  ){
 
-  if(game.keys.right && !game.keys.left){
-
-    h.vx+=
-      h.vx<0
-        ? .7
-        : .30;
-
+    h.vx+=h.vx<0?.7:.30;
     h.face=1;
   }
 
-  else if(game.keys.left && !game.keys.right){
+  else if(
+    game.keys.left &&
+    !game.keys.right
+  ){
 
-    h.vx-=
-      h.vx>0
-        ? .7
-        : .30;
-
+    h.vx-=h.vx>0?.7:.30;
     h.face=-1;
   }
 
   else{
 
-    h.vx*=
-      h.on
-        ? .90
-        : .985;
+    h.vx*=h.on?.90:.985;
 
     if(Math.abs(h.vx)<.08){
       h.vx=0;
     }
   }
 
-  h.vx=clamp(
-    h.vx,
-    -maxV,
-    maxV
-  );
-
-  /* coyote time / buffered jump */
+  h.vx=
+    clamp(
+      h.vx,
+      -state.player.maxSpeed,
+      state.player.maxSpeed
+    );
 
   if(h.jumpBuffer>0){
     h.jumpBuffer--;
@@ -2171,14 +2801,13 @@ function updatePhysics(){
     h.jumpBuffer>0 &&
     h.coyote>0
   ){
+
     h.vy=-JV;
     h.on=false;
     h.coyote=0;
     h.standing=null;
     h.jumpBuffer=0;
   }
-
-  /* variable jump height */
 
   if(
     !game.keys.jump &&
@@ -2187,12 +2816,7 @@ function updatePhysics(){
     h.vy=-JV*.42;
   }
 
-  /* gravity */
-
-  h.vy=Math.min(
-    16,
-    h.vy+G
-  );
+  h.vy=Math.min(16,h.vy+G);
 
   if(
     h.standing &&
@@ -2211,10 +2835,6 @@ function updatePhysics(){
     h.vx=0;
   }
 
-  /* landing */
-
-  const wasOn=h.on;
-
   h.on=false;
   h.standing=null;
 
@@ -2224,8 +2844,8 @@ function updatePhysics(){
 
       const slack=
         s.ref && s.ref.moving
-          ? Math.abs(s.ref.dy)+4
-          : 4;
+        ? Math.abs(s.ref.dy)+4
+        : 4;
 
       if(
         h.x+h.w>s.x1+4 &&
@@ -2233,15 +2853,13 @@ function updatePhysics(){
         oldBottom<=s.y+slack &&
         h.y+h.h>=s.y
       ){
+
         h.y=s.y-h.h;
         h.vy=0;
         h.on=true;
         h.standing=s.ref;
 
-        if(
-          !s.ref &&
-          h.x>game.lastSafe
-        ){
+        if(!s.ref){
           game.lastSafe=h.x;
         }
 
@@ -2250,20 +2868,16 @@ function updatePhysics(){
     }
   }
 
-  h.run+=Math.abs(h.vx)*.07;
-  h.spin+=h.on?0:.2;
-
   if(h.inv>0){
     h.inv--;
   }
 
   /* fall */
 
-  if(h.y>VH+150){
+  if(h.y>VH+160){
 
     h.x=game.lastSafe;
     h.y=game.level.GY-180;
-
     h.vx=0;
     h.vy=0;
     h.inv=90;
@@ -2279,12 +2893,13 @@ function updatePhysics(){
         h.vy>=0 &&
         h.x+h.w>s.x &&
         h.x<s.x+s.w &&
-        h.y+h.h>=game.level.GY-18 &&
-        oldBottom<=game.level.GY-4
+        h.y+h.h>=game.level.GY-20 &&
+        oldBottom<=game.level.GY-3
       ){
+
         h.vy=
           -Math.sqrt(
-            2*G*360
+            2*G*350
           );
 
         h.on=false;
@@ -2295,7 +2910,7 @@ function updatePhysics(){
     });
   }
 
-  /* spikes */
+  /* hazards */
 
   if(state.level.spikes){
 
@@ -2303,11 +2918,11 @@ function updatePhysics(){
 
       if(
         overlap(
-          heroBox(),
+          heroRect(),
           {
-            x:s.x+6,
+            x:s.x+5,
             y:game.level.GY-s.h,
-            w:s.w-12,
+            w:s.w-10,
             h:s.h
           }
         )
@@ -2317,20 +2932,57 @@ function updatePhysics(){
     });
   }
 
-  /* task objects */
+  /* bonus collection */
+
+  if(state.bonus.enabled){
+
+    game.level.bonuses.forEach((b,i)=>{
+
+      if(b.taken)return;
+
+      const dx=
+        b.x-
+        (h.x+h.w/2);
+
+      const dy=
+        b.y-
+        (h.y+h.h/2);
+
+      if(
+        Math.abs(dx)<34 &&
+        Math.abs(dy)<38
+      ){
+
+        b.taken=true;
+
+        game.collectedBonuses.add(i);
+
+        renderHud();
+      }
+    });
+  }
+
+  /* task items */
 
   game.level.taskItems.forEach(q=>{
 
     if(q.taken)return;
 
-    const hx=h.x+h.w/2;
-    const hy=h.y+h.h/2;
+    const dx=
+      q.x-
+      (h.x+h.w/2);
+
+    const dy=
+      q.y-
+      (h.y+h.h/2);
 
     if(
-      Math.abs(q.x-hx)<38 &&
-      Math.abs(q.y-hy)<46
+      Math.abs(dx)<45 &&
+      Math.abs(dy)<50
     ){
+
       q.taken=true;
+
       openTask(q.index);
     }
   });
@@ -2343,25 +2995,40 @@ function updatePhysics(){
     !game.finished &&
     h.x>game.level.FINISH
   ){
+
     if(
       game.completed.size>=
       state.tasks.length
     ){
+
       game.finished=true;
       game.paused=true;
 
       $("#fxFinishText").textContent=
-        "Все задания выполнены: "+
+        "Задания: "+
         game.completed.size+
         "/"+
-        state.tasks.length;
+        state.tasks.length+
+        (
+          state.bonus.enabled
+          ? "\nБонусы: "+
+            game.collectedBonuses.size+
+            "/"+
+            game.level.bonuses.length
+          : ""
+        );
 
       $("#fxFinishOverlay")
         .classList.remove("fx-hidden");
+
+    }else{
+
+      h.x=game.level.FINISH-80;
+      h.vx=-2;
     }
   }
 
-  /* smooth camera + speed lookahead */
+  /* camera */
 
   const target=
     h.x-
@@ -2369,38 +3036,38 @@ function updatePhysics(){
     h.vx*14;
 
   game.camX+=
-    (target-game.camX)*
-    .12;
+    (target-game.camX)*.12;
 
-  game.camX=clamp(
-    game.camX,
-    0,
-    Math.max(
+  game.camX=
+    clamp(
+      game.camX,
       0,
-      game.level.FINISH+
-      500-
-      VW
-    )
-  );
+      Math.max(
+        0,
+        game.level.FINISH+
+        500-
+        VW
+      )
+    );
 }
 
-/* ---------- monsters ---------- */
+/* MONSTERS */
 
 function findSpawn(afterX){
 
-  const candidates=
+  const found=
     game.level.enemySpawns
-      .filter(p=>p.x>afterX+180)
-      .sort((a,b)=>a.x-b.x);
+    .filter(p=>p.x>afterX+160)
+    .sort((a,b)=>a.x-b.x);
 
-  if(candidates.length){
-    return candidates[0];
+  if(found.length){
+    return {...found[0]};
   }
 
   return {
     x:Math.min(
-      game.level.END-150,
-      afterX+420
+      game.level.END-120,
+      afterX+430
     ),
     y:game.level.GY
   };
@@ -2412,48 +3079,37 @@ function spawnEnemy(afterX){
 
   const p=findSpawn(afterX);
 
-  /* avoid exact duplicates */
-
   if(
     game.enemies.some(
       e=>
         e.alive &&
-        Math.abs(e.x-p.x)<80
+        Math.abs(e.x-p.x)<90
     )
   ){
-    p.x+=140;
+    p.x+=150;
   }
 
   game.enemies.push({
     id:game.enemyId++,
+
     x:p.x,
     y:p.y-state.enemy.size,
+
     w:state.enemy.size,
     h:state.enemy.size,
+
     hp:state.enemy.hp,
     maxHp:state.enemy.hp,
+
     alive:true,
+
     dir:-1,
     x0:p.x-75,
     x1:p.x+75,
-    lastFire:performance.now()+600
+
+    lastFire:
+      performance.now()+700
   });
-}
-
-function damageHero(fromX){
-
-  const h=game.hero;
-
-  if(h.inv>0)return;
-
-  h.inv=90;
-
-  h.vx=
-    h.x+h.w/2<fromX
-      ? -5
-      : 5;
-
-  h.vy=-7;
 }
 
 function heroShoot(){
@@ -2475,12 +3131,16 @@ function heroShoot(){
   game.heroShots.push({
     x:
       h.face>0
-        ? h.x+h.w
-        : h.x-size,
+      ? h.x+h.w
+      : h.x-size,
+
     y:h.y+h.h*.48,
+
     w:size,
     h:size,
+
     vx:h.face*12,
+
     alive:true
   });
 }
@@ -2489,15 +3149,18 @@ function enemyShoot(e){
 
   const dir=
     game.hero.x<e.x
-      ? -1
-      : 1;
+    ? -1
+    : 1;
 
   game.enemyShots.push({
     x:e.x+e.w/2,
     y:e.y+e.h*.48,
+
     w:22,
     h:22,
+
     vx:dir*4.2,
+
     alive:true
   });
 }
@@ -2526,15 +3189,15 @@ function updateEnemies(){
       now-e.lastFire>=
       state.enemy.fireRate*1000
     ){
+
       e.lastFire=now;
+
       enemyShoot(e);
     }
 
-    /* body collision */
-
     if(
       overlap(
-        heroBox(),
+        heroRect(),
         e
       )
     ){
@@ -2555,7 +3218,9 @@ function updateEnemies(){
         b.alive &&
         overlap(b,e)
       ){
+
         b.alive=false;
+
         e.hp--;
 
         if(e.hp<=0){
@@ -2566,7 +3231,7 @@ function updateEnemies(){
 
     if(
       b.x<game.camX-100 ||
-      b.x>game.camX+VW+200
+      b.x>game.camX+VW+220
     ){
       b.alive=false;
     }
@@ -2581,16 +3246,18 @@ function updateEnemies(){
     if(
       overlap(
         b,
-        heroBox()
+        heroRect()
       )
     ){
+
       b.alive=false;
+
       damageHero(b.x);
     }
 
     if(
-      b.x<game.camX-100 ||
-      b.x>game.camX+VW+150
+      b.x<game.camX-120 ||
+      b.x>game.camX+VW+180
     ){
       b.alive=false;
     }
@@ -2603,242 +3270,660 @@ function updateEnemies(){
     game.enemyShots.filter(b=>b.alive);
 }
 
-/* ---------- draw ---------- */
+/* BUILT-IN THEME DRAWING */
 
-function drawBackground(){
+function drawBackgroundTheme(){
 
-  const bg=asset(state.assets.background);
+  const custom=asset(state.assets.background);
 
-  if(bg){
-    const im=getImage(bg);
+  if(custom){
+
+    const im=getImage(custom);
 
     if(im && im.complete){
-      ctx.drawImage(im,0,0,VW,VH);
+
+      ctx.drawImage(
+        im,
+        0,
+        0,
+        VW,
+        VH
+      );
+
       return;
     }
   }
 
-  const grad=ctx.createLinearGradient(0,0,0,VH);
+  const T=state.theme;
 
-  grad.addColorStop(0,state.colors.sky);
-  grad.addColorStop(1,"#eaf7ff");
+  if(T==="space"){
 
-  ctx.fillStyle=grad;
-  ctx.fillRect(0,0,VW,VH);
+    const g=
+      ctx.createLinearGradient(0,0,0,VH);
 
-  /* simple distant hills */
+    g.addColorStop(0,"#090d34");
+    g.addColorStop(1,"#4e286f");
 
-  ctx.fillStyle="rgba(70,130,160,.13)";
+    ctx.fillStyle=g;
+    ctx.fillRect(0,0,VW,VH);
 
-  for(let i=0;i<8;i++){
-    const x=
-      ((i*250-game.camX*.2)%2000)-150;
+    ctx.fillStyle="rgba(255,255,255,.75)";
+
+    for(let i=0;i<55;i++){
+
+      const sx=
+        (
+          i*173-
+          game.camX*.08
+        )%
+        (VW+200);
+
+      const sy=
+        20+
+        (i*79)%
+        Math.max(80,VH*.65);
+
+      ctx.fillRect(sx,sy,2,2);
+    }
+
+    ctx.fillStyle="#7f65ae";
 
     ctx.beginPath();
-    ctx.moveTo(x,VH*.78);
-    ctx.quadraticCurveTo(
-      x+120,
-      VH*.45,
-      x+250,
-      VH*.78
+    ctx.arc(
+      VW*.75-game.camX*.03,
+      VH*.22,
+      62,
+      0,
+      Math.PI*2
     );
     ctx.fill();
+
+    return;
   }
+
+  if(T==="candy"){
+
+    const g=
+      ctx.createLinearGradient(0,0,0,VH);
+
+    g.addColorStop(0,"#ffb9dc");
+    g.addColorStop(1,"#ffe9af");
+
+    ctx.fillStyle=g;
+    ctx.fillRect(0,0,VW,VH);
+
+    for(let i=0;i<7;i++){
+
+      const x=
+        (
+          i*250-
+          game.camX*.12
+        )%
+        (VW+300);
+
+      ctx.fillStyle=
+        i%2
+        ? "#f08bbd"
+        : "#d877bb";
+
+      ctx.beginPath();
+
+      ctx.arc(
+        x,
+        VH*.68,
+        60,
+        Math.PI,
+        0
+      );
+
+      ctx.fill();
+    }
+
+    return;
+  }
+
+  if(T==="jungle"){
+
+    const g=
+      ctx.createLinearGradient(0,0,0,VH);
+
+    g.addColorStop(0,"#9adfc5");
+    g.addColorStop(1,"#4b9d67");
+
+    ctx.fillStyle=g;
+    ctx.fillRect(0,0,VW,VH);
+
+    ctx.fillStyle="rgba(18,87,54,.22)";
+
+    for(let i=0;i<10;i++){
+
+      const x=
+        (
+          i*165-
+          game.camX*.16
+        )%
+        (VW+200);
+
+      ctx.beginPath();
+
+      ctx.arc(
+        x,
+        VH*.65,
+        65,
+        0,
+        Math.PI*2
+      );
+
+      ctx.fill();
+    }
+
+    return;
+  }
+
+  if(T==="ocean"){
+
+    const g=
+      ctx.createLinearGradient(0,0,0,VH);
+
+    g.addColorStop(0,"#47bddb");
+    g.addColorStop(1,"#095897");
+
+    ctx.fillStyle=g;
+    ctx.fillRect(0,0,VW,VH);
+
+    ctx.strokeStyle="rgba(255,255,255,.18)";
+    ctx.lineWidth=2;
+
+    for(let i=0;i<10;i++){
+
+      const x=
+        (
+          i*130-
+          game.camX*.10
+        )%
+        (VW+140);
+
+      ctx.beginPath();
+
+      ctx.arc(
+        x,
+        100+(i*67)%300,
+        8+(i%3)*4,
+        0,
+        Math.PI*2
+      );
+
+      ctx.stroke();
+    }
+
+    return;
+  }
+
+  if(T==="magic"){
+
+    const g=
+      ctx.createLinearGradient(0,0,0,VH);
+
+    g.addColorStop(0,"#5f53a8");
+    g.addColorStop(.6,"#ae7cc3");
+    g.addColorStop(1,"#f0a4bc");
+
+    ctx.fillStyle=g;
+    ctx.fillRect(0,0,VW,VH);
+
+    ctx.fillStyle="rgba(255,255,255,.16)";
+
+    for(let i=0;i<6;i++){
+
+      const x=
+        (
+          i*270-
+          game.camX*.10
+        )%
+        (VW+300);
+
+      ctx.beginPath();
+
+      ctx.ellipse(
+        x,
+        VH*.68-(i%2)*70,
+        100,
+        30,
+        0,
+        0,
+        Math.PI*2
+      );
+
+      ctx.fill();
+    }
+
+    return;
+  }
+
+  const g=
+    ctx.createLinearGradient(0,0,0,VH);
+
+  g.addColorStop(0,state.colors.sky);
+  g.addColorStop(1,"#e9f7ff");
+
+  ctx.fillStyle=g;
+  ctx.fillRect(0,0,VW,VH);
 }
 
-function drawGround(){
+function drawGroundPiece(x,y,w,h,isPlatform){
 
-  game.level.ground.forEach(s=>{
+  const custom=
+    asset(
+      isPlatform
+      ? state.assets.platform
+      : state.assets.ground
+    );
 
-    const x=s.x1-game.camX;
-    const w=s.x2-s.x1;
+  if(custom){
 
-    if(
-      x+w<-50 ||
-      x>VW+50
-    )return;
-
-    ctx.fillStyle=state.colors.ground;
-
-    const img=asset(state.assets.ground);
-    const im=getImage(img);
+    const im=getImage(custom);
 
     if(im && im.complete){
 
       ctx.save();
+
       ctx.beginPath();
-      ctx.rect(
-        x,
-        s.y,
-        w,
-        VH-s.y+40
-      );
+      ctx.rect(x,y,w,h);
       ctx.clip();
 
-      const iw=100;
+      const tileW=
+        Math.max(
+          70,
+          im.width/
+          Math.max(1,im.height)*70
+        );
 
-      for(let tx=x;tx<x+w;tx+=iw){
+      for(let px=x;px<x+w;px+=tileW){
+
         ctx.drawImage(
           im,
-          tx,
-          s.y,
-          iw,
-          100
+          px,
+          y,
+          tileW,
+          Math.max(h,75)
         );
       }
 
       ctx.restore();
 
-    }else{
-      ctx.fillRect(
-        x,
-        s.y,
-        w,
-        VH-s.y+40
-      );
+      return;
     }
+  }
 
-    ctx.fillStyle="rgba(255,255,255,.25)";
-    ctx.fillRect(x,s.y,w,5);
-  });
+  const T=state.theme;
+
+  if(T==="space"){
+
+    ctx.fillStyle=
+      isPlatform
+      ? "#65759b"
+      : "#49445f";
+
+    ctx.fillRect(x,y,w,h);
+
+    ctx.fillStyle="#91a8ca";
+    ctx.fillRect(x,y,w,5);
+
+    return;
+  }
+
+  if(T==="candy"){
+
+    ctx.fillStyle=
+      isPlatform
+      ? "#dfa56d"
+      : "#754531";
+
+    ctx.fillRect(x,y,w,h);
+
+    ctx.fillStyle=
+      isPlatform
+      ? "#fff2cb"
+      : "#a9684f";
+
+    ctx.fillRect(x,y,w,7);
+
+    return;
+  }
+
+  if(T==="jungle"){
+
+    ctx.fillStyle=
+      isPlatform
+      ? "#805b39"
+      : "#554e2d";
+
+    ctx.fillRect(x,y,w,h);
+
+    ctx.fillStyle="#6ca248";
+    ctx.fillRect(x,y,w,7);
+
+    return;
+  }
+
+  if(T==="ocean"){
+
+    ctx.fillStyle=
+      isPlatform
+      ? "#b86585"
+      : "#c5a269";
+
+    ctx.fillRect(x,y,w,h);
+
+    ctx.fillStyle=
+      isPlatform
+      ? "#ed9abb"
+      : "#ead398";
+
+    ctx.fillRect(x,y,w,7);
+
+    return;
+  }
+
+  if(T==="magic"){
+
+    ctx.fillStyle=
+      isPlatform
+      ? "#918578"
+      : "#526947";
+
+    ctx.fillRect(x,y,w,h);
+
+    ctx.fillStyle="#9fc778";
+    ctx.fillRect(x,y,w,7);
+
+    return;
+  }
+
+  ctx.fillStyle=
+    isPlatform
+    ? state.colors.platform
+    : state.colors.ground;
+
+  ctx.fillRect(x,y,w,h);
+
+  ctx.fillStyle="rgba(255,255,255,.25)";
+  ctx.fillRect(x,y,w,5);
 }
 
-function drawPlatforms(){
+function builtInEmoji(type){
+
+  const T=state.theme;
+
+  if(type==="hero"){
+
+    if(T==="space")return "🧑‍🚀";
+    if(T==="candy")return "🧑‍🍳";
+    if(T==="jungle")return "🧭";
+    if(T==="ocean")return "🤿";
+    if(T==="magic")return "🧙";
+    return "🙂";
+  }
+
+  if(type==="enemy"){
+
+    if(T==="space")return "👾";
+    if(T==="candy")return "🟣";
+    if(T==="jungle")return "🌱";
+    if(T==="ocean")return "🐡";
+    if(T==="magic")return "👻";
+    return "👾";
+  }
+
+  if(type==="bonus"){
+
+    if(T==="space")return "⭐";
+    if(T==="candy")return "🍬";
+    if(T==="jungle")return "🍌";
+    if(T==="ocean")return "⚪";
+    if(T==="magic")return "💎";
+    return "🪙";
+  }
+
+  return "";
+}
+
+function taskEmoji(){
+
+  switch(state.taskItem.builtin){
+
+    case "crystal":return "💎";
+    case "key":return "🔑";
+    case "chest":return "🎁";
+    case "book":return "📕";
+    case "orb":return "🔮";
+    default:return "💣";
+  }
+}
+
+/* DRAW */
+
+function render(){
+
+  ctx.setTransform(
+    DPR,
+    0,
+    0,
+    DPR,
+    0,
+    0
+  );
+
+  ctx.clearRect(0,0,VW,VH);
+
+  drawBackgroundTheme();
+
+  /* ground */
+
+  game.level.ground.forEach(g=>{
+
+    const x=g.x1-game.camX;
+    const w=g.x2-g.x1;
+
+    if(x+w<-60 || x>VW+60)return;
+
+    drawGroundPiece(
+      x,
+      g.y,
+      w,
+      VH-g.y+80,
+      false
+    );
+  });
+
+  /* platforms */
 
   game.level.platforms.forEach(p=>{
 
     const x=p.x-game.camX;
 
-    if(
-      x+p.w<-40 ||
-      x>VW+40
-    )return;
+    if(x+p.w<-50 || x>VW+50)return;
 
-    ctx.fillStyle=state.colors.platform;
-
-    ctx.fillRect(
+    drawGroundPiece(
       x,
       p.y,
       p.w,
-      p.h
-    );
-
-    ctx.fillStyle="rgba(255,255,255,.28)";
-    ctx.fillRect(
-      x,
-      p.y,
-      p.w,
-      4
+      p.h,
+      true
     );
   });
-}
 
-function drawSpring(s){
+  /* springs */
 
-  const x=s.x-game.camX;
+  game.level.springs.forEach(s=>{
 
-  const c=s.comp>0?7:0;
+    const x=s.x-game.camX;
 
-  ctx.fillStyle="#e34646";
+    const comp=s.comp>0?7:0;
 
-  ctx.fillRect(
-    x,
-    game.level.GY-17+c,
-    s.w,
-    17-c
-  );
+    if(state.theme==="candy"){
 
-  ctx.fillStyle="#ffd847";
+      ctx.font="38px Arial";
+      ctx.textAlign="center";
+      ctx.fillText(
+        "☁️",
+        x+s.w/2,
+        game.level.GY+comp
+      );
 
-  ctx.fillRect(
-    x+4,
-    game.level.GY-24+c,
-    s.w-8,
-    8
-  );
-}
+    }else{
 
-function drawSpike(s){
+      ctx.fillStyle="#d95757";
 
-  const x=s.x-game.camX;
+      ctx.fillRect(
+        x,
+        game.level.GY-17+comp,
+        s.w,
+        17-comp
+      );
 
-  ctx.fillStyle="#676d78";
+      ctx.fillStyle="#ffd54a";
 
-  const n=4;
-  const sw=s.w/n;
+      ctx.fillRect(
+        x+4,
+        game.level.GY-24+comp,
+        s.w-8,
+        8
+      );
+    }
+  });
 
-  for(let i=0;i<n;i++){
+  /* hazards */
 
-    ctx.beginPath();
+  game.level.spikes.forEach(s=>{
 
-    ctx.moveTo(
-      x+i*sw,
-      game.level.GY
-    );
+    const x=s.x-game.camX;
 
-    ctx.lineTo(
-      x+i*sw+sw/2,
-      game.level.GY-s.h
-    );
-
-    ctx.lineTo(
-      x+(i+1)*sw,
-      game.level.GY
-    );
-
-    ctx.fill();
-  }
-}
-
-function drawTaskItem(q){
-
-  if(q.taken)return;
-
-  const x=q.x-game.camX;
-
-  if(
-    x<-70 ||
-    x>VW+70
-  )return;
-
-  const pulse=
-    1+
-    Math.sin(game.time*.07)*.08;
-
-  const size=
-    state.taskItem.size*pulse;
-
-  const img=asset(state.assets.taskItem);
-  const im=getImage(img);
-
-  if(im && im.complete){
-
-    ctx.drawImage(
-      im,
-      x-size/2,
-      q.y-size/2,
-      size,
-      size
-    );
-
-  }else{
-
-    ctx.save();
+    const symbol=
+      state.theme==="ocean"
+      ? "🦔"
+      : state.theme==="jungle"
+      ? "🌵"
+      : state.theme==="candy"
+      ? "🍭"
+      : state.theme==="magic"
+      ? "🔺"
+      : "▲";
 
     ctx.font=
-      Math.round(size*.72)+
+      Math.round(s.h*1.1)+
       "px Arial";
 
     ctx.textAlign="center";
-    ctx.textBaseline="middle";
 
     ctx.fillText(
-      state.taskItem.icon,
-      x,
-      q.y
+      symbol,
+      x+s.w/2,
+      game.level.GY
     );
+  });
 
-    ctx.restore();
+  /* bonuses */
+
+  game.level.bonuses.forEach(b=>{
+
+    if(b.taken)return;
+
+    const x=b.x-game.camX;
+
+    if(x<-60 || x>VW+60)return;
+
+    const custom=asset(state.assets.bonus);
+    const im=getImage(custom);
+
+    const size=state.bonus.size;
+
+    if(im && im.complete){
+
+      ctx.drawImage(
+        im,
+        x-size/2,
+        b.y-size/2,
+        size,
+        size
+      );
+
+    }else{
+
+      ctx.font=
+        Math.round(size*.95)+
+        "px Arial";
+
+      ctx.textAlign="center";
+      ctx.textBaseline="middle";
+
+      ctx.fillText(
+        builtInEmoji("bonus"),
+        x,
+        b.y
+      );
+    }
+  });
+
+  /* task objects */
+
+  game.level.taskItems.forEach(q=>{
+
+    if(q.taken)return;
+
+    const x=q.x-game.camX;
+
+    if(x<-80 || x>VW+80)return;
+
+    const pulse=
+      1+
+      Math.sin(game.time*.065)*.08;
+
+    const size=
+      state.taskItem.size*
+      pulse;
+
+    const custom=
+      asset(state.assets.taskItem);
+
+    const im=getImage(custom);
+
+    if(im && im.complete){
+
+      ctx.drawImage(
+        im,
+        x-size/2,
+        q.y-size/2,
+        size,
+        size
+      );
+
+    }else{
+
+      ctx.font=
+        Math.round(size*.84)+
+        "px Arial";
+
+      ctx.textAlign="center";
+      ctx.textBaseline="middle";
+
+      ctx.fillText(
+        taskEmoji(),
+        x,
+        q.y
+      );
+    }
+  });
+
+  drawFinish();
+
+  game.enemies.forEach(drawEnemy);
+
+  drawShots();
+  drawHero();
+
+  if(state.level.progress){
+    drawProgress();
   }
 }
 
@@ -2848,8 +3933,8 @@ function drawHero(){
 
   const x=h.x-game.camX;
 
-  const img=asset(state.assets.player);
-  const im=getImage(img);
+  const custom=asset(state.assets.player);
+  const im=getImage(custom);
 
   ctx.save();
 
@@ -2866,6 +3951,7 @@ function drawHero(){
       state.player.mirror &&
       h.face<0
     ){
+
       ctx.translate(
         x+h.w,
         h.y
@@ -2894,36 +3980,18 @@ function drawHero(){
 
   }else{
 
-    ctx.fillStyle="#e47767";
+    ctx.font=
+      Math.round(h.h*.83)+
+      "px Arial";
 
-    ctx.beginPath();
+    ctx.textAlign="center";
+    ctx.textBaseline="middle";
 
-    ctx.roundRect(
-      x,
-      h.y,
-      h.w,
-      h.h,
-      12
+    ctx.fillText(
+      builtInEmoji("hero"),
+      x+h.w/2,
+      h.y+h.h/2
     );
-
-    ctx.fill();
-
-    ctx.fillStyle="#222";
-
-    const eyeX=
-      h.face>0
-        ? x+h.w-10
-        : x+7;
-
-    ctx.beginPath();
-    ctx.arc(
-      eyeX,
-      h.y+14,
-      3,
-      0,
-      Math.PI*2
-    );
-    ctx.fill();
   }
 
   ctx.restore();
@@ -2935,13 +4003,10 @@ function drawEnemy(e){
 
   const x=e.x-game.camX;
 
-  if(
-    x<-100 ||
-    x>VW+100
-  )return;
+  if(x<-100 || x>VW+100)return;
 
-  const img=asset(state.assets.enemy);
-  const im=getImage(img);
+  const custom=asset(state.assets.enemy);
+  const im=getImage(custom);
 
   if(im && im.complete){
 
@@ -2955,37 +4020,22 @@ function drawEnemy(e){
 
   }else{
 
-    ctx.fillStyle="#805583";
-
-    ctx.beginPath();
-
-    ctx.roundRect(
-      x,
-      e.y,
-      e.w,
-      e.h,
-      17
-    );
-
-    ctx.fill();
-
     ctx.font=
-      Math.round(e.h*.58)+
+      Math.round(e.h*.78)+
       "px Arial";
 
     ctx.textAlign="center";
     ctx.textBaseline="middle";
 
     ctx.fillText(
-      "👾",
+      builtInEmoji("enemy"),
       x+e.w/2,
       e.y+e.h/2
     );
   }
 
-  /* hp */
+  ctx.fillStyle="rgba(0,0,0,.25)";
 
-  ctx.fillStyle="rgba(0,0,0,.3)";
   ctx.fillRect(
     x,
     e.y-10,
@@ -2993,7 +4043,7 @@ function drawEnemy(e){
     6
   );
 
-  ctx.fillStyle="#e66168";
+  ctx.fillStyle="#e55f68";
 
   ctx.fillRect(
     x,
@@ -3010,8 +4060,10 @@ function drawShots(){
 
     const x=b.x-game.camX;
 
-    const img=asset(state.assets.heroProjectile);
-    const im=getImage(img);
+    const custom=
+      asset(state.assets.heroProjectile);
+
+    const im=getImage(custom);
 
     if(im && im.complete){
 
@@ -3025,7 +4077,16 @@ function drawShots(){
 
     }else{
 
-      ctx.fillStyle="#ffd441";
+      ctx.fillStyle=
+        state.theme==="space"
+        ? "#43ebff"
+        : state.theme==="candy"
+        ? "#ff63b6"
+        : state.theme==="jungle"
+        ? "#f1b44b"
+        : state.theme==="ocean"
+        ? "#bdf6ff"
+        : "#ffdc69";
 
       ctx.beginPath();
 
@@ -3045,8 +4106,10 @@ function drawShots(){
 
     const x=b.x-game.camX;
 
-    const img=asset(state.assets.enemyProjectile);
-    const im=getImage(img);
+    const custom=
+      asset(state.assets.enemyProjectile);
+
+    const im=getImage(custom);
 
     if(im && im.complete){
 
@@ -3060,7 +4123,7 @@ function drawShots(){
 
     }else{
 
-      ctx.fillStyle="#9254d8";
+      ctx.fillStyle="#9758d8";
 
       ctx.beginPath();
 
@@ -3083,55 +4146,43 @@ function drawFinish(){
     game.level.FINISH-
     game.camX;
 
-  const img=asset(state.assets.finish);
-  const im=getImage(img);
+  const custom=
+    asset(state.assets.finish);
+
+  const im=getImage(custom);
 
   if(im && im.complete){
 
     ctx.drawImage(
       im,
-      x-35,
-      game.level.GY-120,
-      75,
-      120
-    );
-
-  }else{
-
-    ctx.fillStyle="#eee";
-    ctx.fillRect(
-      x,
+      x-40,
       game.level.GY-125,
-      6,
+      85,
       125
     );
 
-    ctx.fillStyle="#e45c5c";
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-      x+6,
-      game.level.GY-120
-    );
-
-    ctx.lineTo(
-      x+65,
-      game.level.GY-95
-    );
-
-    ctx.lineTo(
-      x+6,
-      game.level.GY-70
-    );
-
-    ctx.fill();
+    return;
   }
+
+  ctx.font="72px Arial";
+  ctx.textAlign="center";
+
+  let icon="🚩";
+
+  if(state.theme==="space")icon="🌀";
+  if(state.theme==="candy")icon="🎁";
+  if(state.theme==="jungle")icon="🛕";
+  if(state.theme==="ocean")icon="🐚";
+  if(state.theme==="magic")icon="🏰";
+
+  ctx.fillText(
+    icon,
+    x,
+    game.level.GY-20
+  );
 }
 
 function drawProgress(){
-
-  if(!state.level.progress)return;
 
   const progress=
     clamp(
@@ -3141,85 +4192,101 @@ function drawProgress(){
       1
     );
 
-  const w=Math.min(250,VW*.34);
+  const w=Math.min(245,VW*.32);
+
   const x=VW/2-w/2;
-  const y=15;
+  const y=17;
 
-  ctx.fillStyle="rgba(0,0,0,.35)";
+  ctx.fillStyle="rgba(255,255,255,.85)";
 
-  ctx.fillRect(
-    x-4,
-    y-4,
-    w+8,
-    16
+  ctx.beginPath();
+  ctx.roundRect(
+    x-3,
+    y-3,
+    w+6,
+    13,
+    7
   );
+  ctx.fill();
 
   ctx.fillStyle=state.accent;
 
-  ctx.fillRect(
+  ctx.beginPath();
+  ctx.roundRect(
     x,
     y,
     w*progress,
-    8
+    7,
+    5
   );
-
-  game.level.taskItems.forEach(q=>{
-
-    const tx=
-      x+
-      w*
-      (q.x/game.level.FINISH);
-
-    ctx.fillStyle=
-      q.taken
-        ? "#777"
-        : "#ff4eb9";
-
-    ctx.fillRect(
-      tx-2,
-      y-2,
-      4,
-      12
-    );
-  });
+  ctx.fill();
 }
 
-function render(){
+/* HUD */
 
-  ctx.setTransform(
-    DPR,
-    0,
-    0,
-    DPR,
-    0,
-    0
-  );
+function renderHud(){
 
-  ctx.clearRect(
-    0,
-    0,
-    VW,
-    VH
-  );
+  const hud=$("#fxHud");
 
-  drawBackground();
-  drawGround();
-  drawPlatforms();
+  hud.innerHTML="";
 
-  game.level.springs.forEach(drawSpring);
-  game.level.spikes.forEach(drawSpike);
-  game.level.taskItems.forEach(drawTaskItem);
+  const tasks=document.createElement("div");
 
-  drawFinish();
+  tasks.className="fx-pill";
 
-  game.enemies.forEach(drawEnemy);
+  tasks.textContent=
+    "💣 "+
+    game.completed.size+
+    "/"+
+    state.tasks.length;
 
-  drawShots();
-  drawHero();
-  drawProgress();
+  hud.appendChild(tasks);
+
+  if(
+    state.bonus.enabled &&
+    state.bonus.counter
+  ){
+
+    const bonus=document.createElement("div");
+
+    bonus.className="fx-pill";
+
+    bonus.textContent=
+      builtInEmoji("bonus")+
+      " "+
+      game.collectedBonuses.size+
+      "/"+
+      game.level.bonuses.length;
+
+    hud.appendChild(bonus);
+  }
+
+  if(state.level.progress){
+
+    const wrap=document.createElement("div");
+
+    wrap.className="fx-progress";
+
+    const bar=document.createElement("span");
+
+    bar.style.width=
+      (
+        clamp(
+          game.hero.x/
+          game.level.FINISH,
+          0,
+          1
+        )*
+        100
+      )+
+      "%";
+
+    wrap.appendChild(bar);
+    hud.appendChild(wrap);
+  }
 }
 
-/* ---------- quiz ---------- */
+/* QUIZ */
 
 function showFeedback(ok){
 
@@ -3237,15 +4304,15 @@ function showFeedback(ok){
 
   d.style.background=
     ok
-      ? state.ui.correct
-      : state.ui.wrong;
+    ? state.ui.correct
+    : state.ui.wrong;
 
   d.style.boxShadow=
     "0 0 35px "+
     (
       ok
-        ? state.ui.correct
-        : state.ui.wrong
+      ? state.ui.correct
+      : state.ui.wrong
     );
 
   layer.appendChild(d);
@@ -3263,19 +4330,24 @@ function checkAnswer(ok,index){
   if(ok){
 
     $("#fxFeedback").textContent="Верно!";
-    $("#fxFeedback").style.color=state.ui.correct;
+
+    $("#fxFeedback").style.color=
+      state.ui.correct;
 
     showFeedback(true);
 
     setTimeout(
       ()=>completeTask(index),
-      650
+      620
     );
 
   }else{
 
-    $("#fxFeedback").textContent="Попробуй ещё раз";
-    $("#fxFeedback").style.color=state.ui.wrong;
+    $("#fxFeedback").textContent=
+      "Попробуй ещё раз";
+
+    $("#fxFeedback").style.color=
+      state.ui.wrong;
 
     showFeedback(false);
 
@@ -3293,19 +4365,24 @@ function checkAnswer(ok,index){
 function answerButton(text,img){
 
   const b=document.createElement("button");
+
   b.className="fx-answer";
 
   if(img){
 
     const im=document.createElement("img");
+
     im.src=img;
+
     b.appendChild(im);
   }
 
   if(text){
 
     const span=document.createElement("span");
+
     span.textContent=text;
+
     b.appendChild(span);
   }
 
@@ -3317,6 +4394,7 @@ function primary(text){
   const b=document.createElement("button");
 
   b.className="fx-btn primary";
+
   b.textContent=text;
 
   return b;
@@ -3327,6 +4405,7 @@ function openTask(index){
   if(game.paused)return;
 
   const t=state.tasks[index];
+
   if(!t)return;
 
   game.paused=true;
@@ -3336,7 +4415,9 @@ function openTask(index){
   $("#fxQuestionTitle").textContent=
     t.title||("Задание "+(index+1));
 
-  $("#fxQuestionText").textContent=t.text||"";
+  $("#fxQuestionText").textContent=
+    t.text||"";
+
   $("#fxFeedback").textContent="";
 
   const qi=asset(t.image);
@@ -3364,14 +4445,12 @@ function openTask(index){
 
       $("#fxHint").textContent=t.hint;
 
-      $("#fxHint")
-        .classList.remove("fx-hidden");
+      $("#fxHint").classList.remove("fx-hidden");
     };
 
   }else{
 
-    $("#fxHintBtn")
-      .classList.add("fx-hidden");
+    $("#fxHintBtn").classList.add("fx-hidden");
   }
 
   renderTask(t,index);
@@ -3395,6 +4474,7 @@ function renderTask(t,index){
     b.onclick=()=>completeTask(index);
 
     box.appendChild(b);
+
     return;
   }
 
@@ -3409,6 +4489,7 @@ function renderTask(t,index){
     b.onclick=()=>completeTask(index);
 
     box.append(ta,b);
+
     return;
   }
 
@@ -3445,90 +4526,31 @@ function renderTask(t,index){
 
     b.onclick=()=>{
 
-      const a=
-        input.value.trim().toLowerCase();
+      const entered=
+        input.value
+        .trim()
+        .toLowerCase();
 
-      const c=
+      const correct=
         String(t.answer)
-          .trim()
-          .toLowerCase();
+        .trim()
+        .toLowerCase();
 
-      checkAnswer(a===c,index);
+      checkAnswer(
+        entered===correct,
+        index
+      );
     };
 
     box.append(input,b);
+
     return;
   }
 
   if(t.type==="matching"){
 
-    let selectedLeft=null;
-    const matches={};
+    renderMatchingTask(t,index,box);
 
-    const left=document.createElement("div");
-    const right=document.createElement("div");
-
-    left.style.flex="1";
-    right.style.flex="1";
-
-    const wrap=document.createElement("div");
-
-    wrap.style.display="flex";
-    wrap.style.gap="8px";
-
-    const shuffled=
-      (t.pairs||[])
-      .map(p=>p[1])
-      .sort(()=>Math.random()-.5);
-
-    (t.pairs||[]).forEach(p=>{
-
-      const b=answerButton(p[0]);
-
-      b.onclick=()=>{
-
-        left.querySelectorAll(".fx-answer")
-          .forEach(x=>x.classList.remove("selected"));
-
-        b.classList.add("selected");
-        selectedLeft=p[0];
-      };
-
-      left.appendChild(b);
-    });
-
-    shuffled.forEach(v=>{
-
-      const b=answerButton(v);
-
-      b.onclick=()=>{
-
-        if(!selectedLeft)return;
-
-        matches[selectedLeft]=v;
-        b.classList.add("selected");
-      };
-
-      right.appendChild(b);
-    });
-
-    wrap.append(left,right);
-    box.appendChild(wrap);
-
-    const check=primary("Проверить");
-
-    check.onclick=()=>{
-
-      const ok=
-        (t.pairs||[])
-        .every(p=>
-          matches[p[0]]===p[1]
-        );
-
-      checkAnswer(ok,index);
-    };
-
-    box.appendChild(check);
     return;
   }
 
@@ -3550,24 +4572,28 @@ function renderTask(t,index){
 
       current.forEach((item,i)=>{
 
-        const r=document.createElement("div");
+        const row=document.createElement("div");
 
-        r.className="fx-order-row";
+        row.className="fx-order-row";
 
-        const text=document.createElement("div");
-        text.textContent=item;
+        const tx=document.createElement("div");
+
+        tx.textContent=item;
 
         const up=document.createElement("button");
+
         up.className="fx-btn small";
         up.textContent="↑";
 
         const down=document.createElement("button");
+
         down.className="fx-btn small";
         down.textContent="↓";
 
         up.onclick=()=>{
 
           if(i>0){
+
             [current[i-1],current[i]]=
               [current[i],current[i-1]];
 
@@ -3578,6 +4604,7 @@ function renderTask(t,index){
         down.onclick=()=>{
 
           if(i<current.length-1){
+
             [current[i+1],current[i]]=
               [current[i],current[i+1]];
 
@@ -3585,23 +4612,29 @@ function renderTask(t,index){
           }
         };
 
-        r.append(text,up,down);
-        list.appendChild(r);
+        row.append(tx,up,down);
+
+        list.appendChild(row);
       });
     }
 
     redraw();
+
     box.appendChild(list);
 
     const check=primary("Проверить");
 
-    check.onclick=()=>checkAnswer(
-      JSON.stringify(current)===
-      JSON.stringify(correct),
-      index
-    );
+    check.onclick=()=>{
+
+      checkAnswer(
+        JSON.stringify(current)===
+        JSON.stringify(correct),
+        index
+      );
+    };
 
     box.appendChild(check);
+
     return;
   }
 
@@ -3616,6 +4649,7 @@ function renderTask(t,index){
     let built=[];
 
     const p=document.createElement("div");
+
     const b=document.createElement("div");
 
     p.className="fx-pool";
@@ -3636,6 +4670,7 @@ function renderTask(t,index){
         x.onclick=()=>{
 
           built.push(word);
+
           pool.splice(i,1);
 
           redraw();
@@ -3654,6 +4689,7 @@ function renderTask(t,index){
         x.onclick=()=>{
 
           pool.push(word);
+
           built.splice(i,1);
 
           redraw();
@@ -3669,17 +4705,19 @@ function renderTask(t,index){
 
     const check=primary("Проверить");
 
-    check.onclick=()=>checkAnswer(
-      JSON.stringify(built)===
-      JSON.stringify(correct),
-      index
-    );
+    check.onclick=()=>{
+
+      checkAnswer(
+        JSON.stringify(built)===
+        JSON.stringify(correct),
+        index
+      );
+    };
 
     box.appendChild(check);
+
     return;
   }
-
-  /* single / multi / image */
 
   (t.options||[]).forEach((o,i)=>{
 
@@ -3693,20 +4731,28 @@ function renderTask(t,index){
       b.onclick=()=>{
 
         if(game.selected.has(i)){
+
           game.selected.delete(i);
+
           b.classList.remove("selected");
+
         }else{
+
           game.selected.add(i);
+
           b.classList.add("selected");
         }
       };
 
     }else{
 
-      b.onclick=()=>checkAnswer(
-        !!o.correct,
-        index
-      );
+      b.onclick=()=>{
+
+        checkAnswer(
+          !!o.correct,
+          index
+        );
+      };
     }
 
     box.appendChild(b);
@@ -3718,7 +4764,7 @@ function renderTask(t,index){
 
     check.onclick=()=>{
 
-      const right=
+      const correct=
         t.options
         .map((o,i)=>o.correct?i:-1)
         .filter(i=>i>=0);
@@ -3728,14 +4774,311 @@ function renderTask(t,index){
         .sort((a,b)=>a-b);
 
       const ok=
-        right.length===selected.length &&
-        right.every((v,i)=>v===selected[i]);
+        correct.length===selected.length &&
+        correct.every((v,i)=>v===selected[i]);
 
       checkAnswer(ok,index);
     };
 
     box.appendChild(check);
   }
+}
+
+/* TRUE MATCHING WITH LINES */
+
+function renderMatchingTask(t,index,box){
+
+  const pairs=t.pairs||[];
+
+  const leftValues=
+    pairs.map((p,i)=>({
+      value:p[0],
+      index:i
+    }));
+
+  const rightValues=
+    pairs.map((p,i)=>({
+      value:p[1],
+      index:i
+    }))
+    .sort(()=>Math.random()-.5);
+
+  const wrap=document.createElement("div");
+
+  wrap.className="fx-match-wrap";
+
+  const svg=document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "svg"
+  );
+
+  svg.classList.add("fx-match-svg");
+
+  const left=document.createElement("div");
+  left.className="fx-match-col";
+
+  const right=document.createElement("div");
+  right.className="fx-match-col";
+
+  let selectedLeft=null;
+
+  const connections={};
+
+  leftValues.forEach(item=>{
+
+    const b=document.createElement("button");
+
+    b.className="fx-match-card";
+    b.textContent=item.value;
+
+    b.dataset.side="left";
+    b.dataset.index=item.index;
+
+    b.onclick=()=>{
+
+      left
+      .querySelectorAll(".fx-match-card")
+      .forEach(x=>x.classList.remove("selected"));
+
+      selectedLeft=item.index;
+
+      b.classList.add("selected");
+    };
+
+    left.appendChild(b);
+  });
+
+  rightValues.forEach(item=>{
+
+    const b=document.createElement("button");
+
+    b.className="fx-match-card";
+    b.textContent=item.value;
+
+    b.dataset.side="right";
+    b.dataset.original=item.index;
+
+    b.onclick=()=>{
+
+      if(selectedLeft===null)return;
+
+      Object.keys(connections).forEach(k=>{
+
+        if(
+          Number(connections[k])===
+          item.index
+        ){
+          delete connections[k];
+        }
+      });
+
+      connections[selectedLeft]=item.index;
+
+      selectedLeft=null;
+
+      left
+      .querySelectorAll(".fx-match-card")
+      .forEach(x=>x.classList.remove("selected"));
+
+      refreshMatchingCards();
+      drawMatchingLines();
+    };
+
+    right.appendChild(b);
+  });
+
+  wrap.append(svg,left,right);
+
+  box.appendChild(wrap);
+
+  const check=primary("Проверить");
+
+  check.onclick=()=>{
+
+    const complete=
+      Object.keys(connections).length===
+      pairs.length;
+
+    if(!complete){
+
+      $("#fxFeedback").textContent=
+        "Сначала соедини все пары";
+
+      $("#fxFeedback").style.color=
+        state.ui.wrong;
+
+      return;
+    }
+
+    let ok=true;
+
+    pairs.forEach((pair,i)=>{
+
+      if(Number(connections[i])!==i){
+        ok=false;
+      }
+    });
+
+    markMatchingResult();
+
+    checkAnswer(ok,index);
+  };
+
+  box.appendChild(check);
+
+  function refreshMatchingCards(){
+
+    left
+    .querySelectorAll(".fx-match-card")
+    .forEach(b=>{
+
+      const i=Number(b.dataset.index);
+
+      b.classList.toggle(
+        "paired",
+        connections[i]!==undefined
+      );
+    });
+
+    right
+    .querySelectorAll(".fx-match-card")
+    .forEach(b=>{
+
+      const ri=Number(b.dataset.original);
+
+      const used=
+        Object.values(connections)
+        .some(v=>Number(v)===ri);
+
+      b.classList.toggle("paired",used);
+    });
+  }
+
+  function markMatchingResult(){
+
+    left
+    .querySelectorAll(".fx-match-card")
+    .forEach(b=>{
+
+      const li=Number(b.dataset.index);
+
+      const good=
+        Number(connections[li])===li;
+
+      b.classList.toggle("good",good);
+      b.classList.toggle("bad",!good);
+    });
+
+    right
+    .querySelectorAll(".fx-match-card")
+    .forEach(b=>{
+
+      const ri=Number(b.dataset.original);
+
+      const leftIndex=
+        Object.keys(connections)
+        .find(k=>
+          Number(connections[k])===ri
+        );
+
+      if(leftIndex===undefined)return;
+
+      const good=
+        Number(leftIndex)===ri;
+
+      b.classList.toggle("good",good);
+      b.classList.toggle("bad",!good);
+    });
+
+    drawMatchingLines(true);
+  }
+
+  function drawMatchingLines(showResult){
+
+    svg.innerHTML="";
+
+    const wr=
+      wrap.getBoundingClientRect();
+
+    Object.keys(connections).forEach(key=>{
+
+      const li=Number(key);
+      const ri=Number(connections[key]);
+
+      const l=
+        left.querySelector(
+          '[data-index="'+li+'"]'
+        );
+
+      const r=
+        right.querySelector(
+          '[data-original="'+ri+'"]'
+        );
+
+      if(!l || !r)return;
+
+      const lr=l.getBoundingClientRect();
+      const rr=r.getBoundingClientRect();
+
+      const x1=
+        lr.right-
+        wr.left;
+
+      const y1=
+        lr.top+
+        lr.height/2-
+        wr.top;
+
+      const x2=
+        rr.left-
+        wr.left;
+
+      const y2=
+        rr.top+
+        rr.height/2-
+        wr.top;
+
+      const line=
+        document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "path"
+        );
+
+      const c1=x1+35;
+      const c2=x2-35;
+
+      line.setAttribute(
+        "d",
+        `M ${x1} ${y1} C ${c1} ${y1}, ${c2} ${y2}, ${x2} ${y2}`
+      );
+
+      line.setAttribute("fill","none");
+
+      let stroke=state.accent;
+
+      if(showResult){
+
+        stroke=
+          li===ri
+          ? state.ui.correct
+          : state.ui.wrong;
+      }
+
+      line.setAttribute("stroke",stroke);
+      line.setAttribute("stroke-width","4");
+      line.setAttribute("stroke-linecap","round");
+
+      svg.appendChild(line);
+    });
+  }
+
+  setTimeout(drawMatchingLines,40);
+
+  window.addEventListener(
+    "resize",
+    drawMatchingLines,
+    {once:true}
+  );
 }
 
 function completeTask(index){
@@ -3753,49 +5096,7 @@ function completeTask(index){
   $("#fxStage").focus();
 }
 
-/* ---------- UI ---------- */
-
-function renderHud(){
-
-  const hud=$("#fxHud");
-
-  hud.innerHTML="";
-
-  const p=document.createElement("div");
-
-  p.className="fx-pill";
-
-  p.textContent=
-    "❓ "+
-    game.completed.size+
-    "/"+
-    state.tasks.length;
-
-  hud.appendChild(p);
-}
-
-function updateStart(){
-
-  $("#fxStartTitle").textContent=state.title;
-
-  $("#fxStartSubtitlePreview").textContent=
-    state.start.subtitle;
-
-  const img=asset(state.assets.startImage);
-
-  if(img){
-
-    $("#fxStartImage").src=img;
-
-    $("#fxStartImage")
-      .classList.remove("fx-hidden");
-
-  }else{
-
-    $("#fxStartImage")
-      .classList.add("fx-hidden");
-  }
-}
+/* UI */
 
 function applyUI(){
 
@@ -3804,23 +5105,36 @@ function applyUI(){
     state.accent
   );
 
-  root.style.fontFamily=state.ui.font;
+  root.style.fontFamily=
+    state.ui.font;
 
   [$("#fxQuestionBox"),$("#fxFinishBox")]
-    .forEach(box=>{
+  .forEach(box=>{
 
-      if(!box)return;
+    if(!box)return;
 
-      box.style.background=state.ui.qBg;
-      box.style.borderColor=state.ui.qBorder;
-      box.style.borderWidth=state.ui.borderWidth+"px";
-      box.style.borderRadius=state.ui.radius+"px";
+    box.style.background=
+      state.ui.qBg;
 
-      box.style.boxShadow=
-        state.ui.glow
-          ? "0 0 "+state.ui.glowPower+"px "+state.ui.glowColor
-          : "0 12px 38px rgba(0,0,0,.22)";
-    });
+    box.style.borderColor=
+      state.ui.qBorder;
+
+    box.style.borderWidth=
+      state.ui.borderWidth+
+      "px";
+
+    box.style.borderRadius=
+      state.ui.radius+
+      "px";
+
+    box.style.boxShadow=
+      state.ui.glow
+      ? "0 0 "+
+        state.ui.glowPower+
+        "px "+
+        state.ui.glowColor
+      : "0 12px 38px rgba(0,0,0,.22)";
+  });
 
   $$(".fx-q-title").forEach(x=>{
     x.style.color=state.ui.titleColor;
@@ -3832,28 +5146,63 @@ function applyUI(){
 
   $$(".fx-answer").forEach(x=>{
 
-    x.style.background=state.ui.answerBg;
-    x.style.color=state.ui.answerColor;
-    x.style.borderColor=state.ui.answerBorder;
+    x.style.background=
+      state.ui.answerBg;
+
+    x.style.color=
+      state.ui.answerColor;
+
+    x.style.borderColor=
+      state.ui.answerBorder;
+
     x.style.borderWidth="2px";
   });
-
-  const start=$("#fxStartBox");
-
-  start.style.background=state.start.bg;
-  start.style.borderColor=state.start.border;
-  start.style.borderWidth="3px";
-  start.style.borderRadius="22px";
-
-  start.style.boxShadow=
-    state.start.glow
-      ? "0 0 "+state.start.glowPower+"px "+state.start.glowColor
-      : "0 12px 40px rgba(0,0,0,.25)";
 }
 
-/* ---------- keyboard ---------- */
+function updateStart(){
+
+  $("#fxStartTitle").textContent=
+    state.title;
+
+  $("#fxStartSubtitle").textContent=
+    state.start.subtitle;
+
+  const custom=
+    asset(state.assets.startImage);
+
+  if(custom){
+
+    $("#fxStartImage").src=custom;
+
+    $("#fxStartImage")
+      .classList.remove("fx-hidden");
+
+  }else{
+
+    $("#fxStartImage")
+      .classList.add("fx-hidden");
+  }
+
+  const box=$("#fxStartBox");
+
+  box.style.background=
+    state.ui.qBg;
+
+  box.style.border=
+    "3px solid "+
+    state.accent;
+
+  box.style.borderRadius="22px";
+
+  box.style.boxShadow=
+    "0 0 28px "+
+    state.accent;
+}
+
+/* CONTROLS */
 
 $("#fxStage").addEventListener("pointerdown",()=>{
+
   $("#fxStage").focus();
 });
 
@@ -3894,6 +5243,7 @@ $("#fxStage").addEventListener("keydown",e=>{
     e.key==="w" ||
     e.key==="W"
   ){
+
     if(!game.keys.jump){
       pressJump();
     }
@@ -3931,42 +5281,6 @@ $("#fxStage").addEventListener("keyup",e=>{
   }
 });
 
-/* ---------- loop ---------- */
-
-function loop(now){
-
-  const dt=
-    Math.min(
-      (now-game.last)/16.6667,
-      2
-    );
-
-  game.last=now;
-
-  /*
-    Reference game is based on fixed-ish 60 fps physics.
-    Run one or two physics iterations depending on elapsed time.
-  */
-
-  if(
-    game.running &&
-    !game.paused &&
-    !game.finished
-  ){
-    const steps=Math.max(1,Math.round(dt));
-
-    for(let i=0;i<steps;i++){
-      updatePhysics();
-    }
-  }
-
-  render();
-
-  game.raf=requestAnimationFrame(loop);
-}
-
-/* ---------- start / reset ---------- */
-
 $("#fxStartBtn").onclick=()=>{
 
   game.running=true;
@@ -3983,42 +5297,65 @@ $("#fxRestartGame").onclick=resetGame;
 
 $("#fxReset").onclick=()=>{
 
-  state=JSON.parse(JSON.stringify(defaults));
+  state=
+    JSON.parse(
+      JSON.stringify(defaults)
+    );
 
   nextTaskId=
-    Math.max(0,...state.tasks.map(t=>t.id))+1;
+    Math.max(
+      0,
+      ...state.tasks.map(t=>t.id)
+    )+
+    1;
 
-  syncInputs();
   renderPickers();
   renderTasks();
+  syncInputs();
   resetGame();
 };
 
-/* ---------- export ---------- */
+/* LOOP */
+
+function loop(){
+
+  if(
+    game.running &&
+    !game.paused &&
+    !game.finished
+  ){
+    updatePhysics();
+  }
+
+  render();
+  renderHud();
+
+  game.raf=
+    requestAnimationFrame(loop);
+}
+
+/* EXPORT */
 
 function generateIframe(){
 
-  /*
-    Clone this self-contained widget itself.
-    In exported mode the editor/header/tabs are hidden,
-    but the exact same game engine is used.
-  */
-
-  const clone=root.cloneNode(true);
+  const clone=
+    root.cloneNode(true);
 
   clone.removeAttribute("data-fx-ready");
-  clone.dataset.exported="1";
 
-  clone.querySelectorAll(
-    ".fx-editor-side,.fx-head,.fx-tabs,.fx-preview-head"
-  ).forEach(el=>{
-    el.style.display="none";
+  clone
+  .querySelectorAll(
+    ".fx-header,.fx-tabs,.fx-editor-side,.fx-preview-head"
+  )
+  .forEach(x=>{
+    x.style.display="none";
   });
 
   const layout=
     clone.querySelector(".fx-layout");
 
   if(layout){
+
     layout.style.display="block";
     layout.style.padding="0";
   }
@@ -4034,41 +5371,45 @@ function generateIframe(){
     clone.querySelector(".fx-stage");
 
   if(stage){
-    stage.style.minHeight="600px";
+
+    stage.style.height="100vh";
+    stage.style.minHeight="100vh";
+    stage.style.aspectRatio="auto";
     stage.style.border="0";
     stage.style.borderRadius="0";
   }
 
-  const injected=
-    '<script>'+
-    'window.__FX_EXPORTED_STATE='+
+  const stateJSON=
     JSON.stringify(state)
-      .replace(/</g,"\\u003c")+
-    ';<\\/script>';
+    .replace(/</g,"\\u003c");
 
-  const html=
+  const documentHTML=
     '<!doctype html>'+
     '<html>'+
-    '<head>'+
-      '<meta charset="utf-8">'+
-      '<meta name="viewport" content="width=device-width,initial-scale=1">'+
-      '<style>html,body{margin:0;width:100%;height:100%;overflow:hidden}body{background:#111}#FX_ROOT{height:100%}#FX_ROOT .fx-app{height:100%;border:0!important;border-radius:0!important}#FX_ROOT .fx-layout{height:100%}#FX_ROOT .fx-preview,#FX_ROOT .fx-stage{height:100%;max-height:none!important;aspect-ratio:auto!important}</style>'+
-    '</head>'+
-    '<body>'+
-      injected+
-      clone.outerHTML+
-    '</body>'+
+      '<head>'+
+        '<meta charset="utf-8">'+
+        '<meta name="viewport" content="width=device-width,initial-scale=1">'+
+        '<style>'+
+          'html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#111}'+
+          '#FX_ROOT,#FX_ROOT .fx-app,#FX_ROOT .fx-layout,#FX_ROOT .fx-preview,#FX_ROOT .fx-stage{width:100%;height:100%;max-height:none!important}'+
+          '#FX_ROOT .fx-app{border:0!important;border-radius:0!important}'+
+        '</style>'+
+      '</head>'+
+      '<body>'+
+        '<script>window.__FX_EXPORTED_STATE='+stateJSON+';<\\/script>'+
+        clone.outerHTML+
+      '</body>'+
     '</html>';
 
   return (
     '<iframe '+
-    'src="data:text/html;charset=utf-8,'+
-    encodeURIComponent(html)+
-    '" '+
-    'width="100%" '+
-    'height="650" '+
-    'style="border:0;width:100%;display:block;" '+
-    'allow="fullscreen">'+
+      'src="data:text/html;charset=utf-8,'+
+      encodeURIComponent(documentHTML)+
+      '" '+
+      'width="100%" '+
+      'height="650" '+
+      'style="border:0;width:100%;display:block;" '+
+      'allow="fullscreen">'+
     '</iframe>'
   );
 }
@@ -4083,8 +5424,8 @@ async function copyIframe(){
 
     await navigator.clipboard.writeText(code);
 
-    $("#fxPublishStatus")
-      .textContent="✓ Код скопирован";
+    $("#fxPublishStatus").textContent=
+      "✓ Код скопирован";
 
   }catch(err){
 
@@ -4093,8 +5434,8 @@ async function copyIframe(){
 
     $("#fxCode").select();
 
-    $("#fxPublishStatus")
-      .textContent="Скопируйте код вручную";
+    $("#fxPublishStatus").textContent=
+      "Скопируйте код вручную";
   }
 }
 
@@ -4103,17 +5444,18 @@ $("#fxCopyTop").onclick=copyIframe;
 
 $("#fxShowCode").onclick=()=>{
 
-  $("#fxCode").value=generateIframe();
+  $("#fxCode").value=
+    generateIframe();
 
   $("#fxCode")
     .classList.toggle("fx-hidden");
 };
 
-/* ---------- init ---------- */
+/* INIT */
 
-syncInputs();
 renderPickers();
 renderTasks();
+syncInputs();
 resizeCanvas();
 resetGame();
 
